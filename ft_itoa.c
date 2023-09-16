@@ -6,26 +6,26 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 00:43:09 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/16 13:18:44 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/16 14:35:40 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_size_str_for_dec(int dec_nbr, int base_for_string)
+int	ft_size_str_for_dec(int dec_nbr, int base_for_string, int include_sign)
 {
 	int	size;
 
 	size = 1;
 	while (dec_nbr / base_for_string != 0)
 		size++;
-	if (dec_nbr < 0)
+	if (dec_nbr < 0 && include_sign)
 		size++;
 	return (size);
 }
 
-char	ft_extract_less_sig_symbol(int *nbr, int base, char *sym_table)
+char	ft_conv_less_sig_dig(int *nbr, int base, char *sym_table)
 {
 	int		digit;
 	char	ret_val;
@@ -58,23 +58,25 @@ char	*ft_itoa(int n)
 	char	*ret_val;
 	int		size;
 	int		i;
+	int		is_negative;
 	char	*sym_table_base_10;
 
-	size = ft_size_str_for_dec(n, 10);
+	size = ft_size_str_for_dec(n, 10, 1);
 	ret_val = malloc(size * sizeof (char));
 	if (ret_val == NULL)
 		return (NULL);
-	i = 0;
+	i = size - 1;
+	is_negative = 0;
 	if (n < 0)
-	{
-		ret_val[0] = '-';
-		i++;
-	}
+		is_negative = 1;
 	sym_table_base_10 = ft_get_sym_table_base_10();
-	while (i < size - 1)
+	while ((!is_negative && i >= 0) || (is_negative && i > 0))
 	{
-		ret_val[i] = ft_extract_less_sig_symbol(&n, 10, sym_table_base_10);
+		ret_val[i] = ft_conv_less_sig_dig(&n, 10, sym_table_base_10);
+		i--;
 	}
+	if (is_negative)
+		ret_val[0] = '-';
 	ret_val[size - 1] = '\0';
 	free(sym_table_base_10);
 	return (ret_val);

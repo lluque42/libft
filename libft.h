@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/16 12:00:47 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/16 16:36:21 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,100 @@
 
 # include <stddef.h>
 
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 int		ft_isalpha(int c);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 int		ft_isdigit(int c);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 int		ft_isalnum(int c);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 int		ft_isascii(int c);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 int		ft_isprint(int c);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 size_t	ft_strlen(const char *s);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 void	*ft_memset(void *b, int c, size_t len);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 void	ft_bzero(void *s, size_t n);
 
 /*
@@ -40,6 +127,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 /*
 NAME
     ft_memmove -- copy byte string
+
 DESCRIPTION
      The memmove() function copies len bytes from string src to string dst.
 	 The two strings may overlap; the copy is always done in a
@@ -63,7 +151,6 @@ DESCRIPTION
 	 a char) in the string pointed to by s.  The terminating null character
 	 is considered to be part of the string; therefore if c is `\0', the
      functions locate the terminating `\0'.
-
      The strrchr() function is identical to strchr(), except it locates the
 	 last occurrence of c.
 
@@ -72,8 +159,29 @@ RETURN VALUES
 	 character, or NULL if the character does not appear in the string.
 */
 char	*ft_strchr(const char *s, int c);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 char	*ft_strrchr(const char *s, int c);
 
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /*
@@ -90,6 +198,16 @@ RETURN VALUES
 */
 void	*ft_memchr(const void *s, int c, size_t n);
 
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 /*
@@ -107,6 +225,17 @@ RETURN VALUES
 	of needle is returned.
 */
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 int		ft_atoi(const char *str);
 
 /*
@@ -137,8 +266,41 @@ RETURN VALUES
 	The new string
 */
 char	*ft_strdup(const char *s1);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 char	*ft_strjoin(char const *s1, char const *s2);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 char	*ft_strtrim(char const *s1, char const *set);
 
 /*
@@ -166,17 +328,144 @@ RETURN VALUES
 	NULL if the allocation fails.	
 */
 char	*ft_itoa(int n);
+
+/*
+NAME
+	ft_strmapi -- Apply a funtion to each char of a string
+
+DESCRIPTION
+	Applies the function ’f’ to each character of the
+	string ’s’, and passing its index as first argument
+	to create a new string (with malloc(3)) resulting
+	from successive applications of ’f’.
+
+RETURN VALUES
+	The string created from the successive applications of ’f’.
+	Returns NULL if the allocation fails.
+*/
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+/*
+NAME
+	ft_striteri -- Modify a string applying a function to each of its chars
+
+DESCRIPTION
+	Applies the function ’f’ on each character of
+	the string passed as argument, passing its index
+	as first argument. Each character is passed by
+	address to ’f’ to be modified if necessary.
+
+RETURN VALUES
+	None
+*/
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 void	ft_putchar_fd(char c, int fd);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 void	ft_putstr_fd(char *s, int fd);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 void	ft_putendl_fd(char *s, int fd);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 void	ft_putnbr_fd(int n, int fd);
 
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 int		ft_isspace(int c);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 int		ft_isupper(int c);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 int		ft_islower(int c);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 int		ft_issign(char c);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
 int		ft_exp(int base, int exp);
 
 /*
@@ -203,4 +492,30 @@ RETURN VALUES
 	The new string
 */
 char	*ft_strextract(char *s, size_t pos);
+
+/*
+NAME
+	ft_conv_less_sig_dig -- To use for converting numbers to another base
+
+DESCRIPTION
+	Takes a pointer to an integer...
+
+RETURN VALUES
+
+*/
+char	ft_conv_less_sig_dig(int *nbr, int base, char *sym_table);
+
+/*
+NAME
+	ft_size_str_for_dec -- Obtain a size for a string in which an int fits
+
+DESCRIPTION
+	...
+
+RETURN VALUES
+	The size of the string, including memory for '\0' and optionally for 
+	negative sign
+*/
+int		ft_size_str_for_dec(int dec_nbr, int base_for_string, int include_sign);
+
 #endif

@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 14:27:23 by lluque            #+#    #+#              #
-#    Updated: 2023/09/16 13:14:11 by lluque           ###   ########.fr        #
+#    Updated: 2023/09/16 16:46:35 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,12 @@ SRC = ft_isalpha.c \
 	  ft_strjoin.c \
 	  ft_strtrim.c \
 	  ft_split.c \
-	  ft_itoa.c
+	  ft_itoa.c \
+	  ft_strmapi.c \
+	  ft_striteri.c \
+	  ft_putchar_fd.c \
+	  ft_putstr_fd.c \
+	  ft_putendl_fd.c
 
 # Variable con los nombres de los .o construidos a partir de SRC
 OBJ = $(SRC:%.c=%.o)

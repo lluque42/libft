@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 23:26:31 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/12 03:25:32 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/16 14:39:51 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 // To avoid this, src must be read from the end 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
+	int	i;
 
 	if (dst > src && src + len > dst)
 	{
