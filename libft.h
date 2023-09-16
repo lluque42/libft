@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/15 17:43:58 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/16 12:00:47 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,18 @@ RETURN VALUES
 	NULL if the allocation fails.
 */
 char	**ft_split(char const *s, char c);
+
+/*
+NAME
+	ft_itoa -- Converts int to string representation
+DESCRIPTION
+	Allocates (with malloc(3)) and returns a string
+	representing the integer received as an argument.
+	Negative numbers must be handled.
+RETURN VALUES
+	The string representing the integer.
+	NULL if the allocation fails.	
+*/
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
