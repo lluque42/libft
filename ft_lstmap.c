@@ -6,11 +6,12 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 18:53:01 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/17 18:53:14 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/17 21:10:52 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	

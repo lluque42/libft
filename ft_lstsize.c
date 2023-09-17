@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 18:53:52 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/17 19:21:16 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/17 20:07:29 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 int	ft_lstsize(t_list *lst)
 {
 	int		ret_val;
-	t_list	*next_item;
+	t_list	*current_item;
 
-	ret_val = 0;
-	next_item = lst->next;
-	while (next_item != NULL)
+	ret_val = 1;
+	current_item = lst;
+	while (current_item->next != NULL)
 	{
 		ret_val++;
-		next_item = next_item->next;
+		current_item = current_item->next;
 	}
 	return (ret_val);
 }

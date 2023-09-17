@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 14:27:23 by lluque            #+#    #+#              #
-#    Updated: 2023/09/17 19:20:21 by lluque           ###   ########.fr        #
+#    Updated: 2023/09/17 21:08:12 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,12 +48,12 @@ SRC = ft_isalpha.c \
 
 SRC_BONUS = ft_lstnew.c \
 		   	ft_lstadd_front.c \
-		   	ft_lstsize.c #\
+		   	ft_lstsize.c \
 		   	ft_lstlast.c \
 		   	ft_lstadd_back.c \
 			ft_lstdelone.c \
 			ft_lstclear.c \
-			ft_lstiter.c \
+			ft_lstiter.c #\
 			ft_lstmap.c 
 
 # Variable con los nombres de los .o construidos a partir de SRC
@@ -66,7 +66,7 @@ OBJ_BONUS = $(SRC_BONUS:%.c=%.o)
 CC_FLAGS = -Wall -Werror -Wextra
 
 # Flags para el comando ar
-AR_FLAGS = -ru
+AR_FLAGS = -cru
 
 # Variable con el nombre del binario del proyecto
 NAME = libft.a
