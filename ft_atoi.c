@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 00:42:26 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/14 13:59:33 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/17 15:09:39 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,34 +45,46 @@ int	ft_exp(int base, int exp)
 	while (i < exp)
 	{
 		ret_val *= base;
+		i++;
 	}
 	return (ret_val);
+}
+
+int	ft_get_digits(const char *str)
+{
+	int		digs;
+
+	digs = 0;
+	while (ft_isdigit(str[digs]))
+		digs++;
+	return (digs);
 }
 
 int	ft_atoi(const char *str)
 {
 	int		sign;
-	int		len;
-	int		i;
+	int		digs;
+	int		offset;
+	int		k;
 	long	ret_val;
-	char	buffer[11];
 
-	i = 0;
-	len = 0;
-	while (ft_isspace(str[i]))
-		i++;
-	if (!ft_isdigit(str[i]))
+	offset = 0;
+	sign = 1;
+	while (ft_isspace(str[offset]))
+		offset++;
+	if (!ft_isdigit(str[offset]))
+		sign = ft_issign(str[offset]);
+	if (ft_issign(str[offset]) && sign == 0)
+		return (0);
+	else if (ft_issign(str[offset]))
+		offset++;
+	digs = ft_get_digits(str + offset);
+	k = 0;
+	ret_val = 0;
+	while (k < digs)
 	{
-		sign = ft_issign(str[i]);
-		if (sign == 0)
-			return (0);
-	}
-	while (ft_isdigit(str[i]))
-		len++;
-	while (i < len)
-	{
-		ret_val = ret_val + (buffer[i] - '\0') * ft_exp(10, len - 1 - i);
-		i++;
+		ret_val = ret_val + (str[k + offset] - '0') * ft_exp(10, digs - k - 1);
+		k++;
 	}
 	return (sign * ret_val);
 }
