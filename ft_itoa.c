@@ -6,10 +6,11 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 00:43:09 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/16 14:35:40 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/17 16:10:15 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>								/////////////////////////////////////BORRAR
 #include <stdlib.h>
 #include "libft.h"
 
@@ -17,11 +18,16 @@ int	ft_size_str_for_dec(int dec_nbr, int base_for_string, int include_sign)
 {
 	int	size;
 
-	size = 1;
-	while (dec_nbr / base_for_string != 0)
-		size++;
+	//printf("Entro en ft_size_str_for_dec() con dec_nbr = %d, base_for_string = %d y include_sign = %d\n", dec_nbr, base_for_string, include_sign);
+	size = 2;
 	if (dec_nbr < 0 && include_sign)
 		size++;
+	dec_nbr /= base_for_string;
+	while (dec_nbr != 0)
+	{
+		dec_nbr /= base_for_string;
+		size++;
+	}
 	return (size);
 }
 
@@ -65,7 +71,7 @@ char	*ft_itoa(int n)
 	ret_val = malloc(size * sizeof (char));
 	if (ret_val == NULL)
 		return (NULL);
-	i = size - 1;
+	i = size - 2;
 	is_negative = 0;
 	if (n < 0)
 		is_negative = 1;
