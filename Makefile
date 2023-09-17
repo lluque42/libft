@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 14:27:23 by lluque            #+#    #+#              #
-#    Updated: 2023/09/17 10:21:51 by lluque           ###   ########.fr        #
+#    Updated: 2023/09/17 19:20:21 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,21 @@ SRC = ft_isalpha.c \
 	  ft_putendl_fd.c \
 	  ft_putnbr_fd.c
 
+SRC_BONUS = ft_lstnew.c \
+		   	ft_lstadd_front.c \
+		   	ft_lstsize.c #\
+		   	ft_lstlast.c \
+		   	ft_lstadd_back.c \
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c \
+			ft_lstmap.c 
+
 # Variable con los nombres de los .o construidos a partir de SRC
 OBJ = $(SRC:%.c=%.o)
+
+# Variable con los nombres de los .o construidos a partir de SRC_BONUS
+OBJ_BONUS = $(SRC_BONUS:%.c=%.o)
 
 # Variable con los flags para compilar
 CC_FLAGS = -Wall -Werror -Wextra
@@ -95,6 +108,9 @@ all:$(NAME)
 $(NAME):$(OBJ)
 	ar $(AR_FLAGS) $(NAME) $(OBJ)
 
+bonus:$(OBJ_BONUS) $(NAME)
+	ar $(AR_FLAGS) $(NAME) $(OBJ_BONUS)
+
 # En esta regla se usa pattern rule: TARGET: PATRÓN_DE_TARGETS: PATRÓN_DE REQS
 # Es decir, para cada .o en OBJ se tiene como requisito su correspondiente .c
 # (este último no es una regla sino un archivo: cada .c)
@@ -106,6 +122,9 @@ $(NAME):$(OBJ)
 # Es decir, este target ejecuta el comando para cada .c produciendo cada .o
 # con la magia del make: solo si por la fecha de modificación es necesario
 $(OBJ): %.o: %.c
+	cc -c $(CC_FLAGS) $^ -o $@
+
+$(OBJ_BONUS): %.o: %.c
 	cc -c $(CC_FLAGS) $^ -o $@
 
 # Borra solo los .o

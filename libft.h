@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/16 16:36:21 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/17 18:38:48 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define LIBFT_H
 
 # include <stddef.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}				t_list;
 
 /*
 NAME
@@ -407,6 +413,114 @@ RETURN VALUES
 	
 */
 void	ft_putnbr_fd(int n, int fd);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
+t_list	*ft_lstnew(void *content);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
+void	ft_lstadd_front(t_list **lst, t_list *new);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
+int		ft_lstsize(t_list *lst);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
+t_list	*ft_lstlast(t_list *lst);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
+void	ft_lstadd_back(t_list **lst, t_list *new);
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+/*
+NAME
+	--
+
+DESCRIPTION
+	
+
+RETURN VALUES
+	
+*/
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /*
 NAME
