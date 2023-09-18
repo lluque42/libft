@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 14:27:23 by lluque            #+#    #+#              #
-#    Updated: 2023/09/17 21:08:12 by lluque           ###   ########.fr        #
+#    Updated: 2023/09/18 12:21:27 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ SRC_BONUS = ft_lstnew.c \
 		   	ft_lstadd_back.c \
 			ft_lstdelone.c \
 			ft_lstclear.c \
-			ft_lstiter.c #\
+			ft_lstiter.c \
 			ft_lstmap.c 
 
 # Variable con los nombres de los .o construidos a partir de SRC
@@ -129,7 +129,7 @@ $(OBJ_BONUS): %.o: %.c
 
 # Borra solo los .o
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJ_BONUS)
 
 # Borra el binario del proyecto, pero antes hace el pre-requisito
 # que borra también los .o

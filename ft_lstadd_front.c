@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 18:50:31 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/17 19:13:23 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/18 13:43:57 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	new->next = *lst;
-	(*lst)->next = new;
+	*lst = new;
 }
