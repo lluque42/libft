@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 18:43:37 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/18 12:14:49 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/20 23:07:00 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		delimiter_pos;
 
-new_strings = ft_strcount(s, c) + 1;
+	new_strings = ft_strcount(s, c) + 1;
 	ret_val = malloc((new_strings + 1) * sizeof (char **));
 	if (ret_val == NULL)
 		return (NULL);
@@ -67,7 +67,6 @@ new_strings = ft_strcount(s, c) + 1;
 			while (i <= new_strings - 1)
 				free(ret_val[i]);
 			free(ret_val);
-			ret_val = NULL;
 			break ;
 		}
 		i--;

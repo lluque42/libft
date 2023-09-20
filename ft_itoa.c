@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 00:43:09 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/18 12:09:32 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/20 22:57:02 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,30 +42,38 @@ char	ft_conv_less_sig_dig(int *nbr, int base, char *sym_table)
 	return (ret_val);
 }
 
-char	*ft_get_sym_table_base_10(void)
+char	*ft_get_sym_table_base(unsigned int base)
 {
-	char	*sym_table_base_10;
-	int		i;
+	char			*sym_table;
+	unsigned int	i;
 
-	sym_table_base_10 = malloc(10 * sizeof (char));
+	sym_table = malloc(base * sizeof (char));
 	i = 0;
-	while (i < 10)
+	while (i < base)
 	{
-		sym_table_base_10[i] = i + '0';
+		if (i < 10)
+			sym_table[i] = i + '0';
+		else
+			sym_table[i] = i - 10 + 'A';
 		i++;
 	}
-	return (sym_table_base_10);
+	return (sym_table);
 }
 
 char	*ft_itoa(int n)
+{
+	return (ft_itoa_b(n, 10));
+}
+
+char	*ft_itoa_b(int n, unsigned int base)
 {
 	char	*ret_val;
 	int		size;
 	int		i;
 	int		is_negative;
-	char	*sym_table_base_10;
+	char	*sym_table;
 
-	size = ft_size_str_for_dec(n, 10, 1);
+	size = ft_size_str_for_dec(n, base, 1);
 	ret_val = malloc(size * sizeof (char));
 	if (ret_val == NULL)
 		return (NULL);
@@ -73,15 +81,15 @@ char	*ft_itoa(int n)
 	is_negative = 0;
 	if (n < 0)
 		is_negative = 1;
-	sym_table_base_10 = ft_get_sym_table_base_10();
+	sym_table = ft_get_sym_table_base(base);
 	while ((!is_negative && i >= 0) || (is_negative && i > 0))
 	{
-		ret_val[i] = ft_conv_less_sig_dig(&n, 10, sym_table_base_10);
+		ret_val[i] = ft_conv_less_sig_dig(&n, base, sym_table);
 		i--;
 	}
 	if (is_negative)
 		ret_val[0] = '-';
 	ret_val[size - 1] = '\0';
-	free(sym_table_base_10);
+	free(sym_table);
 	return (ret_val);
 }
