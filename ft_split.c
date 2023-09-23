@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 18:43:37 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/20 23:07:00 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/23 13:26:09 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,13 @@ int	ft_strcount(char const *s, char c)
 	while (index != NULL)
 	{
 		index = ft_strchr(index, c);
-		ret_val++;
+		if (index != NULL)
+		{
+			index++;
+			ret_val++;
+		}
 	}
-	return (ret_val);	
+	return (ret_val);
 }
 
 char	*ft_strextract(char *s,	size_t pos)
@@ -42,9 +46,21 @@ char	*ft_strextract(char *s,	size_t pos)
 	return (ret_val);
 }
 
+void	ft_free_str_array(char **str_array, int allocated_strings)
+{
+	int	i;
+
+	i = 0;
+	while (i < allocated_strings)
+	{
+		free(str_array[i]);
+		i++;
+	}
+	free(str_array);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	char	*copy;
 	char	**ret_val;
 	int		new_strings;
 	int		i;
@@ -55,22 +71,18 @@ char	**ft_split(char const *s, char c)
 	if (ret_val == NULL)
 		return (NULL);
 	ret_val[new_strings] = NULL;
-	i = new_strings - 1;
-	copy = ft_strdup(s);
-	while (i >= 0)
+	i = 0;
+	while (i < new_strings)
 	{
-		delimiter_pos = ft_strrchr(copy, c) - copy;
-		ret_val[i] = ft_strextract(copy, delimiter_pos + 1);
-		copy[delimiter_pos] = '\0';
+		delimiter_pos = ft_strchr(s, c) - s;
+		ret_val[i] = ft_substr(s, 0, delimiter_pos);
 		if (ret_val == NULL)
 		{
-			while (i <= new_strings - 1)
-				free(ret_val[i]);
-			free(ret_val);
+			ft_free_str_array(ret_val, i - 1);
 			break ;
 		}
-		i--;
+		s = s + delimiter_pos + 1;
+		i++;
 	}
-	free(copy);
 	return (ret_val);
 }

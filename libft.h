@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/20 22:59:42 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/23 14:00:33 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1014,6 +1014,29 @@ RETURN VALUES
 	
 */
 char	*ft_strextract(char *s, size_t pos);
+
+
+
+/*
+NAME
+	ft_free_str_array -- Frees allocated memory for array of strings
+
+DESCRIPTION
+	Takes a pointer to a pointer of char (array of strings) and the amount
+	of elements of the array with memory allocated. This function frees the
+	number of elements indicated (starting at element 0) and finally also
+	frees the **char
+
+PARAMETERS
+	
+
+RETURN VALUES
+	None
+
+******PROBLEMS*******
+	
+*/
+void	ft_free_str_array(char **str_array, int allocated_strings);
 
 /*
 NAME
