@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/23 14:00:33 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/25 22:09:32 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,17 +215,22 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 
 /*
 NAME
-	--
+	ft_strlcpy -- Copies a string
 
 DESCRIPTION
-	
-
+	strlcpy() copies up to dstsize - 1 characters from the string src to dst,
+	NUL-terminating the result if dstsize is not 0.
+	strlcpy() and strlcat() take the full size of the destination buffer and
+	guarantee NUL-termination if there is room.
+	Note that room for the NUL should be included in dstsize.
 
 PARAMETERS
 	
 
 RETURN VALUES
-	
+	strlcpy() and strlcat() functions return the total length of the string
+	they tried to create.  For strlcpy() that means the length of src.
+	For strlcat() that means the initial length of dst plus the length of src.
 
 ******PROBLEMS*******
 	
@@ -234,17 +239,25 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 /*
 NAME
-	--
+	ft_strlcat -- Concatenate string
 
 DESCRIPTION
-	
-
+	strlcat() appends string src to the end of dst.  It will append at most
+	dstsize - strlen(dst) - 1 characters.  It will then NUL-terminate, unless
+	dstsize is 0 or the original dst string was longer than dstsize
+	(in practice this should not happen as it means that either dstsize is
+	incorrect or that dst is not a proper string).	
+	strlcpy() and strlcat() take the full size of the destination buffer and
+	guarantee NUL-termination if there is room.
+	Note that room for the NUL should be included in dstsize.
 
 PARAMETERS
 	
 
 RETURN VALUES
-	
+	strlcpy() and strlcat() functions return the total length of the string
+	they tried to create.  For strlcpy() that means the length of src.
+	For strlcat() that means the initial length of dst plus the length of src.
 
 ******PROBLEMS*******
 	
