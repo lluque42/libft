@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 16:37:23 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/15 17:15:03 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/26 20:14:31 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 			break ;
 		end--;
 	}
-	size = end - start + 1;
+	size = end - start + 2;
 	ret_val = malloc(size * sizeof (char));
 	if (ret_val == NULL)
 		return (NULL);

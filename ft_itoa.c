@@ -6,13 +6,13 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 00:43:09 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/21 16:33:19 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/26 21:52:17 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-// Holis
+
 int	ft_size_str_for_dec(int dec_nbr, int base_for_string, int include_sign)
 {
 	int	size;

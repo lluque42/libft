@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/25 22:09:32 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/26 22:03:52 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,7 +233,9 @@ RETURN VALUES
 	For strlcat() that means the initial length of dst plus the length of src.
 
 ******PROBLEMS*******
-	
+	When a 0 dstsize is passed it must not copy any chars. This is a problem
+	when evaluating the if condition because size_t is unsigned and must be
+	casted with (signed) in order for the condition to behave as expected
 */
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
@@ -260,7 +262,11 @@ RETURN VALUES
 	For strlcat() that means the initial length of dst plus the length of src.
 
 ******PROBLEMS*******
-	
+	When a 0 dstsize is passed it must not copy any chars. This is a problem
+	when evaluating the if condition because size_t is unsigned and must be
+	casted with (signed) in order for the condition to behave as expected
+	Also, the returned value is NOT the original dst size + ft_strlen(src) but
+	dstsize parameter + ft_strlen(src)
 */
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 
@@ -1027,8 +1033,6 @@ RETURN VALUES
 	
 */
 char	*ft_strextract(char *s, size_t pos);
-
-
 
 /*
 NAME

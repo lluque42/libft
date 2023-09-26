@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 00:20:17 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/12 00:30:29 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/26 21:45:59 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (i < dstsize - 1 && src[i] != '\0')
+	while (i < (signed)dstsize - 1 && src[i] != '\0')
 	{
 		dst[i] = src[i];
 		i++;
 	}
-	if (dstsize)
+	if (dstsize != 0)
 		dst[i] = '\0';
-	return (i);
+	return (ft_strlen(src));
 }
