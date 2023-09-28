@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/26 22:03:52 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/28 21:16:08 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,9 +233,11 @@ RETURN VALUES
 	For strlcat() that means the initial length of dst plus the length of src.
 
 ******PROBLEMS*******
-	When a 0 dstsize is passed it must not copy any chars. This is a problem
-	when evaluating the if condition because size_t is unsigned and must be
-	casted with (signed) in order for the condition to behave as expected
+	When a 0 dstsize is passed it must not copy any chars. This must be checked
+	separately to avoid entering the while loop because the expression:
+		i < dstsize - 1
+	Does not work because of the unsignedness of dstsize. This worked:
+		while (dstsize != 0 && i < dstsize - 1 && src[i] != '\0')	
 */
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
@@ -262,7 +264,36 @@ RETURN VALUES
 	For strlcat() that means the initial length of dst plus the length of src.
 
 ******PROBLEMS*******
-	When a 0 dstsize is passed it must not copy any chars. This is a problem
+	It NOT be assumed that src is NUL terminated.
+	It must NOT be assumed that dst is NUL terminated. First it must be
+	checked (within dstsize) that a '\0' is found in dst. If no NUL character
+	is found, the function must return inmediately without modifying dst (it 
+	would make no sense otherwise because there is no way of knowing where
+	is the end of dst).
+	If there is a NUL char in dst, then the copy from source can start.
+	The copy of chars from src to dst is done while (d < dstsize - 1) but can be
+	aborted if (src[s] == '\0') (d starts at the position where '\0' is found
+	in dst; s starts at 0). Finally dst is ALWAYS NUL terminated, either at
+	position dstsize - 1 (i.e. the case when src doesn't really fit inside dst)
+   	or when corresponding given the break of the while loop triggered by the
+	if (src[s] == '\0').
+	Notice that src might not be NUL terminated. The concatenation would end
+	only when !(d < dstsize - 1)
+	In every case the return is:
+			
+	In this case
+	there are two possibilities:
+		There is room for the whole src to fit + NUL char to fit in dst (always
+		according to dstsize and the actual position of the first NUL character
+		in dst); or
+
+
+
+
+
+
+	When a 0 (or negative) dstsize is passed it must not copy any chars.
+	This is a problem
 	when evaluating the if condition because size_t is unsigned and must be
 	casted with (signed) in order for the condition to behave as expected
 	Also, the returned value is NOT the original dst size + ft_strlen(src) but
