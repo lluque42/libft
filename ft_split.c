@@ -6,43 +6,58 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 18:43:37 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/23 13:26:09 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/29 15:20:56 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_strcount(char const *s, char c)
+int	ft_word_count(const char *s, char delimiter)
 {
-	char	*index;
-	int		ret_val;
+	int		i;
+	int		count;
+	int		in_word;
 
-	ret_val = 0;
-	index = (char *)s;
-	while (index != NULL)
+	i = 0;
+	count = 0;
+	in_word = 0;
+	while (s[i] != '\0')
 	{
-		index = ft_strchr(index, c);
-		if (index != NULL)
+		if (!in_word && s[i] != delimiter)
 		{
-			index++;
-			ret_val++;
+			count++;
+			in_word = 1;
 		}
+		else if (in_word && s[i] == delimiter)
+			in_word = 0;
+		i++;
 	}
-	return (ret_val);
+	return (count);
 }
 
-char	*ft_strextract(char *s,	size_t pos)
+char	*ft_get_next_word(const char **s, char delimiter)
 {
+	int		start;
+	int		size;
 	char	*ret_val;
-	int		i;
 
-	ret_val = ft_strdup(s + pos);
-	if (ret_val == NULL)
-		return (NULL);
-	i = pos;
-	while (s[i] != '\0')
-		s[i] = '\0';
+	start = 0;
+	while (*(*s + start) != '\0')
+	{
+		if (*(*s + start) != delimiter)
+			break ;
+		start++;
+	}
+	size = 1;
+	while (*(*s + start + size) != '\0')
+	{
+		if (*(*s + start + size) == delimiter)
+			break ;
+		size++;
+	}
+	ret_val = ft_substr(*s, start, size);
+	*s = *s + start + size;
 	return (ret_val);
 }
 
@@ -62,27 +77,19 @@ void	ft_free_str_array(char **str_array, int allocated_strings)
 char	**ft_split(char const *s, char c)
 {
 	char	**ret_val;
-	int		new_strings;
-	int		i;
-	int		delimiter_pos;
+	int		strings;
+	int		string;
 
-	new_strings = ft_strcount(s, c) + 1;
-	ret_val = malloc((new_strings + 1) * sizeof (char **));
+	strings = ft_word_count(s, c);
+	ret_val = malloc((strings + 1) * sizeof (char **));
 	if (ret_val == NULL)
 		return (NULL);
-	ret_val[new_strings] = NULL;
-	i = 0;
-	while (i < new_strings)
+	ret_val[strings] = NULL;
+	string = 0;
+	while (string < strings)
 	{
-		delimiter_pos = ft_strchr(s, c) - s;
-		ret_val[i] = ft_substr(s, 0, delimiter_pos);
-		if (ret_val == NULL)
-		{
-			ft_free_str_array(ret_val, i - 1);
-			break ;
-		}
-		s = s + delimiter_pos + 1;
-		i++;
+		ret_val[string] = ft_get_next_word(&s, c);
+		string++;
 	}
 	return (ret_val);
 }

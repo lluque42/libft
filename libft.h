@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/28 21:16:08 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/29 16:35:59 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -762,8 +762,7 @@ RETURN VALUES
 	The new node
 
 ******PROBLEMS*******
-	If content == NULL 
-	If malloc fails	
+	If content == NULL or malloc fails, must return NULL
 */
 t_list	*ft_lstnew(void *content);
 
@@ -802,7 +801,7 @@ RETURN VALUES
 	The length of the list
 	
 ******PROBLEMS*******
-	lst == NULL
+	If lst == NULL, return value is 0
 */
 int		ft_lstsize(t_list *lst);
 
@@ -820,7 +819,7 @@ RETURN VALUES
 	Last node of the list
 
 ******PROBLEMS*******
-	lst == NULL
+	If lst == NULL, return value is NULL
 */
 t_list	*ft_lstlast(t_list *lst);
 
@@ -838,8 +837,9 @@ RETURN VALUES
 	None
 
 ******PROBLEMS*******
-	lst == NULL
-	*lst == NULL	>>	resolves ft_lstlast
+	If lst == NULL or new == NULL, nothing must be done
+	If *lst == NULL	>>	*lst = new (i.e. lstadd_backing an element to a NULL
+	list, creates the list with just that element)
 */
 void	ft_lstadd_back(t_list **lst, t_list *new);
 
@@ -861,7 +861,7 @@ RETURN VALUES
 	None
 ******PROBLEMS*******
 	CONCEPTUAL: Could break a list because no first item of list nor
-	previous item is given
+	previous item is given. This is the expected behavior
 */
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
@@ -883,9 +883,10 @@ RETURN VALUES
 	None
 
 ******PROBLEMS*******
-	lst == NULL
-	*lst == NULL
-	CONCEPTUAL: del fuction must handle NULL content?????
+	If lst == NULL, nothing must be done
+	*lst == NULL, nothing must be done
+	IMPORTANT: del fuction must handle NULL content but must not free the node
+	lst MUST be set to NULL by this function
 */
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 

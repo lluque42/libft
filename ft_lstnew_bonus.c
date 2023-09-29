@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 18:53:26 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/18 13:52:34 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/29 15:38:03 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ t_list	*ft_lstnew(void *content)
 	t_list	*ret_val;
 
 	ret_val = (t_list *)malloc(sizeof (t_list));
+	if (ret_val == NULL)
+		return (NULL);
 	ret_val->content = content;
+	ret_val->next = NULL;
 	return (ret_val);
 }
