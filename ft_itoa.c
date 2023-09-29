@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 00:43:09 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/26 21:52:17 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/29 22:18:10 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,12 @@ char	ft_conv_less_sig_dig(int *nbr, int base, char *sym_table)
 	return (ret_val);
 }
 
-char	*ft_get_sym_table_base(unsigned int base)
+void	ft_get_sym_table(char *sym_table)
 {
-	char			*sym_table;
 	unsigned int	i;
 
-	sym_table = malloc(base * sizeof (char));
 	i = 0;
-	while (i < base)
+	while (i < 16)
 	{
 		if (i < 10)
 			sym_table[i] = i + '0';
@@ -57,7 +55,6 @@ char	*ft_get_sym_table_base(unsigned int base)
 			sym_table[i] = i - 10 + 'A';
 		i++;
 	}
-	return (sym_table);
 }
 
 char	*ft_itoa(int n)
@@ -71,8 +68,9 @@ char	*ft_itoa_b(int n, unsigned int base)
 	int		size;
 	int		i;
 	int		is_negative;
-	char	*sym_table;
+	char	sym_table[16];
 
+	ft_get_sym_table(sym_table);
 	size = ft_size_str_for_dec(n, base, 1);
 	ret_val = malloc(size * sizeof (char));
 	if (ret_val == NULL)
@@ -81,7 +79,6 @@ char	*ft_itoa_b(int n, unsigned int base)
 	is_negative = 0;
 	if (n < 0)
 		is_negative = 1;
-	sym_table = ft_get_sym_table_base(base);
 	while ((!is_negative && i >= 0) || (is_negative && i > 0))
 	{
 		ret_val[i] = ft_conv_less_sig_dig(&n, base, sym_table);
@@ -90,6 +87,5 @@ char	*ft_itoa_b(int n, unsigned int base)
 	if (is_negative)
 		ret_val[0] = '-';
 	ret_val[size - 1] = '\0';
-	free(sym_table);
 	return (ret_val);
 }

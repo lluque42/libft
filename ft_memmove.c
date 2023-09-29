@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 23:26:31 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/16 14:39:51 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/29 20:04:37 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	int	i;
 
+	if (len == 0 || (dst == NULL && src == NULL))
+		return (dst);
 	if (dst > src && src + len > dst)
 	{
 		i = len - 1;

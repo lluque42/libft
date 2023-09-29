@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 01:48:50 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/23 12:00:42 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/29 20:08:38 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strchr(const char *s, int c)
 	i = 0;
 	return_value = (char *)s;
 	len = ft_strlen(s);
-	if (c == '\0')
+	if ((char)c == '\0')
 		return (return_value + len);
 	while (i < len)
 	{

@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/29 16:35:59 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/29 22:21:41 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,7 +188,9 @@ RETURN VALUES
      The memcpy() function returns the original value of dst.
 
 ******PROBLEMS*******
-	
+	If dst and src are both NULL or n == 0, the function does nothing and just
+	returns dst.
+	When n != 0 this function is supposed to fail if either src OR dst are NULL 
 */
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 
@@ -209,6 +211,10 @@ RETURN VALUES
      The memmove() function returns the original value of dst.
 
 ******PROBLEMS*******
+	If dst and src are both NULL or len == 0, the function does nothing and just
+	returns dst.
+	When len != 0 this function is supposed to fail if either src OR dst 
+	are NULL 
 	
 */
 void	*ft_memmove(void *dst, const void *src, size_t len);
@@ -529,20 +535,27 @@ char	*ft_strdup(const char *s1);
 
 /*
 NAME
-	--
+	ft_substr -- Create new string from original string, start position and len
 
 DESCRIPTION
-	
-
+	Allocates (with malloc(3)) and returns a substring from the string ’s’.
+	The substring begins at index ’start’ and is of maximum size ’len’.
 
 PARAMETERS
-	
+	s: The string from which to create the substring.
+	start: The start index of the substring in the string ’s’.
+	len: The maximum length of the substring.
 
 RETURN VALUES
-	
+	The substring.
+	NULL if the allocation fails
 
 ******PROBLEMS*******
-	
+	Before starting the copy of the substr, the following must be addressed:
+		1 If s = "" or start >= ft_strlen(s), it'd only make sense to return ""
+		2 If (start + len > ft_strlen(s)) len must be modified to 
+		  len = ft_strlen(s) - start before allocating memory for the substring 
+
 */
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
@@ -906,7 +919,7 @@ RETURN VALUES
 	None
 
 ******PROBLEMS*******
-	lst == NULL
+	If lst == NULL, return NULL
 	CONCEPTUAL: f fuction must handle NULL content?????
 */
 void	ft_lstiter(t_list *lst, void (*f)(void *));
@@ -1121,7 +1134,7 @@ RETURN VALUES
 ******PROBLEMS*******
 	
 */
-char	*ft_get_sym_table_base(unsigned int base);
+void	ft_get_sym_table(char *sym_table);
 
 /*
 NAME
