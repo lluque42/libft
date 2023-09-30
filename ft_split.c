@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 18:43:37 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/29 15:20:56 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/30 21:33:13 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ char	*ft_get_next_word(const char **s, char delimiter)
 		size++;
 	}
 	ret_val = ft_substr(*s, start, size);
+	if (ret_val == NULL)
+		return (NULL);
 	*s = *s + start + size;
 	return (ret_val);
 }
@@ -89,6 +91,11 @@ char	**ft_split(char const *s, char c)
 	while (string < strings)
 	{
 		ret_val[string] = ft_get_next_word(&s, c);
+		if (ret_val[string] == NULL)
+		{
+			ft_free_str_array(ret_val, string -1);
+			return (NULL);
+		}		
 		string++;
 	}
 	return (ret_val);

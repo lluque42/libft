@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 14:27:08 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/29 21:41:32 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/30 21:26:11 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ret_val = malloc((ret_val_size) * sizeof (char));
 	if (ret_val == NULL)
 		return (NULL);
-	ft_strlcpy(ret_val, s + start, len + 1);
+	ft_strlcpy(ret_val, s + start, ret_val_size);
 	return (ret_val);
 }

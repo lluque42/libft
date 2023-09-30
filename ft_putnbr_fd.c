@@ -6,23 +6,39 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 16:47:21 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/26 21:53:23 by lluque           ###   ########.fr       */
+/*   Updated: 2023/09/30 20:38:19 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
 #include "libft.h"
+#define BUFFER_SIZE 11
 
+// Int ranges from -2.147.483.648 to 2.147.483.647
 void	ft_putnbr_fd(int n, int fd)
-{
+{	
+	char	buffer[BUFFER_SIZE];
+	int		offset;
 	int		size;
-	char	*n_str;
+	long	nb_abs;
 
-	n_str = ft_itoa(n);
-	if (n_str == NULL)
-		return ;
-	size = ft_strlen(n_str);
-	write(fd, n_str, size);
-	free(n_str);
+	nb_abs = n;
+	if (nb_abs < 0)
+		nb_abs = nb_abs * -1;
+	offset = BUFFER_SIZE - 1;
+	size = 0;
+	while (nb_abs > 9)
+	{
+		buffer[offset] = nb_abs - ((nb_abs / 10) * 10) + '0';
+		offset--;
+		size++;
+		nb_abs = nb_abs / 10;
+	}
+	buffer[offset] = nb_abs + '0';
+	size++;
+	if (n < 0)
+		write(fd, "-", 1);
+	write(fd, buffer + offset, size);
+	return ;
 }
