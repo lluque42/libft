@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/29 22:21:41 by lluque           ###   ########.fr       */
+/*   Updated: 2023/10/01 15:36:03 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -775,7 +775,8 @@ RETURN VALUES
 	The new node
 
 ******PROBLEMS*******
-	If content == NULL or malloc fails, must return NULL
+	If content == NULL, must return NULL 
+	If malloc fails, must return NULL
 */
 t_list	*ft_lstnew(void *content);
 
@@ -814,7 +815,7 @@ RETURN VALUES
 	The length of the list
 	
 ******PROBLEMS*******
-	If lst == NULL, return value is 0
+	If lst == NULL, return value must be 0
 */
 int		ft_lstsize(t_list *lst);
 
@@ -921,6 +922,8 @@ RETURN VALUES
 ******PROBLEMS*******
 	If lst == NULL, return NULL
 	CONCEPTUAL: f fuction must handle NULL content?????
+				YES! In that case f() must return NULL, also if its malloc call
+				fails. f() must return the address of the new content
 */
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
@@ -946,10 +949,15 @@ RETURN VALUES
 	NULL if the allocation fails.
 
 ******PROBLEMS*******
-	lst == NULL
-	CONCEPTUAL: f and del fuctions must handle NULL content?????
-				f must return what would be the content of the new node?????
-					THIS WAS ASSUMED (SO FAR)
+	If lst == NULL, NULL must be returned
+	CONCEPTUAL: f() fuction must handle NULL content?????
+				YES! In that case f() must return NULL, also if its malloc call
+				fails. If OK, f() returns a pointer to what would be the content
+			   	for the new node
+				del() must be able to handle NULL content????
+				YES!
+	If at some point the funcion fails, the in-construction new list must be
+	cleared completely and NULL must be returned	
 */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 

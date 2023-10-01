@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 18:43:37 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/30 21:33:13 by lluque           ###   ########.fr       */
+/*   Updated: 2023/10/01 19:48:50 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ft_free_str_array(char **str_array, int allocated_strings)
 	int	i;
 
 	i = 0;
-	while (i < allocated_strings)
+	while (i <= allocated_strings)
 	{
 		free(str_array[i]);
 		i++;
@@ -80,23 +80,25 @@ char	**ft_split(char const *s, char c)
 {
 	char	**ret_val;
 	int		strings;
-	int		string;
+	int		i_string;
+	char	*string;
 
 	strings = ft_word_count(s, c);
 	ret_val = malloc((strings + 1) * sizeof (char **));
 	if (ret_val == NULL)
 		return (NULL);
 	ret_val[strings] = NULL;
-	string = 0;
-	while (string < strings)
+	i_string = 0;
+	while (i_string < strings)
 	{
-		ret_val[string] = ft_get_next_word(&s, c);
-		if (ret_val[string] == NULL)
+		string = ft_get_next_word(&s, c);
+		if (string == NULL)
 		{
-			ft_free_str_array(ret_val, string -1);
+			ft_free_str_array(ret_val, i_string - 1);
 			return (NULL);
-		}		
-		string++;
+		}
+		ret_val[i_string] = string;
+		i_string++;
 	}
 	return (ret_val);
 }
