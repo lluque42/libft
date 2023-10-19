@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/10/01 15:36:03 by lluque           ###   ########.fr       */
+/*   Updated: 2023/10/19 18:39:14 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,6 +211,15 @@ RETURN VALUES
      The memmove() function returns the original value of dst.
 
 ******PROBLEMS*******
+	If destination overlaps source, it is possible that at some point the
+	original data in source gets corrupted before it's been copied into dst.
+	Problematic case:	If reading src from the beginning
+						dst > src && src + len > dst
+	0123456789012345678901234567
+	ssssssssssssssssssssssss
+	    dddddddddddddddddddddddd
+	In order to avoid this, src must be read from the end in this case
+	
 	If dst and src are both NULL or len == 0, the function does nothing and just
 	returns dst.
 	When len != 0 this function is supposed to fail if either src OR dst 
@@ -613,7 +622,8 @@ RETURN VALUES
 	NULL if the allocation fails.
 
 ******PROBLEMS*******
-	
+	The function is supposed to return a single element array (with NULL value)
+   	when argument s is an empty string
 */
 char	**ft_split(char const *s, char c);
 
@@ -775,8 +785,9 @@ RETURN VALUES
 	The new node
 
 ******PROBLEMS*******
-	If content == NULL, must return NULL 
+	If content == NULL, must return NULL
 	If malloc fails, must return NULL
+	Int ranges from -2.147.483.648 to 2.147.483.647
 */
 t_list	*ft_lstnew(void *content);
 
@@ -813,7 +824,7 @@ PARAMETERS
 
 RETURN VALUES
 	The length of the list
-	
+
 ******PROBLEMS*******
 	If lst == NULL, return value must be 0
 */
@@ -842,7 +853,7 @@ NAME
 	ft_lstadd_back --
 
 DESCRIPTION
-	
+
 PARAMETERS
 	lst: The address of a pointer to the first link of a list.
 	new: The address of a pointer to the node to be	added to the list.
@@ -957,230 +968,8 @@ RETURN VALUES
 				del() must be able to handle NULL content????
 				YES!
 	If at some point the funcion fails, the in-construction new list must be
-	cleared completely and NULL must be returned	
+	cleared completely and NULL must be returned
 */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-/*
-NAME
-	--
-
-DESCRIPTION
-	
-
-PARAMETERS
-	
-
-RETURN VALUES
-	
-******PROBLEMS*******
-	c not ASCII
-*/
-int		ft_isspace(int c);
-
-/*
-NAME
-	--
-
-DESCRIPTION
-	
-
-PARAMETERS
-	
-
-RETURN VALUES
-	
-******PROBLEMS*******
-	c not ASCII
-*/
-int		ft_isupper(int c);
-
-/*
-NAME
-	--
-
-DESCRIPTION
-	
-
-PARAMETERS
-	
-
-RETURN VALUES
-	
-******PROBLEMS*******
-	c not ASCII
-*/
-int		ft_islower(int c);
-
-/*
-NAME
-	--
-
-DESCRIPTION
-	
-
-PARAMETERS
-	
-
-RETURN VALUES
-	
-******PROBLEMS*******
-	c not ASCII
-*/
-int		ft_issign(char c);
-
-/*
-NAME
-	--
-
-DESCRIPTION
-	
-
-PARAMETERS
-	
-
-RETURN VALUES
-	
-	
-******PROBLEMS*******
-	exp < 0
-	result > maximum integer
-*/
-int		ft_exp(int base, int exp);
-
-/*
-NAME
-	ft_strcount -- Counts ocurrences of char in string
-
-DESCRIPTION
-	Using ft_strchr...
-
-PARAMETERS
-	
-
-RETURN VALUES
-	The number of occurences
-
-******PROBLEMS*******
-	
-*/
-int		ft_strcount(char const *s, char c);
-
-/*
-NAME
-	ft_strextract -- Extracts the last part of string s
-
-DESCRIPTION
-	Returns a new string with the contents of s from position pos to NUL char
-	(both included). Modifies original s by writing NUL chars from position
-   	until original NUL char
-	Returns NULL if allocation failed.
-
-PARAMETERS
-	
-
-RETURN VALUES
-	The new string
-
-******PROBLEMS*******
-	
-*/
-char	*ft_strextract(char *s, size_t pos);
-
-/*
-NAME
-	ft_free_str_array -- Frees allocated memory for array of strings
-
-DESCRIPTION
-	Takes a pointer to a pointer of char (array of strings) and the amount
-	of elements of the array with memory allocated. This function frees the
-	number of elements indicated (starting at element 0) and finally also
-	frees the **char
-
-PARAMETERS
-	
-
-RETURN VALUES
-	None
-
-******PROBLEMS*******
-	
-*/
-void	ft_free_str_array(char **str_array, int allocated_strings);
-
-/*
-NAME
-	ft_conv_less_sig_dig -- To use for converting numbers to another base
-
-DESCRIPTION
-	Takes a pointer to an integer...
-
-PARAMETERS
-	
-
-RETURN VALUES
-
-
-******PROBLEMS*******
-	
-*/
-char	ft_conv_less_sig_dig(int *nbr, int base, char *sym_table);
-
-/*
-NAME
-	ft_get_sym_table_base --
-
-DESCRIPTION
-	Takes a pointer to an integer...
-
-PARAMETERS
-	
-
-RETURN VALUES
-
-
-******PROBLEMS*******
-	
-*/
-void	ft_get_sym_table(char *sym_table);
-
-/*
-NAME
-	ft_size_str_for_dec -- Obtain a size for a string in which a int fits
-
-DESCRIPTION
-	...
-
-PARAMETERS
-	
-
-RETURN VALUES
-	The size of the string, including memory for '\0' and optionally for 
-	negative sign
-
-******PROBLEMS*******
-	
-*/
-int		ft_size_str_for_dec(int dec_nbr, int base_for_string, int include_sign);
-
-/*
-NAME
-	ft_itoa_base -- 
-
-DESCRIPTION
-	...
-
-PARAMETERS
-	
-
-RETURN VALUES
-	The size of the string, including memory for '\0' and optionally for 
-	negative sign
-
-******PROBLEMS*******
-	
-*/
-char	*ft_itoa_b(int n, unsigned int base);
-
-//char    *ft_ltoa(long n);
 #endif

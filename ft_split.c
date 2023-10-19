@@ -6,14 +6,31 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 18:43:37 by lluque            #+#    #+#             */
-/*   Updated: 2023/10/01 19:48:50 by lluque           ###   ########.fr       */
+/*   Updated: 2023/10/03 18:44:43 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_word_count(const char *s, char delimiter)
+/*
+NAME
+	--
+
+DESCRIPTION
+
+
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+static int	ft_word_count(const char *s, char delimiter)
 {
 	int		i;
 	int		count;
@@ -36,7 +53,24 @@ int	ft_word_count(const char *s, char delimiter)
 	return (count);
 }
 
-char	*ft_get_next_word(const char **s, char delimiter)
+/*
+NAME
+	--
+
+DESCRIPTION
+
+
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+static char	*ft_get_next_word(const char **s, char delimiter)
 {
 	int		start;
 	int		size;
@@ -63,7 +97,26 @@ char	*ft_get_next_word(const char **s, char delimiter)
 	return (ret_val);
 }
 
-void	ft_free_str_array(char **str_array, int allocated_strings)
+/*
+NAME
+	ft_free_str_array -- Frees allocated memory for array of strings
+
+DESCRIPTION
+	Takes a pointer to a pointer of char (array of strings) and the amount
+	of elements of the array with memory allocated. This function frees the
+	number of elements indicated (starting at element 0) and finally also
+	frees the **char
+
+PARAMETERS
+
+
+RETURN VALUES
+	None
+
+******PROBLEMS*******
+
+*/
+static void	ft_free_str_array(char **str_array, int allocated_strings)
 {
 	int	i;
 

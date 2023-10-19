@@ -6,9 +6,12 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 14:27:23 by lluque            #+#    #+#              #
-#    Updated: 2023/09/27 14:52:38 by lluque           ###   ########.fr        #
+#    Updated: 2023/10/03 16:54:43 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# Variable con el nombre del header
+HDR = libft.h
 
 # Variable SRC con los nombres de los .c
 SRC = ft_isalpha.c \
@@ -105,7 +108,7 @@ all:$(NAME)
 # Como pre-requisitos tiene todos los archivos .o (valor de OBJ)
 # Si no los encuentra todos ejecuta la regla $(OBJ) antes
 
-$(NAME):$(OBJ)
+$(NAME):$(OBJ) $(HDR)
 	ar $(AR_FLAGS) $(NAME) $(OBJ)
 
 bonus:$(OBJ_BONUS) $(NAME)
@@ -151,4 +154,4 @@ help:
 
 # Esto evita problemas si existieran archivos con estos nombres.
 # Pues son targets aquí y no se supone que representen archivos
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

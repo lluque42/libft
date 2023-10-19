@@ -6,19 +6,36 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 00:43:09 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/29 22:18:10 by lluque           ###   ########.fr       */
+/*   Updated: 2023/10/03 18:53:05 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-int	ft_size_str_for_dec(int dec_nbr, int base_for_string, int include_sign)
+/*
+NAME
+	ft_size_str_for_dec -- Obtain a size for a string in which a int fits
+
+DESCRIPTION
+	...
+
+PARAMETERS
+
+
+RETURN VALUES
+	The size of the string, including memory for '\0' and optionally for
+	negative sign
+
+******PROBLEMS*******
+
+*/
+static int	ft_size_str_for_dec(int dec_nbr, int base_for_string, int inc_sign)
 {
 	int	size;
 
 	size = 2;
-	if (dec_nbr < 0 && include_sign)
+	if (dec_nbr < 0 && inc_sign)
 		size++;
 	dec_nbr /= base_for_string;
 	while (dec_nbr != 0)
@@ -29,7 +46,23 @@ int	ft_size_str_for_dec(int dec_nbr, int base_for_string, int include_sign)
 	return (size);
 }
 
-char	ft_conv_less_sig_dig(int *nbr, int base, char *sym_table)
+/*
+NAME
+	ft_conv_less_sig_dig -- Converts less significative digit to a char
+
+DESCRIPTION
+	Takes a pointer to an integer...
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+static char	ft_conv_less_sig_dig(int *nbr, int base, char *sym_table)
 {
 	int		digit;
 	char	ret_val;
@@ -42,7 +75,23 @@ char	ft_conv_less_sig_dig(int *nbr, int base, char *sym_table)
 	return (ret_val);
 }
 
-void	ft_get_sym_table(char *sym_table)
+/*
+NAME
+	ft_get_sym_table --
+
+DESCRIPTION
+	
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+static void	ft_get_sym_table(char *sym_table)
 {
 	unsigned int	i;
 
@@ -57,12 +106,24 @@ void	ft_get_sym_table(char *sym_table)
 	}
 }
 
-char	*ft_itoa(int n)
-{
-	return (ft_itoa_b(n, 10));
-}
+/*
+NAME
+	ft_itoa_base --
 
-char	*ft_itoa_b(int n, unsigned int base)
+DESCRIPTION
+	...
+
+PARAMETERS
+
+
+RETURN VALUES
+	The size of the string, including memory for '\0' and optionally for
+	negative sign
+
+******PROBLEMS*******
+
+*/
+static char	*ft_itoa_b(int n, unsigned int base)
 {
 	char	*ret_val;
 	int		size;
@@ -88,4 +149,9 @@ char	*ft_itoa_b(int n, unsigned int base)
 		ret_val[0] = '-';
 	ret_val[size - 1] = '\0';
 	return (ret_val);
+}
+
+char	*ft_itoa(int n)
+{
+	return (ft_itoa_b(n, 10));
 }

@@ -6,13 +6,13 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 18:53:01 by lluque            #+#    #+#             */
-/*   Updated: 2023/10/01 15:33:35 by lluque           ###   ########.fr       */
+/*   Updated: 2023/10/03 19:43:14 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*free_stuff(void **content, t_list **lst, void (*del)(void *))
+static void	*free_stuff(void **content, t_list **lst, void (*del)(void *))
 {
 	del((*content));
 	ft_lstclear(lst, del);

@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 00:42:26 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/17 15:09:39 by lluque           ###   ########.fr       */
+/*   Updated: 2023/10/03 20:10:24 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,26 @@
 #define IN_SIGN 0
 #define IN_DIGITS 0
 
-int	ft_isspace(int c)
+/*
+NAME
+	ft_isspace -- White-space character test
+
+DESCRIPTION
+	The isspace() function tests for the white-space characters.
+	For any locale, this includes the following standard characters:
+		'\t'	'\n'	'\v'	'\f'	'\r'	' '
+
+PARAMETERS
+
+
+RETURN VALUES
+	The isspace() function returns zero if the character tests false and
+	returns non-zero if the character tests true.
+
+******PROBLEMS*******
+
+*/
+static int	ft_isspace(int c)
 {
 	if (c != '\t' && c != '\n' && c != '\v')
 	{
@@ -25,8 +44,23 @@ int	ft_isspace(int c)
 	return (1);
 }
 
-// Returns -1 if c is '-'; +1 if c is '+'; 0 if c is neither '+' or '-'
-int	ft_issign(char c)
+/*
+NAME
+	ft_issign -- Test for sign char
+
+DESCRIPTION
+	Checks character passed as argument looking for a sign char or its abscence
+
+PARAMETERS
+
+
+RETURN VALUES
+	Returns -1 if c is '-'; +1 if c is '+'; 0 if c is neither '+' or '-'
+	
+******PROBLEMS*******
+
+*/
+static int	ft_issign(char c)
 {
 	if (c == '+')
 		return (1);
@@ -35,7 +69,23 @@ int	ft_issign(char c)
 	return (0);
 }
 
-int	ft_exp(int base, int exp)
+/*
+NAME
+	ft_pow -- Power function
+
+DESCRIPTION
+	The pow() functions compute base raised to the power exp.
+
+PARAMETERS
+
+
+RETURN VALUES
+	base^exp
+	
+******PROBLEMS*******
+
+*/
+static int	ft_pow(int base, int exp)
 {
 	int	ret_val;
 	int	i;
@@ -50,7 +100,7 @@ int	ft_exp(int base, int exp)
 	return (ret_val);
 }
 
-int	ft_get_digits(const char *str)
+static int	ft_get_digits(const char *str)
 {
 	int		digs;
 
@@ -83,7 +133,7 @@ int	ft_atoi(const char *str)
 	ret_val = 0;
 	while (k < digs)
 	{
-		ret_val = ret_val + (str[k + offset] - '0') * ft_exp(10, digs - k - 1);
+		ret_val = ret_val + (str[k + offset] - '0') * ft_pow(10, digs - k - 1);
 		k++;
 	}
 	return (sign * ret_val);

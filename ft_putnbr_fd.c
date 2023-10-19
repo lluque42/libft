@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 16:47:21 by lluque            #+#    #+#             */
-/*   Updated: 2023/09/30 20:38:19 by lluque           ###   ########.fr       */
+/*   Updated: 2023/10/03 19:30:48 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "libft.h"
 #define BUFFER_SIZE 11
 
-// Int ranges from -2.147.483.648 to 2.147.483.647
 void	ft_putnbr_fd(int n, int fd)
 {	
 	char	buffer[BUFFER_SIZE];
