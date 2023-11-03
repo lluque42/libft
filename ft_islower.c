@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 14:37:32 by lluque            #+#    #+#             */
-/*   Updated: 2023/11/03 15:13:06 by lluque           ###   ########.fr       */
+/*   Created: 2023/11/03 15:09:36 by lluque            #+#    #+#             */
+/*   Updated: 2023/11/03 15:11:14 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isalpha(int c)
+int	ft_islower(int c)
 {
-	return (ft_isupper(c) + ft_islower(c));
+	return (c >= 'a' && c <= 'z');
 }

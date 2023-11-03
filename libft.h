@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/10/19 18:39:14 by lluque           ###   ########.fr       */
+/*   Updated: 2023/11/03 15:12:24 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -971,5 +971,47 @@ RETURN VALUES
 	cleared completely and NULL must be returned
 */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/*
+NAME
+	ft_isupper -- Test for uppercase
+
+DESCRIPTION
+	The isupper() function tests for any upper-case letter.
+	The value of the argument must be representable as
+	an unsigned char or the value of EOF.
+
+PARAMETERS
+
+
+RETURN VALUES
+	The isupper() function returns zero if the character tests false and
+	returns non-zero if the character tests true.
+
+******PROBLEMS*******
+
+*/
+int	ft_isupper(int c);
+
+/*
+NAME
+	ft_islower -- Test for lowercase
+
+DESCRIPTION
+	The islower() function tests for any lower-case letters.
+	The value of the argument must be representable as an unsigned char
+	or the value of EOF.
+
+PARAMETERS
+
+
+RETURN VALUES
+	The islower() function returns zero if the character tests false and
+	returns non-zero if the character tests true.
+
+******PROBLEMS*******
+
+*/
+int	ft_islower(int c);
 
 #endif
