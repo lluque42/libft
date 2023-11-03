@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/11/03 15:40:41 by lluque           ###   ########.fr       */
+/*   Updated: 2023/11/03 16:37:28 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1070,5 +1070,24 @@ RETURN VALUES
 
 */
 int		ft_pow(int base, unsigned int exp);
+
+/*
+NAME
+	ft_itoa_base -- Version of ft_itoa to support bases up to 16
+
+DESCRIPTION
+	...
+
+PARAMETERS
+	in_caps -- If hexadecimal, when != 0 uses abcdef instead of ABCDEF
+
+RETURN VALUES
+	The size of the string, including memory for '\0' and optionally for
+	negative sign
+
+******PROBLEMS*******
+
+*/
+char	*ft_itoa_b(int n, unsigned int base, int in_caps);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 14:27:23 by lluque            #+#    #+#              #
-#    Updated: 2023/11/03 15:39:26 by lluque           ###   ########.fr        #
+#    Updated: 2023/11/03 16:18:52 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,8 @@ SRC = ft_isalpha.c \
 	  ft_lstmap.c \
 	  ft_issign.c \
 	  ft_isspace.c \
-	  ft_pow.c
+	  ft_pow.c \
+	  ft_itoa_b.c
 
 OBJ = $(SRC:%.c=%.o)
 
