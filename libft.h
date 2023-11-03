@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/11/03 15:12:24 by lluque           ###   ########.fr       */
+/*   Updated: 2023/11/03 15:40:41 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -991,7 +991,7 @@ RETURN VALUES
 ******PROBLEMS*******
 
 */
-int	ft_isupper(int c);
+int		ft_isupper(int c);
 
 /*
 NAME
@@ -1012,6 +1012,63 @@ RETURN VALUES
 ******PROBLEMS*******
 
 */
-int	ft_islower(int c);
+int		ft_islower(int c);
+
+/*
+NAME
+	ft_isspace -- White-space character test
+
+DESCRIPTION
+	The isspace() function tests for the white-space characters.
+	For any locale, this includes the following standard characters:
+		'\t'	'\n'	'\v'	'\f'	'\r'	' '
+
+PARAMETERS
+
+
+RETURN VALUES
+	The isspace() function returns zero if the character tests false and
+	returns non-zero if the character tests true.
+
+******PROBLEMS*******
+
+*/
+int		ft_isspace(int c);
+
+/*
+NAME
+	ft_issign -- Test for sign char
+
+DESCRIPTION
+	Checks character passed as argument looking for a sign char or its abscence
+
+PARAMETERS
+
+
+RETURN VALUES
+	Returns -1 if c is '-'; +1 if c is '+'; 0 if c is neither '+' or '-'
+
+******PROBLEMS*******
+
+*/
+int		ft_issign(char c);
+
+/*
+NAME
+	ft_pow -- Power function
+
+DESCRIPTION
+	The pow() functions compute base raised to the power exp.
+
+PARAMETERS
+
+
+RETURN VALUES
+	base^exp
+
+******PROBLEMS*******
+
+*/
+int		ft_pow(int base, unsigned int exp);
 
 #endif
