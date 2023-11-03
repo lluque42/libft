@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 16:12:21 by lluque            #+#    #+#             */
-/*   Updated: 2023/11/03 16:37:44 by lluque           ###   ########.fr       */
+/*   Updated: 2023/11/03 16:46:21 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,13 @@ RETURN VALUES
 ******PROBLEMS*******
 
 */
-static void	ft_get_sym_table(char *sym_table, int in_caps)
+static char	*ft_get_sym_table(char *sym_table, unsigned int base, int in_caps)
 {
 	unsigned int	i;
 	char			a;
 
+	if (base > 16)
+		return (NULL);
 	if (in_caps)
 		a = 'A';
 	else
@@ -108,6 +110,7 @@ static void	ft_get_sym_table(char *sym_table, int in_caps)
 			sym_table[i] = i - 10 + a;
 		i++;
 	}
+	return (sym_table);
 }
 
 char	*ft_itoa_b(int n, unsigned int base, int in_caps)
@@ -118,7 +121,8 @@ char	*ft_itoa_b(int n, unsigned int base, int in_caps)
 	int		is_negative;
 	char	sym_table[16];
 
-	ft_get_sym_table(sym_table, in_caps);
+	if (ft_get_sym_table(sym_table, base, in_caps) == NULL)
+		return (NULL);
 	size = ft_size_str_for_dec(n, base, 1);
 	ret_val = malloc(size * sizeof (char));
 	if (ret_val == NULL)
