@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 16:12:21 by lluque            #+#    #+#             */
-/*   Updated: 2023/11/03 16:46:21 by lluque           ###   ########.fr       */
+/*   Updated: 2023/11/03 16:49:22 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ static char	*ft_get_sym_table(char *sym_table, unsigned int base, int in_caps)
 	unsigned int	i;
 	char			a;
 
-	if (base > 16)
+	if (base > 16 || base == 0)
 		return (NULL);
 	if (in_caps)
 		a = 'A';
