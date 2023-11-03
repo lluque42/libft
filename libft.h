@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/11/03 16:37:28 by lluque           ###   ########.fr       */
+/*   Updated: 2023/11/03 17:29:21 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1089,5 +1089,77 @@ RETURN VALUES
 
 */
 char	*ft_itoa_b(int n, unsigned int base, int in_caps);
+
+/*
+NAME
+	ft_get_sym_table --
+
+DESCRIPTION
+	
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+char	*ft_get_sym_table(char *sym_table, unsigned int base, int in_caps);
+
+/*
+NAME
+	ft_ltoa_b --
+
+DESCRIPTION
+	
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+char	*ft_ltoa_b(long n, unsigned int base, int in_caps);
+
+/*
+NAME
+	ft_ltoa --
+
+DESCRIPTION
+	
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+char	*ft_ltoa(long n);
+
+/*
+NAME
+	ft_print_memory --
+
+DESCRIPTION
+	
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+void	*ft_print_memory(void *addr, unsigned int size);
 
 #endif

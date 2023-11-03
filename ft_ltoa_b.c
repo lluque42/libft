@@ -1,68 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_b.c                                        :+:      :+:    :+:   */
+/*   ft_ltoa_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 16:12:21 by lluque            #+#    #+#             */
-/*   Updated: 2023/11/03 17:12:46 by lluque           ###   ########.fr       */
+/*   Created: 2023/11/03 17:17:17 by lluque            #+#    #+#             */
+/*   Updated: 2023/11/03 17:32:32 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-/*
-NAME
-	ft_size_str_for_dec -- Obtain a size for a string in which a int fits
-
-DESCRIPTION
-	...
-
-PARAMETERS
-
-
-RETURN VALUES
-	The size of the string, including memory for '\0' and optionally for
-	negative sign
-
-******PROBLEMS*******
-
-*/
-static int	ft_size_str_for_dec(int dec_nbr, int base_for_string, int inc_sign)
-{
-	int	size;
-
-	size = 2;
-	if (dec_nbr < 0 && inc_sign)
-		size++;
-	dec_nbr /= base_for_string;
-	while (dec_nbr != 0)
-	{
-		dec_nbr /= base_for_string;
-		size++;
-	}
-	return (size);
-}
-
-/*
-NAME
-	ft_conv_less_sig_dig -- Converts less significative digit to a char
-
-DESCRIPTION
-	Takes a pointer to an integer...
-
-PARAMETERS
-
-
-RETURN VALUES
-
-
-******PROBLEMS*******
-
-*/
-static char	ft_conv_less_sig_dig(int *nbr, int base, char *sym_table)
+static char	ft_conv_less_sig_digl(long *nbr, int base, char *sym_table)
 {
 	int		digit;
 	char	ret_val;
@@ -75,7 +26,23 @@ static char	ft_conv_less_sig_dig(int *nbr, int base, char *sym_table)
 	return (ret_val);
 }
 
-char	*ft_itoa_b(int n, unsigned int base, int in_caps)
+static int	ft_sz_str_decl(long dec_nbr, int base_for_string, int include_sign)
+{
+	int	size;
+
+	size = 2;
+	if (dec_nbr < 0 && include_sign)
+		size++;
+	dec_nbr /= base_for_string;
+	while (dec_nbr != 0)
+	{
+		dec_nbr /= base_for_string;
+		size++;
+	}
+	return (size);
+}
+
+char	*ft_ltoa_b(long n, unsigned int base, int in_caps)
 {
 	char	*ret_val;
 	int		size;
@@ -83,9 +50,7 @@ char	*ft_itoa_b(int n, unsigned int base, int in_caps)
 	int		is_negative;
 	char	sym_table[16];
 
-	if (ft_get_sym_table(sym_table, base, in_caps) == NULL)
-		return (NULL);
-	size = ft_size_str_for_dec(n, base, 1);
+	size = ft_sz_str_decl(n, base, 1);
 	ret_val = malloc(size * sizeof (char));
 	if (ret_val == NULL)
 		return (NULL);
@@ -93,9 +58,10 @@ char	*ft_itoa_b(int n, unsigned int base, int in_caps)
 	is_negative = 0;
 	if (n < 0)
 		is_negative = 1;
+	ft_get_sym_table(sym_table, base, in_caps);
 	while ((!is_negative && i >= 0) || (is_negative && i > 0))
 	{
-		ret_val[i] = ft_conv_less_sig_dig(&n, base, sym_table);
+		ret_val[i] = ft_conv_less_sig_digl(&n, base, sym_table);
 		i--;
 	}
 	if (is_negative)
