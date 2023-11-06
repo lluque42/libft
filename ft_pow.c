@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 00:43:09 by lluque            #+#    #+#             */
-/*   Updated: 2023/11/03 16:28:30 by lluque           ###   ########.fr       */
+/*   Created: 2023/11/03 15:27:06 by lluque            #+#    #+#             */
+/*   Updated: 2023/11/03 15:34:25 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_itoa(int n)
+int	ft_pow(int base, int exp)
 {
-	return (ft_itoa_b(n, 10, 0));
+	int	ret_val;
+	int	i;
+
+	i = 0;
+	ret_val = 1;
+	while (i < exp)
+	{
+		ret_val *= base;
+		i++;
+	}
+	return (ret_val);
 }
