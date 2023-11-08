@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/11/03 17:29:21 by lluque           ###   ########.fr       */
+/*   Updated: 2023/11/08 11:35:02 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stddef.h>
 
+// Struct for a dynamic list node
+// Any node could serve as a list for itself (i.e. as the beginning of a list)
 typedef struct s_list
 {
 	void			*content;
