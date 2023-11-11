@@ -6,7 +6,11 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/11/08 11:35:02 by lluque           ###   ########.fr       */
+=======
+/*   Updated: 2023/11/11 08:39:06 by lluque           ###   ########.fr       */
+>>>>>>> development
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1164,4 +1168,21 @@ RETURN VALUES
 */
 void	*ft_print_memory(void *addr, unsigned int size);
 
+/*
+NAME
+	ft_ultoa_b --
+
+DESCRIPTION
+	
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+char	*ft_ultoa_b(unsigned long n, unsigned int base, int in_caps);
 #endif
