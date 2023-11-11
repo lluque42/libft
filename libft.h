@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/11/11 08:39:06 by lluque           ###   ########.fr       */
+/*   Updated: 2023/11/11 10:09:45 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1181,4 +1181,23 @@ RETURN VALUES
 
 */
 char	*ft_ultoa_b(unsigned long n, unsigned int base, int in_caps);
+
+/*
+NAME
+	ft_uitoa_b --
+
+DESCRIPTION
+	
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+char	*ft_uitoa_b(unsigned int n, unsigned int base, int in_caps);
+
 #endif
