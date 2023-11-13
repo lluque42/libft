@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
-/*   Updated: 2023/10/19 18:39:14 by lluque           ###   ########.fr       */
+/*   Updated: 2023/11/11 10:09:45 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stddef.h>
 
+// Struct for a dynamic list node
+// Any node could serve as a list for itself (i.e. as the beginning of a list)
 typedef struct s_list
 {
 	void			*content;
@@ -971,5 +973,231 @@ RETURN VALUES
 	cleared completely and NULL must be returned
 */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/*
+NAME
+	ft_isupper -- Test for uppercase
+
+DESCRIPTION
+	The isupper() function tests for any upper-case letter.
+	The value of the argument must be representable as
+	an unsigned char or the value of EOF.
+
+PARAMETERS
+
+
+RETURN VALUES
+	The isupper() function returns zero if the character tests false and
+	returns non-zero if the character tests true.
+
+******PROBLEMS*******
+
+*/
+int		ft_isupper(int c);
+
+/*
+NAME
+	ft_islower -- Test for lowercase
+
+DESCRIPTION
+	The islower() function tests for any lower-case letters.
+	The value of the argument must be representable as an unsigned char
+	or the value of EOF.
+
+PARAMETERS
+
+
+RETURN VALUES
+	The islower() function returns zero if the character tests false and
+	returns non-zero if the character tests true.
+
+******PROBLEMS*******
+
+*/
+int		ft_islower(int c);
+
+/*
+NAME
+	ft_isspace -- White-space character test
+
+DESCRIPTION
+	The isspace() function tests for the white-space characters.
+	For any locale, this includes the following standard characters:
+		'\t'	'\n'	'\v'	'\f'	'\r'	' '
+
+PARAMETERS
+
+
+RETURN VALUES
+	The isspace() function returns zero if the character tests false and
+	returns non-zero if the character tests true.
+
+******PROBLEMS*******
+
+*/
+int		ft_isspace(int c);
+
+/*
+NAME
+	ft_issign -- Test for sign char
+
+DESCRIPTION
+	Checks character passed as argument looking for a sign char or its abscence
+
+PARAMETERS
+
+
+RETURN VALUES
+	Returns -1 if c is '-'; +1 if c is '+'; 0 if c is neither '+' or '-'
+
+******PROBLEMS*******
+
+*/
+int		ft_issign(char c);
+
+/*
+NAME
+	ft_pow -- Power function
+
+DESCRIPTION
+	The pow() functions compute base raised to the power exp.
+
+PARAMETERS
+
+
+RETURN VALUES
+	base^exp
+
+******PROBLEMS*******
+
+*/
+int		ft_pow(int base, unsigned int exp);
+
+/*
+NAME
+	ft_itoa_base -- Version of ft_itoa to support bases up to 16
+
+DESCRIPTION
+	...
+
+PARAMETERS
+	in_caps -- If hexadecimal, when != 0 uses abcdef instead of ABCDEF
+
+RETURN VALUES
+	The size of the string, including memory for '\0' and optionally for
+	negative sign
+
+******PROBLEMS*******
+
+*/
+char	*ft_itoa_b(int n, unsigned int base, int in_caps);
+
+/*
+NAME
+	ft_get_sym_table --
+
+DESCRIPTION
+	
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+char	*ft_get_sym_table(char *sym_table, unsigned int base, int in_caps);
+
+/*
+NAME
+	ft_ltoa_b --
+
+DESCRIPTION
+	
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+char	*ft_ltoa_b(long n, unsigned int base, int in_caps);
+
+/*
+NAME
+	ft_ltoa --
+
+DESCRIPTION
+	
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+char	*ft_ltoa(long n);
+
+/*
+NAME
+	ft_print_memory --
+
+DESCRIPTION
+	
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+void	*ft_print_memory(void *addr, unsigned int size);
+
+/*
+NAME
+	ft_ultoa_b --
+
+DESCRIPTION
+	
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+char	*ft_ultoa_b(unsigned long n, unsigned int base, int in_caps);
+
+/*
+NAME
+	ft_uitoa_b --
+
+DESCRIPTION
+	
+
+PARAMETERS
+
+
+RETURN VALUES
+
+
+******PROBLEMS*******
+
+*/
+char	*ft_uitoa_b(unsigned int n, unsigned int base, int in_caps);
 
 #endif
