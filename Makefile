@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 14:27:23 by lluque            #+#    #+#              #
-#    Updated: 2023/11/03 17:21:27 by lluque           ###   ########.fr        #
+#    Updated: 2023/11/11 10:10:08 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,9 @@ SRC = ft_isalpha.c \
 	  ft_get_sym_table.c \
 	  ft_ltoa.c \
 	  ft_ltoa_b.c \
-	  ft_print_memory.c
+	  ft_print_memory.c \
+	  ft_ultoa_b.c \
+	  ft_uitoa_b.c
 
 OBJ = $(SRC:%.c=%.o)
 
