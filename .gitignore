@@ -1,0 +1,6 @@
+.*
+!.gitignore
+*.o
+*.a
+main.c
+a.out
