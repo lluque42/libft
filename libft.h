@@ -6,7 +6,11 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:41:10 by lluque            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/11/14 13:43:29 by lluque           ###   ########.fr       */
+=======
+/*   Updated: 2023/11/13 12:12:39 by lluque           ###   ########.fr       */
+>>>>>>> a5eae9d2a2495d7125eed4b326b069145b13c841
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1200,4 +1204,40 @@ RETURN VALUES
 */
 char	*ft_uitoa_b(unsigned int n, unsigned int base, int in_caps);
 
+/*
+NAME
+	ft_putchar_fd_safe --
+
+DESCRIPTION
+	
+
+PARAMETERS
+
+
+RETURN VALUES
+	Amount of chars actually printed.
+
+******PROBLEMS*******
+
+*/
+int		ft_putchar_fd_safe(char c, int fd);
+
+/*
+NAME
+	ft_putstr_fd_safe --
+
+DESCRIPTION
+	
+
+
+PARAMETERS
+	
+
+RETURN VALUES
+	Amount of chars actually printed.
+
+******PROBLEMS*******
+	
+*/
+int		ft_putstr_fd_safe(char *s, int fd);
 #endif
