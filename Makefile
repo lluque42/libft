@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 14:27:23 by lluque            #+#    #+#              #
-#    Updated: 2023/11/11 10:10:08 by lluque           ###   ########.fr        #
+#    Updated: 2023/11/14 13:46:27 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,7 @@ OBJ = $(SRC:%.c=%.o)
 
 CC_FLAGS = -Wall -Werror -Wextra
 
-AR_FLAGS = -cru
+AR_FLAGS = -crs
 
 NAME = libft.a
 
@@ -81,8 +81,21 @@ all:$(NAME)
 $(NAME):$(OBJ)
 	ar $(AR_FLAGS) $(NAME) $(OBJ)
 
-$(OBJ): %.o: %.c
-	cc -c $(CC_FLAGS) $^ -o $@
+$(OBJ): $(HDR)
+
+#$(OBJ): %.o: %.c
+#	cc -c $(CC_FLAGS) $^ -o $@
+#
+#	$^ replaced by the name of ALL prerequisites
+#	$< replaced by the name of FIRST prerequisites
+#	$@ replaced by the name of the target
+#
+#	Using $< instead of $^ allows to correctly introduce more prerequisites
+#	in a pattern rule.
+
+$(OBJ): %.o: %.c $(HDR)
+	cc -c $(CC_FLAGS) $< -o $@
+
 
 clean:
 	rm -f $(OBJ)
