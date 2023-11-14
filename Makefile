@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 14:27:23 by lluque            #+#    #+#              #
-#    Updated: 2023/11/11 10:10:08 by lluque           ###   ########.fr        #
+#    Updated: 2023/11/14 13:58:13 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,13 +66,15 @@ SRC = ft_isalpha.c \
 	  ft_ltoa_b.c \
 	  ft_print_memory.c \
 	  ft_ultoa_b.c \
-	  ft_uitoa_b.c
+	  ft_uitoa_b.c \
+	  ft_putchar_fd_safe.c \
+	  ft_putstr_fd_safe.c
 
 OBJ = $(SRC:%.c=%.o)
 
 CC_FLAGS = -Wall -Werror -Wextra
 
-AR_FLAGS = -cru
+AR_FLAGS = -crs
 
 NAME = libft.a
 
@@ -81,8 +83,21 @@ all:$(NAME)
 $(NAME):$(OBJ)
 	ar $(AR_FLAGS) $(NAME) $(OBJ)
 
-$(OBJ): %.o: %.c
-	cc -c $(CC_FLAGS) $^ -o $@
+$(OBJ): $(HDR)
+
+#$(OBJ): %.o: %.c
+#	cc -c $(CC_FLAGS) $^ -o $@
+#
+#	$^ replaced by the name of ALL prerequisites
+#	$< replaced by the name of FIRST prerequisites
+#	$@ replaced by the name of the target
+#
+#	Using $< instead of $^ allows to correctly introduce more prerequisites
+#	in a pattern rule.
+
+$(OBJ): %.o: %.c $(HDR)
+	cc -c $(CC_FLAGS) $< -o $@
+
 
 clean:
 	rm -f $(OBJ)

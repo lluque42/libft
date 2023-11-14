@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_putchar_fd_safe.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/17 18:50:02 by lluque            #+#    #+#             */
-/*   Updated: 2023/11/14 13:18:36 by lluque           ###   ########.fr       */
+/*   Created: 2023/09/16 16:37:57 by lluque            #+#    #+#             */
+/*   Updated: 2023/11/13 12:10:59 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_putchar_fd_safe(char c, int fd)
 {
-	t_list	*current_item;
-
-	if (new == NULL || lst == NULL)
-		return ;
-	current_item = ft_lstlast(*lst);
-	if (current_item == NULL)
-	{
-		*lst = new;
-		return ;
-	}
-	current_item->next = new;
+	if (write(fd, &c, 1) == 1)
+		return (1);
+	return (0);
 }
