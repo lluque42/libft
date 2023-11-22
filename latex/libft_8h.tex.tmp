@@ -1,0 +1,1761 @@
+\hypertarget{libft_8h}{}\doxysection{libft.\+h File Reference}
+\label{libft_8h}\index{libft.h@{libft.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for libft.\+h\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structs__list}{s\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em {\bfseries{t\+\_\+list}} -- Typedef struct for a dynamic list node \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structs__list}{s\+\_\+list}} \mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em {\bfseries{t\+\_\+list}} -- Typedef struct for a dynamic list node \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{libft_8h_a1ad9c4559cffbb211ec56fe8964f30f9}{ft\+\_\+isupper}} (int c)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+isupper}} -- Tests for uppercase alphabetic character. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_a2643d7f2fbcb6d5567a22d8f19e0ad70}{ft\+\_\+islower}} (int c)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+islower}} -- Tests for lowercase alphabetic character. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_ac283963beaa3b8c7d09b78851cda297e}{ft\+\_\+isalpha}} (int c)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+isalpha}} -- Checks for an alphabetic character. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_a2cf15b8a1a277d1e2ce3654101a2003d}{ft\+\_\+isdigit}} (int c)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+isdigit}} -- Checks for a digit character. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_ac9bd1a8fd96208017945d589974efc65}{ft\+\_\+issign}} (char c)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+issign}} -- Checks for a \textquotesingle{}+\textquotesingle{} \textquotesingle{}-\/\textquotesingle{} character. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_a9c2c3821ea43ebdf97de07b123503f8b}{ft\+\_\+isalnum}} (int c)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+isalnum}} -- Checks for an alphanumeric character. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_abf60ddbec6479540e81f3648cf71f1f4}{ft\+\_\+isascii}} (int c)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+isascii}} -- Checks for (basic) ASCII character. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_abcdba69692f21146aeea5b3d59b7d0ca}{ft\+\_\+isprint}} (int c)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+isprint}} -- Checks for printable (basic) ASCII character. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_a76cd21d0fd288012f02809cba504f650}{ft\+\_\+isspace}} (int c)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+isspace}} -- White-\/space (in the broad sense) character test. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_aef116be7b5bceafff4b59f20a4433d12}{ft\+\_\+toupper}} (int c)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+toupper}} -- If lowercase, changes to uppercase. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_ab86e5297914753b6c82d7e3c3020ce17}{ft\+\_\+tolower}} (int c)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+tolower}} -- If uppercase, changes to lowercase. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{libft_8h_a19d0a16cec67fe4c1af22f1571f4f8a6}{ft\+\_\+memset}} (void $\ast$b, int c, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+memset}} -- Fills memory with a constant byte. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libft_8h_a5937ab0d08e31d0e3e4a16ec71e293a1}{ft\+\_\+bzero}} (void $\ast$s, size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+bzero}} -- Fills memory with zeros. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{libft_8h_a5f5c5d19b1f0355d9768c75d30ed5559}{ft\+\_\+memcpy}} (void $\ast$dst, const void $\ast$src, size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+memcpy}} -- Copies memory area ({\bfseries{overlapping unsafe}}). \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{libft_8h_acdc865fa140c03c01a39d74b1f5c2416}{ft\+\_\+memmove}} (void $\ast$dst, const void $\ast$src, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+memmove}} -- Copies memory area ({\bfseries{overlapping safe}}). \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{libft_8h_abf633e8e48a8afbe61947f61de5ac695}{ft\+\_\+memchr}} (const void $\ast$s, int c, size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+memchr}} -- Locate byte in byte string. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_a08f665a1828c402f2ffe2e2187f135fc}{ft\+\_\+memcmp}} (const void $\ast$s1, const void $\ast$s2, size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+memcmp}} -- Compare memory areas. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{libft_8h_ae0a6807f9f78ed4bf4f958323582d22f}{ft\+\_\+calloc}} (size\+\_\+t count, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+calloc}} -- Memory allocation. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{libft_8h_abbb8c6c4ed85d892e7f1509f65f5768a}{ft\+\_\+strlen}} (const char $\ast$s)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+strlen}} -- Gets length of a nul-\/terminated C string. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{libft_8h_a12f759eb9793cf306fede66d0b7de0fc}{ft\+\_\+strlcpy}} (char $\ast$dst, const char $\ast$src, size\+\_\+t dstsize)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+strlcpy}} -- Copies a string. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{libft_8h_a7531453313e0cbfde6fe51662c9c3208}{ft\+\_\+strlcat}} (char $\ast$dst, const char $\ast$src, size\+\_\+t dstsize)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+strlcat}} -- Concatenate string. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{libft_8h_aa6d0c2d180f32ee585485e1a1ce3d55d}{ft\+\_\+strchr}} (const char $\ast$s, int c)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+strchr}} -- Locate character in string (left to right). \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{libft_8h_a49c260cf80f9997975d6f3ec74ead582}{ft\+\_\+strrchr}} (const char $\ast$s, int c)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+strrchr}} -- Locate character in string (right to left). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_a9d2fe792187aa4ed08e5864fb2c4d6dc}{ft\+\_\+strncmp}} (const char $\ast$s1, const char $\ast$s2, size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+strncmp}} -- Compare two strings. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{libft_8h_ae00229613cc0bf361e86dca72ad92591}{ft\+\_\+strnstr}} (const char $\ast$haystack, const char $\ast$needle, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+strnstr}} -- Locate a substring in a string. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_afad2ec371b4188602da9a94db687cb16}{ft\+\_\+atoi}} (const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+atoi}} -- .TODO. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{libft_8h_a2ac2079a4250507c9af75d696f2ae476}{ft\+\_\+strdup}} (const char $\ast$s1)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+strdup}} -- Saves a copy of a string. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{libft_8h_a78c402cbf3d55b1374693c3b7d34f71d}{ft\+\_\+substr}} (char const $\ast$s, unsigned int start, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+substr}} -- Create new substring from original string. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{libft_8h_a91e6e3e428bcc9f2291b700e1829b82b}{ft\+\_\+strjoin}} (char const $\ast$s1, char const $\ast$s2)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+strjoin}} -- Concatenates two strings resulting in new string. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{libft_8h_a60352c5b39fab08469b3e28131a79e25}{ft\+\_\+strtrim}} (char const $\ast$s1, char const $\ast$set)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+strtrim}} -- Trims string resulting in new string. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{libft_8h_aa65c9de65051c8c589286cf133c4a1f4}{ft\+\_\+split}} (char const $\ast$s, char c)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+split}} -- Split string according to delimiter char. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{libft_8h_a8a6ea3765dfd826eabfc00d36e28ea38}{ft\+\_\+itoa}} (int n)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+itoa}} -- Converts int to string representation. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{libft_8h_a610f39aa4bdf576a404e7dff6307db6c}{ft\+\_\+itoa\+\_\+b}} (int n, unsigned int base, int in\+\_\+caps)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+ltoa\+\_\+b}} -- .TODO. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{libft_8h_a4f5cd31ca086eeda2e839722cbad3f51}{ft\+\_\+get\+\_\+sym\+\_\+table}} (char $\ast$sym\+\_\+table, unsigned int base, int in\+\_\+caps)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+get\+\_\+sym\+\_\+table}} -- TODO. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{libft_8h_a85d84a6280527e8e890bf39a70512601}{ft\+\_\+ltoa\+\_\+b}} (long n, unsigned int base, int in\+\_\+caps)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+ltoa\+\_\+b}} -- .TODO. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{libft_8h_a9c7ca392832da91098199a661fa9527d}{ft\+\_\+ltoa}} (long n)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+ltoa}} -- .TODO. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{libft_8h_af747f6fc58589f60ad415f306b2c96d9}{ft\+\_\+ultoa\+\_\+b}} (unsigned long n, unsigned int base, int in\+\_\+caps)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+ultoa\+\_\+b}} -- .TODO. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{libft_8h_a7db52ad9f695362b5e2cc539c83b85c4}{ft\+\_\+uitoa\+\_\+b}} (unsigned int n, unsigned int base, int in\+\_\+caps)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+uitoa\+\_\+b}} -- .TODO. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{libft_8h_a668b60557bfc9d60c2d3ccda8afadf49}{ft\+\_\+strmapi}} (char const $\ast$s, char($\ast$f)(unsigned int, char))
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+strmapi}} -- Apply a funtion to each char of a string. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libft_8h_ada722cffd2c6c8169ae339afd0f9763c}{ft\+\_\+striteri}} (char $\ast$s, void($\ast$f)(unsigned int, char $\ast$))
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+striteri}} -- Modify a string applying a function to each of its chars. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libft_8h_a8ee15a511946c1397bd2bdea4aed6aee}{ft\+\_\+putchar\+\_\+fd}} (char c, int fd)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+putchar\+\_\+fd}} -- .TODO. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libft_8h_acefce9ac519f8f8b7d3fde33dbafe469}{ft\+\_\+putstr\+\_\+fd}} (char $\ast$s, int fd)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+putstr\+\_\+fd}} -- .TODO. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libft_8h_aeb112152acfc553d58d61a5df38afcde}{ft\+\_\+putendl\+\_\+fd}} (char $\ast$s, int fd)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+putendl\+\_\+fd}} -- .TODO. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libft_8h_a63cc0aec12256d125d3f85e472280972}{ft\+\_\+putnbr\+\_\+fd}} (int n, int fd)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+putnbr\+\_\+fd}} -- .TODO. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_a3b74034df822be1f6c45484cb01f01a7}{ft\+\_\+pow}} (int base, unsigned int exp)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+pow}} -- Power function. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{libft_8h_a0a1bcb2ef112f7ad073d507a0c6be4d2}{ft\+\_\+print\+\_\+memory}} (void $\ast$addr, unsigned int size)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+print\+\_\+memory}} -- .TODO. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_ace5537837dd84bbafbe048446ac89edf}{ft\+\_\+putchar\+\_\+fd\+\_\+safe}} (char c, int fd)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+putchar\+\_\+fd\+\_\+safe}} -- TODO.. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_ac8b37f8f02a3ced682c7f1f874b1b144}{ft\+\_\+putstr\+\_\+fd\+\_\+safe}} (char $\ast$s, int fd)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+putstr\+\_\+fd\+\_\+safe}} -- TODO. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$ \mbox{\hyperlink{libft_8h_a8fe4ea6f56f5a2a75ee13d97416b60ed}{ft\+\_\+lstnew}} (void $\ast$content)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+lstnew}} -- Create a list element from pointer to its content. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libft_8h_a0195e4eb88fad15717ed90524ac15771}{ft\+\_\+lstadd\+\_\+front}} (\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$$\ast$lst, \mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$new)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+lstadd\+\_\+front}} -- Adds node at the beginning of the list. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{libft_8h_a9da614988ac99446db9df99d2c773fc1}{ft\+\_\+lstsize}} (\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$lst)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+lstsize}} -- Counts the number of nodes in a list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$ \mbox{\hyperlink{libft_8h_aed5f9b5ecc45235a7b7cf9d4b24e43dc}{ft\+\_\+lstlast}} (\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$lst)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+lstlast}} -- Returns the last node of the list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libft_8h_a4c10e88fffc3c9467eb16e6debd227a4}{ft\+\_\+lstadd\+\_\+back}} (\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$$\ast$lst, \mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$new)
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+lstadd\+\_\+back}} -- Adds the node ’new’ at the end of the list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libft_8h_ac2b881501f9ee2f3ed5718f6d9ebee7c}{ft\+\_\+lstdelone}} (\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$lst, void($\ast$del)(void $\ast$))
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+lstdelone}} -- Deletes and frees memory of item list and its content. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libft_8h_a6e900cfaea2857bbf490f3105e38da93}{ft\+\_\+lstclear}} (\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$$\ast$lst, void($\ast$del)(void $\ast$))
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+lstclear}} -- Deletes and frees given node and succesors. (freeing contents). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{libft_8h_a1888c62a89ec3d206f2ed4590f4a021d}{ft\+\_\+lstiter}} (\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$lst, void($\ast$f)(void $\ast$))
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+lstiter}} -- Applies function f to the content of each node on list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$ \mbox{\hyperlink{libft_8h_a8198d1837ffbba05823f5e85afebf9c6}{ft\+\_\+lstmap}} (\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$lst, void $\ast$($\ast$f)(void $\ast$), void($\ast$del)(void $\ast$))
+\begin{DoxyCompactList}\small\item\em {\bfseries{ft\+\_\+lstmap}} -- Returns new list based on applying f to each nodes content. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Public header file for libft library. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{libft_8h_aefde00352c5326bb1c28ebd4404c4795}\label{libft_8h_aefde00352c5326bb1c28ebd4404c4795}} 
+\index{libft.h@{libft.h}!t\_list@{t\_list}}
+\index{t\_list@{t\_list}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{t\_list}{t\_list}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structs__list}{s\+\_\+list}} \mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}}}
+
+
+
+{\bfseries{t\+\_\+list}} -- Typedef struct for a dynamic list node 
+
+This type is used as a node for a one-\/way dynamic list. Any node could serve as a list for itself (i.\+e. as the beginning of a list).
+
+
+\begin{DoxyParams}{Parameters}
+{\em content} & -\/ Pointer to void to allow caller to use arbitrary type.\\
+\hline
+{\em next} & -\/ Pointer to next node of the list. NULL if last node. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{libft_8h_afad2ec371b4188602da9a94db687cb16}\label{libft_8h_afad2ec371b4188602da9a94db687cb16}} 
+\index{libft.h@{libft.h}!ft\_atoi@{ft\_atoi}}
+\index{ft\_atoi@{ft\_atoi}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_atoi()}{ft\_atoi()}}
+{\footnotesize\ttfamily int ft\+\_\+atoi (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+atoi}} -- .TODO. 
+
+Some\+\_\+detailed\+\_\+description.\+TODO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TODO.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+TODO. ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a5937ab0d08e31d0e3e4a16ec71e293a1}\label{libft_8h_a5937ab0d08e31d0e3e4a16ec71e293a1}} 
+\index{libft.h@{libft.h}!ft\_bzero@{ft\_bzero}}
+\index{ft\_bzero@{ft\_bzero}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_bzero()}{ft\_bzero()}}
+{\footnotesize\ttfamily void ft\+\_\+bzero (\begin{DoxyParamCaption}\item[{void $\ast$}]{s,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+bzero}} -- Fills memory with zeros. 
+
+Writes n bytes with 0 starting at s memory position. Uses \mbox{\hyperlink{libft_8h_a19d0a16cec67fe4c1af22f1571f4f8a6}{ft\+\_\+memset()}}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em s} & -\/ Pointer to first address.\\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & -\/ Bytes to be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ None.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+A NULL pointer parameter or an improper len (invasion of forbidden memory space) are supposed to make this function crash. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{libft_8h_ae0a6807f9f78ed4bf4f958323582d22f}\label{libft_8h_ae0a6807f9f78ed4bf4f958323582d22f}} 
+\index{libft.h@{libft.h}!ft\_calloc@{ft\_calloc}}
+\index{ft\_calloc@{ft\_calloc}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_calloc()}{ft\_calloc()}}
+{\footnotesize\ttfamily void $\ast$ ft\+\_\+calloc (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+calloc}} -- Memory allocation. 
+
+The \mbox{\hyperlink{libft_8h_ae0a6807f9f78ed4bf4f958323582d22f}{ft\+\_\+calloc()}} function contiguously allocates enough space for count objects that are size bytes of memory each and returns a pointer to the allocated memory. The allocated memory is filled with bytes of value zero.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em count} & -\/ The number of objects.\\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & -\/ The size in bytes of one object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If successful, \mbox{\hyperlink{libft_8h_ae0a6807f9f78ed4bf4f958323582d22f}{ft\+\_\+calloc()}} function returns a pointer to allocated memory. ~\newline
+ If there is an error, it returns a NULL pointer.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(). 
+\end{DoxyWarning}
+\mbox{\Hypertarget{libft_8h_a4f5cd31ca086eeda2e839722cbad3f51}\label{libft_8h_a4f5cd31ca086eeda2e839722cbad3f51}} 
+\index{libft.h@{libft.h}!ft\_get\_sym\_table@{ft\_get\_sym\_table}}
+\index{ft\_get\_sym\_table@{ft\_get\_sym\_table}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_get\_sym\_table()}{ft\_get\_sym\_table()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+get\+\_\+sym\+\_\+table (\begin{DoxyParamCaption}\item[{char $\ast$}]{sym\+\_\+table,  }\item[{unsigned int}]{base,  }\item[{int}]{in\+\_\+caps }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+get\+\_\+sym\+\_\+table}} -- TODO. 
+
+Some\+\_\+detailed\+\_\+description.\+TODO
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TODO
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+TODO
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a9c2c3821ea43ebdf97de07b123503f8b}\label{libft_8h_a9c2c3821ea43ebdf97de07b123503f8b}} 
+\index{libft.h@{libft.h}!ft\_isalnum@{ft\_isalnum}}
+\index{ft\_isalnum@{ft\_isalnum}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_isalnum()}{ft\_isalnum()}}
+{\footnotesize\ttfamily int ft\+\_\+isalnum (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+isalnum}} -- Checks for an alphanumeric character. 
+
+Uses \mbox{\hyperlink{libft_8h_ac283963beaa3b8c7d09b78851cda297e}{ft\+\_\+isalpha()}} and \mbox{\hyperlink{libft_8h_a2cf15b8a1a277d1e2ce3654101a2003d}{ft\+\_\+isdigit()}} to evaluate if c is an alphanumeric character (\textquotesingle{}A\textquotesingle{} -\/ \textquotesingle{}Z\textquotesingle{} or \textquotesingle{}a\textquotesingle{} to \textquotesingle{}z\textquotesingle{} or \textquotesingle{}0\textquotesingle{} to \textquotesingle{}9\textquotesingle{}).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & -\/ The character to evaluate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero value if c is an alphanumeric character. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{libft_8h_ac283963beaa3b8c7d09b78851cda297e}\label{libft_8h_ac283963beaa3b8c7d09b78851cda297e}} 
+\index{libft.h@{libft.h}!ft\_isalpha@{ft\_isalpha}}
+\index{ft\_isalpha@{ft\_isalpha}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_isalpha()}{ft\_isalpha()}}
+{\footnotesize\ttfamily int ft\+\_\+isalpha (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+isalpha}} -- Checks for an alphabetic character. 
+
+Uses \mbox{\hyperlink{libft_8h_a1ad9c4559cffbb211ec56fe8964f30f9}{ft\+\_\+isupper()}} and \mbox{\hyperlink{libft_8h_a2643d7f2fbcb6d5567a22d8f19e0ad70}{ft\+\_\+islower()}} to evaluate if c is an alphabetic character (\textquotesingle{}A\textquotesingle{} -\/ \textquotesingle{}Z\textquotesingle{} or \textquotesingle{}a\textquotesingle{} to \textquotesingle{}z\textquotesingle{}).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & -\/ The character to evaluate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero value if c is an alphabetic character. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{libft_8h_abf60ddbec6479540e81f3648cf71f1f4}\label{libft_8h_abf60ddbec6479540e81f3648cf71f1f4}} 
+\index{libft.h@{libft.h}!ft\_isascii@{ft\_isascii}}
+\index{ft\_isascii@{ft\_isascii}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_isascii()}{ft\_isascii()}}
+{\footnotesize\ttfamily int ft\+\_\+isascii (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+isascii}} -- Checks for (basic) ASCII character. 
+
+Checks if argument fits in 7-\/bit ASCII (basic, universal ASCII). That is, from 00 to 0177 (decimal 0 to 127).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & -\/ The character to evaluate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if c is an ASCII character; 0 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{libft_8h_a2cf15b8a1a277d1e2ce3654101a2003d}\label{libft_8h_a2cf15b8a1a277d1e2ce3654101a2003d}} 
+\index{libft.h@{libft.h}!ft\_isdigit@{ft\_isdigit}}
+\index{ft\_isdigit@{ft\_isdigit}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_isdigit()}{ft\_isdigit()}}
+{\footnotesize\ttfamily int ft\+\_\+isdigit (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+isdigit}} -- Checks for a digit character. 
+
+Evaluate if c is a digit character (\textquotesingle{}0\textquotesingle{} -\/ \textquotesingle{}9\textquotesingle{}).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & -\/ The character to evaluate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero value if c is a digit character. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{libft_8h_a2643d7f2fbcb6d5567a22d8f19e0ad70}\label{libft_8h_a2643d7f2fbcb6d5567a22d8f19e0ad70}} 
+\index{libft.h@{libft.h}!ft\_islower@{ft\_islower}}
+\index{ft\_islower@{ft\_islower}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_islower()}{ft\_islower()}}
+{\footnotesize\ttfamily int ft\+\_\+islower (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+islower}} -- Tests for lowercase alphabetic character. 
+
+Evaluate if c is a lowercase alphabetic character (\textquotesingle{}a\textquotesingle{} -\/ \textquotesingle{}z\textquotesingle{}). The value of the argument must be representable as an unsigned char or the value of EOF.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & -\/ The character to evaluate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero value if c is an lowercase alphabetic character. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{libft_8h_abcdba69692f21146aeea5b3d59b7d0ca}\label{libft_8h_abcdba69692f21146aeea5b3d59b7d0ca}} 
+\index{libft.h@{libft.h}!ft\_isprint@{ft\_isprint}}
+\index{ft\_isprint@{ft\_isprint}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_isprint()}{ft\_isprint()}}
+{\footnotesize\ttfamily int ft\+\_\+isprint (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+isprint}} -- Checks for printable (basic) ASCII character. 
+
+Checks if argument fits in the range of 040 to 0176 (decimal 32 to 126). That is, the printable characters range in 7 bits basic, universal ASCII).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & -\/ The character to evaluate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if c is an printable basic ASCII character; 0 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{libft_8h_ac9bd1a8fd96208017945d589974efc65}\label{libft_8h_ac9bd1a8fd96208017945d589974efc65}} 
+\index{libft.h@{libft.h}!ft\_issign@{ft\_issign}}
+\index{ft\_issign@{ft\_issign}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_issign()}{ft\_issign()}}
+{\footnotesize\ttfamily int ft\+\_\+issign (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+issign}} -- Checks for a \textquotesingle{}+\textquotesingle{} \textquotesingle{}-\/\textquotesingle{} character. 
+
+Evaluate if c is a sign (i.\+e. any of \textquotesingle{}+\textquotesingle{} \textquotesingle{}-\/\textquotesingle{} characters).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & -\/ The character to evaluate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero value if c is a sign character (+1 for \textquotesingle{}+\textquotesingle{} or -\/1 for \textquotesingle{}-\/\textquotesingle{}). ~\newline
+ Returns 0 if not a sign character. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{libft_8h_a76cd21d0fd288012f02809cba504f650}\label{libft_8h_a76cd21d0fd288012f02809cba504f650}} 
+\index{libft.h@{libft.h}!ft\_isspace@{ft\_isspace}}
+\index{ft\_isspace@{ft\_isspace}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_isspace()}{ft\_isspace()}}
+{\footnotesize\ttfamily int ft\+\_\+isspace (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+isspace}} -- White-\/space (in the broad sense) character test. 
+
+The \mbox{\hyperlink{libft_8h_a76cd21d0fd288012f02809cba504f650}{ft\+\_\+isspace()}} function tests for the white-\/space characters. ~\newline
+ This includes the following standard characters\+: ~\newline
+ \textquotesingle{}\textbackslash{}t\textquotesingle{} \textquotesingle{}~\newline
+\textquotesingle{} \textquotesingle{}\textbackslash{}v\textquotesingle{} \textquotesingle{}\textbackslash{}f\textquotesingle{} \textquotesingle{}\textbackslash{}r\textquotesingle{} \textquotesingle{} \textquotesingle{}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & -\/ The character to evaluate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if c is a white space in the broad sense; 0 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{libft_8h_a1ad9c4559cffbb211ec56fe8964f30f9}\label{libft_8h_a1ad9c4559cffbb211ec56fe8964f30f9}} 
+\index{libft.h@{libft.h}!ft\_isupper@{ft\_isupper}}
+\index{ft\_isupper@{ft\_isupper}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_isupper()}{ft\_isupper()}}
+{\footnotesize\ttfamily int ft\+\_\+isupper (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+isupper}} -- Tests for uppercase alphabetic character. 
+
+Evaluate if c is an uppercase alphabetic character (\textquotesingle{}A\textquotesingle{} -\/ \textquotesingle{}Z\textquotesingle{}). ~\newline
+ The value of the argument must be representable as an unsigned char or the value of EOF.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & -\/ The character to evaluate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero value if c is an uppercase alphabetic character. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{libft_8h_a8a6ea3765dfd826eabfc00d36e28ea38}\label{libft_8h_a8a6ea3765dfd826eabfc00d36e28ea38}} 
+\index{libft.h@{libft.h}!ft\_itoa@{ft\_itoa}}
+\index{ft\_itoa@{ft\_itoa}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_itoa()}{ft\_itoa()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+itoa (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+itoa}} -- Converts int to string representation. 
+
+Allocates (with malloc()) and returns a string representing the integer received as an argument. ~\newline
+ Negative numbers must be handled.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string representing the integer. ~\newline
+ NULL if the allocation fails.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(). ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a610f39aa4bdf576a404e7dff6307db6c}\label{libft_8h_a610f39aa4bdf576a404e7dff6307db6c}} 
+\index{libft.h@{libft.h}!ft\_itoa\_b@{ft\_itoa\_b}}
+\index{ft\_itoa\_b@{ft\_itoa\_b}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_itoa\_b()}{ft\_itoa\_b()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+itoa\+\_\+b (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{unsigned int}]{base,  }\item[{int}]{in\+\_\+caps }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+ltoa\+\_\+b}} -- .TODO. 
+
+Some\+\_\+detailed\+\_\+description.\+TODO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+{\em in\+\_\+caps} & -\/ If hexadecimal, when != 0 uses abcdef instead of ABCDEF.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TODO.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(). ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash. TODO
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a4c10e88fffc3c9467eb16e6debd227a4}\label{libft_8h_a4c10e88fffc3c9467eb16e6debd227a4}} 
+\index{libft.h@{libft.h}!ft\_lstadd\_back@{ft\_lstadd\_back}}
+\index{ft\_lstadd\_back@{ft\_lstadd\_back}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_lstadd\_back()}{ft\_lstadd\_back()}}
+{\footnotesize\ttfamily void ft\+\_\+lstadd\+\_\+back (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$$\ast$}]{lst,  }\item[{\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$}]{new }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+lstadd\+\_\+back}} -- Adds the node ’new’ at the end of the list. 
+
+Adds the node ’new’ at the end of the list.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em lst} & -\/ The address of a pointer to the first link of a list.\\
+\hline
+\mbox{\texttt{ in}}  & {\em -\/} & The address of a pointer to the node to be added to the list.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+TODO.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ If lst == NULL or new == NULL, nothing must be done. ~\newline
+ If $\ast$lst == NULL \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} $\ast$lst = new (i.\+e. lstadd\+\_\+backing an element to a NULL list, creates the list with just that element). 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a0195e4eb88fad15717ed90524ac15771}\label{libft_8h_a0195e4eb88fad15717ed90524ac15771}} 
+\index{libft.h@{libft.h}!ft\_lstadd\_front@{ft\_lstadd\_front}}
+\index{ft\_lstadd\_front@{ft\_lstadd\_front}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_lstadd\_front()}{ft\_lstadd\_front()}}
+{\footnotesize\ttfamily void ft\+\_\+lstadd\+\_\+front (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$$\ast$}]{lst,  }\item[{\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$}]{new }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+lstadd\+\_\+front}} -- Adds node at the beginning of the list. 
+
+Adds the node ’new’ at the beginning of the list.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em lst} & -\/ The address of a pointer to the first link of a list.\\
+\hline
+\mbox{\texttt{ in}}  & {\em new} & -\/ The address of a pointer to the node to be added to the list.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(). ~\newline
+ TODO
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ lst == NULL. ~\newline
+ $\ast$lst == NULL. ~\newline
+ t\+\_\+list == NULL. ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a6e900cfaea2857bbf490f3105e38da93}\label{libft_8h_a6e900cfaea2857bbf490f3105e38da93}} 
+\index{libft.h@{libft.h}!ft\_lstclear@{ft\_lstclear}}
+\index{ft\_lstclear@{ft\_lstclear}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_lstclear()}{ft\_lstclear()}}
+{\footnotesize\ttfamily void ft\+\_\+lstclear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$$\ast$}]{lst,  }\item[{void($\ast$)(void $\ast$)}]{del }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+lstclear}} -- Deletes and frees given node and succesors. (freeing contents). 
+
+Deletes and frees the given node and every successor of that node, using the function ’del’ and free(). ~\newline
+ Finally, the pointer to the list must be set to NULL.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em lst-\/} & The address of a pointer to a node.\\
+\hline
+\mbox{\texttt{ in}}  & {\em del} & -\/ The address of the function used to delete the content of the node.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: free(). ~\newline
+ TODO.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ If lst == NULL, nothing must be done. ~\newline
+ If $\ast$lst == NULL, nothing must be done. ~\newline
+ Parameter lst MUST be set to NULL by this function. ~\newline
+ Function del() must handle NULL content but must not free the node. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_ac2b881501f9ee2f3ed5718f6d9ebee7c}\label{libft_8h_ac2b881501f9ee2f3ed5718f6d9ebee7c}} 
+\index{libft.h@{libft.h}!ft\_lstdelone@{ft\_lstdelone}}
+\index{ft\_lstdelone@{ft\_lstdelone}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_lstdelone()}{ft\_lstdelone()}}
+{\footnotesize\ttfamily void ft\+\_\+lstdelone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$}]{lst,  }\item[{void($\ast$)(void $\ast$)}]{del }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+lstdelone}} -- Deletes and frees memory of item list and its content. 
+
+Takes as a parameter a node and frees the memory of the node’s content using the function ’del’ given as a parameter and free the node. ~\newline
+ The memory of ’next’ must not be freed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em lst} & -\/ The node to free.\\
+\hline
+\mbox{\texttt{ in}}  & {\em del} & -\/ The address of the function used to delete the content.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: free(). ~\newline
+ TODO.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ CONCEPTUAL\+: Could break a list because no first item of list nor previous item is given. This is the expected behavior. ~\newline
+ The caller should set lst to NULL after freeing the memory with this funcion. ~\newline
+ Function del() must handle NULL content but must not free the node. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a1888c62a89ec3d206f2ed4590f4a021d}\label{libft_8h_a1888c62a89ec3d206f2ed4590f4a021d}} 
+\index{libft.h@{libft.h}!ft\_lstiter@{ft\_lstiter}}
+\index{ft\_lstiter@{ft\_lstiter}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_lstiter()}{ft\_lstiter()}}
+{\footnotesize\ttfamily void ft\+\_\+lstiter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$}]{lst,  }\item[{void($\ast$)(void $\ast$)}]{f }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+lstiter}} -- Applies function f to the content of each node on list. 
+
+Iterates the list ’lst’ and applies the function ’f’ on the content of each node.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lst} & -\/ The address of a pointer to a node.\\
+\hline
+{\em f} & -\/ The address of the function used to iterate on the list.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+TODO.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ If lst == NULL, return NULL. ~\newline
+ CONCEPTUAL\+: f fuction must handle NULL content\+: f() must return NULL, also if its malloc() call fails. f() must return the address of the new content. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_aed5f9b5ecc45235a7b7cf9d4b24e43dc}\label{libft_8h_aed5f9b5ecc45235a7b7cf9d4b24e43dc}} 
+\index{libft.h@{libft.h}!ft\_lstlast@{ft\_lstlast}}
+\index{ft\_lstlast@{ft\_lstlast}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_lstlast()}{ft\_lstlast()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$ ft\+\_\+lstlast (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$}]{lst }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+lstlast}} -- Returns the last node of the list. 
+
+Returns the last node of the list.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em lst} & -\/ The beginning of the list.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Last node of the list.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+TODO.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ If lst == NULL, return value is NULL. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a8198d1837ffbba05823f5e85afebf9c6}\label{libft_8h_a8198d1837ffbba05823f5e85afebf9c6}} 
+\index{libft.h@{libft.h}!ft\_lstmap@{ft\_lstmap}}
+\index{ft\_lstmap@{ft\_lstmap}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_lstmap()}{ft\_lstmap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$ ft\+\_\+lstmap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$}]{lst,  }\item[{void $\ast$($\ast$)(void $\ast$)}]{f,  }\item[{void($\ast$)(void $\ast$)}]{del }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+lstmap}} -- Returns new list based on applying f to each nodes content. 
+
+Iterates the list ’lst’ and applies the function ’f’ on the content of each node. Creates a new list resulting of the successive applications of the function ’f’. The ’del’ function is used to delete the content of a node if needed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lst} & -\/ The address of a pointer to a node.\\
+\hline
+{\em f} & -\/ The address of the function used to iterate on the list.\\
+\hline
+{\em del} & -\/ The address of the function used to delete the content of a node if needed.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new list. ~\newline
+ NULL if the allocation fails.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(), free(). ~\newline
+ TODO.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ CONCEPTUAL\+: f fuction must handle NULL content\+: f() must return NULL, also if its malloc() call fails. f() must return the address of the new content. ~\newline
+ Function del() must handle NULL content but must not free the node. ~\newline
+ If at some point the funcion fails, the in-\/construction new list must be cleared completely and NULL must be returned. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a8fe4ea6f56f5a2a75ee13d97416b60ed}\label{libft_8h_a8fe4ea6f56f5a2a75ee13d97416b60ed}} 
+\index{libft.h@{libft.h}!ft\_lstnew@{ft\_lstnew}}
+\index{ft\_lstnew@{ft\_lstnew}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_lstnew()}{ft\_lstnew()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$ ft\+\_\+lstnew (\begin{DoxyParamCaption}\item[{void $\ast$}]{content }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+lstnew}} -- Create a list element from pointer to its content. 
+
+Allocates (with malloc()) and returns a new node. ~\newline
+ The member variable ’content’ is initialized with the value of the parameter ’content’. The variable ’next’ is initialized to NULL.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em content} & -\/ The content to create the node with.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new node.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: ???. ~\newline
+ TODO. ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ If content == NULL, must return NULL. ~\newline
+ If malloc fails, must return NULL. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a9da614988ac99446db9df99d2c773fc1}\label{libft_8h_a9da614988ac99446db9df99d2c773fc1}} 
+\index{libft.h@{libft.h}!ft\_lstsize@{ft\_lstsize}}
+\index{ft\_lstsize@{ft\_lstsize}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_lstsize()}{ft\_lstsize()}}
+{\footnotesize\ttfamily int ft\+\_\+lstsize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\+\_\+list}} $\ast$}]{lst }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+lstsize}} -- Counts the number of nodes in a list. 
+
+Counts the number of nodes in a list.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em lst} & -\/ The beginning of the list.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the list.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+TODO.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ If lst == NULL, return value must be 0. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a9c7ca392832da91098199a661fa9527d}\label{libft_8h_a9c7ca392832da91098199a661fa9527d}} 
+\index{libft.h@{libft.h}!ft\_ltoa@{ft\_ltoa}}
+\index{ft\_ltoa@{ft\_ltoa}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_ltoa()}{ft\_ltoa()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+ltoa (\begin{DoxyParamCaption}\item[{long}]{n }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+ltoa}} -- .TODO. 
+
+Some\+\_\+detailed\+\_\+description.\+TODO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TODO.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(). ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a85d84a6280527e8e890bf39a70512601}\label{libft_8h_a85d84a6280527e8e890bf39a70512601}} 
+\index{libft.h@{libft.h}!ft\_ltoa\_b@{ft\_ltoa\_b}}
+\index{ft\_ltoa\_b@{ft\_ltoa\_b}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_ltoa\_b()}{ft\_ltoa\_b()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+ltoa\+\_\+b (\begin{DoxyParamCaption}\item[{long}]{n,  }\item[{unsigned int}]{base,  }\item[{int}]{in\+\_\+caps }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+ltoa\+\_\+b}} -- .TODO. 
+
+Some\+\_\+detailed\+\_\+description.\+TODO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TODO.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(). ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash. TODO
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_abf633e8e48a8afbe61947f61de5ac695}\label{libft_8h_abf633e8e48a8afbe61947f61de5ac695}} 
+\index{libft.h@{libft.h}!ft\_memchr@{ft\_memchr}}
+\index{ft\_memchr@{ft\_memchr}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_memchr()}{ft\_memchr()}}
+{\footnotesize\ttfamily void $\ast$ ft\+\_\+memchr (\begin{DoxyParamCaption}\item[{const void $\ast$}]{s,  }\item[{int}]{c,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+memchr}} -- Locate byte in byte string. 
+
+The \mbox{\hyperlink{libft_8h_abf633e8e48a8afbe61947f61de5ac695}{ft\+\_\+memchr()}} function locates the first occurrence of c (converted to an unsigned char) in the first n bytes of string s.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s} & -\/ The start address for the search.\\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & -\/ The byte to search for (interpreted as unsigned char).\\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & -\/ The start address for the search.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the byte located. ~\newline
+ NULL if no such byte exists within n bytes or if n == 0.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+A NULL pointer parameter is supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ A n == 0 parameter is also supposed to return a NULL pointer. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a08f665a1828c402f2ffe2e2187f135fc}\label{libft_8h_a08f665a1828c402f2ffe2e2187f135fc}} 
+\index{libft.h@{libft.h}!ft\_memcmp@{ft\_memcmp}}
+\index{ft\_memcmp@{ft\_memcmp}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_memcmp()}{ft\_memcmp()}}
+{\footnotesize\ttfamily int ft\+\_\+memcmp (\begin{DoxyParamCaption}\item[{const void $\ast$}]{s1,  }\item[{const void $\ast$}]{s2,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+memcmp}} -- Compare memory areas. 
+
+The \mbox{\hyperlink{libft_8h_a08f665a1828c402f2ffe2e2187f135fc}{ft\+\_\+memcmp()}} function compares the first n bytes (each interpreted as unsigned char) of the memory areas s1 and s2.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s1} & -\/ Address of first memory area.\\
+\hline
+\mbox{\texttt{ in}}  & {\em s2} & -\/ Address of second memory area.\\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & -\/ Amount of bytes to compare from.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a 0 if both memory area are equal or if n == 0. ~\newline
+ Returns a positive or negative number if different. ~\newline
+ Specifically the returned value comes from the first different byte found as the difference between the numeric value of s1\textquotesingle{}s byte minus the numeric value of s2\textquotesingle{}s byte.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+NULL pointers parameters are supposed to make this function crash. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{libft_8h_a5f5c5d19b1f0355d9768c75d30ed5559}\label{libft_8h_a5f5c5d19b1f0355d9768c75d30ed5559}} 
+\index{libft.h@{libft.h}!ft\_memcpy@{ft\_memcpy}}
+\index{ft\_memcpy@{ft\_memcpy}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_memcpy()}{ft\_memcpy()}}
+{\footnotesize\ttfamily void $\ast$ ft\+\_\+memcpy (\begin{DoxyParamCaption}\item[{void $\ast$}]{dst,  }\item[{const void $\ast$}]{src,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+memcpy}} -- Copies memory area ({\bfseries{overlapping unsafe}}). 
+
+The \mbox{\hyperlink{libft_8h_a5f5c5d19b1f0355d9768c75d30ed5559}{ft\+\_\+memcpy()}} function copies n bytes from memory area src to memory area dst. ~\newline
+ {\bfseries{If dst and src overlap, behavior is undefined}}. Applications in which dst and src might overlap should use \mbox{\hyperlink{libft_8h_acdc865fa140c03c01a39d74b1f5c2416}{ft\+\_\+memmove()}} instead.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em dst} & -\/ Pointer to destination (start of memory to be written).\\
+\hline
+\mbox{\texttt{ in}}  & {\em src} & -\/ Pointer to source (address of first byte to copy).\\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & -\/ Amount of bytes to be copied from src to dst.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ The original value of pointer dst.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+If dst and src are {\bfseries{both}} NULL {\bfseries{or}} n == 0, the function {\bfseries{does nothing}}, just returns dst. ~\newline
+ When n != 0 this function is supposed to fail {\bfseries{only if either src or dst are NULL}}. ~\newline
+ If dst and src overlap the {\bfseries{behaviour is undefined}}. ~\newline
+ An improper n (invasion of forbidden memory space) is supposed to make this function crash. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{libft_8h_acdc865fa140c03c01a39d74b1f5c2416}\label{libft_8h_acdc865fa140c03c01a39d74b1f5c2416}} 
+\index{libft.h@{libft.h}!ft\_memmove@{ft\_memmove}}
+\index{ft\_memmove@{ft\_memmove}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_memmove()}{ft\_memmove()}}
+{\footnotesize\ttfamily void $\ast$ ft\+\_\+memmove (\begin{DoxyParamCaption}\item[{void $\ast$}]{dst,  }\item[{const void $\ast$}]{src,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+memmove}} -- Copies memory area ({\bfseries{overlapping safe}}). 
+
+The \mbox{\hyperlink{libft_8h_acdc865fa140c03c01a39d74b1f5c2416}{ft\+\_\+memmove()}} function copies len bytes from string src to string dst. ~\newline
+ The two strings may overlap; the copy is always done in a non-\/destructive manner.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em dst} & -\/ Pointer to destination (start of memory to be written).\\
+\hline
+\mbox{\texttt{ in}}  & {\em src} & -\/ Pointer to source (address of first byte to copy).\\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & -\/ Amount of bytes to be copied from src to dst.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ The original value of pointer dst.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+If dst and src are {\bfseries{both}} NULL {\bfseries{or}} n == 0, the function {\bfseries{does nothing}}, just returns dst. ~\newline
+ When len != 0 this function is supposed to fail {\bfseries{only if either src or dst are NULL}}. ~\newline
+ An improper len (invasion of forbidden memory space) is supposed to make ~\newline
+ this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ If destination overlaps source, it is possible that at some point the original data in source gets corrupted before it\textquotesingle{}s been copied into dst. ~\newline
+ Problematic case\+: If reading src from the beginning ~\newline
+ dst \texorpdfstring{$>$}{>} src \&\& src + len \texorpdfstring{$>$}{>} dst ~\newline
+ 0123456789012345678901234567 ~\newline
+ ssssssssssssssssssssssss ~\newline
+ dddddddddddddddddddddddd ~\newline
+ In order to avoid this, src must be read from the end in this case. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a19d0a16cec67fe4c1af22f1571f4f8a6}\label{libft_8h_a19d0a16cec67fe4c1af22f1571f4f8a6}} 
+\index{libft.h@{libft.h}!ft\_memset@{ft\_memset}}
+\index{ft\_memset@{ft\_memset}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_memset()}{ft\_memset()}}
+{\footnotesize\ttfamily void $\ast$ ft\+\_\+memset (\begin{DoxyParamCaption}\item[{void $\ast$}]{b,  }\item[{int}]{c,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+memset}} -- Fills memory with a constant byte. 
+
+Writes len bytes with c (unsigned char casted) starting at b memory position.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em b} & -\/ Pointer to first address.\\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & -\/ Integer with the value (unsigned char casted) to write.\\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & -\/ Bytes to be written.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ The original pointer passed as function argument.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+A NULL pointer parameter or an improper len (invasion of forbidden memory space) are supposed to make this function crash. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{libft_8h_a3b74034df822be1f6c45484cb01f01a7}\label{libft_8h_a3b74034df822be1f6c45484cb01f01a7}} 
+\index{libft.h@{libft.h}!ft\_pow@{ft\_pow}}
+\index{ft\_pow@{ft\_pow}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_pow()}{ft\_pow()}}
+{\footnotesize\ttfamily int ft\+\_\+pow (\begin{DoxyParamCaption}\item[{int}]{base,  }\item[{unsigned int}]{exp }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+pow}} -- Power function. 
+
+The pow() functions compute base raised to the power exp.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+base$^\wedge$exp.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+TODO.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a0a1bcb2ef112f7ad073d507a0c6be4d2}\label{libft_8h_a0a1bcb2ef112f7ad073d507a0c6be4d2}} 
+\index{libft.h@{libft.h}!ft\_print\_memory@{ft\_print\_memory}}
+\index{ft\_print\_memory@{ft\_print\_memory}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_print\_memory()}{ft\_print\_memory()}}
+{\footnotesize\ttfamily void $\ast$ ft\+\_\+print\+\_\+memory (\begin{DoxyParamCaption}\item[{void $\ast$}]{addr,  }\item[{unsigned int}]{size }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+print\+\_\+memory}} -- .TODO. 
+
+Some\+\_\+detailed\+\_\+description.\+TODO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TODO.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(), write(). ~\newline
+ TODO.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a8ee15a511946c1397bd2bdea4aed6aee}\label{libft_8h_a8ee15a511946c1397bd2bdea4aed6aee}} 
+\index{libft.h@{libft.h}!ft\_putchar\_fd@{ft\_putchar\_fd}}
+\index{ft\_putchar\_fd@{ft\_putchar\_fd}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_putchar\_fd()}{ft\_putchar\_fd()}}
+{\footnotesize\ttfamily void ft\+\_\+putchar\+\_\+fd (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{int}]{fd }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+putchar\+\_\+fd}} -- .TODO. 
+
+Some\+\_\+detailed\+\_\+description.\+TODO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TODO.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: write(). ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_ace5537837dd84bbafbe048446ac89edf}\label{libft_8h_ace5537837dd84bbafbe048446ac89edf}} 
+\index{libft.h@{libft.h}!ft\_putchar\_fd\_safe@{ft\_putchar\_fd\_safe}}
+\index{ft\_putchar\_fd\_safe@{ft\_putchar\_fd\_safe}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_putchar\_fd\_safe()}{ft\_putchar\_fd\_safe()}}
+{\footnotesize\ttfamily int ft\+\_\+putchar\+\_\+fd\+\_\+safe (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{int}]{fd }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+putchar\+\_\+fd\+\_\+safe}} -- TODO.. 
+
+Some\+\_\+detailed\+\_\+description.\+TODO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Amount of chars actually printed.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: write(). ~\newline
+ TODO. A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_aeb112152acfc553d58d61a5df38afcde}\label{libft_8h_aeb112152acfc553d58d61a5df38afcde}} 
+\index{libft.h@{libft.h}!ft\_putendl\_fd@{ft\_putendl\_fd}}
+\index{ft\_putendl\_fd@{ft\_putendl\_fd}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_putendl\_fd()}{ft\_putendl\_fd()}}
+{\footnotesize\ttfamily void ft\+\_\+putendl\+\_\+fd (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{int}]{fd }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+putendl\+\_\+fd}} -- .TODO. 
+
+Some\+\_\+detailed\+\_\+description.\+TODO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TODO.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: write(). ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash. TODO
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a63cc0aec12256d125d3f85e472280972}\label{libft_8h_a63cc0aec12256d125d3f85e472280972}} 
+\index{libft.h@{libft.h}!ft\_putnbr\_fd@{ft\_putnbr\_fd}}
+\index{ft\_putnbr\_fd@{ft\_putnbr\_fd}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_putnbr\_fd()}{ft\_putnbr\_fd()}}
+{\footnotesize\ttfamily void ft\+\_\+putnbr\+\_\+fd (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{fd }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+putnbr\+\_\+fd}} -- .TODO. 
+
+Some\+\_\+detailed\+\_\+description.\+TODO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TODO.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: write(). ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_acefce9ac519f8f8b7d3fde33dbafe469}\label{libft_8h_acefce9ac519f8f8b7d3fde33dbafe469}} 
+\index{libft.h@{libft.h}!ft\_putstr\_fd@{ft\_putstr\_fd}}
+\index{ft\_putstr\_fd@{ft\_putstr\_fd}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_putstr\_fd()}{ft\_putstr\_fd()}}
+{\footnotesize\ttfamily void ft\+\_\+putstr\+\_\+fd (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{int}]{fd }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+putstr\+\_\+fd}} -- .TODO. 
+
+Some\+\_\+detailed\+\_\+description.\+TODO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TODO.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: write(). A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash. TODO
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_ac8b37f8f02a3ced682c7f1f874b1b144}\label{libft_8h_ac8b37f8f02a3ced682c7f1f874b1b144}} 
+\index{libft.h@{libft.h}!ft\_putstr\_fd\_safe@{ft\_putstr\_fd\_safe}}
+\index{ft\_putstr\_fd\_safe@{ft\_putstr\_fd\_safe}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_putstr\_fd\_safe()}{ft\_putstr\_fd\_safe()}}
+{\footnotesize\ttfamily int ft\+\_\+putstr\+\_\+fd\+\_\+safe (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{int}]{fd }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+putstr\+\_\+fd\+\_\+safe}} -- TODO. 
+
+Some\+\_\+detailed\+\_\+description. TODO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & . TODO\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Amount of chars actually printed.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: write(). ~\newline
+ TODO. ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_aa65c9de65051c8c589286cf133c4a1f4}\label{libft_8h_aa65c9de65051c8c589286cf133c4a1f4}} 
+\index{libft.h@{libft.h}!ft\_split@{ft\_split}}
+\index{ft\_split@{ft\_split}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_split()}{ft\_split()}}
+{\footnotesize\ttfamily char $\ast$$\ast$ ft\+\_\+split (\begin{DoxyParamCaption}\item[{char const $\ast$}]{s,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+split}} -- Split string according to delimiter char. 
+
+Allocates (with malloc(3)) and returns an array of strings obtained by splitting ’s’ using the character ’c’ as a delimiter. ~\newline
+ The array must end with a NULL pointer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s} & -\/ The string to be splitted.\\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & -\/ The character that will act as delimiter to determine the resulting splitted substrings.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The array of new strings resulting from the split. The last element of this array is always NULL. ~\newline
+ NULL if the allocation fails.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(), free(). ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ Contigous delimiter chars produce no substrings at all. ~\newline
+ This function is supposed to return a single element array (with NULL value) when argument s is an empty string. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_aa6d0c2d180f32ee585485e1a1ce3d55d}\label{libft_8h_aa6d0c2d180f32ee585485e1a1ce3d55d}} 
+\index{libft.h@{libft.h}!ft\_strchr@{ft\_strchr}}
+\index{ft\_strchr@{ft\_strchr}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_strchr()}{ft\_strchr()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+strchr (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s,  }\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+strchr}} -- Locate character in string (left to right). 
+
+The \mbox{\hyperlink{libft_8h_aa6d0c2d180f32ee585485e1a1ce3d55d}{ft\+\_\+strchr()}} function locates the first occurrence of c (converted to a char) in the string pointed to by s. The terminating null character is considered to be part of the string; therefore if c is `\textbackslash{}0', the functions locate the terminating `\textbackslash{}0'. ~\newline
+ The strrchr() function is identical to strchr(), except it locates the last occurrence of c.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s} & -\/ The string that will be scanned.\\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & -\/ The char to look for in s.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The functions \mbox{\hyperlink{libft_8h_aa6d0c2d180f32ee585485e1a1ce3d55d}{ft\+\_\+strchr()}} and \mbox{\hyperlink{libft_8h_a49c260cf80f9997975d6f3ec74ead582}{ft\+\_\+strrchr()}} return a pointer to the located character, or NULL if the character does not appear in the string.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+TODO. A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{libft_8h_a2ac2079a4250507c9af75d696f2ae476}\label{libft_8h_a2ac2079a4250507c9af75d696f2ae476}} 
+\index{libft.h@{libft.h}!ft\_strdup@{ft\_strdup}}
+\index{ft\_strdup@{ft\_strdup}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_strdup()}{ft\_strdup()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+strdup (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s1 }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+strdup}} -- Saves a copy of a string. 
+
+The \mbox{\hyperlink{libft_8h_a2ac2079a4250507c9af75d696f2ae476}{ft\+\_\+strdup()}} function allocates sufficient memory for a copy of the string s1, does the copy, and returns a pointer to it. ~\newline
+ The pointer may subsequently be used as an argument to the function free().
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s1} & -\/ The string to be copied.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If successful, \mbox{\hyperlink{libft_8h_a2ac2079a4250507c9af75d696f2ae476}{ft\+\_\+strdup()}} function returns a pointer to the newly allocated string copy. ~\newline
+ If there is an error, it returns a NULL pointer.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(). ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{libft_8h_ada722cffd2c6c8169ae339afd0f9763c}\label{libft_8h_ada722cffd2c6c8169ae339afd0f9763c}} 
+\index{libft.h@{libft.h}!ft\_striteri@{ft\_striteri}}
+\index{ft\_striteri@{ft\_striteri}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_striteri()}{ft\_striteri()}}
+{\footnotesize\ttfamily void ft\+\_\+striteri (\begin{DoxyParamCaption}\item[{char $\ast$}]{s,  }\item[{void($\ast$)(unsigned int, char $\ast$)}]{f }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+striteri}} -- Modify a string applying a function to each of its chars. 
+
+Applies the function ’f’ on each character of the string passed as argument, passing its index as first argument. Each character is passed by address to ’f’ to be modified if necessary.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a91e6e3e428bcc9f2291b700e1829b82b}\label{libft_8h_a91e6e3e428bcc9f2291b700e1829b82b}} 
+\index{libft.h@{libft.h}!ft\_strjoin@{ft\_strjoin}}
+\index{ft\_strjoin@{ft\_strjoin}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_strjoin()}{ft\_strjoin()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+strjoin (\begin{DoxyParamCaption}\item[{char const $\ast$}]{s1,  }\item[{char const $\ast$}]{s2 }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+strjoin}} -- Concatenates two strings resulting in new string. 
+
+Allocates (with malloc()) and returns a new string, which is the result of the concatenation of ’s1’ and ’s2’.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s1} & -\/ First string (prefix).\\
+\hline
+\mbox{\texttt{ in}}  & {\em s2} & -\/ Second string (suffix).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new string. ~\newline
+ NULL if the allocation fails.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(). ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash. TODO
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a7531453313e0cbfde6fe51662c9c3208}\label{libft_8h_a7531453313e0cbfde6fe51662c9c3208}} 
+\index{libft.h@{libft.h}!ft\_strlcat@{ft\_strlcat}}
+\index{ft\_strlcat@{ft\_strlcat}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_strlcat()}{ft\_strlcat()}}
+{\footnotesize\ttfamily size\+\_\+t ft\+\_\+strlcat (\begin{DoxyParamCaption}\item[{char $\ast$}]{dst,  }\item[{const char $\ast$}]{src,  }\item[{size\+\_\+t}]{dstsize }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+strlcat}} -- Concatenate string. 
+
+\mbox{\hyperlink{libft_8h_a7531453313e0cbfde6fe51662c9c3208}{ft\+\_\+strlcat()}} appends string src to the end of dst. It will append at most dstsize -\/ strlen(dst) -\/ 1 characters. It will then NUL-\/terminate, unless dstsize is 0 or the original dst string was longer than dstsize (in practice this should not happen as it means that either dstsize is incorrect or that dst is not a proper string). ~\newline
+ \mbox{\hyperlink{libft_8h_a12f759eb9793cf306fede66d0b7de0fc}{ft\+\_\+strlcpy()}} and \mbox{\hyperlink{libft_8h_a7531453313e0cbfde6fe51662c9c3208}{ft\+\_\+strlcat()}} take the full size of the destination buffer ~\newline
+ and guarantee NUL-\/termination if there is room. ~\newline
+ Note that room for the NUL should be included in dstsize.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{libft_8h_a12f759eb9793cf306fede66d0b7de0fc}{ft\+\_\+strlcpy()}} and \mbox{\hyperlink{libft_8h_a7531453313e0cbfde6fe51662c9c3208}{ft\+\_\+strlcat()}} functions return the total length of the string they tried to create. ~\newline
+ For strlcpy() that means the length of src. ~\newline
+ For strlcat() that means the initial length of dst plus the length of src.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+TODO. ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ It must NOT be assumed that src is NUL terminated. ~\newline
+ It must NOT be assumed that dst is NUL terminated. First it must be checked (within dstsize) that a \textquotesingle{}\textbackslash{}0\textquotesingle{} is found in dst. If no NUL character is found, the function must return inmediately without modifying dst (it would make no sense otherwise because there is no way of knowing where is the end of dst). ~\newline
+ If there is a NUL char in dst, then the copy from source can start. ~\newline
+ The copy of chars from src to dst is done while (d \texorpdfstring{$<$}{<} dstsize -\/ 1) but can be aborted if (src\mbox{[}s\mbox{]} == \textquotesingle{}\textbackslash{}0\textquotesingle{}) (d starts at the position where \textquotesingle{}\textbackslash{}0\textquotesingle{} is found in dst; s starts at 0). Finally dst is ALWAYS NUL terminated, either at position dstsize -\/ 1 (i.\+e. the case when src doesn\textquotesingle{}t really fit inside dst) or when corresponding given the break of the while loop triggered by the if (src\mbox{[}s\mbox{]} == \textquotesingle{}\textbackslash{}0\textquotesingle{}). ~\newline
+ Notice that src might not be NUL terminated. The concatenation would end ~\newline
+ only when !(d \texorpdfstring{$<$}{<} dstsize -\/ 1). ~\newline
+ In every case the return is\+: ~\newline
+ TODO ~\newline
+ In this case there are two possibilities\+: ~\newline
+ There is room for the whole src to fit + NUL char to fit in dst (always according to dstsize and the actual position of the first NUL character in dst); or ~\newline
+ TODO ~\newline
+ When a 0 (or negative) dstsize is passed it must not copy any chars. This is a problem when evaluating the if condition because size\+\_\+t is unsigned and must be casted with (signed) in order for the condition to behave as expected. ~\newline
+ Also, the returned value is NOT the original dst size + ft\+\_\+strlen(src) but dstsize parameter + ft\+\_\+strlen(src). 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a12f759eb9793cf306fede66d0b7de0fc}\label{libft_8h_a12f759eb9793cf306fede66d0b7de0fc}} 
+\index{libft.h@{libft.h}!ft\_strlcpy@{ft\_strlcpy}}
+\index{ft\_strlcpy@{ft\_strlcpy}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_strlcpy()}{ft\_strlcpy()}}
+{\footnotesize\ttfamily size\+\_\+t ft\+\_\+strlcpy (\begin{DoxyParamCaption}\item[{char $\ast$}]{dst,  }\item[{const char $\ast$}]{src,  }\item[{size\+\_\+t}]{dstsize }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+strlcpy}} -- Copies a string. 
+
+\mbox{\hyperlink{libft_8h_a12f759eb9793cf306fede66d0b7de0fc}{ft\+\_\+strlcpy()}} copies up to dstsize -\/ 1 characters from the string src to dst, NUL-\/terminating the result if dstsize is not 0. ~\newline
+ \mbox{\hyperlink{libft_8h_a12f759eb9793cf306fede66d0b7de0fc}{ft\+\_\+strlcpy()}} and \mbox{\hyperlink{libft_8h_a7531453313e0cbfde6fe51662c9c3208}{ft\+\_\+strlcat()}} take the full size of the destination buffer and guarantee NUL-\/termination if there is room. ~\newline
+ Note that room for the NUL should be included in dstsize.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{libft_8h_a12f759eb9793cf306fede66d0b7de0fc}{ft\+\_\+strlcpy()}} and \mbox{\hyperlink{libft_8h_a7531453313e0cbfde6fe51662c9c3208}{ft\+\_\+strlcat()}} functions return the total length of the string they tried to create. ~\newline
+ For strlcpy() that means the length of src. ~\newline
+ For strlcat() that means the initial length of dst plus the length of src.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+TODO. ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ When a 0 dstsize is passed it must not copy any chars. This must be checked separately to avoid entering the while loop because the expression\+: ~\newline
+ i \texorpdfstring{$<$}{<} dstsize -\/ 1 ~\newline
+ Does not work because of the unsignedness of dstsize. This worked\+: ~\newline
+ while (dstsize != 0 \&\& i \texorpdfstring{$<$}{<} dstsize -\/ 1 \&\& src\mbox{[}i\mbox{]} != \textquotesingle{}\textbackslash{}0\textquotesingle{}). 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_abbb8c6c4ed85d892e7f1509f65f5768a}\label{libft_8h_abbb8c6c4ed85d892e7f1509f65f5768a}} 
+\index{libft.h@{libft.h}!ft\_strlen@{ft\_strlen}}
+\index{ft\_strlen@{ft\_strlen}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_strlen()}{ft\_strlen()}}
+{\footnotesize\ttfamily size\+\_\+t ft\+\_\+strlen (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+strlen}} -- Gets length of a nul-\/terminated C string. 
+
+Counts characters (from left to right) before the NUL character \textquotesingle{}\textbackslash{}0\textquotesingle{}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s} & -\/ The nul-\/terminated C string.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the string.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{libft_8h_a668b60557bfc9d60c2d3ccda8afadf49}\label{libft_8h_a668b60557bfc9d60c2d3ccda8afadf49}} 
+\index{libft.h@{libft.h}!ft\_strmapi@{ft\_strmapi}}
+\index{ft\_strmapi@{ft\_strmapi}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_strmapi()}{ft\_strmapi()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+strmapi (\begin{DoxyParamCaption}\item[{char const $\ast$}]{s,  }\item[{char($\ast$)(unsigned int, char)}]{f }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+strmapi}} -- Apply a funtion to each char of a string. 
+
+Applies the function ’f’ to each character of the string ’s’, and passing its index as first argument to create a new string (with malloc()) resulting from successive applications of ’f’.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string created from the successive applications of ’f’. ~\newline
+ Returns NULL if the allocation fails.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(). ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash. TODO
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a9d2fe792187aa4ed08e5864fb2c4d6dc}\label{libft_8h_a9d2fe792187aa4ed08e5864fb2c4d6dc}} 
+\index{libft.h@{libft.h}!ft\_strncmp@{ft\_strncmp}}
+\index{ft\_strncmp@{ft\_strncmp}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_strncmp()}{ft\_strncmp()}}
+{\footnotesize\ttfamily int ft\+\_\+strncmp (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s1,  }\item[{const char $\ast$}]{s2,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+strncmp}} -- Compare two strings. 
+
+The ft\+\_\+strcmp() function compares the two strings s1 and s2. The comparison is done using unsigned characters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s1} & -\/ First string.\\
+\hline
+\mbox{\texttt{ in}}  & {\em s2} & -\/ Second string.\\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & -\/ Amount of bytes to compare from.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an integer indicating the result of the comparison, as follows\+: ~\newline
+ 0, if the s1 and s2 are equal; ~\newline
+ A negative value if s1 is less than s2; ~\newline
+ A positive value if s1 is greater than s2. ~\newline
+ Specifically the returned value comes from the first different char found as the difference between the numeric value of s1\textquotesingle{}s char minus the numeric value of s2\textquotesingle{}s char.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+TODO. ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_ae00229613cc0bf361e86dca72ad92591}\label{libft_8h_ae00229613cc0bf361e86dca72ad92591}} 
+\index{libft.h@{libft.h}!ft\_strnstr@{ft\_strnstr}}
+\index{ft\_strnstr@{ft\_strnstr}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_strnstr()}{ft\_strnstr()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+strnstr (\begin{DoxyParamCaption}\item[{const char $\ast$}]{haystack,  }\item[{const char $\ast$}]{needle,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+strnstr}} -- Locate a substring in a string. 
+
+The \mbox{\hyperlink{libft_8h_ae00229613cc0bf361e86dca72ad92591}{ft\+\_\+strnstr()}} function locates the first occurrence of the null-\/terminated string needle in the string haystack, where not more than len characters are searched. Characters that appear after a `\textbackslash{}0' character are not searched.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If needle is an empty string, haystack is returned. ~\newline
+ If needle occurs nowhere in haystack, NULL is returned. ~\newline
+ Otherwise a pointer to the first character of the first occurrence of needle is returned.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+TODO. ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a49c260cf80f9997975d6f3ec74ead582}\label{libft_8h_a49c260cf80f9997975d6f3ec74ead582}} 
+\index{libft.h@{libft.h}!ft\_strrchr@{ft\_strrchr}}
+\index{ft\_strrchr@{ft\_strrchr}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_strrchr()}{ft\_strrchr()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+strrchr (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s,  }\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+strrchr}} -- Locate character in string (right to left). 
+
+The \mbox{\hyperlink{libft_8h_aa6d0c2d180f32ee585485e1a1ce3d55d}{ft\+\_\+strchr()}} function locates the first occurrence of c (converted to a char) in the string pointed to by s. The terminating null character is considered to be part of the string; therefore if c is `\textbackslash{}0', the functions locate the terminating `\textbackslash{}0'. ~\newline
+ The strrchr() function is identical to strchr(), except it locates the last occurrence of c.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s} & -\/ The string that will be scanned.\\
+\hline
+\mbox{\texttt{ in}}  & {\em c} & -\/ The char to look for in s.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The functions \mbox{\hyperlink{libft_8h_aa6d0c2d180f32ee585485e1a1ce3d55d}{ft\+\_\+strchr()}} and \mbox{\hyperlink{libft_8h_a49c260cf80f9997975d6f3ec74ead582}{ft\+\_\+strrchr()}} return a pointer to the located character, or NULL if the character does not appear in the string.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+TODO. A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{libft_8h_a60352c5b39fab08469b3e28131a79e25}\label{libft_8h_a60352c5b39fab08469b3e28131a79e25}} 
+\index{libft.h@{libft.h}!ft\_strtrim@{ft\_strtrim}}
+\index{ft\_strtrim@{ft\_strtrim}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_strtrim()}{ft\_strtrim()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+strtrim (\begin{DoxyParamCaption}\item[{char const $\ast$}]{s1,  }\item[{char const $\ast$}]{set }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+strtrim}} -- Trims string resulting in new string. 
+
+Allocates (with malloc()) and returns a copy of ’s1’ with the characters specified in ’set’ removed from the beginning and the end of s1 string. Parameter s1 is scanned left to right and right to left removing any character that is also found in set until a character NOT included in set is found.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s1} & -\/ The string to be trimmed.\\
+\hline
+\mbox{\texttt{ in}}  & {\em set} & -\/ The string containing the chars that will be trimmed from s1.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The trimmed string. ~\newline
+ NULL if the allocation fails.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(). ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_a78c402cbf3d55b1374693c3b7d34f71d}\label{libft_8h_a78c402cbf3d55b1374693c3b7d34f71d}} 
+\index{libft.h@{libft.h}!ft\_substr@{ft\_substr}}
+\index{ft\_substr@{ft\_substr}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_substr()}{ft\_substr()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+substr (\begin{DoxyParamCaption}\item[{char const $\ast$}]{s,  }\item[{unsigned int}]{start,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+substr}} -- Create new substring from original string. 
+
+Allocates (with malloc()) and returns a substring from the string ’s’. The substring begins at index ’start’ and is of maximum size ’len’.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s} & -\/ The string from which to create the substring.\\
+\hline
+\mbox{\texttt{ in}}  & {\em start} & -\/ The start index of the substring in the string ’s’.\\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & -\/ The maximum length of the substring.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The newly allocated substring. ~\newline
+ NULL if the allocation fails.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(). ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.\+TODO
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ Before starting the copy of the substr, the following must be addressed\+: ~\newline
+ 1 If s = \char`\"{}\char`\"{} or start \texorpdfstring{$>$}{>}= ft\+\_\+strlen(s), it\textquotesingle{}d only make sense to return \char`\"{}\char`\"{} ~\newline
+ 2 If (start + len \texorpdfstring{$>$}{>} ft\+\_\+strlen(s)) len must be modified to len = ft\+\_\+strlen(s) -\/ start before allocating memory for the substring. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_ab86e5297914753b6c82d7e3c3020ce17}\label{libft_8h_ab86e5297914753b6c82d7e3c3020ce17}} 
+\index{libft.h@{libft.h}!ft\_tolower@{ft\_tolower}}
+\index{ft\_tolower@{ft\_tolower}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_tolower()}{ft\_tolower()}}
+{\footnotesize\ttfamily int ft\+\_\+tolower (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+tolower}} -- If uppercase, changes to lowercase. 
+
+If argument is an uppercase letter, this function returns its lowercase version.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & -\/ The character to evaluate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If argument char is uppercase, the return is its lowercase version. ~\newline
+ Otherwise the return is the original char c. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{libft_8h_aef116be7b5bceafff4b59f20a4433d12}\label{libft_8h_aef116be7b5bceafff4b59f20a4433d12}} 
+\index{libft.h@{libft.h}!ft\_toupper@{ft\_toupper}}
+\index{ft\_toupper@{ft\_toupper}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_toupper()}{ft\_toupper()}}
+{\footnotesize\ttfamily int ft\+\_\+toupper (\begin{DoxyParamCaption}\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+toupper}} -- If lowercase, changes to uppercase. 
+
+If argument is a lowercase letter, this function returns its uppercase version.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em c} & -\/ The character to evaluate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If argument char is lowercase, the return is its uppercase version. ~\newline
+ Otherwise the return is the original char c. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{libft_8h_a7db52ad9f695362b5e2cc539c83b85c4}\label{libft_8h_a7db52ad9f695362b5e2cc539c83b85c4}} 
+\index{libft.h@{libft.h}!ft\_uitoa\_b@{ft\_uitoa\_b}}
+\index{ft\_uitoa\_b@{ft\_uitoa\_b}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_uitoa\_b()}{ft\_uitoa\_b()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+uitoa\+\_\+b (\begin{DoxyParamCaption}\item[{unsigned int}]{n,  }\item[{unsigned int}]{base,  }\item[{int}]{in\+\_\+caps }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+uitoa\+\_\+b}} -- .TODO. 
+
+Some\+\_\+detailed\+\_\+description.\+TODO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .TODO.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TODO.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(). ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash. TODO
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}
+\mbox{\Hypertarget{libft_8h_af747f6fc58589f60ad415f306b2c96d9}\label{libft_8h_af747f6fc58589f60ad415f306b2c96d9}} 
+\index{libft.h@{libft.h}!ft\_ultoa\_b@{ft\_ultoa\_b}}
+\index{ft\_ultoa\_b@{ft\_ultoa\_b}!libft.h@{libft.h}}
+\doxysubsubsection{\texorpdfstring{ft\_ultoa\_b()}{ft\_ultoa\_b()}}
+{\footnotesize\ttfamily char $\ast$ ft\+\_\+ultoa\+\_\+b (\begin{DoxyParamCaption}\item[{unsigned long}]{n,  }\item[{unsigned int}]{base,  }\item[{int}]{in\+\_\+caps }\end{DoxyParamCaption})}
+
+
+
+{\bfseries{ft\+\_\+ultoa\+\_\+b}} -- .TODO. 
+
+Some\+\_\+detailed\+\_\+description.\+TODO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em -\/} & .\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TODO.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+EXTERNAL FUNCTION USED\+: malloc(). ~\newline
+ A NULL pointer parameter or a non-\/terminated string are supposed to make this function crash.
+\end{DoxyWarning}
+\begin{DoxyRemark}{Remarks}
+Implementation notes\+: ~\newline
+ TODO. 
+\end{DoxyRemark}

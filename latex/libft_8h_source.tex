@@ -1,0 +1,143 @@
+\hypertarget{libft_8h_source}{}\doxysection{libft.\+h}
+\mbox{\hyperlink{libft_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* ************************************************************************** */}}
+\DoxyCodeLine{2 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{3 \textcolor{comment}{/*                                                        :::      ::::::::   */}}
+\DoxyCodeLine{4 \textcolor{comment}{/*   libft.h                                            :+:      :+:    :+:   */}}
+\DoxyCodeLine{5 \textcolor{comment}{/*                                                    +:+ +:+         +:+     */}}
+\DoxyCodeLine{6 \textcolor{comment}{/*   By: lluque <lluque@student.42malaga.com>       +\#+  +:+       +\#+        */}}
+\DoxyCodeLine{7 \textcolor{comment}{/*                                                +\#+\#+\#+\#+\#+   +\#+           */}}
+\DoxyCodeLine{8 \textcolor{comment}{/*   Created: 2023/09/11 13:41:10 by lluque            \#+\#    \#+\#             */}}
+\DoxyCodeLine{9 \textcolor{comment}{/*   Updated: 2023/11/22 15:20:08 by lluque           \#\#\#   \#\#\#\#\#\#\#\#.fr       */}}
+\DoxyCodeLine{10 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{11 \textcolor{comment}{/* ************************************************************************** */}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifndef LIBFT\_H}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\# define LIBFT\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\# include <stddef.h>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{33 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structs__list}{s\_list}}}
+\DoxyCodeLine{34 \{}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void}            *content;}
+\DoxyCodeLine{36     \textcolor{keyword}{struct }\mbox{\hyperlink{structs__list}{s\_list}} *next;}
+\DoxyCodeLine{37 \}               \mbox{\hyperlink{libft_8h_aefde00352c5326bb1c28ebd4404c4795}{t\_list}};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{50 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_a1ad9c4559cffbb211ec56fe8964f30f9}{ft\_isupper}}(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{63 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_a2643d7f2fbcb6d5567a22d8f19e0ad70}{ft\_islower}}(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{75 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_ac283963beaa3b8c7d09b78851cda297e}{ft\_isalpha}}(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{86 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_a2cf15b8a1a277d1e2ce3654101a2003d}{ft\_isdigit}}(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{98 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_ac9bd1a8fd96208017945d589974efc65}{ft\_issign}}(\textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{110 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_a9c2c3821ea43ebdf97de07b123503f8b}{ft\_isalnum}}(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{122 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_abf60ddbec6479540e81f3648cf71f1f4}{ft\_isascii}}(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{135 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_abcdba69692f21146aeea5b3d59b7d0ca}{ft\_isprint}}(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{148 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_a76cd21d0fd288012f02809cba504f650}{ft\_isspace}}(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{161 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_aef116be7b5bceafff4b59f20a4433d12}{ft\_toupper}}(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{174 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_ab86e5297914753b6c82d7e3c3020ce17}{ft\_tolower}}(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{193 \textcolor{keywordtype}{void}    *\mbox{\hyperlink{libft_8h_a19d0a16cec67fe4c1af22f1571f4f8a6}{ft\_memset}}(\textcolor{keywordtype}{void} *b, \textcolor{keywordtype}{int} c, \textcolor{keywordtype}{size\_t} len);}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{210 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libft_8h_a5937ab0d08e31d0e3e4a16ec71e293a1}{ft\_bzero}}(\textcolor{keywordtype}{void} *s, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{236 \textcolor{keywordtype}{void}    *\mbox{\hyperlink{libft_8h_a5f5c5d19b1f0355d9768c75d30ed5559}{ft\_memcpy}}(\textcolor{keywordtype}{void} *dst, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *src, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{271 \textcolor{keywordtype}{void}    *\mbox{\hyperlink{libft_8h_acdc865fa140c03c01a39d74b1f5c2416}{ft\_memmove}}(\textcolor{keywordtype}{void} *dst, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *src, \textcolor{keywordtype}{size\_t} len);}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{293 \textcolor{keywordtype}{void}    *\mbox{\hyperlink{libft_8h_abf633e8e48a8afbe61947f61de5ac695}{ft\_memchr}}(\textcolor{keyword}{const} \textcolor{keywordtype}{void} *s, \textcolor{keywordtype}{int} c, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{294 }
+\DoxyCodeLine{315 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_a08f665a1828c402f2ffe2e2187f135fc}{ft\_memcmp}}(\textcolor{keyword}{const} \textcolor{keywordtype}{void} *s1, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *s2, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{335 \textcolor{keywordtype}{void}    *\mbox{\hyperlink{libft_8h_ae0a6807f9f78ed4bf4f958323582d22f}{ft\_calloc}}(\textcolor{keywordtype}{size\_t} count, \textcolor{keywordtype}{size\_t} size);}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{350 \textcolor{keywordtype}{size\_t}  \mbox{\hyperlink{libft_8h_abbb8c6c4ed85d892e7f1509f65f5768a}{ft\_strlen}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s);}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{379 \textcolor{keywordtype}{size\_t}  \mbox{\hyperlink{libft_8h_a12f759eb9793cf306fede66d0b7de0fc}{ft\_strlcpy}}(\textcolor{keywordtype}{char} *dst, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *src, \textcolor{keywordtype}{size\_t} dstsize);}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{434 \textcolor{keywordtype}{size\_t}  \mbox{\hyperlink{libft_8h_a7531453313e0cbfde6fe51662c9c3208}{ft\_strlcat}}(\textcolor{keywordtype}{char} *dst, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *src, \textcolor{keywordtype}{size\_t} dstsize);}
+\DoxyCodeLine{435 }
+\DoxyCodeLine{456 \textcolor{keywordtype}{char}    *\mbox{\hyperlink{libft_8h_aa6d0c2d180f32ee585485e1a1ce3d55d}{ft\_strchr}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s, \textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{457 }
+\DoxyCodeLine{478 \textcolor{keywordtype}{char}    *\mbox{\hyperlink{libft_8h_a49c260cf80f9997975d6f3ec74ead582}{ft\_strrchr}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s, \textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{479 }
+\DoxyCodeLine{508 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_a9d2fe792187aa4ed08e5864fb2c4d6dc}{ft\_strncmp}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{509 }
+\DoxyCodeLine{532 \textcolor{keywordtype}{char}    *\mbox{\hyperlink{libft_8h_ae00229613cc0bf361e86dca72ad92591}{ft\_strnstr}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *haystack, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *needle, \textcolor{keywordtype}{size\_t} len);}
+\DoxyCodeLine{533 }
+\DoxyCodeLine{550 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_afad2ec371b4188602da9a94db687cb16}{ft\_atoi}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *str);}
+\DoxyCodeLine{551 }
+\DoxyCodeLine{569 \textcolor{keywordtype}{char}    *\mbox{\hyperlink{libft_8h_a2ac2079a4250507c9af75d696f2ae476}{ft\_strdup}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1);}
+\DoxyCodeLine{570 }
+\DoxyCodeLine{596 \textcolor{keywordtype}{char}    *\mbox{\hyperlink{libft_8h_a78c402cbf3d55b1374693c3b7d34f71d}{ft\_substr}}(\textcolor{keywordtype}{char} \textcolor{keyword}{const} *s, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} start, \textcolor{keywordtype}{size\_t} len);}
+\DoxyCodeLine{597 }
+\DoxyCodeLine{618 \textcolor{keywordtype}{char}    *\mbox{\hyperlink{libft_8h_a91e6e3e428bcc9f2291b700e1829b82b}{ft\_strjoin}}(\textcolor{keywordtype}{char} \textcolor{keyword}{const} *s1, \textcolor{keywordtype}{char} \textcolor{keyword}{const} *s2);}
+\DoxyCodeLine{619 }
+\DoxyCodeLine{644 \textcolor{keywordtype}{char}    *\mbox{\hyperlink{libft_8h_a60352c5b39fab08469b3e28131a79e25}{ft\_strtrim}}(\textcolor{keywordtype}{char} \textcolor{keyword}{const} *s1, \textcolor{keywordtype}{char} \textcolor{keyword}{const} *set);}
+\DoxyCodeLine{645 }
+\DoxyCodeLine{671 \textcolor{keywordtype}{char}    **\mbox{\hyperlink{libft_8h_aa65c9de65051c8c589286cf133c4a1f4}{ft\_split}}(\textcolor{keywordtype}{char} \textcolor{keyword}{const} *s, \textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{672 }
+\DoxyCodeLine{692 \textcolor{keywordtype}{char}    *\mbox{\hyperlink{libft_8h_a8a6ea3765dfd826eabfc00d36e28ea38}{ft\_itoa}}(\textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{693 }
+\DoxyCodeLine{712 \textcolor{keywordtype}{char}    *\mbox{\hyperlink{libft_8h_a610f39aa4bdf576a404e7dff6307db6c}{ft\_itoa\_b}}(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} base, \textcolor{keywordtype}{int} in\_caps);}
+\DoxyCodeLine{713 }
+\DoxyCodeLine{728 \textcolor{keywordtype}{char}    *\mbox{\hyperlink{libft_8h_a4f5cd31ca086eeda2e839722cbad3f51}{ft\_get\_sym\_table}}(\textcolor{keywordtype}{char} *sym\_table, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} base, \textcolor{keywordtype}{int} in\_caps);}
+\DoxyCodeLine{729 }
+\DoxyCodeLine{746 \textcolor{keywordtype}{char}    *\mbox{\hyperlink{libft_8h_a85d84a6280527e8e890bf39a70512601}{ft\_ltoa\_b}}(\textcolor{keywordtype}{long} n, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} base, \textcolor{keywordtype}{int} in\_caps);}
+\DoxyCodeLine{747 }
+\DoxyCodeLine{764 \textcolor{keywordtype}{char}    *\mbox{\hyperlink{libft_8h_a9c7ca392832da91098199a661fa9527d}{ft\_ltoa}}(\textcolor{keywordtype}{long} n);}
+\DoxyCodeLine{765 }
+\DoxyCodeLine{782 \textcolor{keywordtype}{char}    *\mbox{\hyperlink{libft_8h_af747f6fc58589f60ad415f306b2c96d9}{ft\_ultoa\_b}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} n, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} base, \textcolor{keywordtype}{int} in\_caps);}
+\DoxyCodeLine{783 }
+\DoxyCodeLine{800 \textcolor{keywordtype}{char}    *\mbox{\hyperlink{libft_8h_a7db52ad9f695362b5e2cc539c83b85c4}{ft\_uitoa\_b}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} n, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} base, \textcolor{keywordtype}{int} in\_caps);}
+\DoxyCodeLine{801 }
+\DoxyCodeLine{821 \textcolor{keywordtype}{char}    *\mbox{\hyperlink{libft_8h_a668b60557bfc9d60c2d3ccda8afadf49}{ft\_strmapi}}(\textcolor{keywordtype}{char} \textcolor{keyword}{const} *s, \textcolor{keywordtype}{char} (*f)(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}, \textcolor{keywordtype}{char}));}
+\DoxyCodeLine{822 }
+\DoxyCodeLine{841 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libft_8h_ada722cffd2c6c8169ae339afd0f9763c}{ft\_striteri}}(\textcolor{keywordtype}{char} *s, \textcolor{keywordtype}{void} (*f)(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}, \textcolor{keywordtype}{char}*));}
+\DoxyCodeLine{842 }
+\DoxyCodeLine{859 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libft_8h_a8ee15a511946c1397bd2bdea4aed6aee}{ft\_putchar\_fd}}(\textcolor{keywordtype}{char} c, \textcolor{keywordtype}{int} fd);}
+\DoxyCodeLine{860 }
+\DoxyCodeLine{877 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libft_8h_acefce9ac519f8f8b7d3fde33dbafe469}{ft\_putstr\_fd}}(\textcolor{keywordtype}{char} *s, \textcolor{keywordtype}{int} fd);}
+\DoxyCodeLine{878 }
+\DoxyCodeLine{895 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libft_8h_aeb112152acfc553d58d61a5df38afcde}{ft\_putendl\_fd}}(\textcolor{keywordtype}{char} *s, \textcolor{keywordtype}{int} fd);}
+\DoxyCodeLine{896 }
+\DoxyCodeLine{913 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libft_8h_a63cc0aec12256d125d3f85e472280972}{ft\_putnbr\_fd}}(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} fd);}
+\DoxyCodeLine{914 }
+\DoxyCodeLine{929 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_a3b74034df822be1f6c45484cb01f01a7}{ft\_pow}}(\textcolor{keywordtype}{int} base, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} exp);}
+\DoxyCodeLine{930 }
+\DoxyCodeLine{946 \textcolor{keywordtype}{void}    *\mbox{\hyperlink{libft_8h_a0a1bcb2ef112f7ad073d507a0c6be4d2}{ft\_print\_memory}}(\textcolor{keywordtype}{void} *addr, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{947 }
+\DoxyCodeLine{965 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_ace5537837dd84bbafbe048446ac89edf}{ft\_putchar\_fd\_safe}}(\textcolor{keywordtype}{char} c, \textcolor{keywordtype}{int} fd);}
+\DoxyCodeLine{966 }
+\DoxyCodeLine{984 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_ac8b37f8f02a3ced682c7f1f874b1b144}{ft\_putstr\_fd\_safe}}(\textcolor{keywordtype}{char} *s, \textcolor{keywordtype}{int} fd);}
+\DoxyCodeLine{985 }
+\DoxyCodeLine{1007 \mbox{\hyperlink{structs__list}{t\_list}}    *\mbox{\hyperlink{libft_8h_a8fe4ea6f56f5a2a75ee13d97416b60ed}{ft\_lstnew}}(\textcolor{keywordtype}{void} *content);}
+\DoxyCodeLine{1008 }
+\DoxyCodeLine{1030 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libft_8h_a0195e4eb88fad15717ed90524ac15771}{ft\_lstadd\_front}}(\mbox{\hyperlink{structs__list}{t\_list}} **lst, \mbox{\hyperlink{structs__list}{t\_list}} *\textcolor{keyword}{new});}
+\DoxyCodeLine{1031 }
+\DoxyCodeLine{1046 \textcolor{keywordtype}{int}     \mbox{\hyperlink{libft_8h_a9da614988ac99446db9df99d2c773fc1}{ft\_lstsize}}(\mbox{\hyperlink{structs__list}{t\_list}} *lst);}
+\DoxyCodeLine{1047 }
+\DoxyCodeLine{1062 \mbox{\hyperlink{structs__list}{t\_list}}    *\mbox{\hyperlink{libft_8h_aed5f9b5ecc45235a7b7cf9d4b24e43dc}{ft\_lstlast}}(\mbox{\hyperlink{structs__list}{t\_list}} *lst);}
+\DoxyCodeLine{1063 }
+\DoxyCodeLine{1082 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libft_8h_a4c10e88fffc3c9467eb16e6debd227a4}{ft\_lstadd\_back}}(\mbox{\hyperlink{structs__list}{t\_list}} **lst, \mbox{\hyperlink{structs__list}{t\_list}} *\textcolor{keyword}{new});}
+\DoxyCodeLine{1083 }
+\DoxyCodeLine{1108 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libft_8h_ac2b881501f9ee2f3ed5718f6d9ebee7c}{ft\_lstdelone}}(\mbox{\hyperlink{structs__list}{t\_list}} *lst, \textcolor{keywordtype}{void} (*del)(\textcolor{keywordtype}{void} *));}
+\DoxyCodeLine{1109 }
+\DoxyCodeLine{1134 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libft_8h_a6e900cfaea2857bbf490f3105e38da93}{ft\_lstclear}}(\mbox{\hyperlink{structs__list}{t\_list}} **lst, \textcolor{keywordtype}{void} (*del)(\textcolor{keywordtype}{void} *));}
+\DoxyCodeLine{1135 }
+\DoxyCodeLine{1156 \textcolor{keywordtype}{void}    \mbox{\hyperlink{libft_8h_a1888c62a89ec3d206f2ed4590f4a021d}{ft\_lstiter}}(\mbox{\hyperlink{structs__list}{t\_list}} *lst, \textcolor{keywordtype}{void} (*f)(\textcolor{keywordtype}{void} *));}
+\DoxyCodeLine{1157 }
+\DoxyCodeLine{1187 \mbox{\hyperlink{structs__list}{t\_list}}    *\mbox{\hyperlink{libft_8h_a8198d1837ffbba05823f5e85afebf9c6}{ft\_lstmap}}(\mbox{\hyperlink{structs__list}{t\_list}} *lst, \textcolor{keywordtype}{void} *(*f)(\textcolor{keywordtype}{void} *), \textcolor{keywordtype}{void} (*del)(\textcolor{keywordtype}{void} *));}
+\DoxyCodeLine{1188 }
+\DoxyCodeLine{1189 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
