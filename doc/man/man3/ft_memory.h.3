@@ -1,0 +1,264 @@
+.TH "include/ft_memory.h" 3 "Sat Jan 27 2024" "Version 2024-01-27" "Library libft" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/ft_memory.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void * \fBft_memset\fP (void *b, int c, size_t len)"
+.br
+.RI "\fBft_memset\fP -- Fills memory with a constant byte\&. "
+.ti -1c
+.RI "void \fBft_bzero\fP (void *s, size_t n)"
+.br
+.RI "\fBft_bzero\fP -- Fills memory with zeros\&. "
+.ti -1c
+.RI "void * \fBft_memcpy\fP (void *dst, const void *src, size_t n)"
+.br
+.RI "\fBft_memcpy\fP -- Copies memory area (\fBoverlapping unsafe\fP)\&. "
+.ti -1c
+.RI "void * \fBft_memmove\fP (void *dst, const void *src, size_t len)"
+.br
+.RI "\fBft_memmove\fP -- Copies memory area (\fBoverlapping safe\fP)\&. "
+.ti -1c
+.RI "void * \fBft_memchr\fP (const void *s, int c, size_t n)"
+.br
+.RI "\fBft_memchr\fP -- Locate byte in byte string\&. "
+.ti -1c
+.RI "int \fBft_memcmp\fP (const void *s1, const void *s2, size_t n)"
+.br
+.RI "\fBft_memcmp\fP -- Compare memory areas\&. "
+.ti -1c
+.RI "void * \fBft_calloc\fP (size_t count, size_t size)"
+.br
+.RI "\fBft_calloc\fP -- Memory allocation\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Memory blocks manipulation functions\&. Part of libft library\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void ft_bzero (void * s, size_t n)"
+
+.PP
+\fBft_bzero\fP -- Fills memory with zeros\&. Writes n bytes with 0 starting at s memory position\&. Uses \fBft_memset()\fP\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIs\fP - Pointer to first address\&.
+.br
+\fIn\fP - Bytes to be written\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+A NULL pointer parameter or an improper len (invasion of forbidden memory space) are supposed to make this function crash\&. 
+.RE
+.PP
+
+.SS "void * ft_calloc (size_t count, size_t size)"
+
+.PP
+\fBft_calloc\fP -- Memory allocation\&. The \fBft_calloc()\fP function contiguously allocates enough space for count objects that are size bytes of memory each and returns a pointer to the allocated memory\&. The allocated memory is filled with bytes of value zero\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcount\fP - The number of objects\&.
+.br
+\fIsize\fP - The size in bytes of one object\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+If successful, \fBft_calloc()\fP function returns a pointer to allocated memory\&. 
+.br
+ If there is an error, it returns a NULL pointer\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc()\&. 
+.RE
+.PP
+
+.SS "void * ft_memchr (const void * s, int c, size_t n)"
+
+.PP
+\fBft_memchr\fP -- Locate byte in byte string\&. The \fBft_memchr()\fP function locates the first occurrence of c (converted to an unsigned char) in the first n bytes of string s\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIs\fP - The start address for the search\&.
+.br
+\fIc\fP - The byte to search for (interpreted as unsigned char)\&.
+.br
+\fIn\fP - The start address for the search\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A pointer to the byte located\&. 
+.br
+ NULL if no such byte exists within n bytes or if n == 0\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+A NULL pointer parameter is supposed to make this function crash\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ A n == 0 parameter is also supposed to return a NULL pointer\&. 
+.RE
+.PP
+
+.SS "int ft_memcmp (const void * s1, const void * s2, size_t n)"
+
+.PP
+\fBft_memcmp\fP -- Compare memory areas\&. The \fBft_memcmp()\fP function compares the first n bytes (each interpreted as unsigned char) of the memory areas s1 and s2\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIs1\fP - Address of first memory area\&.
+.br
+\fIs2\fP - Address of second memory area\&.
+.br
+\fIn\fP - Amount of bytes to compare from\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns a 0 if both memory area are equal or if n == 0\&. 
+.br
+ Returns a positive or negative number if different\&. 
+.br
+ Specifically the returned value comes from the first different byte found as the difference between the numeric value of s1's byte minus the numeric value of s2's byte\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+NULL pointers parameters are supposed to make this function crash\&. 
+.RE
+.PP
+
+.SS "void * ft_memcpy (void * dst, const void * src, size_t n)"
+
+.PP
+\fBft_memcpy\fP -- Copies memory area (\fBoverlapping unsafe\fP)\&. The \fBft_memcpy()\fP function copies n bytes from memory area src to memory area dst\&. 
+.br
+ \fBIf dst and src overlap, behavior is undefined\fP\&. Applications in which dst and src might overlap should use \fBft_memmove()\fP instead\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIdst\fP - Pointer to destination (start of memory to be written)\&.
+.br
+\fIsrc\fP - Pointer to source (address of first byte to copy)\&.
+.br
+\fIn\fP - Amount of bytes to be copied from src to dst\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+- The original value of pointer dst\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+If dst and src are \fBboth\fP NULL \fBor\fP n == 0, the function \fBdoes nothing\fP, just returns dst\&. 
+.br
+ When n != 0 this function is supposed to fail \fBonly if either src or dst are NULL\fP\&. 
+.br
+ If dst and src overlap the \fBbehaviour is undefined\fP\&. 
+.br
+ An improper n (invasion of forbidden memory space) is supposed to make this function crash\&. 
+.RE
+.PP
+
+.SS "void * ft_memmove (void * dst, const void * src, size_t len)"
+
+.PP
+\fBft_memmove\fP -- Copies memory area (\fBoverlapping safe\fP)\&. The \fBft_memmove()\fP function copies len bytes from string src to string dst\&. 
+.br
+ The two strings may overlap; the copy is always done in a non-destructive manner\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIdst\fP - Pointer to destination (start of memory to be written)\&.
+.br
+\fIsrc\fP - Pointer to source (address of first byte to copy)\&.
+.br
+\fIlen\fP - Amount of bytes to be copied from src to dst\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+- The original value of pointer dst\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+If dst and src are \fBboth\fP NULL \fBor\fP n == 0, the function \fBdoes nothing\fP, just returns dst\&. 
+.br
+ When len != 0 this function is supposed to fail \fBonly if either src or dst are NULL\fP\&. 
+.br
+ An improper len (invasion of forbidden memory space) is supposed to make 
+.br
+ this function crash\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ If destination overlaps source, it is possible that at some point the original data in source gets corrupted before it's been copied into dst\&. 
+.br
+ Problematic case: If reading src from the beginning 
+.br
+ dst > src && src + len > dst 
+.br
+ 0123456789012345678901234567 
+.br
+ ssssssssssssssssssssssss 
+.br
+ dddddddddddddddddddddddd 
+.br
+ In order to avoid this, src must be read from the end in this case\&. 
+.RE
+.PP
+
+.SS "void * ft_memset (void * b, int c, size_t len)"
+
+.PP
+\fBft_memset\fP -- Fills memory with a constant byte\&. Writes len bytes with c (unsigned char casted) starting at b memory position\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIb\fP - Pointer to first address\&.
+.br
+\fIc\fP - Integer with the value (unsigned char casted) to write\&.
+.br
+\fIlen\fP - Bytes to be written\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+- The original pointer passed as function argument\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+A NULL pointer parameter or an improper len (invasion of forbidden memory space) are supposed to make this function crash\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Library libft from the source code\&.

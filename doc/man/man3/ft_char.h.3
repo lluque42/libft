@@ -1,0 +1,252 @@
+.TH "include/ft_char.h" 3 "Sat Jan 27 2024" "Version 2024-01-27" "Library libft" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/ft_char.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBft_isupper\fP (int c)"
+.br
+.RI "\fBft_isupper\fP -- Tests for uppercase alphabetic character\&. "
+.ti -1c
+.RI "int \fBft_islower\fP (int c)"
+.br
+.RI "\fBft_islower\fP -- Tests for lowercase alphabetic character\&. "
+.ti -1c
+.RI "int \fBft_isalpha\fP (int c)"
+.br
+.RI "\fBft_isalpha\fP -- Checks for an alphabetic character\&. "
+.ti -1c
+.RI "int \fBft_isdigit\fP (int c)"
+.br
+.RI "\fBft_isdigit\fP -- Checks for a digit character\&. "
+.ti -1c
+.RI "int \fBft_issign\fP (char c)"
+.br
+.RI "\fBft_issign\fP -- Checks for a '+' '-' character\&. "
+.ti -1c
+.RI "int \fBft_isalnum\fP (int c)"
+.br
+.RI "\fBft_isalnum\fP -- Checks for an alphanumeric character\&. "
+.ti -1c
+.RI "int \fBft_isascii\fP (int c)"
+.br
+.RI "\fBft_isascii\fP -- Checks for (basic) ASCII character\&. "
+.ti -1c
+.RI "int \fBft_isprint\fP (int c)"
+.br
+.RI "\fBft_isprint\fP -- Checks for printable (basic) ASCII character\&. "
+.ti -1c
+.RI "int \fBft_isspace\fP (int c)"
+.br
+.RI "\fBft_isspace\fP -- White-space (in the broad sense) character test\&. "
+.ti -1c
+.RI "int \fBft_toupper\fP (int c)"
+.br
+.RI "\fBft_toupper\fP -- If lowercase, changes to uppercase\&. "
+.ti -1c
+.RI "int \fBft_tolower\fP (int c)"
+.br
+.RI "\fBft_tolower\fP -- If uppercase, changes to lowercase\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Char related functions\&. Part of libft library\&. 
+.SH "Function Documentation"
+.PP 
+.SS "int ft_isalnum (int c)"
+
+.PP
+\fBft_isalnum\fP -- Checks for an alphanumeric character\&. Uses \fBft_isalpha()\fP and \fBft_isdigit()\fP to evaluate if c is an alphanumeric character ('A' - 'Z' or 'a' to 'z' or '0' to '9')\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP - The character to evaluate\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Non-zero value if c is an alphanumeric character\&. 
+.RE
+.PP
+
+.SS "int ft_isalpha (int c)"
+
+.PP
+\fBft_isalpha\fP -- Checks for an alphabetic character\&. Uses \fBft_isupper()\fP and \fBft_islower()\fP to evaluate if c is an alphabetic character ('A' - 'Z' or 'a' to 'z')\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP - The character to evaluate\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Non-zero value if c is an alphabetic character\&. 
+.RE
+.PP
+
+.SS "int ft_isascii (int c)"
+
+.PP
+\fBft_isascii\fP -- Checks for (basic) ASCII character\&. Checks if argument fits in 7-bit ASCII (basic, universal ASCII)\&. That is, from 00 to 0177 (decimal 0 to 127)\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP - The character to evaluate\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if c is an ASCII character; 0 otherwise\&. 
+.RE
+.PP
+
+.SS "int ft_isdigit (int c)"
+
+.PP
+\fBft_isdigit\fP -- Checks for a digit character\&. Evaluate if c is a digit character ('0' - '9')\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP - The character to evaluate\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Non-zero value if c is a digit character\&. 
+.RE
+.PP
+
+.SS "int ft_islower (int c)"
+
+.PP
+\fBft_islower\fP -- Tests for lowercase alphabetic character\&. Evaluate if c is a lowercase alphabetic character ('a' - 'z')\&. The value of the argument must be representable as an unsigned char or the value of EOF\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP - The character to evaluate\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Non-zero value if c is an lowercase alphabetic character\&. 
+.RE
+.PP
+
+.SS "int ft_isprint (int c)"
+
+.PP
+\fBft_isprint\fP -- Checks for printable (basic) ASCII character\&. Checks if argument fits in the range of 040 to 0176 (decimal 32 to 126)\&. That is, the printable characters range in 7 bits basic, universal ASCII)\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP - The character to evaluate\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if c is an printable basic ASCII character; 0 otherwise\&. 
+.RE
+.PP
+
+.SS "int ft_issign (char c)"
+
+.PP
+\fBft_issign\fP -- Checks for a '+' '-' character\&. Evaluate if c is a sign (i\&.e\&. any of '+' '-' characters)\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP - The character to evaluate\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Non-zero value if c is a sign character (+1 for '+' or -1 for '-')\&. 
+.br
+ Returns 0 if not a sign character\&. 
+.RE
+.PP
+
+.SS "int ft_isspace (int c)"
+
+.PP
+\fBft_isspace\fP -- White-space (in the broad sense) character test\&. The \fBft_isspace()\fP function tests for the white-space characters\&. 
+.br
+ This includes the following standard characters: 
+.br
+ '\\t' '\\n' '\\v' '\\f' '\\r' ' '
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP - The character to evaluate\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if c is a white space in the broad sense; 0 otherwise\&. 
+.RE
+.PP
+
+.SS "int ft_isupper (int c)"
+
+.PP
+\fBft_isupper\fP -- Tests for uppercase alphabetic character\&. Evaluate if c is an uppercase alphabetic character ('A' - 'Z')\&. 
+.br
+ The value of the argument must be representable as an unsigned char or the value of EOF\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP - The character to evaluate\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Non-zero value if c is an uppercase alphabetic character\&. 
+.RE
+.PP
+
+.SS "int ft_tolower (int c)"
+
+.PP
+\fBft_tolower\fP -- If uppercase, changes to lowercase\&. If argument is an uppercase letter, this function returns its lowercase version\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP - The character to evaluate\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+If argument char is uppercase, the return is its lowercase version\&. 
+.br
+ Otherwise the return is the original char c\&. 
+.RE
+.PP
+
+.SS "int ft_toupper (int c)"
+
+.PP
+\fBft_toupper\fP -- If lowercase, changes to uppercase\&. If argument is a lowercase letter, this function returns its uppercase version\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP - The character to evaluate\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+If argument char is lowercase, the return is its uppercase version\&. 
+.br
+ Otherwise the return is the original char c\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Library libft from the source code\&.

@@ -1,0 +1,835 @@
+.TH "include/ft_string.h" 3 "Sat Jan 27 2024" "Version 2024-01-27" "Library libft" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/ft_string.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "size_t \fBft_strlen\fP (const char *s)"
+.br
+.RI "\fBft_strlen\fP -- Gets length of a nul-terminated C string\&. "
+.ti -1c
+.RI "size_t \fBft_strlcpy\fP (char *dst, const char *src, size_t dstsize)"
+.br
+.RI "\fBft_strlcpy\fP -- Copies a string\&. "
+.ti -1c
+.RI "size_t \fBft_strlcat\fP (char *dst, const char *src, size_t dstsize)"
+.br
+.RI "\fBft_strlcat\fP -- Concatenate string\&. "
+.ti -1c
+.RI "char * \fBft_strchr\fP (const char *s, int c)"
+.br
+.RI "\fBft_strchr\fP -- Locate character in string (left to right)\&. "
+.ti -1c
+.RI "char * \fBft_strrchr\fP (const char *s, int c)"
+.br
+.RI "\fBft_strrchr\fP -- Locate character in string (right to left)\&. "
+.ti -1c
+.RI "int \fBft_strncmp\fP (const char *s1, const char *s2, size_t n)"
+.br
+.RI "\fBft_strncmp\fP -- Compare two strings\&. "
+.ti -1c
+.RI "char * \fBft_strnstr\fP (const char *haystack, const char *needle, size_t len)"
+.br
+.RI "\fBft_strnstr\fP -- Locate a substring in a string\&. "
+.ti -1c
+.RI "char * \fBft_strdup\fP (const char *s1)"
+.br
+.RI "\fBft_strdup\fP -- Saves a copy of a string\&. "
+.ti -1c
+.RI "char * \fBft_substr\fP (char const *s, unsigned int start, size_t len)"
+.br
+.RI "\fBft_substr\fP -- Create new substring from original string\&. "
+.ti -1c
+.RI "char * \fBft_strjoin\fP (char const *s1, char const *s2)"
+.br
+.RI "\fBft_strjoin\fP -- Concatenates two strings resulting in new string\&. "
+.ti -1c
+.RI "char * \fBft_strtrim\fP (char const *s1, char const *set)"
+.br
+.RI "\fBft_strtrim\fP -- Trims string resulting in new string\&. "
+.ti -1c
+.RI "char ** \fBft_split\fP (char const *s, char c)"
+.br
+.RI "\fBft_split\fP -- Split string according to delimiter char\&. "
+.ti -1c
+.RI "char * \fBft_strmapi\fP (char const *s, char(*f)(unsigned int, char))"
+.br
+.RI "\fBft_strmapi\fP -- Apply a funtion to each char of a string\&. "
+.ti -1c
+.RI "void \fBft_striteri\fP (char *s, void(*f)(unsigned int, char *))"
+.br
+.RI "\fBft_striteri\fP -- Modify a string applying a function to each of its chars\&. "
+.ti -1c
+.RI "int \fBft_atoi\fP (const char *str)"
+.br
+.RI "\fBft_atoi\fP -- \&.TODO\&. "
+.ti -1c
+.RI "char * \fBft_itoa\fP (int n)"
+.br
+.RI "\fBft_itoa\fP -- Converts int to string representation\&. "
+.ti -1c
+.RI "char * \fBft_itoa_b\fP (int n, unsigned int base, int in_caps)"
+.br
+.RI "\fBft_ltoa_b\fP -- \&.TODO\&. "
+.ti -1c
+.RI "char * \fBft_get_sym_table\fP (char *sym_table, unsigned int base, int in_caps)"
+.br
+.RI "\fBft_get_sym_table\fP -- TODO\&. "
+.ti -1c
+.RI "char * \fBft_ltoa_b\fP (long n, unsigned int base, int in_caps)"
+.br
+.RI "\fBft_ltoa_b\fP -- \&.TODO\&. "
+.ti -1c
+.RI "char * \fBft_ltoa\fP (long n)"
+.br
+.RI "\fBft_ltoa\fP -- \&.TODO\&. "
+.ti -1c
+.RI "char * \fBft_ultoa_b\fP (unsigned long n, unsigned int base, int in_caps)"
+.br
+.RI "\fBft_ultoa_b\fP -- \&.TODO\&. "
+.ti -1c
+.RI "char * \fBft_uitoa_b\fP (unsigned int n, unsigned int base, int in_caps)"
+.br
+.RI "\fBft_uitoa_b\fP -- \&.TODO\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Strings related functions\&. Part of libft library\&. 
+.SH "Function Documentation"
+.PP 
+.SS "int ft_atoi (const char * str)"
+
+.PP
+\fBft_atoi\fP -- \&.TODO\&. Some_detailed_description\&.TODO\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP \&.TODO\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+TODO\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+TODO\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ TODO\&. 
+.RE
+.PP
+
+.SS "char * ft_get_sym_table (char * sym_table, unsigned int base, int in_caps)"
+
+.PP
+\fBft_get_sym_table\fP -- TODO\&. Some_detailed_description\&.TODO
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP \&.TODO
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+TODO
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+TODO
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ TODO 
+.RE
+.PP
+
+.SS "char * ft_itoa (int n)"
+
+.PP
+\fBft_itoa\fP -- Converts int to string representation\&. Allocates (with malloc()) and returns a string representing the integer received as an argument\&. 
+.br
+ Negative numbers must be handled\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP \&.TODO\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The string representing the integer\&. 
+.br
+ NULL if the allocation fails\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc()\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ TODO\&. 
+.RE
+.PP
+
+.SS "char * ft_itoa_b (int n, unsigned int base, int in_caps)"
+
+.PP
+\fBft_ltoa_b\fP -- \&.TODO\&. Some_detailed_description\&.TODO\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP \&.TODO\&.
+.br
+\fIin_caps\fP - If hexadecimal, when != 0 uses abcdef instead of ABCDEF\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+TODO\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc()\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&. TODO
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ TODO\&. 
+.RE
+.PP
+
+.SS "char * ft_ltoa (long n)"
+
+.PP
+\fBft_ltoa\fP -- \&.TODO\&. Some_detailed_description\&.TODO\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP \&.TODO\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+TODO\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc()\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ TODO\&. 
+.RE
+.PP
+
+.SS "char * ft_ltoa_b (long n, unsigned int base, int in_caps)"
+
+.PP
+\fBft_ltoa_b\fP -- \&.TODO\&. Some_detailed_description\&.TODO\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP \&.TODO\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+TODO\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc()\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&. TODO
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ TODO\&. 
+.RE
+.PP
+
+.SS "char ** ft_split (char const * s, char c)"
+
+.PP
+\fBft_split\fP -- Split string according to delimiter char\&. Allocates (with malloc(3)) and returns an array of strings obtained by splitting ’s’ using the character ’c’ as a delimiter\&. 
+.br
+ The array must end with a NULL pointer\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIs\fP - The string to be splitted\&.
+.br
+\fIc\fP - The character that will act as delimiter to determine the resulting splitted substrings\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The array of new strings resulting from the split\&. The last element of this array is always NULL\&. 
+.br
+ NULL if the allocation fails\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc(), free()\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ Contigous delimiter chars produce no substrings at all\&. 
+.br
+ This function is supposed to return a single element array (with NULL value) when argument s is an empty string\&. 
+.RE
+.PP
+
+.SS "char * ft_strchr (const char * s, int c)"
+
+.PP
+\fBft_strchr\fP -- Locate character in string (left to right)\&. The \fBft_strchr()\fP function locates the first occurrence of c (converted to a char) in the string pointed to by s\&. The terminating null character is considered to be part of the string; therefore if c is `\\0', the functions locate the terminating `\\0'\&. 
+.br
+ The strrchr() function is identical to strchr(), except it locates the last occurrence of c\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIs\fP - The string that will be scanned\&.
+.br
+\fIc\fP - The char to look for in s\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The functions \fBft_strchr()\fP and \fBft_strrchr()\fP return a pointer to the located character, or NULL if the character does not appear in the string\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+TODO\&. A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&. 
+.RE
+.PP
+
+.SS "char * ft_strdup (const char * s1)"
+
+.PP
+\fBft_strdup\fP -- Saves a copy of a string\&. The \fBft_strdup()\fP function allocates sufficient memory for a copy of the string s1, does the copy, and returns a pointer to it\&. 
+.br
+ The pointer may subsequently be used as an argument to the function free()\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIs1\fP - The string to be copied\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+If successful, \fBft_strdup()\fP function returns a pointer to the newly allocated string copy\&. 
+.br
+ If there is an error, it returns a NULL pointer\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc()\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&. 
+.RE
+.PP
+
+.SS "void ft_striteri (char * s, void(*)(unsigned int, char *) f)"
+
+.PP
+\fBft_striteri\fP -- Modify a string applying a function to each of its chars\&. Applies the function ’f’ on each character of the string passed as argument, passing its index as first argument\&. Each character is passed by address to ’f’ to be modified if necessary\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP \&.TODO\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ TODO\&. 
+.RE
+.PP
+
+.SS "char * ft_strjoin (char const * s1, char const * s2)"
+
+.PP
+\fBft_strjoin\fP -- Concatenates two strings resulting in new string\&. Allocates (with malloc()) and returns a new string, which is the result of the concatenation of ’s1’ and ’s2’\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIs1\fP - First string (prefix)\&.
+.br
+\fIs2\fP - Second string (suffix)\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The new string\&. 
+.br
+ NULL if the allocation fails\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc()\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&. TODO
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ TODO 
+.RE
+.PP
+
+.SS "size_t ft_strlcat (char * dst, const char * src, size_t dstsize)"
+
+.PP
+\fBft_strlcat\fP -- Concatenate string\&. \fBft_strlcat()\fP appends string src to the end of dst\&. It will append at most dstsize - strlen(dst) - 1 characters\&. It will then NUL-terminate, unless dstsize is 0 or the original dst string was longer than dstsize (in practice this should not happen as it means that either dstsize is incorrect or that dst is not a proper string)\&. 
+.br
+ \fBft_strlcpy()\fP and \fBft_strlcat()\fP take the full size of the destination buffer 
+.br
+ and guarantee NUL-termination if there is room\&. 
+.br
+ Note that room for the NUL should be included in dstsize\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP \&.TODO\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBft_strlcpy()\fP and \fBft_strlcat()\fP functions return the total length of the string they tried to create\&. 
+.br
+ For strlcpy() that means the length of src\&. 
+.br
+ For strlcat() that means the initial length of dst plus the length of src\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+TODO\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ It must NOT be assumed that src is NUL terminated\&. 
+.br
+ It must NOT be assumed that dst is NUL terminated\&. First it must be checked (within dstsize) that a '\\0' is found in dst\&. If no NUL character is found, the function must return inmediately without modifying dst (it would make no sense otherwise because there is no way of knowing where is the end of dst)\&. 
+.br
+ If there is a NUL char in dst, then the copy from source can start\&. 
+.br
+ The copy of chars from src to dst is done while (d < dstsize - 1) but can be aborted if (src[s] == '\\0') (d starts at the position where '\\0' is found in dst; s starts at 0)\&. Finally dst is ALWAYS NUL terminated, either at position dstsize - 1 (i\&.e\&. the case when src doesn't really fit inside dst) or when corresponding given the break of the while loop triggered by the if (src[s] == '\\0')\&. 
+.br
+ Notice that src might not be NUL terminated\&. The concatenation would end 
+.br
+ only when !(d < dstsize - 1)\&. 
+.br
+ In every case the return is: 
+.br
+ TODO 
+.br
+ In this case there are two possibilities: 
+.br
+ There is room for the whole src to fit + NUL char to fit in dst (always according to dstsize and the actual position of the first NUL character in dst); or 
+.br
+ TODO 
+.br
+ When a 0 (or negative) dstsize is passed it must not copy any chars\&. This is a problem when evaluating the if condition because size_t is unsigned and must be casted with (signed) in order for the condition to behave as expected\&. 
+.br
+ Also, the returned value is NOT the original dst size + ft_strlen(src) but dstsize parameter + ft_strlen(src)\&. 
+.RE
+.PP
+
+.SS "size_t ft_strlcpy (char * dst, const char * src, size_t dstsize)"
+
+.PP
+\fBft_strlcpy\fP -- Copies a string\&. \fBft_strlcpy()\fP copies up to dstsize - 1 characters from the string src to dst, NUL-terminating the result if dstsize is not 0\&. 
+.br
+ \fBft_strlcpy()\fP and \fBft_strlcat()\fP take the full size of the destination buffer and guarantee NUL-termination if there is room\&. 
+.br
+ Note that room for the NUL should be included in dstsize\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP \&.TODO\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBft_strlcpy()\fP and \fBft_strlcat()\fP functions return the total length of the string they tried to create\&. 
+.br
+ For strlcpy() that means the length of src\&. 
+.br
+ For strlcat() that means the initial length of dst plus the length of src\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+TODO\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ When a 0 dstsize is passed it must not copy any chars\&. This must be checked separately to avoid entering the while loop because the expression: 
+.br
+ i < dstsize - 1 
+.br
+ Does not work because of the unsignedness of dstsize\&. This worked: 
+.br
+ while (dstsize != 0 && i < dstsize - 1 && src[i] != '\\0')\&. 
+.RE
+.PP
+
+.SS "size_t ft_strlen (const char * s)"
+
+.PP
+\fBft_strlen\fP -- Gets length of a nul-terminated C string\&. Counts characters (from left to right) before the NUL character '\\0'\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIs\fP - The nul-terminated C string\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The length of the string\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&. 
+.RE
+.PP
+
+.SS "char * ft_strmapi (char const * s, char(*)(unsigned int, char) f)"
+
+.PP
+\fBft_strmapi\fP -- Apply a funtion to each char of a string\&. Applies the function ’f’ to each character of the string ’s’, and passing its index as first argument to create a new string (with malloc()) resulting from successive applications of ’f’\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP \&.TODO\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The string created from the successive applications of ’f’\&. 
+.br
+ Returns NULL if the allocation fails\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc()\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&. TODO
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ TODO\&. 
+.RE
+.PP
+
+.SS "int ft_strncmp (const char * s1, const char * s2, size_t n)"
+
+.PP
+\fBft_strncmp\fP -- Compare two strings\&. The ft_strcmp() function compares the two strings s1 and s2\&. The comparison is done using unsigned characters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIs1\fP - First string\&.
+.br
+\fIs2\fP - Second string\&.
+.br
+\fIn\fP - Amount of bytes to compare from\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns an integer indicating the result of the comparison, as follows: 
+.br
+ 0, if the s1 and s2 are equal; 
+.br
+ A negative value if s1 is less than s2; 
+.br
+ A positive value if s1 is greater than s2\&. 
+.br
+ Specifically the returned value comes from the first different char found as the difference between the numeric value of s1's char minus the numeric value of s2's char\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+TODO\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ TODO\&. 
+.RE
+.PP
+
+.SS "char * ft_strnstr (const char * haystack, const char * needle, size_t len)"
+
+.PP
+\fBft_strnstr\fP -- Locate a substring in a string\&. The \fBft_strnstr()\fP function locates the first occurrence of the null-terminated string needle in the string haystack, where not more than len characters are searched\&. Characters that appear after a `\\0' character are not searched\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP \&.TODO\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+If needle is an empty string, haystack is returned\&. 
+.br
+ If needle occurs nowhere in haystack, NULL is returned\&. 
+.br
+ Otherwise a pointer to the first character of the first occurrence of needle is returned\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+TODO\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ TODO\&. 
+.RE
+.PP
+
+.SS "char * ft_strrchr (const char * s, int c)"
+
+.PP
+\fBft_strrchr\fP -- Locate character in string (right to left)\&. The \fBft_strchr()\fP function locates the first occurrence of c (converted to a char) in the string pointed to by s\&. The terminating null character is considered to be part of the string; therefore if c is `\\0', the functions locate the terminating `\\0'\&. 
+.br
+ The strrchr() function is identical to strchr(), except it locates the last occurrence of c\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIs\fP - The string that will be scanned\&.
+.br
+\fIc\fP - The char to look for in s\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The functions \fBft_strchr()\fP and \fBft_strrchr()\fP return a pointer to the located character, or NULL if the character does not appear in the string\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+TODO\&. A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&. 
+.RE
+.PP
+
+.SS "char * ft_strtrim (char const * s1, char const * set)"
+
+.PP
+\fBft_strtrim\fP -- Trims string resulting in new string\&. Allocates (with malloc()) and returns a copy of ’s1’ with the characters specified in ’set’ removed from the beginning and the end of s1 string\&. Parameter s1 is scanned left to right and right to left removing any character that is also found in set until a character NOT included in set is found\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIs1\fP - The string to be trimmed\&.
+.br
+\fIset\fP - The string containing the chars that will be trimmed from s1\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The trimmed string\&. 
+.br
+ NULL if the allocation fails\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc()\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ TODO\&. 
+.RE
+.PP
+
+.SS "char * ft_substr (char const * s, unsigned int start, size_t len)"
+
+.PP
+\fBft_substr\fP -- Create new substring from original string\&. Allocates (with malloc()) and returns a substring from the string ’s’\&. The substring begins at index ’start’ and is of maximum size ’len’\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIs\fP - The string from which to create the substring\&.
+.br
+\fIstart\fP - The start index of the substring in the string ’s’\&.
+.br
+\fIlen\fP - The maximum length of the substring\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The newly allocated substring\&. 
+.br
+ NULL if the allocation fails\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc()\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&.TODO
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ Before starting the copy of the substr, the following must be addressed: 
+.br
+ 1 If s = '' or start >= ft_strlen(s), it'd only make sense to return '' 
+.br
+ 2 If (start + len > ft_strlen(s)) len must be modified to len = ft_strlen(s) - start before allocating memory for the substring\&. 
+.RE
+.PP
+
+.SS "char * ft_uitoa_b (unsigned int n, unsigned int base, int in_caps)"
+
+.PP
+\fBft_uitoa_b\fP -- \&.TODO\&. Some_detailed_description\&.TODO\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP \&.TODO\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+TODO\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc()\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&. TODO
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ TODO\&. 
+.RE
+.PP
+
+.SS "char * ft_ultoa_b (unsigned long n, unsigned int base, int in_caps)"
+
+.PP
+\fBft_ultoa_b\fP -- \&.TODO\&. Some_detailed_description\&.TODO\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fI-\fP \&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+TODO\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc()\&. 
+.br
+ A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ TODO\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Library libft from the source code\&.
