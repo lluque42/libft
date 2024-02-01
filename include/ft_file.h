@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:38 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/25 01:24:01 by lluque           ###   ########.fr       */
+/*   Updated: 2024/01/28 16:31:04 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_putchar_fd(char c, int fd);
  *
  * @remark Implementation notes:  
  * TODO.
-*/ 
+*/
 void	ft_putstr_fd(char *s, int fd);
 
 /**
@@ -119,5 +119,27 @@ int		ft_putchar_fd_safe(char c, int fd);
  * TODO.
 */
 int		ft_putstr_fd_safe(char *s, int fd);
+
+/**
+ * @brief <b>ft_gnl</b> -- Get next line from file descriptor.
+ *
+ * @details Get next line function is used to read complete lines from a valid
+ * file descriptor passed as argument. When there are no more lines to read or
+ * some error occured, a NULL pointer is returned.  
+ * The typical use of ft_gnl() is in a loop to read every line from the file
+ * descriptor until the function returns NULL.
+ * 
+ * @param [in] fd - An int value representing the file descriptor to read from.
+ *
+ * @return A NUL terminated c-string with the next line read.  
+ * NULL if error or no more lines available.
+ *
+ * @warning EXTERNAL FUNCTION USED: read(), malloc(), free().  
+ *
+ * @remark Implementation notes:  
+ * This function can be used to read from multiple file descriptors while
+ * maintaning consistence.
+*/
+char	*ft_gnl(int fd);
 
 #endif

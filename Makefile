@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/01/27 21:37:28 by lluque           ###   ########.fr        #
+#    Updated: 2024/02/01 19:45:23 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,10 +40,13 @@ INCLUDES = $(INC_DIR)libft.h \
 		   $(INC_DIR)ft_char.h \
 		   $(INC_DIR)ft_debug.h \
 		   $(INC_DIR)ft_file.h \
+		   $(SRC_DIR)file/ft_gnl/ft_gnl.h \
 		   $(INC_DIR)ft_llst.h \
 		   $(INC_DIR)ft_math.h  \
 		   $(INC_DIR)ft_memory.h \
-		   $(INC_DIR)ft_string.h
+		   $(INC_DIR)ft_string.h \
+		   $(INC_DIR)ft_dlclst.h
+
 
 # List of source code file names with path relative to SRC_DIR
 SOURCES = char/ft_isalpha.c \
@@ -92,6 +95,8 @@ SOURCES = char/ft_isalpha.c \
 		  file/ft_putnbr_fd.c \
 		  file/ft_putchar_fd_safe.c \
 		  file/ft_putstr_fd_safe.c \
+		  file/ft_gnl/ft_gnl.c \
+		  file/ft_gnl/ft_gnl_utils.c \
 		  llst/ft_lstnew.c \
 		  llst/ft_lstadd_front.c \
 		  llst/ft_lstsize.c \
@@ -215,7 +220,7 @@ $(BIN_DIR)$(NAME): $(OBJECTS)
 $(OBJECTS): $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDES)
 	@echo ----------------------------------------------------------------------
 	@echo
-	@echo "              --- Compiling objects to $(OBJ_DIR)/*.o ---"
+	@echo "              --- Compiling objects to $(OBJ_DIR)*.o ---"
 	mkdir -p $(@D)
 	cc -c $< -o $@ -I$(INC_DIR)
 	@echo
@@ -263,7 +268,7 @@ $(DOXYFILE):
 	@echo "        --- Customizing Doxyfile configuration file ---"
 	@echo
 	sed -i '/^PROJECT_NAME.*=/s/^.*$$/PROJECT_NAME = "$(DOX_PROJECT_NAME)"/' $(DOXYFILE)
-	sed -i -e '/^PROJECT_NUMBER.*=/s/^.*$$/PROJECT_NUMBER = $(DOX_PROJECT_NUMBER)/' $(DOXYFILE)
+	sed -i '/^PROJECT_NUMBER.*=/s/^.*$$/PROJECT_NUMBER = $(DOX_PROJECT_NUMBER)/' $(DOXYFILE)
 	sed -i '/^PROJECT_BRIEF.*=/s/^.*$$/PROJECT_BRIEF = "$(DOX_PROJECT_BRIEF)"/' $(DOXYFILE)
 	sed -i '\|^OUTPUT_DIR.*=|s|^.*$$|OUTPUT_DIRECTORY = $(DOC_DIR)|' $(DOXYFILE)
 	sed -i '\|^INPUT .*=|s|^.*$$|INPUT = $(DOX_INPUT)|' $(DOXYFILE)
