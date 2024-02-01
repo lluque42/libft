@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/02/01 19:50:30 by lluque           ###   ########.fr        #
+#    Updated: 2024/02/01 20:03:14 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ INCLUDES = $(INC_DIR)libft.h \
 		   $(INC_DIR)ft_math.h  \
 		   $(INC_DIR)ft_memory.h \
 		   $(INC_DIR)ft_string.h \
-		   $(SRC_DIR)string/ft_printf/ft_printf_utils.h
+		   $(SRC_DIR)string/ft_printf/ft_printf_utils.h \
+		   $(INC_DIR)ft_dlclst.h
 
 # List of source code file names with path relative to SRC_DIR
 SOURCES = char/ft_isalpha.c \
@@ -122,7 +123,16 @@ SOURCES = char/ft_isalpha.c \
 		  llst/ft_lstiter.c \
 		  llst/ft_lstmap.c \
 		  math/ft_pow.c \
-		  debug/ft_print_memory.c
+		  debug/ft_print_memory.c \
+		  dlclst/ft_dlclst_insback.c \
+		  dlclst/ft_dlclst_insfront.c \
+		  dlclst/ft_dlclst_inspos.c \
+		  dlclst/ft_dlclst_last.c \
+		  dlclst/ft_dlclst_new.c \
+		  dlclst/ft_dlclst_remback.c \
+		  dlclst/ft_dlclst_remfront.c \
+		  dlclst/ft_dlclst_rempos.c \
+		  dlclst/ft_dlclst_size.c
 
 # Auto generated list of object file names from SOURCES
 # (here the path is relative to repository's root)

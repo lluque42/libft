@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_dlclst_rempos.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 13:01:14 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/01 14:07:47 by lluque           ###   ########.fr       */
+/*   Created: 2024/01/30 15:12:58 by lluque            #+#    #+#             */
+/*   Updated: 2024/02/01 15:47:52 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * @file libft.h
- * Public header file for libft library.
-*/
+#include <stdlib.h>
+#include "libft.h"
 
-#ifndef LIBFT_H
-# define LIBFT_H
+void	ft_dlclst_rempos(t_dlclst **lst, void (*del)(void *), unsigned int pos)
+{
+	t_dlclst	*temp;
+	int			i;
 
-# include <stddef.h>
-# include "ft_char.h"
-# include "ft_debug.h"
-# include "ft_file.h"
-# include "ft_llst.h"
-# include "ft_math.h"
-# include "ft_memory.h"
-# include "ft_string.h"
-# include "ft_dlclst.h"
-
-#endif
+	if (*lst == NULL)
+		return ;
+	i = 0;
+	temp = *lst;
+	while (i != pos)
+		temp = temp->next;
+	del((void *)temp->content);
+	(temp->next)->prev = temp->prev;
+	(temp->prev)->next = temp->next;
+	free(temp);
+	if (*lst == temp)
+		*lst = NULL;
+}
