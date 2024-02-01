@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/02/01 19:45:23 by lluque           ###   ########.fr        #
+#    Updated: 2024/02/01 19:50:30 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,8 +45,7 @@ INCLUDES = $(INC_DIR)libft.h \
 		   $(INC_DIR)ft_math.h  \
 		   $(INC_DIR)ft_memory.h \
 		   $(INC_DIR)ft_string.h \
-		   $(INC_DIR)ft_dlclst.h
-
+		   $(SRC_DIR)string/ft_printf/ft_printf_utils.h
 
 # List of source code file names with path relative to SRC_DIR
 SOURCES = char/ft_isalpha.c \
@@ -89,6 +88,22 @@ SOURCES = char/ft_isalpha.c \
 		  string/ft_ltoa_b.c \
 		  string/ft_ultoa_b.c \
 		  string/ft_uitoa_b.c \
+		  string/ft_printf/add_precision_for_numbers.c \
+		  string/ft_printf/init_format.c \
+		  string/ft_printf/print_hex_integer.c \
+		  string/ft_printf/add_width_alignment.c \
+  		  string/ft_printf/parse_conversion.c \
+  		  string/ft_printf/print_integer.c \
+		  string/ft_printf/add_width_alignment_utils.c \
+	  	  string/ft_printf/parse_format.c \
+		  string/ft_printf/print_pointer.c \
+		  string/ft_printf/ft_printf.c \
+		  string/ft_printf/parse_literal_char.c \
+  		  string/ft_printf/print_string.c \
+  		  string/ft_printf/parser_select.c \
+		  string/ft_printf/printer_select.c \
+		  string/ft_printf/generic_functions.c \
+  		  string/ft_printf/print_char.c \
 		  file/ft_putchar_fd.c \
 		  file/ft_putstr_fd.c \
 		  file/ft_putendl_fd.c \

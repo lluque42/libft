@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:00 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/25 01:24:58 by lluque           ###   ########.fr       */
+/*   Updated: 2024/01/28 18:35:29 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -521,5 +521,47 @@ char	*ft_ultoa_b(unsigned long n, unsigned int base, int in_caps);
  * TODO.
 */
 char	*ft_uitoa_b(unsigned int n, unsigned int base, int in_caps);
+
+/**
+ * @brief <b>ft_printf</b> -- Formated output conversion (partial printf()).
+ *
+ * @details The ft_printf() function partially implements the C standard library
+ * printf() function.  
+ * This implementation fully (and only) supports:  
+ * Conversions: %c, %s, %p, %i, %d, %u, %x, %X, and %%.  
+ * Flags: Any combination, in any order of "-0# +".  
+ * '-' Left-justify within the given field width (right is the default).  
+ * '0' Left-pads the number with zeroes (0) instead of spaces when
+ * padding is specified.  
+ * '#' Used with x or X specifiers the value is preceeded with 0x or 0X
+ * respectively for values different than zero.  
+ * ' ' A blank should be left before a positive number produced by a
+ * signed conversion.  
+ * '+' A sign must always be placed before a number produced by a
+ * signed conversion.  
+ * Width: Minimum field width. If the converted value has fewer characters than
+ * the field width, it will be padded with spaces.  
+ * Precision: Minimum number of digits to appear for d, i, u, x, and X
+ * conversions. Or the maximum number of characters to be printed from a string
+ * for s conversions.  
+ * The syntax for a conversion is: %[flags][width][.precision]specifier  
+ * For example:  
+ * ft_printf("Int conversion of %0+5.3i as an example\n", foo);  
+ * This is: Integer conversion, field width 5, precision 3, + sign,
+ * and zero-padding.  
+ * See printf(3) man page for details.
+ *
+ * @param [in] str - The format string including conversion specifiers.
+ *
+ * @param [in] ... - Values consistent (in type, number and order) with the
+ * conversion specifiers included in format string.  
+ *
+ * @return If successful, ft_printf() returns the numbers of printed chars.  
+ * If there is an error, it returns a -1 value.
+ *
+ * @warning EXTERNAL FUNCTION USED: malloc(), free(), write(), va_start(),
+ * va_arg(), va_copy(), va_end().  
+*/
+int		ft_printf(const char *str, ...);
 
 #endif
