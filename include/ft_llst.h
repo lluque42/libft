@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:57 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/25 02:02:43 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/01 18:34:53 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,14 @@ typedef struct s_list
  * 
  * @param [in] content - The content to create the node with.
  *
- * @return The new node.
+ * @return The new node.  
+ * Returns NULL if malloc() fails.
  *
- * @warning EXTERNAL FUNCTION USED: ???.  
- * TODO.  
- * A NULL pointer parameter or a non-terminated string are supposed
- * to make this function crash.
- *
+ * @warning EXTERNAL FUNCTION USED: malloc().  
+ * 
  * @remark Implementation notes:  
- * If content == NULL, must return NULL.  
+ * Argument content is NOT checked for NULL, a node with NULL content is
+ * returned.  
  * If malloc fails, must return NULL.
  *
 */
@@ -60,21 +59,18 @@ t_list	*ft_lstnew(void *content);
 /**
  * @brief <b>ft_lstadd_front</b> -- Adds node at the beginning of the list.
  *
- * @details Adds the node ’new’ at the beginning of the list.
+ * @details Adds the node ’new’ at the beginning of the list. If *lst == NULL
+ * the new node becomes the list.
  * 
- * @param [in,out] lst - The address of a pointer to the first link of a list.
+ * @param [in,out] lst - The address of a pointer to the first node of a list.
  *
- * @param [in] new - The address of a pointer to the node to be added to the 
- * list.
+ * @param [in] new - A pointer to the node to be added to the list.
  *
- * @warning EXTERNAL FUNCTION USED: malloc().  
- * TODO
+ * @warning NO check is performed for NULL pointers passed as arguments. In
+ * such cases, CRASHING is guaranteed.
  *
  * @remark Implementation notes:  
- * lst == NULL.  
- * *lst == NULL.  
- * t_list == NULL.  
- * TODO.
+ * Don't check for valid pointers.
 */
 void	ft_lstadd_front(t_list **lst, t_list *new);
 
@@ -83,14 +79,10 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
  *
  * @details Counts the number of nodes in a list.
  * 
- * @param [in] lst - The beginning of the list.
+ * @param [in] lst - A pointer to the first element of the list.
  *
- * @return The length of the list.
- *
- * @warning TODO.
- *
- * @remark Implementation notes:  
- * If lst == NULL, return value must be 0. 
+ * @return The length of the list.  
+ * If lst == NULL a 0 value is returned.
 */
 int		ft_lstsize(t_list *lst);
 
@@ -99,32 +91,28 @@ int		ft_lstsize(t_list *lst);
  *
  * @details Returns the last node of the list.
  * 
- * @param [in] lst - The beginning of the list.
+ * @param [in] lst - A pointer to the first node of the list.
  *
- * @return Last node of the list.
- *
- * @warning TODO.
- *
- * @remark Implementation notes:  
- * If lst == NULL, return value is NULL.
+ * @return A pointer to the last node of the list.  
+ * Returns NULL if lst == NULL. 
 */
 t_list	*ft_lstlast(t_list *lst);
 
 /**
- * @brief <b>ft_lstadd_back</b> -- Adds the node ’new’ at the end of the list.
+ * @brief <b>ft_lstadd_back</b> -- Adds node at the end of the list.
  *
- * @details Adds the node ’new’ at the end of the list.
+ * @details Adds the node ’new’ at the end of the list. If *lst == NULL
+ * the new node becomes the list.
  * 
- * @param [in] lst - The address of a pointer to the first link of a list.
+ * @param [in,out] lst - The address of a pointer to the first node of a list.
  *
- * @param [in] - The address of a pointer to the node to be added to the list.
+ * @param [in] new - A pointer to the node to be added to the list.
  *
- * @warning TODO.
+ * @warning NO check is performed for NULL pointers passed as arguments. In
+ * such cases, CRASHING is guaranteed. TODO. This is not true, check with paco..
  *
  * @remark Implementation notes:  
- * If lst == NULL or new == NULL, nothing must be done.  
- * If *lst == NULL	>>	*lst = new (i.e. lstadd_backing an element to a NULL
- * list, creates the list with just that element).
+ * Don't check for valid pointers.
 */
 void	ft_lstadd_back(t_list **lst, t_list *new);
 
@@ -134,21 +122,18 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
  *
  * @details Takes as a parameter a node and frees the memory of the node’s
  * content using the function ’del’ given as a parameter and free the node.  
- * The memory of ’next’ must not be freed.
+ * The memory of ’next’ must not be freed. This function may break a list
+ * if used without caution.
  * 
- * @param [in] lst - The node to free.
+ * @param [in] lst - A pointer to the node to be freed.
  *
- * @param [in] del - The address of the function used to delete the content.
+ * @param [in] del - The address of the function that shall be used to properly
+ * free only the content of the node. This function must be capable of handling
+ * a NULL content pointer.
  *
  * @warning EXTERNAL FUNCTION USED: free().  
- * TODO.
- *
- * @remark Implementation notes:  
- * CONCEPTUAL: Could break a list because no first item of list nor previous
- * item is given. This is the expected behavior.  
- * The caller should set lst to NULL after freeing the memory with this
+ * The caller should set lst to NULL after freeing memory with this
  * funcion.  
- * Function del() must handle NULL content but must not free the node.
 */
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
@@ -158,41 +143,37 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
  *
  * @details Deletes and frees the given node and every successor of that node,
  * using the function ’del’ and free().  
- * Finally, the pointer to the list must be set to NULL.
+ * Finally, the pointer to the node is set to NULL.
  * 
- * @param [in,out] lst- The address of a pointer to a node.
+ * @param [in,out] lst- The address of a pointer to a node. If NULL, nothing is
+ * done. Is set to NULL by this function.
  *
- * @param [in] del - The address of the function used to delete the content
- * of the node.
+ * @param [in] del - The address of the function that shall be used to properly
+ * free only the content of the node. This function must be capable of handling
+ * a NULL content pointer.
  *
  * @warning EXTERNAL FUNCTION USED: free().  
- * TODO.
  *
  * @remark Implementation notes:  
+ * TODO (Paco-check this, it should crash).  
  * If lst == NULL, nothing must be done.  
- * If *lst == NULL, nothing must be done.  
- * Parameter lst MUST be set to NULL by this function.  
- * Function del() must handle NULL content but must not free the node.
+ * TODO (this makes sense, empty list).  
+ * If *lst == NULL, nothing must be done.
 */
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 
 /**
- * @brief <b>ft_lstiter</b> -- Applies function f to the content of each node
- * on list.
+ * @brief <b>ft_lstiter</b> -- Applies provided function f to the content
+ * of each node on list.
  *
  * @details Iterates the list ’lst’ and applies the function ’f’ on the content
  * of each node.
  * 
- * @param lst - The address of a pointer to a node.
+ * @param lst - The address of a pointer to a node. If NULL nothing is done.
  *
- * @param f - The address of the function used to iterate on the list.
- *
- * @warning TODO.
- *
- * @remark Implementation notes:  
- * If lst == NULL, return NULL.  
- * CONCEPTUAL: f fuction must handle NULL content: f() must return NULL, also
- * if its malloc() call	fails. f() must return the address of the new content.
+ * @param f - The address of the function that shall be applied on every
+ * node's content while traversing the whole list. This function must be capable
+ * of handling a NULL content pointer.
 */
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
@@ -203,27 +184,30 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
  * @details Iterates the list ’lst’ and applies the function ’f’ on the content
  * of each node. Creates a new list resulting of the successive applications of
  * the function ’f’. The ’del’ function is used to delete the content of a node
- * if needed.
+ * if needed. If at some point the funcion fails, the in-construction new list
+ * must is cleared completely and NULL pointer is returned.
+
+ * If an error occurs while creating the new list, every memory is
+ * freed and a NULL is returned.
  * 
- * @param lst - The address of a pointer to a node.
+ * @param [in] lst - The address of a pointer to a node. If NULL nothing is done
+ * and a NULL pointer is returned.
  *
- * @param f - The address of the function used to iterate on the list.
+ * @param [in] f - The address of the function that shall be applied on every
+ * node's content while traversing the original list to return a pointer to the
+ * new content for every node of the new list. This function must be capable of
+ * handling a NULL content pointer. This function must allocate memory for the
+ * generated new contents. This function must return NULL if error.
  *
- * @param del - The address of the function used to delete the content of a
- * node if needed.
+ * @param [in] del - The address of the function that shall be used to properly
+ * free only the content of the node. This function must be capable of handling
+ * a NULL content pointer. This function is used if an error occurs while
+ * creating the new list.
  *
  * @return The new list.  
- * NULL if the allocation fails.
+ * NULL if error occurs.
  *
  * @warning EXTERNAL FUNCTION USED: malloc(), free().  
- * TODO.
- *
- * @remark Implementation notes:  
- * CONCEPTUAL: f fuction must handle NULL content: f() must return NULL, also
- * if its malloc() call	fails. f() must return the address of the new content.  
- * Function del() must handle NULL content but must not free the node.  
- * If at some point the funcion fails, the in-construction new list must be
- * cleared completely and NULL must be returned.
 */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
