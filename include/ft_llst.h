@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:57 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/01 18:34:53 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/02 13:08:28 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,7 +174,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
  * @param f - The address of the function that shall be applied on every
  * node's content while traversing the whole list. This function must be capable
  * of handling a NULL content pointer.
-*/
+ *
+ * @warning NO check is performed for NULL pointers passed as arguments. In
+ * such cases, CRASHING is guaranteed.
+ */
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 /**

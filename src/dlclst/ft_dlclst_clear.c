@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlclst_insfront.c                               :+:      :+:    :+:   */
+/*   ft_dlclst_clear.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/17 18:50:02 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/01 21:38:47 by lluque           ###   ########.fr       */
+/*   Created: 2023/09/17 18:51:05 by lluque            #+#    #+#             */
+/*   Updated: 2024/02/01 20:41:00 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-void	ft_dlclst_insfront(t_dlclst **lst, t_dlclst *new)
+void	ft_dlclst_clear(t_dlclst **lst, void (*del)(void *))
 {
-	if (*lst == NULL)
-		*lst = new;
-	else
+	while (*lst != NULL)
 	{
-		new->next = *lst;
-		new->prev = (*lst)->prev;
-		((*lst)->prev)->next = new;
-		(*lst)->prev = new;
-		*lst = new;
+		ft_dlclst_remback(lst, del);
 	}
 }

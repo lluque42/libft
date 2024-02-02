@@ -6,12 +6,12 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:57 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/01 18:30:09 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/02 13:09:25 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
- * @file ft_llst.h
+ * @file ft_dlclst.h
   Doubly linked circular list implementation. Part of libft library.
 */
 
@@ -88,7 +88,7 @@ void		ft_dlclst_insfront(t_dlclst **lst, t_dlclst *new);
  *
  * @param [in] new - A pointer to the node to be added to the list.
  *
- * @warning NO check is performed NULL pointers passed as arguments. In
+ * @warning NO check is performed for NULL pointers passed as arguments. In
  * such cases, CRASHING is guaranteed.
  *
  * @remark Implementation notes:  
@@ -110,7 +110,7 @@ void		ft_dlclst_insback(t_dlclst **lst, t_dlclst *new);
  * have inside the list (always in the next direction, first node has 0 pos).  
  * A zero value produces the same result as ft_dlclst_insertfront().  
  *
- * @warning NO check is performed NULL pointers passed as arguments. In
+ * @warning NO check is performed for NULL pointers passed as arguments. In
  * such cases, CRASHING is guaranteed.
  *
  * @remark Implementation notes:  
@@ -249,6 +249,9 @@ void		ft_dlclst_clear(t_dlclst **lst, void (*del)(void *));
  * @param f - The address of the function that shall be used apply on every
  * node's content while traversing the whole list. This function must be capable
  * of handling a NULL content pointer.
+ *
+ * @warning NO check is performed for NULL pointers passed as arguments. In
+ * such cases, CRASHING is guaranteed.
 */
 void		ft_dlclst_iter(t_dlclst *lst, void (*f)(void *));
 
@@ -289,8 +292,9 @@ t_dlclst	*ft_dlclst_map(t_dlclst *l, void *(*f)(void *), void (*d)(void *));
 /* TODO
  *
  - Buscar contenido.
-    - ft_dlclst_contains.
+    - ft_dlclst_search.
         - Devuelve posición.
+		- A la manera de iteri y map, con funcion externa de match que sepa lidiar con el contenido concreto.
 - Cambiar contenido.
     - ft_dlclst_updatepos.
     - ft_dlclst_updatefront.

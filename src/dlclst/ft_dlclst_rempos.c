@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:12:58 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/01 15:47:52 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/01 21:59:21 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,22 @@
 
 void	ft_dlclst_rempos(t_dlclst **lst, void (*del)(void *), unsigned int pos)
 {
-	t_dlclst	*temp;
+	t_dlclst	*to_be_deleted;
 	int			i;
 
 	if (*lst == NULL)
 		return ;
 	i = 0;
-	temp = *lst;
+	to_be_deleted = *lst;
 	while (i != pos)
-		temp = temp->next;
-	del((void *)temp->content);
-	(temp->next)->prev = temp->prev;
-	(temp->prev)->next = temp->next;
-	free(temp);
-	if (*lst == temp)
-		*lst = NULL;
+	{
+		to_be_deleted = to_be_deleted->next;
+		i++;
+	}
+	del((void *)to_be_deleted->content);
+	(to_be_deleted->next)->prev = to_be_deleted->prev;
+	(to_be_deleted->prev)->next = to_be_deleted->next;
+	if (*lst == to_be_deleted)
+		*lst = to_be_deleted->next;
+	free(to_be_deleted);
 }

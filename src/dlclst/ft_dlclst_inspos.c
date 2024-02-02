@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 12:44:45 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/01 18:32:42 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/01 22:21:20 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,26 @@
 
 void	ft_dlclst_inspos(t_dlclst **lst, t_dlclst *new, unsigned int pos)
 {
-	t_dlclst	*current_item;
+	t_dlclst	*to_be_shifted;
 	int			i;
 
 	if (*lst == NULL)
-		(*lst) = new;
+		*lst = new;
 	else
 	{
 		i = 0;
-		current_item = *lst;
+		to_be_shifted = *lst;
 		while (i != pos)
 		{
-			current_item = current_item->next;
+			to_be_shifted = to_be_shifted->next;
+			ft_printf("i = %d\n", i);
 			i++;
 		}
-		new->next = current_item;
-		new->prev = current_item->prev;
-		current_item->prev = new;
-		if (current_item == *lst)
-			*lst = new;
+		new->next = to_be_shifted;
+		new->prev = to_be_shifted->prev;
+		to_be_shifted->prev->next = new;
+		to_be_shifted->prev = new;
+		if (to_be_shifted == *lst)
+			*lst = (*lst)->prev;
 	}
 }

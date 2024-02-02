@@ -113,7 +113,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:aed5f9b5ecc45235a7b7cf9d4b24e43dc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_lstlast</b> &ndash; Returns the last node of the list.  <a href="ft__llst_8h.html#aed5f9b5ecc45235a7b7cf9d4b24e43dc">More...</a><br /></td></tr>
 <tr class="separator:aed5f9b5ecc45235a7b7cf9d4b24e43dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c10e88fffc3c9467eb16e6debd227a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__llst_8h.html#a4c10e88fffc3c9467eb16e6debd227a4">ft_lstadd_back</a> (<a class="el" href="structs__list.html">t_list</a> **lst, <a class="el" href="structs__list.html">t_list</a> *new)</td></tr>
-<tr class="memdesc:a4c10e88fffc3c9467eb16e6debd227a4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_lstadd_back</b> &ndash; Adds the node ’new’ at the end of the list.  <a href="ft__llst_8h.html#a4c10e88fffc3c9467eb16e6debd227a4">More...</a><br /></td></tr>
+<tr class="memdesc:a4c10e88fffc3c9467eb16e6debd227a4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_lstadd_back</b> &ndash; Adds node at the end of the list.  <a href="ft__llst_8h.html#a4c10e88fffc3c9467eb16e6debd227a4">More...</a><br /></td></tr>
 <tr class="separator:a4c10e88fffc3c9467eb16e6debd227a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2b881501f9ee2f3ed5718f6d9ebee7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__llst_8h.html#ac2b881501f9ee2f3ed5718f6d9ebee7c">ft_lstdelone</a> (<a class="el" href="structs__list.html">t_list</a> *lst, void(*del)(void *))</td></tr>
 <tr class="memdesc:ac2b881501f9ee2f3ed5718f6d9ebee7c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_lstdelone</b> &ndash; Deletes and frees memory of item list and its content.  <a href="ft__llst_8h.html#ac2b881501f9ee2f3ed5718f6d9ebee7c">More...</a><br /></td></tr>
@@ -122,7 +122,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a6e900cfaea2857bbf490f3105e38da93"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_lstclear</b> &ndash; Deletes and frees given node and succesors. (freeing contents).  <a href="ft__llst_8h.html#a6e900cfaea2857bbf490f3105e38da93">More...</a><br /></td></tr>
 <tr class="separator:a6e900cfaea2857bbf490f3105e38da93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1888c62a89ec3d206f2ed4590f4a021d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__llst_8h.html#a1888c62a89ec3d206f2ed4590f4a021d">ft_lstiter</a> (<a class="el" href="structs__list.html">t_list</a> *lst, void(*f)(void *))</td></tr>
-<tr class="memdesc:a1888c62a89ec3d206f2ed4590f4a021d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_lstiter</b> &ndash; Applies function f to the content of each node on list.  <a href="ft__llst_8h.html#a1888c62a89ec3d206f2ed4590f4a021d">More...</a><br /></td></tr>
+<tr class="memdesc:a1888c62a89ec3d206f2ed4590f4a021d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_lstiter</b> &ndash; Applies provided function f to the content of each node on list.  <a href="ft__llst_8h.html#a1888c62a89ec3d206f2ed4590f4a021d">More...</a><br /></td></tr>
 <tr class="separator:a1888c62a89ec3d206f2ed4590f4a021d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8198d1837ffbba05823f5e85afebf9c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structs__list.html">t_list</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__llst_8h.html#a8198d1837ffbba05823f5e85afebf9c6">ft_lstmap</a> (<a class="el" href="structs__list.html">t_list</a> *lst, void *(*f)(void *), void(*del)(void *))</td></tr>
 <tr class="memdesc:a8198d1837ffbba05823f5e85afebf9c6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_lstmap</b> &ndash; Returns new list based on applying f to each nodes content.  <a href="ft__llst_8h.html#a8198d1837ffbba05823f5e85afebf9c6">More...</a><br /></td></tr>
@@ -157,19 +157,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><b>ft_lstadd_back</b> &ndash; Adds the node ’new’ at the end of the list. </p>
-<p >Adds the node ’new’ at the end of the list.</p>
+<p><b>ft_lstadd_back</b> &ndash; Adds node at the end of the list. </p>
+<p >Adds the node ’new’ at the end of the list. If *lst == NULL the new node becomes the list.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">lst</td><td>- The address of a pointer to the first link of a list.</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">-</td><td>The address of a pointer to the node to be added to the list.</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">lst</td><td>- The address of a pointer to the first node of a list.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">new</td><td>- A pointer to the node to be added to the list.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section warning"><dt>Warning</dt><dd>TODO.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>NO check is performed for NULL pointers passed as arguments. In such cases, CRASHING is guaranteed. TODO. This is not true, check with paco..</dd></dl>
 <dl class="section remark"><dt>Remarks</dt><dd>Implementation notes: <br  />
- If lst == NULL or new == NULL, nothing must be done. <br  />
- If *lst == NULL &gt;&gt; *lst = new (i.e. lstadd_backing an element to a NULL list, creates the list with just that element). </dd></dl>
+ Don't check for valid pointers. </dd></dl>
 
 </div>
 </div>
@@ -200,21 +199,17 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p><b>ft_lstadd_front</b> &ndash; Adds node at the beginning of the list. </p>
-<p >Adds the node ’new’ at the beginning of the list.</p>
+<p >Adds the node ’new’ at the beginning of the list. If *lst == NULL the new node becomes the list.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">lst</td><td>- The address of a pointer to the first link of a list.</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">new</td><td>- The address of a pointer to the node to be added to the list.</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">lst</td><td>- The address of a pointer to the first node of a list.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">new</td><td>- A pointer to the node to be added to the list.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section warning"><dt>Warning</dt><dd>EXTERNAL FUNCTION USED: malloc(). <br  />
- TODO</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>NO check is performed for NULL pointers passed as arguments. In such cases, CRASHING is guaranteed.</dd></dl>
 <dl class="section remark"><dt>Remarks</dt><dd>Implementation notes: <br  />
- lst == NULL. <br  />
- *lst == NULL. <br  />
- t_list == NULL. <br  />
- TODO. </dd></dl>
+ Don't check for valid pointers. </dd></dl>
 
 </div>
 </div>
@@ -246,21 +241,21 @@ Functions</h2></td></tr>
 
 <p><b>ft_lstclear</b> &ndash; Deletes and frees given node and succesors. (freeing contents). </p>
 <p >Deletes and frees the given node and every successor of that node, using the function ’del’ and free(). <br  />
- Finally, the pointer to the list must be set to NULL.</p>
+ Finally, the pointer to the node is set to NULL.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">lst-</td><td>The address of a pointer to a node.</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">del</td><td>- The address of the function used to delete the content of the node.</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">lst-</td><td>The address of a pointer to a node. If NULL, nothing is done. Is set to NULL by this function.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">del</td><td>- The address of the function that shall be used to properly free only the content of the node. This function must be capable of handling a NULL content pointer.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>EXTERNAL FUNCTION USED: free(). <br  />
- TODO.</dd></dl>
+</dd></dl>
 <dl class="section remark"><dt>Remarks</dt><dd>Implementation notes: <br  />
+ TODO (Paco-check this, it should crash). <br  />
  If lst == NULL, nothing must be done. <br  />
- If *lst == NULL, nothing must be done. <br  />
- Parameter lst MUST be set to NULL by this function. <br  />
- Function del() must handle NULL content but must not free the node. </dd></dl>
+ TODO (this makes sense, empty list). <br  />
+ If *lst == NULL, nothing must be done. </dd></dl>
 
 </div>
 </div>
@@ -292,20 +287,17 @@ Functions</h2></td></tr>
 
 <p><b>ft_lstdelone</b> &ndash; Deletes and frees memory of item list and its content. </p>
 <p >Takes as a parameter a node and frees the memory of the node’s content using the function ’del’ given as a parameter and free the node. <br  />
- The memory of ’next’ must not be freed.</p>
+ The memory of ’next’ must not be freed. This function may break a list if used without caution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">lst</td><td>- The node to free.</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">del</td><td>- The address of the function used to delete the content.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lst</td><td>- A pointer to the node to be freed.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">del</td><td>- The address of the function that shall be used to properly free only the content of the node. This function must be capable of handling a NULL content pointer.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>EXTERNAL FUNCTION USED: free(). <br  />
- TODO.</dd></dl>
-<dl class="section remark"><dt>Remarks</dt><dd>Implementation notes: <br  />
- CONCEPTUAL: Could break a list because no first item of list nor previous item is given. This is the expected behavior. <br  />
- The caller should set lst to NULL after freeing the memory with this funcion. <br  />
- Function del() must handle NULL content but must not free the node. </dd></dl>
+ The caller should set lst to NULL after freeing memory with this funcion. <br  />
+ </dd></dl>
 
 </div>
 </div>
@@ -335,19 +327,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><b>ft_lstiter</b> &ndash; Applies function f to the content of each node on list. </p>
+<p><b>ft_lstiter</b> &ndash; Applies provided function f to the content of each node on list. </p>
 <p >Iterates the list ’lst’ and applies the function ’f’ on the content of each node.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lst</td><td>- The address of a pointer to a node.</td></tr>
-    <tr><td class="paramname">f</td><td>- The address of the function used to iterate on the list.</td></tr>
+    <tr><td class="paramname">lst</td><td>- The address of a pointer to a node. If NULL nothing is done.</td></tr>
+    <tr><td class="paramname">f</td><td>- The address of the function that shall be applied on every node's content while traversing the whole list. This function must be capable of handling a NULL content pointer.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section warning"><dt>Warning</dt><dd>TODO.</dd></dl>
-<dl class="section remark"><dt>Remarks</dt><dd>Implementation notes: <br  />
- If lst == NULL, return NULL. <br  />
- CONCEPTUAL: f fuction must handle NULL content: f() must return NULL, also if its malloc() call fails. f() must return the address of the new content. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>NO check is performed for NULL pointers passed as arguments. In such cases, CRASHING is guaranteed. </dd></dl>
 
 </div>
 </div>
@@ -371,14 +360,12 @@ Functions</h2></td></tr>
 <p >Returns the last node of the list.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">lst</td><td>- The beginning of the list.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lst</td><td>- A pointer to the first node of the list.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Last node of the list.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>TODO.</dd></dl>
-<dl class="section remark"><dt>Remarks</dt><dd>Implementation notes: <br  />
- If lst == NULL, return value is NULL. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the last node of the list. <br  />
+ Returns NULL if lst == NULL. </dd></dl>
 
 </div>
 </div>
@@ -415,23 +402,20 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p><b>ft_lstmap</b> &ndash; Returns new list based on applying f to each nodes content. </p>
-<p >Iterates the list ’lst’ and applies the function ’f’ on the content of each node. Creates a new list resulting of the successive applications of the function ’f’. The ’del’ function is used to delete the content of a node if needed.</p>
+<p >Iterates the list ’lst’ and applies the function ’f’ on the content of each node. Creates a new list resulting of the successive applications of the function ’f’. The ’del’ function is used to delete the content of a node if needed. If at some point the funcion fails, the in-construction new list must is cleared completely and NULL pointer is returned.</p>
+<p >If an error occurs while creating the new list, every memory is freed and a NULL is returned.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lst</td><td>- The address of a pointer to a node.</td></tr>
-    <tr><td class="paramname">f</td><td>- The address of the function used to iterate on the list.</td></tr>
-    <tr><td class="paramname">del</td><td>- The address of the function used to delete the content of a node if needed.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lst</td><td>- The address of a pointer to a node. If NULL nothing is done and a NULL pointer is returned.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>- The address of the function that shall be applied on every node's content while traversing the original list to return a pointer to the new content for every node of the new list. This function must be capable of handling a NULL content pointer. This function must allocate memory for the generated new contents. This function must return NULL if error.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">del</td><td>- The address of the function that shall be used to properly free only the content of the node. This function must be capable of handling a NULL content pointer. This function is used if an error occurs while creating the new list.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The new list. <br  />
- NULL if the allocation fails.</dd></dl>
+ NULL if error occurs.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>EXTERNAL FUNCTION USED: malloc(), free(). <br  />
- TODO.</dd></dl>
-<dl class="section remark"><dt>Remarks</dt><dd>Implementation notes: <br  />
- CONCEPTUAL: f fuction must handle NULL content: f() must return NULL, also if its malloc() call fails. f() must return the address of the new content. <br  />
- Function del() must handle NULL content but must not free the node. <br  />
- If at some point the funcion fails, the in-construction new list must be cleared completely and NULL must be returned. </dd></dl>
+ </dd></dl>
 
 </div>
 </div>
@@ -460,12 +444,12 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The new node.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>EXTERNAL FUNCTION USED: ???. <br  />
- TODO. <br  />
- A NULL pointer parameter or a non-terminated string are supposed to make this function crash.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The new node. <br  />
+ Returns NULL if malloc() fails.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>EXTERNAL FUNCTION USED: malloc(). <br  />
+</dd></dl>
 <dl class="section remark"><dt>Remarks</dt><dd>Implementation notes: <br  />
- If content == NULL, must return NULL. <br  />
+ Argument content is NOT checked for NULL, a node with NULL content is returned. <br  />
  If malloc fails, must return NULL. </dd></dl>
 
 </div>
@@ -490,14 +474,12 @@ Functions</h2></td></tr>
 <p >Counts the number of nodes in a list.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">lst</td><td>- The beginning of the list.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lst</td><td>- A pointer to the first element of the list.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The length of the list.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>TODO.</dd></dl>
-<dl class="section remark"><dt>Remarks</dt><dd>Implementation notes: <br  />
- If lst == NULL, return value must be 0. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The length of the list. <br  />
+ If lst == NULL a 0 value is returned. </dd></dl>
 
 </div>
 </div>

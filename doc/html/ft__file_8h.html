@@ -104,10 +104,47 @@ Functions</h2></td></tr>
 <tr class="memitem:ac8b37f8f02a3ced682c7f1f874b1b144"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__file_8h.html#ac8b37f8f02a3ced682c7f1f874b1b144">ft_putstr_fd_safe</a> (char *s, int fd)</td></tr>
 <tr class="memdesc:ac8b37f8f02a3ced682c7f1f874b1b144"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_putstr_fd_safe</b> &ndash; TODO.  <a href="ft__file_8h.html#ac8b37f8f02a3ced682c7f1f874b1b144">More...</a><br /></td></tr>
 <tr class="separator:ac8b37f8f02a3ced682c7f1f874b1b144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1414e908b987bfd7b44f821164ac7b61"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__file_8h.html#a1414e908b987bfd7b44f821164ac7b61">ft_gnl</a> (int fd)</td></tr>
+<tr class="memdesc:a1414e908b987bfd7b44f821164ac7b61"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_gnl</b> &ndash; Get next line from file descriptor.  <a href="ft__file_8h.html#a1414e908b987bfd7b44f821164ac7b61">More...</a><br /></td></tr>
+<tr class="separator:a1414e908b987bfd7b44f821164ac7b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >File manipulation related functions. Part of libft library. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a1414e908b987bfd7b44f821164ac7b61" name="a1414e908b987bfd7b44f821164ac7b61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1414e908b987bfd7b44f821164ac7b61">&#9670;&nbsp;</a></span>ft_gnl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * ft_gnl </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><b>ft_gnl</b> &ndash; Get next line from file descriptor. </p>
+<p >Get next line function is used to read complete lines from a valid file descriptor passed as argument. When there are no more lines to read or some error occured, a NULL pointer is returned. <br  />
+ The typical use of <a class="el" href="ft__file_8h.html#a1414e908b987bfd7b44f821164ac7b61" title="ft_gnl – Get next line from file descriptor.">ft_gnl()</a> is in a loop to read every line from the file descriptor until the function returns NULL.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fd</td><td>- An int value representing the file descriptor to read from.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A NUL terminated c-string with the next line read. <br  />
+ NULL if error or no more lines available.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>EXTERNAL FUNCTION USED: read(), malloc(), free(). <br  />
+</dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Implementation notes: <br  />
+ This function can be used to read from multiple file descriptors while maintaning consistence. </dd></dl>
+
+</div>
+</div>
 <a id="a8ee15a511946c1397bd2bdea4aed6aee" name="a8ee15a511946c1397bd2bdea4aed6aee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8ee15a511946c1397bd2bdea4aed6aee">&#9670;&nbsp;</a></span>ft_putchar_fd()</h2>
 

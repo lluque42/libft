@@ -1,4 +1,4 @@
-.TH "include/ft_file.h" 3 "Sat Jan 27 2024" "Version 2024-01-27" "Library libft" \" -*- nroff -*-
+.TH "include/ft_file.h" 3 "Fri Feb 2 2024" "Version 2024-01-27" "Library libft" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -33,12 +33,49 @@ include/ft_file.h
 .RI "int \fBft_putstr_fd_safe\fP (char *s, int fd)"
 .br
 .RI "\fBft_putstr_fd_safe\fP -- TODO\&. "
+.ti -1c
+.RI "char * \fBft_gnl\fP (int fd)"
+.br
+.RI "\fBft_gnl\fP -- Get next line from file descriptor\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
 File manipulation related functions\&. Part of libft library\&. 
 .SH "Function Documentation"
 .PP 
+.SS "char * ft_gnl (int fd)"
+
+.PP
+\fBft_gnl\fP -- Get next line from file descriptor\&. Get next line function is used to read complete lines from a valid file descriptor passed as argument\&. When there are no more lines to read or some error occured, a NULL pointer is returned\&. 
+.br
+ The typical use of \fBft_gnl()\fP is in a loop to read every line from the file descriptor until the function returns NULL\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIfd\fP - An int value representing the file descriptor to read from\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A NUL terminated c-string with the next line read\&. 
+.br
+ NULL if error or no more lines available\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: read(), malloc(), free()\&. 
+.br
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ This function can be used to read from multiple file descriptors while maintaning consistence\&. 
+.RE
+.PP
+
 .SS "void ft_putchar_fd (char c, int fd)"
 
 .PP

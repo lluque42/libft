@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlclst_insfront.c                               :+:      :+:    :+:   */
+/*   ft_dlclst_iter.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/17 18:50:02 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/01 21:38:47 by lluque           ###   ########.fr       */
+/*   Created: 2023/09/17 18:52:08 by lluque            #+#    #+#             */
+/*   Updated: 2024/02/01 20:53:12 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_dlclst_insfront(t_dlclst **lst, t_dlclst *new)
+void	ft_dlclst_iter(t_dlclst *lst, void (*f)(void *))
 {
-	if (*lst == NULL)
-		*lst = new;
-	else
+	t_dlclst	*current_item;
+
+	current_item = lst;
+	f(current_item->content);
+	current_item = current_item->next;
+	while (current_item != lst)
 	{
-		new->next = *lst;
-		new->prev = (*lst)->prev;
-		((*lst)->prev)->next = new;
-		(*lst)->prev = new;
-		*lst = new;
+		f(current_item->content);
+		current_item = current_item->next;
 	}
 }

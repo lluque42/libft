@@ -1,4 +1,4 @@
-.TH "include/ft_llst.h" 3 "Sat Jan 27 2024" "Version 2024-01-27" "Library libft" \" -*- nroff -*-
+.TH "include/ft_llst.h" 3 "Fri Feb 2 2024" "Version 2024-01-27" "Library libft" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -43,7 +43,7 @@ include/ft_llst.h
 .ti -1c
 .RI "void \fBft_lstadd_back\fP (\fBt_list\fP **lst, \fBt_list\fP *new)"
 .br
-.RI "\fBft_lstadd_back\fP -- Adds the node ’new’ at the end of the list\&. "
+.RI "\fBft_lstadd_back\fP -- Adds node at the end of the list\&. "
 .ti -1c
 .RI "void \fBft_lstdelone\fP (\fBt_list\fP *lst, void(*del)(void *))"
 .br
@@ -55,7 +55,7 @@ include/ft_llst.h
 .ti -1c
 .RI "void \fBft_lstiter\fP (\fBt_list\fP *lst, void(*f)(void *))"
 .br
-.RI "\fBft_lstiter\fP -- Applies function f to the content of each node on list\&. "
+.RI "\fBft_lstiter\fP -- Applies provided function f to the content of each node on list\&. "
 .ti -1c
 .RI "\fBt_list\fP * \fBft_lstmap\fP (\fBt_list\fP *lst, void *(*f)(void *), void(*del)(void *))"
 .br
@@ -69,60 +69,50 @@ Linked list implementation\&. Part of libft library\&.
 .SS "void ft_lstadd_back (\fBt_list\fP ** lst, \fBt_list\fP * new)"
 
 .PP
-\fBft_lstadd_back\fP -- Adds the node ’new’ at the end of the list\&. Adds the node ’new’ at the end of the list\&.
+\fBft_lstadd_back\fP -- Adds node at the end of the list\&. Adds the node ’new’ at the end of the list\&. If *lst == NULL the new node becomes the list\&.
 .PP
 \fBParameters\fP
 .RS 4
-\fIlst\fP - The address of a pointer to the first link of a list\&.
+\fIlst\fP - The address of a pointer to the first node of a list\&.
 .br
-\fI-\fP The address of a pointer to the node to be added to the list\&.
+\fInew\fP - A pointer to the node to be added to the list\&.
 .RE
 .PP
 \fBWarning\fP
 .RS 4
-TODO\&.
+NO check is performed for NULL pointers passed as arguments\&. In such cases, CRASHING is guaranteed\&. TODO\&. This is not true, check with paco\&.\&.
 .RE
 .PP
 \fBRemarks\fP
 .RS 4
 Implementation notes: 
 .br
- If lst == NULL or new == NULL, nothing must be done\&. 
-.br
- If *lst == NULL >> *lst = new (i\&.e\&. lstadd_backing an element to a NULL list, creates the list with just that element)\&. 
+ Don't check for valid pointers\&. 
 .RE
 .PP
 
 .SS "void ft_lstadd_front (\fBt_list\fP ** lst, \fBt_list\fP * new)"
 
 .PP
-\fBft_lstadd_front\fP -- Adds node at the beginning of the list\&. Adds the node ’new’ at the beginning of the list\&.
+\fBft_lstadd_front\fP -- Adds node at the beginning of the list\&. Adds the node ’new’ at the beginning of the list\&. If *lst == NULL the new node becomes the list\&.
 .PP
 \fBParameters\fP
 .RS 4
-\fIlst\fP - The address of a pointer to the first link of a list\&.
+\fIlst\fP - The address of a pointer to the first node of a list\&.
 .br
-\fInew\fP - The address of a pointer to the node to be added to the list\&.
+\fInew\fP - A pointer to the node to be added to the list\&.
 .RE
 .PP
 \fBWarning\fP
 .RS 4
-EXTERNAL FUNCTION USED: malloc()\&. 
-.br
- TODO
+NO check is performed for NULL pointers passed as arguments\&. In such cases, CRASHING is guaranteed\&.
 .RE
 .PP
 \fBRemarks\fP
 .RS 4
 Implementation notes: 
 .br
- lst == NULL\&. 
-.br
- *lst == NULL\&. 
-.br
- t_list == NULL\&. 
-.br
- TODO\&. 
+ Don't check for valid pointers\&. 
 .RE
 .PP
 
@@ -131,33 +121,32 @@ Implementation notes:
 .PP
 \fBft_lstclear\fP -- Deletes and frees given node and succesors\&. (freeing contents)\&. Deletes and frees the given node and every successor of that node, using the function ’del’ and free()\&. 
 .br
- Finally, the pointer to the list must be set to NULL\&.
+ Finally, the pointer to the node is set to NULL\&.
 .PP
 \fBParameters\fP
 .RS 4
-\fIlst-\fP The address of a pointer to a node\&.
+\fIlst-\fP The address of a pointer to a node\&. If NULL, nothing is done\&. Is set to NULL by this function\&.
 .br
-\fIdel\fP - The address of the function used to delete the content of the node\&.
+\fIdel\fP - The address of the function that shall be used to properly free only the content of the node\&. This function must be capable of handling a NULL content pointer\&.
 .RE
 .PP
 \fBWarning\fP
 .RS 4
 EXTERNAL FUNCTION USED: free()\&. 
 .br
- TODO\&.
 .RE
 .PP
 \fBRemarks\fP
 .RS 4
 Implementation notes: 
 .br
+ TODO (Paco-check this, it should crash)\&. 
+.br
  If lst == NULL, nothing must be done\&. 
 .br
+ TODO (this makes sense, empty list)\&. 
+.br
  If *lst == NULL, nothing must be done\&. 
-.br
- Parameter lst MUST be set to NULL by this function\&. 
-.br
- Function del() must handle NULL content but must not free the node\&. 
 .RE
 .PP
 
@@ -166,58 +155,40 @@ Implementation notes:
 .PP
 \fBft_lstdelone\fP -- Deletes and frees memory of item list and its content\&. Takes as a parameter a node and frees the memory of the node’s content using the function ’del’ given as a parameter and free the node\&. 
 .br
- The memory of ’next’ must not be freed\&.
+ The memory of ’next’ must not be freed\&. This function may break a list if used without caution\&.
 .PP
 \fBParameters\fP
 .RS 4
-\fIlst\fP - The node to free\&.
+\fIlst\fP - A pointer to the node to be freed\&.
 .br
-\fIdel\fP - The address of the function used to delete the content\&.
+\fIdel\fP - The address of the function that shall be used to properly free only the content of the node\&. This function must be capable of handling a NULL content pointer\&.
 .RE
 .PP
 \fBWarning\fP
 .RS 4
 EXTERNAL FUNCTION USED: free()\&. 
 .br
- TODO\&.
-.RE
-.PP
-\fBRemarks\fP
-.RS 4
-Implementation notes: 
+ The caller should set lst to NULL after freeing memory with this funcion\&. 
 .br
- CONCEPTUAL: Could break a list because no first item of list nor previous item is given\&. This is the expected behavior\&. 
-.br
- The caller should set lst to NULL after freeing the memory with this funcion\&. 
-.br
- Function del() must handle NULL content but must not free the node\&. 
+ 
 .RE
 .PP
 
 .SS "void ft_lstiter (\fBt_list\fP * lst, void(*)(void *) f)"
 
 .PP
-\fBft_lstiter\fP -- Applies function f to the content of each node on list\&. Iterates the list ’lst’ and applies the function ’f’ on the content of each node\&.
+\fBft_lstiter\fP -- Applies provided function f to the content of each node on list\&. Iterates the list ’lst’ and applies the function ’f’ on the content of each node\&.
 .PP
 \fBParameters\fP
 .RS 4
-\fIlst\fP - The address of a pointer to a node\&.
+\fIlst\fP - The address of a pointer to a node\&. If NULL nothing is done\&.
 .br
-\fIf\fP - The address of the function used to iterate on the list\&.
+\fIf\fP - The address of the function that shall be applied on every node's content while traversing the whole list\&. This function must be capable of handling a NULL content pointer\&.
 .RE
 .PP
 \fBWarning\fP
 .RS 4
-TODO\&.
-.RE
-.PP
-\fBRemarks\fP
-.RS 4
-Implementation notes: 
-.br
- If lst == NULL, return NULL\&. 
-.br
- CONCEPTUAL: f fuction must handle NULL content: f() must return NULL, also if its malloc() call fails\&. f() must return the address of the new content\&. 
+NO check is performed for NULL pointers passed as arguments\&. In such cases, CRASHING is guaranteed\&. 
 .RE
 .PP
 
@@ -228,64 +199,45 @@ Implementation notes:
 .PP
 \fBParameters\fP
 .RS 4
-\fIlst\fP - The beginning of the list\&.
+\fIlst\fP - A pointer to the first node of the list\&.
 .RE
 .PP
 \fBReturns\fP
 .RS 4
-Last node of the list\&.
-.RE
-.PP
-\fBWarning\fP
-.RS 4
-TODO\&.
-.RE
-.PP
-\fBRemarks\fP
-.RS 4
-Implementation notes: 
+A pointer to the last node of the list\&. 
 .br
- If lst == NULL, return value is NULL\&. 
+ Returns NULL if lst == NULL\&. 
 .RE
 .PP
 
 .SS "\fBt_list\fP * ft_lstmap (\fBt_list\fP * lst, void *(*)(void *) f, void(*)(void *) del)"
 
 .PP
-\fBft_lstmap\fP -- Returns new list based on applying f to each nodes content\&. Iterates the list ’lst’ and applies the function ’f’ on the content of each node\&. Creates a new list resulting of the successive applications of the function ’f’\&. The ’del’ function is used to delete the content of a node if needed\&.
+\fBft_lstmap\fP -- Returns new list based on applying f to each nodes content\&. Iterates the list ’lst’ and applies the function ’f’ on the content of each node\&. Creates a new list resulting of the successive applications of the function ’f’\&. The ’del’ function is used to delete the content of a node if needed\&. If at some point the funcion fails, the in-construction new list must is cleared completely and NULL pointer is returned\&.
+.PP
+If an error occurs while creating the new list, every memory is freed and a NULL is returned\&.
 .PP
 \fBParameters\fP
 .RS 4
-\fIlst\fP - The address of a pointer to a node\&.
+\fIlst\fP - The address of a pointer to a node\&. If NULL nothing is done and a NULL pointer is returned\&.
 .br
-\fIf\fP - The address of the function used to iterate on the list\&.
+\fIf\fP - The address of the function that shall be applied on every node's content while traversing the original list to return a pointer to the new content for every node of the new list\&. This function must be capable of handling a NULL content pointer\&. This function must allocate memory for the generated new contents\&. This function must return NULL if error\&.
 .br
-\fIdel\fP - The address of the function used to delete the content of a node if needed\&.
+\fIdel\fP - The address of the function that shall be used to properly free only the content of the node\&. This function must be capable of handling a NULL content pointer\&. This function is used if an error occurs while creating the new list\&.
 .RE
 .PP
 \fBReturns\fP
 .RS 4
 The new list\&. 
 .br
- NULL if the allocation fails\&.
+ NULL if error occurs\&.
 .RE
 .PP
 \fBWarning\fP
 .RS 4
 EXTERNAL FUNCTION USED: malloc(), free()\&. 
 .br
- TODO\&.
-.RE
-.PP
-\fBRemarks\fP
-.RS 4
-Implementation notes: 
-.br
- CONCEPTUAL: f fuction must handle NULL content: f() must return NULL, also if its malloc() call fails\&. f() must return the address of the new content\&. 
-.br
- Function del() must handle NULL content but must not free the node\&. 
-.br
- If at some point the funcion fails, the in-construction new list must be cleared completely and NULL must be returned\&. 
+ 
 .RE
 .PP
 
@@ -303,23 +255,22 @@ Implementation notes:
 .PP
 \fBReturns\fP
 .RS 4
-The new node\&.
+The new node\&. 
+.br
+ Returns NULL if malloc() fails\&.
 .RE
 .PP
 \fBWarning\fP
 .RS 4
-EXTERNAL FUNCTION USED: ???\&. 
+EXTERNAL FUNCTION USED: malloc()\&. 
 .br
- TODO\&. 
-.br
- A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&.
 .RE
 .PP
 \fBRemarks\fP
 .RS 4
 Implementation notes: 
 .br
- If content == NULL, must return NULL\&. 
+ Argument content is NOT checked for NULL, a node with NULL content is returned\&. 
 .br
  If malloc fails, must return NULL\&. 
 .RE
@@ -332,24 +283,14 @@ Implementation notes:
 .PP
 \fBParameters\fP
 .RS 4
-\fIlst\fP - The beginning of the list\&.
+\fIlst\fP - A pointer to the first element of the list\&.
 .RE
 .PP
 \fBReturns\fP
 .RS 4
-The length of the list\&.
-.RE
-.PP
-\fBWarning\fP
-.RS 4
-TODO\&.
-.RE
-.PP
-\fBRemarks\fP
-.RS 4
-Implementation notes: 
+The length of the list\&. 
 .br
- If lst == NULL, return value must be 0\&. 
+ If lst == NULL a 0 value is returned\&. 
 .RE
 .PP
 
