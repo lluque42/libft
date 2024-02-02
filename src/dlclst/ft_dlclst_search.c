@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlclst_remfront.c                               :+:      :+:    :+:   */
+/*   ft_dlclst_search.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/30 15:12:58 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/30 15:37:08 by lluque           ###   ########.fr       */
+/*   Created: 2023/09/17 18:53:01 by lluque            #+#    #+#             */
+/*   Updated: 2024/02/02 14:33:02 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_dlclst_remfront(t_dlclst **lst, void (*del)(void *))
-{
-	t_dlclst	*new_head;
+#include "libft.h"
 
-	if (*lst == NULL)
-		return ;
-	new_head = NULL;
-	del((void *)(*lst)->content);
-	if ((*lst)->next != *lst)
+int	ft_dlclst_search(t_dlclst *lst, int (*cmp)(void *, void *), void *content)
+{
+	int			pos;
+	int			size;
+
+	if (lst == NULL)
+		return (-1);
+	pos = 0;
+	size = ft_dlclst_size(lst);
+	while (pos < size)
 	{
-		((*lst)->next)->prev = (*lst)->prev;
-		((*lst)->prev)->next = (*lst)->next;
-		new_head = (*lst)->next;
+		if (cmp(content, lst->content))
+			return (pos);
+		lst = lst->next;
+		pos++;
 	}
-	free(*lst);
-	*lst = new_head;
+	return (-1);
 }

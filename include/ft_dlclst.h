@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:57 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/02 13:09:25 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/02 15:15:24 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -256,7 +256,7 @@ void		ft_dlclst_clear(t_dlclst **lst, void (*del)(void *));
 void		ft_dlclst_iter(t_dlclst *lst, void (*f)(void *));
 
 /**
- * @brief <b>ft_lstmap</b> -- Returns new list based on applying f to each
+ * @brief <b>ft_dlclst_map</b> -- Returns new list based on applying f to each
  * nodes content.
  *
  * @details Iterates the list ’lst’ and applies the function ’f’ on the content
@@ -264,7 +264,6 @@ void		ft_dlclst_iter(t_dlclst *lst, void (*f)(void *));
  * the function ’f’. The ’del’ function is used to delete the content of a node
  * if needed. If at some point the funcion fails, the in-construction new list
  * must is cleared completely and NULL pointer is returned.
-
  * If an error occurs while creating the new list, every memory is
  * freed and a NULL is returned.
  * 
@@ -289,17 +288,30 @@ void		ft_dlclst_iter(t_dlclst *lst, void (*f)(void *));
 */
 t_dlclst	*ft_dlclst_map(t_dlclst *l, void *(*f)(void *), void (*d)(void *));
 
-/* TODO
+/**
+ * @brief <b>ft_dlclst_search</b> -- Search content inside the list.
  *
- - Buscar contenido.
-    - ft_dlclst_search.
-        - Devuelve posición.
-		- A la manera de iteri y map, con funcion externa de match que sepa lidiar con el contenido concreto.
-- Cambiar contenido.
-    - ft_dlclst_updatepos.
-    - ft_dlclst_updatefront.
-    - ft_dlclst_updateback.
-
+ * @details Iterates the list ’lst’ and applies the function ’cmp’  to compare
+ * the content of each node with the content passed as argument. The first time
+ * a match is detected (in the next direction), the position of the element
+ * is returned.
+ * 
+ * @param [in] l - The pointer to a list. If NULL, -1 is returned.
+ *
+ * @param [in] cmp - The address of the function that shall be applied on every
+ * node's content while traversing the original list to compare it against the
+ * content 'co'. This function returns a non-zero value if there is a match.
+ * This function must be capable of  handling a NULL content pointer.
+ *
+ * @param [in] co - The address of a content to be compared against each node's
+ * content.
+ *
+ * @return The position of the first node (in the next direction) which content
+ * matches the content passed as an argument.  
+ * A -1 is returned if there is no match.
+*/
+int 		ft_dlclst_search(t_dlclst *l, int (*cmp)(void *, void *), void *co);
+/* TODO
 - Rotar hacia adelante:
     - ft_dlclst_rotatenext.
 - Rotar hacia atrás:

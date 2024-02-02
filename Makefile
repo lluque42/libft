@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/02/01 22:39:18 by lluque           ###   ########.fr        #
+#    Updated: 2024/02/02 14:12:24 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -135,6 +135,7 @@ SOURCES = char/ft_isalpha.c \
 		  dlclst/ft_dlclst_clear.c \
 		  dlclst/ft_dlclst_iter.c \
 		  dlclst/ft_dlclst_map.c \
+		  dlclst/ft_dlclst_search.c \
 		  dlclst/ft_dlclst_size.c
 
 # Auto generated list of object file names from SOURCES

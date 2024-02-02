@@ -6,13 +6,16 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 22:55:05 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/01 22:53:21 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/02 14:50:27 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <fcntl.h>
 //#include <unistd.h>
 #include <stdlib.h>
+#include <limits.h>
+#include <stdint.h>
+#include <stdio.h>
 #include "libft.h"
 
 void	*integer_double(void *content)
@@ -24,6 +27,14 @@ void	*integer_double(void *content)
 		return (NULL);
 	*ret_val = 2 * *(int *)content;
 	return (ret_val);
+}
+
+int		integer_cmp(void *a, void *b)
+{
+	ft_printf("Comparando %d con %d\n", *(int *)a, *(int *)b);
+	if (*(int *)a == *(int *)b)
+		return (1);
+	return (0);
 }
 
 void	integer_del(void *content)
@@ -140,9 +151,16 @@ int		main(int argc, char **argv)
 	ft_dlclst_iter(lst_d, integer_print);
 	ft_printf("El ultimo elemento es: '%d'\n", *((int *)ft_dlclst_last(lst_d)->content));
 	ft_printf("\n");
+	printf("SSIZE_MAX = %lu\n", SSIZE_MAX);
+	printf("SIZE_MAX  = %lu\n", SIZE_MAX);
 
-
-	return (0);
+	int a = 4;
+	ft_printf("El numero %d esta en la lista? %d\n", a, ft_dlclst_search(lst_d, integer_cmp, &a));
+	a = 18;
+	ft_printf("El numero %d esta en la lista? %d\n", a, ft_dlclst_search(lst_d, integer_cmp, &a));
+	a = 1871;
+	ft_printf("El numero %d esta en la lista? %d\n", a, ft_dlclst_search(lst_d, integer_cmp, &a));
+		return (0);
 	
 	/*
 	int		fd;
