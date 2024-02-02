@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 12:44:45 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/01 22:21:20 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/02 16:37:15 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_dlclst_inspos(t_dlclst **lst, t_dlclst *new, unsigned int pos)
 {
-	t_dlclst	*to_be_shifted;
-	int			i;
+	t_dlclst		*to_be_shifted;
+	unsigned int	i;
 
 	if (*lst == NULL)
 		*lst = new;
