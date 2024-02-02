@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:12:58 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/01 15:46:12 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/02 23:45:15 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 
 void	ft_dlclst_remback(t_dlclst **lst, void (*del)(void *))
 {
-	t_dlclst	*new_last;
+	t_dlclst	*to_be_removed;
 
 	if (*lst == NULL)
 		return ;
-	new_last = ((*lst)->prev)->prev;
-	del((void *)(new_last->next)->content);
-	free(new_last->next);
-	if (new_last == *lst)
+	to_be_removed = (*lst)->prev;
+	del((void *)(to_be_removed)->content);
+	to_be_removed->prev->next = *lst;
+	(*lst)->prev = to_be_removed->prev;
+	free(to_be_removed);
+	if (*lst == to_be_removed)
 	{
 		*lst = NULL;
 		return ;
 	}
-	new_last->next = *lst;
-	(*lst)->prev = new_last;
 }
