@@ -6,27 +6,44 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:57 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/02 15:15:24 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/03 17:38:44 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
  * @file ft_dlclst.h
-  Doubly linked circular list implementation. Part of libft library.
+ * Doubly linked circular list implementation. Part of libft library.  
+ * A dlclst has a head which points to the node that is to be interpreted as the
+ * begining of the list or its first element. In the same way, the list alsohas
+ * a last element which will be the node pointed to by the 'prev' field of the
+ * head node.  
+ * In a dlclst list with just one element, that element will point to itself.
+ * That is, the only node will be the first and the last at the same time.  
+ * In this sense, due to the circular nature of the dlclst list, NO check is
+ * performed against the size of the list while operating on their elements and
+ * traversing the list. A value for position or steps from one node to another
+ * that could cause an overflow of the head of the list is allowed and will be
+ * interpreted consistently with the circular nature of the list.
 */
 
 #ifndef FT_DLCLST_H
 # define FT_DLCLST_H
 
 /**
- * @struct s_list
- * @brief Base for typedef <b>t_list</b> for a linked list node.
- * @details This type is used as a node for a one-way dynamic linked list.
- * Any node could serve  as a list for itself (i.e. as the beginning of a list).
- * @var s_list::content
+ * @struct s_dlclst
+ * @brief Base for typedef <b>t_dlclst</b> for a doubly linked circular list
+ * node.
+ * @details This type is used as a node for a doubly linked (two-way) dynamic
+ * circular list.  
+ * Any node could serve  as a list for itself (i.e. as the head of a list).
+ * @var s_dlclst::content
  * Pointer to void to allow caller to use arbitrary type.
- * @var s_list::next
- * Pointer to next node of the list. NULL if last node.
+ * @var s_dlclst::prev
+ * Pointer to previous node of the list. Will point to itself if it is the only
+ * node in the list.
+ * @var s_dlclst::next
+ * Pointer to next node of the list. Will point to itself if it is the only
+ * node in the list.
 */
 typedef struct s_dlclst
 {
@@ -111,7 +128,11 @@ void		ft_dlclst_insback(t_dlclst **lst, t_dlclst *new);
  * A zero value produces the same result as ft_dlclst_insertfront().  
  *
  * @warning NO check is performed for NULL pointers passed as arguments. In
- * such cases, CRASHING is guaranteed.
+ * such cases, CRASHING is guaranteed.  
+ * NO check is performed for element position as relative to the size
+ * of the list. A value for position or steps that could cause an overflow of
+ * the head of the list is allowed and will be interpreted consistently with the
+ * circular nature of the list.
  *
  * @remark Implementation notes:  
  * Don't check for valid pointers.
@@ -215,6 +236,10 @@ void		ft_dlclst_remback(t_dlclst **lst, void (*del)(void *));
  * A zero value produces the same result as ft_dlclst_remfront().
  *
  * @warning EXTERNAL FUNCTION USED: free().  
+ * NO check is performed for element position as relative to the size
+ * of the list. A value for position or steps that could cause an overflow of
+ * the head of the list is allowed and will be interpreted consistently with the
+ * circular nature of the list.
 */
 void		ft_dlclst_rempos(t_dlclst **l, void (*d)(void *), int unsigned pos);
 
@@ -244,9 +269,10 @@ void		ft_dlclst_clear(t_dlclst **lst, void (*del)(void *));
  * @details Iterates the list ’lst’ and applies the function ’f’ on the content
  * of each node.
  * 
- * @param lst - The address of a pointer to a node. If NULL nothing is done.
+ * @param [in] lst - The address of a pointer to a node. If NULL nothing is
+ * done.
  *
- * @param f - The address of the function that shall be used apply on every
+ * @param [in] f - The address of the function that shall be used apply on every
  * node's content while traversing the whole list. This function must be capable
  * of handling a NULL content pointer.
  *
@@ -310,20 +336,66 @@ t_dlclst	*ft_dlclst_map(t_dlclst *l, void *(*f)(void *), void (*d)(void *));
  * matches the content passed as an argument.  
  * A -1 is returned if there is no match.
 */
-int 		ft_dlclst_search(t_dlclst *l, int (*cmp)(void *, void *), void *co);
-/* TODO
-- Rotar hacia adelante:
-    - ft_dlclst_rotatenext.
-- Rotar hacia atrás:
-    - ft_dlclst_rotateprev.
-- Swap hacia adelante respecto de una posición.
-    - ft_dlclst_swapnextpos
-- Swap hacia atrás respecto de una posición.
-    - ft_dlclst_swapprevpos
-- Swap primero y segundo.
-    - ft_dlclst_swapfront
-- Swap último y penúltimo.
-    - ft_dlclst_swaplast.
+int			ft_dlclst_search(t_dlclst *l, int (*cmp)(void *, void *), void *co);
+
+/**
+ * @brief <b>ft_dlclst_rotatenext</b> -- Shifts the head of the list in the
+ * 'next' direction.
+ *
+ * @details Moves the pointer that points to the head/front of the
+ * list 'n' steps in the 'next' direction, thus making the element in the 
+ * n-th position the new head/front of the list.
+ * 
+ * @param [in,out] lst - The address of a pointer to the first node of a list.
+ *
+ * @param [in] n - The steps to move the head of the list.
+ *
+ * @warning NO check is performed for element position as relative to the size
+ * of the list. A value for position or steps that could cause an overflow of
+ * the head of the list is allowed and will be interpreted consistently with the
+ * circular nature of the list.
 */
+void		ft_dlclst_rotatenext(t_dlclst **lst, unsigned int n);
+
+/**
+ * @brief <b>ft_dlclst_rotateprev</b> -- Shifts the head of the list in the
+ * 'prev' direction.
+ *
+ * @details Moves the pointer that points to the head/front of the
+ * list 'n' steps in the 'prev' direction, thus making the element in the 
+ * (size -n)-th position the new head/front of the list.
+ * 
+ * @param [in,out] lst - The address of a pointer to the first node of a list.
+ *
+ * @param [in] n - The steps to move the head of the list.
+ *
+ * @warning NO check is performed for element position as relative to the size
+ * of the list. A value for position or steps that could cause an overflow of
+ * the head of the list is allowed and will be interpreted consistently with the
+ * circular nature of the list.
+*/
+void		ft_dlclst_rotateprev(t_dlclst **lst, unsigned int n);
+
+/**
+ * @brief <b>ft_dlclst_swapfront</b> -- Swaps the first and second elements of
+ * the list.
+ *
+ * @details Swaps the first and second elements of the list. The head of the
+ * list changes accordingly.
+ *
+ * @param [in,out] lst - The address of a pointer to the first node of a list.
+*/
+void		ft_dlclst_swapfront(t_dlclst **lst);
+
+/**
+ * @brief <b>ft_dlclst_swapback</b> -- Swaps the last and next to last elements
+ * of the list.
+ *
+ * @details Swaps the last and next to last elements of the list. The head of
+ * the list may change accordingly (i.e. in a list with just two elements).
+ *
+ * @param [in,out] lst - The address of a pointer to the first node of a list.
+*/
+void		ft_dlclst_swapback(t_dlclst **lst);
 
 #endif

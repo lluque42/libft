@@ -1,11 +1,14 @@
-.TH "s_dlclst" 3 "Fri Feb 2 2024" "Version 2024-01-27" "Library libft" \" -*- nroff -*-
+.TH "s_dlclst" 3 "Sat Feb 3 2024" "Version 2024-01-27" "Library libft" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-s_dlclst
+s_dlclst \- Base for typedef \fBt_dlclst\fP for a doubly linked circular list node\&.  
+
 .SH SYNOPSIS
 .br
 .PP
+.PP
+\fC#include <ft_dlclst\&.h>\fP
 .SS "Data Fields"
 
 .in +1c
@@ -19,6 +22,21 @@ s_dlclst
 .RI "struct \fBs_dlclst\fP * \fBnext\fP"
 .br
 .in -1c
+.SH "Detailed Description"
+.PP 
+Base for typedef \fBt_dlclst\fP for a doubly linked circular list node\&. 
+
+This type is used as a node for a doubly linked (two-way) dynamic circular list\&. 
+.br
+ Any node could serve as a list for itself (i\&.e\&. as the head of a list)\&. 
+.SH "Field Documentation"
+.PP 
+.SS "s_dlclst::content"
+Pointer to void to allow caller to use arbitrary type\&. 
+.SS "s_dlclst::next"
+Pointer to next node of the list\&. Will point to itself if it is the only node in the list\&. 
+.SS "s_dlclst::prev"
+Pointer to previous node of the list\&. Will point to itself if it is the only node in the list\&. 
 
 .SH "Author"
 .PP 

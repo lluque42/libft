@@ -89,6 +89,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__dlclst.html">s_dlclst</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base for typedef <b>t_dlclst</b> for a doubly linked circular list node.  <a href="structs__dlclst.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
@@ -133,11 +134,29 @@ Functions</h2></td></tr>
 <tr class="memdesc:ad9a44b3e6765a687755bb8069aa135da"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_dlclst_iter</b> &ndash; Applies provided function f to the content of each node on list.  <a href="ft__dlclst_8h.html#ad9a44b3e6765a687755bb8069aa135da">More...</a><br /></td></tr>
 <tr class="separator:ad9a44b3e6765a687755bb8069aa135da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a66edceeb972c4fd6b00c92f3d11cb6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structs__dlclst.html">t_dlclst</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__dlclst_8h.html#a7a66edceeb972c4fd6b00c92f3d11cb6">ft_dlclst_map</a> (<a class="el" href="structs__dlclst.html">t_dlclst</a> *l, void *(*f)(void *), void(*d)(void *))</td></tr>
-<tr class="memdesc:a7a66edceeb972c4fd6b00c92f3d11cb6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_lstmap</b> &ndash; Returns new list based on applying f to each nodes content.  <a href="ft__dlclst_8h.html#a7a66edceeb972c4fd6b00c92f3d11cb6">More...</a><br /></td></tr>
+<tr class="memdesc:a7a66edceeb972c4fd6b00c92f3d11cb6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_dlclst_map</b> &ndash; Returns new list based on applying f to each nodes content.  <a href="ft__dlclst_8h.html#a7a66edceeb972c4fd6b00c92f3d11cb6">More...</a><br /></td></tr>
 <tr class="separator:a7a66edceeb972c4fd6b00c92f3d11cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69898415ba83766723aba5d79f24bcc3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__dlclst_8h.html#a69898415ba83766723aba5d79f24bcc3">ft_dlclst_search</a> (<a class="el" href="structs__dlclst.html">t_dlclst</a> *l, int(*cmp)(void *, void *), void *co)</td></tr>
+<tr class="memdesc:a69898415ba83766723aba5d79f24bcc3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_dlclst_search</b> &ndash; Search content inside the list.  <a href="ft__dlclst_8h.html#a69898415ba83766723aba5d79f24bcc3">More...</a><br /></td></tr>
+<tr class="separator:a69898415ba83766723aba5d79f24bcc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4856a66a03fa2cf41649789a01c550ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__dlclst_8h.html#a4856a66a03fa2cf41649789a01c550ed">ft_dlclst_rotatenext</a> (<a class="el" href="structs__dlclst.html">t_dlclst</a> **lst, unsigned int n)</td></tr>
+<tr class="memdesc:a4856a66a03fa2cf41649789a01c550ed"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_dlclst_rotatenext</b> &ndash; Shifts the head of the list in the 'next' direction.  <a href="ft__dlclst_8h.html#a4856a66a03fa2cf41649789a01c550ed">More...</a><br /></td></tr>
+<tr class="separator:a4856a66a03fa2cf41649789a01c550ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ce570469a04365bce04c934daacbd85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__dlclst_8h.html#a8ce570469a04365bce04c934daacbd85">ft_dlclst_rotateprev</a> (<a class="el" href="structs__dlclst.html">t_dlclst</a> **lst, unsigned int n)</td></tr>
+<tr class="memdesc:a8ce570469a04365bce04c934daacbd85"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_dlclst_rotateprev</b> &ndash; Shifts the head of the list in the 'prev' direction.  <a href="ft__dlclst_8h.html#a8ce570469a04365bce04c934daacbd85">More...</a><br /></td></tr>
+<tr class="separator:a8ce570469a04365bce04c934daacbd85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdc544a59026ac7ffb74d409fd9603fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__dlclst_8h.html#acdc544a59026ac7ffb74d409fd9603fb">ft_dlclst_swapfront</a> (<a class="el" href="structs__dlclst.html">t_dlclst</a> **lst)</td></tr>
+<tr class="memdesc:acdc544a59026ac7ffb74d409fd9603fb"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_dlclst_swapfront</b> &ndash; Swaps the first and second elements of the list.  <a href="ft__dlclst_8h.html#acdc544a59026ac7ffb74d409fd9603fb">More...</a><br /></td></tr>
+<tr class="separator:acdc544a59026ac7ffb74d409fd9603fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63e6234d90a04c3bc3a6aa6165ea2ef0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__dlclst_8h.html#a63e6234d90a04c3bc3a6aa6165ea2ef0">ft_dlclst_swapback</a> (<a class="el" href="structs__dlclst.html">t_dlclst</a> **lst)</td></tr>
+<tr class="memdesc:a63e6234d90a04c3bc3a6aa6165ea2ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_dlclst_swapback</b> &ndash; Swaps the last and next to last elements of the list.  <a href="ft__dlclst_8h.html#a63e6234d90a04c3bc3a6aa6165ea2ef0">More...</a><br /></td></tr>
+<tr class="separator:a63e6234d90a04c3bc3a6aa6165ea2ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Doubly linked circular list implementation. Part of libft library. </p>
+<div class="textblock"><p >Doubly linked circular list implementation. Part of libft library. <br  />
+ A dlclst has a head which points to the node that is to be interpreted as the begining of the list or its first element. In the same way, the list alsohas a last element which will be the node pointed to by the 'prev' field of the head node. <br  />
+ In a dlclst list with just one element, that element will point to itself. That is, the only node will be the first and the last at the same time. <br  />
+ In this sense, due to the circular nature of the dlclst list, NO check is performed against the size of the list while operating on their elements and traversing the list. A value for position or steps from one node to another that could cause an overflow of the head of the list is allowed and will be interpreted consistently with the circular nature of the list. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a768b997e9933b49a408ce2da5015a6d3" name="a768b997e9933b49a408ce2da5015a6d3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a768b997e9933b49a408ce2da5015a6d3">&#9670;&nbsp;</a></span>ft_dlclst_clear()</h2>
@@ -306,7 +325,8 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section warning"><dt>Warning</dt><dd>NO check is performed for NULL pointers passed as arguments. In such cases, CRASHING is guaranteed.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>NO check is performed for NULL pointers passed as arguments. In such cases, CRASHING is guaranteed. <br  />
+ NO check is performed for element position as relative to the size of the list. A value for position or steps that could cause an overflow of the head of the list is allowed and will be interpreted consistently with the circular nature of the list.</dd></dl>
 <dl class="section remark"><dt>Remarks</dt><dd>Implementation notes: <br  />
  Don't check for valid pointers. </dd></dl>
 
@@ -342,8 +362,8 @@ Functions</h2></td></tr>
 <p >Iterates the list ’lst’ and applies the function ’f’ on the content of each node.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lst</td><td>- The address of a pointer to a node. If NULL nothing is done.</td></tr>
-    <tr><td class="paramname">f</td><td>- The address of the function that shall be used apply on every node's content while traversing the whole list. This function must be capable of handling a NULL content pointer.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">lst</td><td>- The address of a pointer to a node. If NULL nothing is done.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>- The address of the function that shall be used apply on every node's content while traversing the whole list. This function must be capable of handling a NULL content pointer.</td></tr>
   </table>
   </dd>
 </dl>
@@ -412,9 +432,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><b>ft_lstmap</b> &ndash; Returns new list based on applying f to each nodes content. </p>
-<p >Iterates the list ’lst’ and applies the function ’f’ on the content of each node. Creates a new list resulting of the successive applications of the function ’f’. The ’del’ function is used to delete the content of a node if needed. If at some point the funcion fails, the in-construction new list must is cleared completely and NULL pointer is returned.</p>
-<p >If an error occurs while creating the new list, every memory is freed and a NULL is returned.</p>
+<p><b>ft_dlclst_map</b> &ndash; Returns new list based on applying f to each nodes content. </p>
+<p >Iterates the list ’lst’ and applies the function ’f’ on the content of each node. Creates a new list resulting of the successive applications of the function ’f’. The ’del’ function is used to delete the content of a node if needed. If at some point the funcion fails, the in-construction new list must is cleared completely and NULL pointer is returned. If an error occurs while creating the new list, every memory is freed and a NULL is returned.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>- The address of a pointer to a node. If NULL nothing is done and a NULL pointer is returned.</td></tr>
@@ -595,7 +614,132 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>EXTERNAL FUNCTION USED: free(). <br  />
- </dd></dl>
+ NO check is performed for element position as relative to the size of the list. A value for position or steps that could cause an overflow of the head of the list is allowed and will be interpreted consistently with the circular nature of the list. </dd></dl>
+
+</div>
+</div>
+<a id="a4856a66a03fa2cf41649789a01c550ed" name="a4856a66a03fa2cf41649789a01c550ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4856a66a03fa2cf41649789a01c550ed">&#9670;&nbsp;</a></span>ft_dlclst_rotatenext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ft_dlclst_rotatenext </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs__dlclst.html">t_dlclst</a> **&#160;</td>
+          <td class="paramname"><em>lst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><b>ft_dlclst_rotatenext</b> &ndash; Shifts the head of the list in the 'next' direction. </p>
+<p >Moves the pointer that points to the head/front of the list 'n' steps in the 'next' direction, thus making the element in the n-th position the new head/front of the list.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">lst</td><td>- The address of a pointer to the first node of a list.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>- The steps to move the head of the list.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>NO check is performed for element position as relative to the size of the list. A value for position or steps that could cause an overflow of the head of the list is allowed and will be interpreted consistently with the circular nature of the list. </dd></dl>
+
+</div>
+</div>
+<a id="a8ce570469a04365bce04c934daacbd85" name="a8ce570469a04365bce04c934daacbd85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ce570469a04365bce04c934daacbd85">&#9670;&nbsp;</a></span>ft_dlclst_rotateprev()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ft_dlclst_rotateprev </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs__dlclst.html">t_dlclst</a> **&#160;</td>
+          <td class="paramname"><em>lst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><b>ft_dlclst_rotateprev</b> &ndash; Shifts the head of the list in the 'prev' direction. </p>
+<p >Moves the pointer that points to the head/front of the list 'n' steps in the 'prev' direction, thus making the element in the (size -n)-th position the new head/front of the list.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">lst</td><td>- The address of a pointer to the first node of a list.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>- The steps to move the head of the list.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>NO check is performed for element position as relative to the size of the list. A value for position or steps that could cause an overflow of the head of the list is allowed and will be interpreted consistently with the circular nature of the list. </dd></dl>
+
+</div>
+</div>
+<a id="a69898415ba83766723aba5d79f24bcc3" name="a69898415ba83766723aba5d79f24bcc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69898415ba83766723aba5d79f24bcc3">&#9670;&nbsp;</a></span>ft_dlclst_search()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ft_dlclst_search </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs__dlclst.html">t_dlclst</a> *&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int(*)(void *, void *)&#160;</td>
+          <td class="paramname"><em>cmp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>co</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><b>ft_dlclst_search</b> &ndash; Search content inside the list. </p>
+<p >Iterates the list ’lst’ and applies the function ’cmp’ to compare the content of each node with the content passed as argument. The first time a match is detected (in the next direction), the position of the element is returned.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">l</td><td>- The pointer to a list. If NULL, -1 is returned.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmp</td><td>- The address of the function that shall be applied on every node's content while traversing the original list to compare it against the content 'co'. This function returns a non-zero value if there is a match. This function must be capable of handling a NULL content pointer.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">co</td><td>- The address of a content to be compared against each node's content.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The position of the first node (in the next direction) which content matches the content passed as an argument. <br  />
+ A -1 is returned if there is no match. </dd></dl>
 
 </div>
 </div>
@@ -625,6 +769,60 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The length of the list. <br  />
  If lst == NULL a 0 value is returned. </dd></dl>
+
+</div>
+</div>
+<a id="a63e6234d90a04c3bc3a6aa6165ea2ef0" name="a63e6234d90a04c3bc3a6aa6165ea2ef0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63e6234d90a04c3bc3a6aa6165ea2ef0">&#9670;&nbsp;</a></span>ft_dlclst_swapback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ft_dlclst_swapback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs__dlclst.html">t_dlclst</a> **&#160;</td>
+          <td class="paramname"><em>lst</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><b>ft_dlclst_swapback</b> &ndash; Swaps the last and next to last elements of the list. </p>
+<p >Swaps the last and next to last elements of the list. The head of the list may change accordingly (i.e. in a list with just two elements).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">lst</td><td>- The address of a pointer to the first node of a list. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acdc544a59026ac7ffb74d409fd9603fb" name="acdc544a59026ac7ffb74d409fd9603fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdc544a59026ac7ffb74d409fd9603fb">&#9670;&nbsp;</a></span>ft_dlclst_swapfront()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ft_dlclst_swapfront </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs__dlclst.html">t_dlclst</a> **&#160;</td>
+          <td class="paramname"><em>lst</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><b>ft_dlclst_swapfront</b> &ndash; Swaps the first and second elements of the list. </p>
+<p >Swaps the first and second elements of the list. The head of the list changes accordingly.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">lst</td><td>- The address of a pointer to the first node of a list. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

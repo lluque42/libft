@@ -68,27 +68,79 @@ $(function() {
   <div class="headertitle"><div class="title">s_dlclst Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Base for typedef <b>t_dlclst</b> for a doubly linked circular list node.  
+ <a href="structs__dlclst.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ft__dlclst_8h_source.html">ft_dlclst.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for s_dlclst:</div>
 <div class="dyncontent">
 <div class="center"><img src="structs__dlclst__coll__graph.png" border="0" usemap="#as__dlclst_coll__map" alt="Collaboration graph"/></div>
 <map name="as__dlclst_coll__map" id="as__dlclst_coll__map">
-<area shape="rect" title=" " alt="" coords="5,7,76,33"/>
+<area shape="rect" title="Base for typedef t_dlclst for a doubly linked circular list node." alt="" coords="5,7,76,33"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:abf11ada84fd0f14812f762ad3fca7f46"><td class="memItemLeft" align="right" valign="top"><a id="abf11ada84fd0f14812f762ad3fca7f46" name="abf11ada84fd0f14812f762ad3fca7f46"></a>
-void *&#160;</td><td class="memItemRight" valign="bottom"><b>content</b></td></tr>
-<tr class="separator:abf11ada84fd0f14812f762ad3fca7f46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa421c150ba93c82fff48ca68a64ef674"><td class="memItemLeft" align="right" valign="top"><a id="aa421c150ba93c82fff48ca68a64ef674" name="aa421c150ba93c82fff48ca68a64ef674"></a>
-struct <a class="el" href="structs__dlclst.html">s_dlclst</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>prev</b></td></tr>
-<tr class="separator:aa421c150ba93c82fff48ca68a64ef674"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02e002413357ea4a74ac341cc4415cac"><td class="memItemLeft" align="right" valign="top"><a id="a02e002413357ea4a74ac341cc4415cac" name="a02e002413357ea4a74ac341cc4415cac"></a>
-struct <a class="el" href="structs__dlclst.html">s_dlclst</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>next</b></td></tr>
-<tr class="separator:a02e002413357ea4a74ac341cc4415cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa963c62b3ea79bdc64afe0ca8095d521"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__dlclst.html#aa963c62b3ea79bdc64afe0ca8095d521">content</a></td></tr>
+<tr class="separator:aa963c62b3ea79bdc64afe0ca8095d521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83678e5f58a8b4b3a05ef076428ef09a"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structs__dlclst.html">s_dlclst</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__dlclst.html#a83678e5f58a8b4b3a05ef076428ef09a">prev</a></td></tr>
+<tr class="separator:a83678e5f58a8b4b3a05ef076428ef09a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2e19ae289ece056e306298d8c582b66"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structs__dlclst.html">s_dlclst</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__dlclst.html#ac2e19ae289ece056e306298d8c582b66">next</a></td></tr>
+<tr class="separator:ac2e19ae289ece056e306298d8c582b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Base for typedef <b>t_dlclst</b> for a doubly linked circular list node. </p>
+<p >This type is used as a node for a doubly linked (two-way) dynamic circular list. <br  />
+ Any node could serve as a list for itself (i.e. as the head of a list). </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="aa963c62b3ea79bdc64afe0ca8095d521" name="aa963c62b3ea79bdc64afe0ca8095d521"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa963c62b3ea79bdc64afe0ca8095d521">&#9670;&nbsp;</a></span>content</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">s_dlclst::content</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Pointer to void to allow caller to use arbitrary type. </p>
+
+</div>
+</div>
+<a id="ac2e19ae289ece056e306298d8c582b66" name="ac2e19ae289ece056e306298d8c582b66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2e19ae289ece056e306298d8c582b66">&#9670;&nbsp;</a></span>next</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">s_dlclst::next</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Pointer to next node of the list. Will point to itself if it is the only node in the list. </p>
+
+</div>
+</div>
+<a id="a83678e5f58a8b4b3a05ef076428ef09a" name="a83678e5f58a8b4b3a05ef076428ef09a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83678e5f58a8b4b3a05ef076428ef09a">&#9670;&nbsp;</a></span>prev</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">s_dlclst::prev</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Pointer to previous node of the list. Will point to itself if it is the only node in the list. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/<a class="el" href="ft__dlclst_8h_source.html">ft_dlclst.h</a></li>
 </ul>
