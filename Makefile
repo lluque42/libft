@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/02/02 14:12:24 by lluque           ###   ########.fr        #
+#    Updated: 2024/02/03 00:57:02 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,9 @@ AR_FLAGS = rcs
 
 # Compiler flags
 CC_FLAGS = -Wall -Werror -Wextra
+
+# Optional debugging flags
+DEB_FLAGS = -g -fsanitize=address
 
 # List of header file names that, if modified, should force recompiling
 INCLUDES = $(INC_DIR)libft.h \
@@ -136,6 +139,10 @@ SOURCES = char/ft_isalpha.c \
 		  dlclst/ft_dlclst_iter.c \
 		  dlclst/ft_dlclst_map.c \
 		  dlclst/ft_dlclst_search.c \
+		  dlclst/ft_dlclst_rotateprev.c \
+		  dlclst/ft_dlclst_rotatenext.c \
+		  dlclst/ft_dlclst_swapfront.c \
+		  dlclst/ft_dlclst_swapback.c \
 		  dlclst/ft_dlclst_size.c
 
 # Auto generated list of object file names from SOURCES
@@ -251,7 +258,7 @@ $(OBJECTS): $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDES)
 	@echo
 	@echo "              --- Compiling objects to $(OBJ_DIR)*.o ---"
 	mkdir -p $(@D)
-	cc -c $< -o $@ -I$(INC_DIR)
+	cc $(CC_FLAGS) $(DEB_FLAGS) -c $< -o $@ -I$(INC_DIR)
 	@echo
 	@echo ----------------------------------------------------------------------
 ################### END OF PATTERN RULE TO COMPILE OBJECTS #####################
@@ -332,12 +339,13 @@ docclean:
 
 tester: $(BIN_DIR)$(TESTER_NAME)
 
+#cc $(CC_FLAGS) -g -fsanitize=address $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME) -o $(BIN_DIR)$(TESTER_NAME) -I$(INC_DIR) -I$(TEST_DIR) 
 $(BIN_DIR)$(TESTER_NAME): $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME)
 	@echo ----------------------------------------------------------------------
 	@echo
 	@echo "        --- Compiling tester to $(BIN_DIR)$(TESTER_NAME) ---"
 	@echo
-	cc $(CC_FLAGS) $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME) -o $(BIN_DIR)$(TESTER_NAME) -I$(INC_DIR) -I$(TEST_DIR) 
+	cc $(CC_FLAGS) $(DEB_FLAGS) $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME) -o $(BIN_DIR)$(TESTER_NAME) -I$(INC_DIR) -I$(TEST_DIR) 
 	@echo
 	@echo ----------------------------------------------------------------------
 

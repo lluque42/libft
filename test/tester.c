@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 22:55:05 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/02 14:50:27 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/03 15:37:55 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int		main(int argc, char **argv)
 	int			*content;
 	int			i;
 
+	ft_printf("Lista a >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 	lst_a = NULL;
 	if (argc == 1)
 		exit(1);
@@ -81,19 +82,24 @@ int		main(int argc, char **argv)
 	ft_printf("Borrando el elemento 3\n");
 	ft_dlclst_rempos(&lst_a, integer_del, 3);
 	ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_a));
-	ft_dlclst_iter(lst_a, integer_print);
-
+	if (lst_a != NULL)
+		ft_dlclst_iter(lst_a, integer_print);
+	else
+		ft_printf("La lista esta vacia\n");
 	ft_printf("Borrando el elemento 0\n");
 	ft_dlclst_rempos(&lst_a, integer_del, 0);
 	ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_a));
-	ft_dlclst_iter(lst_a, integer_print);
+	if (lst_a != NULL)
+		ft_dlclst_iter(lst_a, integer_print);
+	else
+		ft_printf("La lista esta vacia\n");
 	
 	ft_printf("Borrando la lista\n");
 	ft_dlclst_clear(&lst_a, integer_del);
 	ft_printf("Cantidad de elementos en la lista borrada '%d'\n", ft_dlclst_size(lst_a));
 
 	
-	
+	ft_printf("Lista b >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 	//lst_a = NULL;
 	i = 1;
 	lst_b = NULL;
@@ -106,7 +112,10 @@ int		main(int argc, char **argv)
 		*content = ft_atoi(argv[i]);
 		ft_dlclst_insback(&lst_b, ft_dlclst_new(content));
 		ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_b));
-		ft_dlclst_iter(lst_b, integer_print);
+		if (lst_b != NULL)
+			ft_dlclst_iter(lst_b, integer_print);
+		else
+			ft_printf("La lista esta vacia\n");
 		ft_printf("El ultimo elemento es: '%d'\n", *((int *)ft_dlclst_last(lst_b)->content));
 		ft_printf("\n");
 		i++;
@@ -114,17 +123,24 @@ int		main(int argc, char **argv)
 	ft_printf("Borrando el primer elemento\n");
 	ft_dlclst_remfront(&lst_b, integer_del);
 	ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_b));
-	ft_dlclst_iter(lst_b, integer_print);
+	if (lst_b != NULL)
+		ft_dlclst_iter(lst_b, integer_print);
+	else
+		ft_printf("La lista esta vacia\n");
 
 	ft_printf("Borrando el ultimo elemento\n");
 	ft_dlclst_remback(&lst_b, integer_del);
 	ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_b));
-	ft_dlclst_iter(lst_b, integer_print);
+	if (lst_b != NULL)
+		ft_dlclst_iter(lst_b, integer_print);
+	else
+		ft_printf("La lista esta vacia\n");
 	
 	ft_printf("Borrando la lista\n");
 	ft_dlclst_clear(&lst_b, integer_del);
 	ft_printf("Cantidad de elementos en la lista borrada '%d'\n", ft_dlclst_size(lst_b));
 
+	ft_printf("Lista c >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 	i = 1;
 	lst_c = NULL;
 	while (i < argc)
@@ -136,19 +152,25 @@ int		main(int argc, char **argv)
 		*content = ft_atoi(argv[i]);
 		ft_dlclst_inspos(&lst_c, ft_dlclst_new(content), 3);
 		ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_c));
-		ft_dlclst_iter(lst_c, integer_print);
+		if (lst_c != NULL)
+			ft_dlclst_iter(lst_c, integer_print);
+		else
+			ft_printf("La lista esta vacia\n");
 		ft_printf("El ultimo elemento es: '%d'\n", *((int *)ft_dlclst_last(lst_c)->content));
 		ft_printf("\n");
 		i++;
 	}
 
-
+	ft_printf("Lista d >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 	t_dlclst	*lst_d = NULL;
 
 	ft_printf("Duplicando los contenidos\n");
 	lst_d = ft_dlclst_map(lst_c, integer_double, integer_del);
 	ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_d));
-	ft_dlclst_iter(lst_d, integer_print);
+	if (lst_d != NULL)
+		ft_dlclst_iter(lst_d, integer_print);
+	else
+		ft_printf("La lista esta vacia\n");
 	ft_printf("El ultimo elemento es: '%d'\n", *((int *)ft_dlclst_last(lst_d)->content));
 	ft_printf("\n");
 	printf("SSIZE_MAX = %lu\n", SSIZE_MAX);
@@ -156,11 +178,111 @@ int		main(int argc, char **argv)
 
 	int a = 4;
 	ft_printf("El numero %d esta en la lista? %d\n", a, ft_dlclst_search(lst_d, integer_cmp, &a));
-	a = 18;
+	a = 8;
 	ft_printf("El numero %d esta en la lista? %d\n", a, ft_dlclst_search(lst_d, integer_cmp, &a));
 	a = 1871;
 	ft_printf("El numero %d esta en la lista? %d\n", a, ft_dlclst_search(lst_d, integer_cmp, &a));
-		return (0);
+
+	ft_printf("Rotando la lista en sentido next\n");
+	ft_dlclst_rotatenext(&lst_d, 1);
+	ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_d));
+	if (lst_d != NULL)
+		ft_dlclst_iter(lst_d, integer_print);
+	else
+		ft_printf("La lista esta vacia\n");
+	ft_printf("El ultimo elemento es: '%d'\n", *((int *)ft_dlclst_last(lst_d)->content));
+	ft_printf("\n");
+
+	ft_printf("Rotando la lista en sentido next\n");
+	ft_dlclst_rotatenext(&lst_d, 1);
+	ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_d));
+	if (lst_d != NULL)
+		ft_dlclst_iter(lst_d, integer_print);
+	else
+		ft_printf("La lista esta vacia\n");
+	ft_printf("El ultimo elemento es: '%d'\n", *((int *)ft_dlclst_last(lst_d)->content));
+	ft_printf("\n");
+
+	ft_printf("Rotando la lista en sentido prev\n");
+	ft_dlclst_rotateprev(&lst_d, 1);
+	ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_d));
+	if (lst_d != NULL)
+		ft_dlclst_iter(lst_d, integer_print);
+	else
+		ft_printf("La lista esta vacia\n");
+	ft_printf("El ultimo elemento es: '%d'\n", *((int *)ft_dlclst_last(lst_d)->content));
+	ft_printf("\n");
+
+	ft_printf("Rotando la lista en sentido prev\n");
+	ft_dlclst_rotateprev(&lst_d, 1);
+	ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_d));
+	if (lst_d != NULL)
+		ft_dlclst_iter(lst_d, integer_print);
+	else
+		ft_printf("La lista esta vacia\n");
+	ft_printf("El ultimo elemento es: '%d'\n", *((int *)ft_dlclst_last(lst_d)->content));
+	ft_printf("\n");
+
+	ft_printf("Rotando la lista en sentido prev\n");
+	ft_dlclst_rotateprev(&lst_d, 1);
+	ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_d));
+	if (lst_d != NULL)
+		ft_dlclst_iter(lst_d, integer_print);
+	else
+		ft_printf("La lista esta vacia\n");
+	ft_printf("El ultimo elemento es: '%d'\n", *((int *)ft_dlclst_last(lst_d)->content));
+	ft_printf("\n");
+
+	ft_printf("Haciendo un swapfront\n");
+	ft_dlclst_swapfront(&lst_d);
+	ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_d));
+	if (lst_d != NULL)
+		ft_dlclst_iter(lst_d, integer_print);
+	else
+		ft_printf("La lista esta vacia\n");
+	ft_printf("El ultimo elemento es: '%d'\n", *((int *)ft_dlclst_last(lst_d)->content));
+	ft_printf("\n");
+
+	ft_printf("Haciendo un swapfront\n");
+	ft_dlclst_swapfront(&lst_d);
+	ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_d));
+	if (lst_d != NULL)
+		ft_dlclst_iter(lst_d, integer_print);
+	else
+		ft_printf("La lista esta vacia\n");
+	ft_printf("El ultimo elemento es: '%d'\n", *((int *)ft_dlclst_last(lst_d)->content));
+	ft_printf("\n");
+
+	ft_printf("Haciendo un swapback\n");
+	ft_dlclst_swapback(&lst_d);
+	ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_d));
+	if (lst_d != NULL)
+		ft_dlclst_iter(lst_d, integer_print);
+	else
+		ft_printf("La lista esta vacia\n");
+	ft_printf("El ultimo elemento es: '%d'\n", *((int *)ft_dlclst_last(lst_d)->content));
+	ft_printf("\n");
+
+	ft_printf("Haciendo un swapback\n");
+	ft_dlclst_swapback(&lst_d);
+	ft_printf("Cantidad de elementos en la lista: '%d'\n", ft_dlclst_size(lst_d));
+	if (lst_d != NULL)
+		ft_dlclst_iter(lst_d, integer_print);
+	else
+		ft_printf("La lista esta vacia\n");
+	ft_printf("El ultimo elemento es: '%d'\n", *((int *)ft_dlclst_last(lst_d)->content));
+	ft_printf("\n");
+
+	ft_printf("Se borraran todas las listas\n");
+	ft_printf("La a...\n");
+	ft_dlclst_clear(&lst_a, integer_del);
+	ft_printf("La b...\n");
+	ft_dlclst_clear(&lst_b, integer_del);
+	ft_printf("La c...\n");
+	ft_dlclst_clear(&lst_c, integer_del);
+	ft_printf("La d...\n");
+	ft_dlclst_clear(&lst_d, integer_del);
+	return (0);
 	
 	/*
 	int		fd;
