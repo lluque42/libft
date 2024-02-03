@@ -1,0 +1,487 @@
+.TH "include/ft_dlclst.h" 3 "Sat Feb 3 2024" "Version 2024-01-27" "Library libft" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/ft_dlclst.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBs_dlclst\fP"
+.br
+.RI "Base for typedef \fBt_dlclst\fP for a doubly linked circular list node\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBs_dlclst\fP \fBt_dlclst\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBt_dlclst\fP * \fBft_dlclst_new\fP (void *content)"
+.br
+.RI "\fBft_dlclst_new\fP -- Creates a list element from pointer to its content\&. "
+.ti -1c
+.RI "void \fBft_dlclst_insfront\fP (\fBt_dlclst\fP **lst, \fBt_dlclst\fP *new)"
+.br
+.RI "\fBft_dlclst_insfront\fP -- Inserts node at the beginning of the list\&. "
+.ti -1c
+.RI "void \fBft_dlclst_insback\fP (\fBt_dlclst\fP **lst, \fBt_dlclst\fP *new)"
+.br
+.RI "\fBft_dlclst_insback\fP -- Inserts node at the end of the list\&. "
+.ti -1c
+.RI "void \fBft_dlclst_inspos\fP (\fBt_dlclst\fP **lst, \fBt_dlclst\fP *new, unsigned int pos)"
+.br
+.RI "\fBft_dlclst_inspos\fP -- Inserts node at given position\&. "
+.ti -1c
+.RI "int \fBft_dlclst_size\fP (\fBt_dlclst\fP *lst)"
+.br
+.RI "\fBft_dlclst_size\fP -- Counts the number of nodes in a list\&. "
+.ti -1c
+.RI "\fBt_dlclst\fP * \fBft_dlclst_last\fP (\fBt_dlclst\fP *lst)"
+.br
+.RI "\fBft_dlclst_last\fP -- Returns the last node of the list\&. "
+.ti -1c
+.RI "void \fBft_dlclst_remfront\fP (\fBt_dlclst\fP **lst, void(*del)(void *))"
+.br
+.RI "\fBft_dlclst_remfront\fP -- Removes the first node of the list and frees memory of the list item and its content\&. "
+.ti -1c
+.RI "void \fBft_dlclst_remback\fP (\fBt_dlclst\fP **lst, void(*del)(void *))"
+.br
+.RI "\fBft_dlclst_remback\fP -- Removes the last node of the list and frees memory of the list item and its content\&. "
+.ti -1c
+.RI "void \fBft_dlclst_rempos\fP (\fBt_dlclst\fP **l, void(*d)(void *), int unsigned pos)"
+.br
+.RI "\fBft_dlclst_rempos\fP -- Removes the node of the list at given position and frees memory of the list item and its content\&. "
+.ti -1c
+.RI "void \fBft_dlclst_clear\fP (\fBt_dlclst\fP **lst, void(*del)(void *))"
+.br
+.RI "\fBft_dlclst_clear\fP -- Deletes and frees given node and succesors\&. (freeing contents)\&. "
+.ti -1c
+.RI "void \fBft_dlclst_iter\fP (\fBt_dlclst\fP *lst, void(*f)(void *))"
+.br
+.RI "\fBft_dlclst_iter\fP -- Applies provided function f to the content of each node on list\&. "
+.ti -1c
+.RI "\fBt_dlclst\fP * \fBft_dlclst_map\fP (\fBt_dlclst\fP *l, void *(*f)(void *), void(*d)(void *))"
+.br
+.RI "\fBft_dlclst_map\fP -- Returns new list based on applying f to each nodes content\&. "
+.ti -1c
+.RI "int \fBft_dlclst_search\fP (\fBt_dlclst\fP *l, int(*cmp)(void *, void *), void *co)"
+.br
+.RI "\fBft_dlclst_search\fP -- Search content inside the list\&. "
+.ti -1c
+.RI "void \fBft_dlclst_rotatenext\fP (\fBt_dlclst\fP **lst, unsigned int n)"
+.br
+.RI "\fBft_dlclst_rotatenext\fP -- Shifts the head of the list in the 'next' direction\&. "
+.ti -1c
+.RI "void \fBft_dlclst_rotateprev\fP (\fBt_dlclst\fP **lst, unsigned int n)"
+.br
+.RI "\fBft_dlclst_rotateprev\fP -- Shifts the head of the list in the 'prev' direction\&. "
+.ti -1c
+.RI "void \fBft_dlclst_swapfront\fP (\fBt_dlclst\fP **lst)"
+.br
+.RI "\fBft_dlclst_swapfront\fP -- Swaps the first and second elements of the list\&. "
+.ti -1c
+.RI "void \fBft_dlclst_swapback\fP (\fBt_dlclst\fP **lst)"
+.br
+.RI "\fBft_dlclst_swapback\fP -- Swaps the last and next to last elements of the list\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Doubly linked circular list implementation\&. Part of libft library\&. 
+.br
+ A dlclst has a head which points to the node that is to be interpreted as the begining of the list or its first element\&. In the same way, the list alsohas a last element which will be the node pointed to by the 'prev' field of the head node\&. 
+.br
+ In a dlclst list with just one element, that element will point to itself\&. That is, the only node will be the first and the last at the same time\&. 
+.br
+ In this sense, due to the circular nature of the dlclst list, NO check is performed against the size of the list while operating on their elements and traversing the list\&. A value for position or steps from one node to another that could cause an overflow of the head of the list is allowed and will be interpreted consistently with the circular nature of the list\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void ft_dlclst_clear (\fBt_dlclst\fP ** lst, void(*)(void *) del)"
+
+.PP
+\fBft_dlclst_clear\fP -- Deletes and frees given node and succesors\&. (freeing contents)\&. Deletes and frees the given node and every successor of that node, using the function ’del’ and free()\&. 
+.br
+ Finally, the pointer to the node is set to NULL\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlst-\fP The address of a pointer to a node\&. If NULL, nothing is done\&. Is set to NULL by this function\&.
+.br
+\fIdel\fP - The address of the function that shall be used to properly free only the content of the node\&. This function must be capable of handling a NULL content pointer\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: free()\&. 
+.br
+ 
+.RE
+.PP
+
+.SS "void ft_dlclst_insback (\fBt_dlclst\fP ** lst, \fBt_dlclst\fP * new)"
+
+.PP
+\fBft_dlclst_insback\fP -- Inserts node at the end of the list\&. Inserts the node ’new’ at the end of the list\&. If *lst == NULL the new node becomes the list\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlst\fP - The address of a pointer to the first node of a list\&.
+.br
+\fInew\fP - A pointer to the node to be added to the list\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+NO check is performed for NULL pointers passed as arguments\&. In such cases, CRASHING is guaranteed\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ Don't check for valid pointers\&. 
+.RE
+.PP
+
+.SS "void ft_dlclst_insfront (\fBt_dlclst\fP ** lst, \fBt_dlclst\fP * new)"
+
+.PP
+\fBft_dlclst_insfront\fP -- Inserts node at the beginning of the list\&. Inserts the node ’new’ at the beginning of the list\&. If *lst == NULL the new node becomes the list\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlst\fP - The address of a pointer to the first node of a list\&.
+.br
+\fInew\fP - A pointer to the node to be added to the list\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+NO check is performed for NULL pointers passed as arguments\&. In such cases, CRASHING is guaranteed\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ Don't check for valid pointers\&. 
+.RE
+.PP
+
+.SS "void ft_dlclst_inspos (\fBt_dlclst\fP ** lst, \fBt_dlclst\fP * new, unsigned int pos)"
+
+.PP
+\fBft_dlclst_inspos\fP -- Inserts node at given position\&. Inserts the node ’new’ at given position\&. If *lst == NULL the new node becomes the list\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlst\fP - The address of a pointer to the first node of a list\&.
+.br
+\fInew\fP - A pointer to the node to be added to the list\&.
+.br
+\fIpos\fP - Positive value representing the position the new node will have inside the list (always in the next direction, first node has 0 pos)\&. 
+.br
+ A zero value produces the same result as ft_dlclst_insertfront()\&. 
+.br
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+NO check is performed for NULL pointers passed as arguments\&. In such cases, CRASHING is guaranteed\&. 
+.br
+ NO check is performed for element position as relative to the size of the list\&. A value for position or steps that could cause an overflow of the head of the list is allowed and will be interpreted consistently with the circular nature of the list\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ Don't check for valid pointers\&. 
+.RE
+.PP
+
+.SS "void ft_dlclst_iter (\fBt_dlclst\fP * lst, void(*)(void *) f)"
+
+.PP
+\fBft_dlclst_iter\fP -- Applies provided function f to the content of each node on list\&. Iterates the list ’lst’ and applies the function ’f’ on the content of each node\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlst\fP - The address of a pointer to a node\&. If NULL nothing is done\&.
+.br
+\fIf\fP - The address of the function that shall be used apply on every node's content while traversing the whole list\&. This function must be capable of handling a NULL content pointer\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+NO check is performed for NULL pointers passed as arguments\&. In such cases, CRASHING is guaranteed\&. 
+.RE
+.PP
+
+.SS "\fBt_dlclst\fP * ft_dlclst_last (\fBt_dlclst\fP * lst)"
+
+.PP
+\fBft_dlclst_last\fP -- Returns the last node of the list\&. Returns the last node of the list\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlst\fP - A pointer to the first node of the list\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A pointer to the last node of the list\&. 
+.br
+ Returns NULL if lst == NULL\&. 
+.RE
+.PP
+
+.SS "\fBt_dlclst\fP * ft_dlclst_map (\fBt_dlclst\fP * l, void *(*)(void *) f, void(*)(void *) d)"
+
+.PP
+\fBft_dlclst_map\fP -- Returns new list based on applying f to each nodes content\&. Iterates the list ’lst’ and applies the function ’f’ on the content of each node\&. Creates a new list resulting of the successive applications of the function ’f’\&. The ’del’ function is used to delete the content of a node if needed\&. If at some point the funcion fails, the in-construction new list must is cleared completely and NULL pointer is returned\&. If an error occurs while creating the new list, every memory is freed and a NULL is returned\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIl\fP - The address of a pointer to a node\&. If NULL nothing is done and a NULL pointer is returned\&.
+.br
+\fIf\fP - The address of the function that shall be applied on every node's content while traversing the original list to return a pointer to the new content for every node of the new list\&. This function must be capable of handling a NULL content pointer\&. This function must allocate memory for the generated new contents\&. This function must return NULL if error\&.
+.br
+\fId\fP - The address of the function that shall be used to properly free only the content of the node\&. This function must be capable of handling a NULL content pointer\&. This function is used if an error occurs while creating the new list\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The new list\&. 
+.br
+ NULL if error occurs\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc(), free()\&. 
+.br
+ 
+.RE
+.PP
+
+.SS "\fBt_dlclst\fP * ft_dlclst_new (void * content)"
+
+.PP
+\fBft_dlclst_new\fP -- Creates a list element from pointer to its content\&. Allocates (with malloc()) and returns a new node\&. 
+.br
+ The member variable ’content’ is initialized with the value of the parameter ’content’\&. The variables 'next' and 'prev' are initialized to NULL\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcontent\fP - The pointer to the content to create the node with\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The new node\&. 
+.br
+ Returns NULL if malloc() fails\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc()\&. 
+.br
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ Argument content is NOT checked for NULL, a node with NULL content is returned\&. 
+.br
+ If malloc fails, must return NULL\&. 
+.RE
+.PP
+
+.SS "void ft_dlclst_remback (\fBt_dlclst\fP ** lst, void(*)(void *) del)"
+
+.PP
+\fBft_dlclst_remback\fP -- Removes the last node of the list and frees memory of the list item and its content\&. Takes as a parameter the address of the pointer to the first node of the list and frees the memory of the last node content using the ’del’ function provided by the caller\&. Then frees the node memory\&. 
+.br
+ The memory of 'next' and 'prev' nodes of the deleted first node are not freed\&. The pointers of those nodes are updated in order to maintain the consistency of the circular list\&. 
+.br
+ The pointer to lst might be updated to represent the new first element of the list\&. It will be NULL if the removed node was the only element in the list\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlst\fP - The address of the pointer to the first node of the list\&.
+.br
+\fIdel\fP - The address of the function that shall be used to properly free only the content of the node\&. This function must be capable of handling a NULL content pointer\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: free()\&. 
+.br
+ 
+.RE
+.PP
+
+.SS "void ft_dlclst_remfront (\fBt_dlclst\fP ** lst, void(*)(void *) del)"
+
+.PP
+\fBft_dlclst_remfront\fP -- Removes the first node of the list and frees memory of the list item and its content\&. Takes as a parameter the address of the pointer to the first node of the list and frees the memory of the first node content using the ’del’ function provided by the caller\&. Then frees the node memory\&. 
+.br
+ The memory of 'next' and 'prev' nodes of the deleted first node are not freed\&. The pointers of those nodes are updated in order to maintain the consistency of the circular list\&. 
+.br
+ The pointer to lst is updated to represent the new first element of the list\&. It will be NULL if the removed node was the only element in the list\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlst\fP - The address of the pointer to the first node of the list\&.
+.br
+\fIdel\fP - The address of the function that shall be used to properly free only the content of the node\&. This function must be capable of handling a NULL content pointer\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: free()\&. 
+.br
+ 
+.RE
+.PP
+
+.SS "void ft_dlclst_rempos (\fBt_dlclst\fP ** l, void(*)(void *) d, int unsigned pos)"
+
+.PP
+\fBft_dlclst_rempos\fP -- Removes the node of the list at given position and frees memory of the list item and its content\&. Takes as a parameter the address of the pointer to the first node of the list and frees the memory of the referred node content using the ’del’ function provided by the caller\&. Then frees the node memory\&. 
+.br
+ The memory of 'next' and 'prev' nodes of the deleted first node are not freed\&. The pointers of those nodes are updated in order to maintain the consistency of the circular list\&. 
+.br
+ The pointer to lst might be updated to represent the new first element of the list\&. It will be NULL if the removed node was the only element in the list\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIl\fP - The address of the pointer to the first node of the list\&.
+.br
+\fId\fP - The address of the function that shall be used to properly free only the content of the node\&. This function must be capable of handling a NULL content pointer\&.
+.br
+\fIpos\fP - Positive value representing the position the new node will have inside the list (always in the next direction, first node has 0 pos)\&. 
+.br
+ A zero value produces the same result as \fBft_dlclst_remfront()\fP\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: free()\&. 
+.br
+ NO check is performed for element position as relative to the size of the list\&. A value for position or steps that could cause an overflow of the head of the list is allowed and will be interpreted consistently with the circular nature of the list\&. 
+.RE
+.PP
+
+.SS "void ft_dlclst_rotatenext (\fBt_dlclst\fP ** lst, unsigned int n)"
+
+.PP
+\fBft_dlclst_rotatenext\fP -- Shifts the head of the list in the 'next' direction\&. Moves the pointer that points to the head/front of the list 'n' steps in the 'next' direction, thus making the element in the n-th position the new head/front of the list\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlst\fP - The address of a pointer to the first node of a list\&.
+.br
+\fIn\fP - The steps to move the head of the list\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+NO check is performed for element position as relative to the size of the list\&. A value for position or steps that could cause an overflow of the head of the list is allowed and will be interpreted consistently with the circular nature of the list\&. 
+.RE
+.PP
+
+.SS "void ft_dlclst_rotateprev (\fBt_dlclst\fP ** lst, unsigned int n)"
+
+.PP
+\fBft_dlclst_rotateprev\fP -- Shifts the head of the list in the 'prev' direction\&. Moves the pointer that points to the head/front of the list 'n' steps in the 'prev' direction, thus making the element in the (size -n)-th position the new head/front of the list\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlst\fP - The address of a pointer to the first node of a list\&.
+.br
+\fIn\fP - The steps to move the head of the list\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+NO check is performed for element position as relative to the size of the list\&. A value for position or steps that could cause an overflow of the head of the list is allowed and will be interpreted consistently with the circular nature of the list\&. 
+.RE
+.PP
+
+.SS "int ft_dlclst_search (\fBt_dlclst\fP * l, int(*)(void *, void *) cmp, void * co)"
+
+.PP
+\fBft_dlclst_search\fP -- Search content inside the list\&. Iterates the list ’lst’ and applies the function ’cmp’ to compare the content of each node with the content passed as argument\&. The first time a match is detected (in the next direction), the position of the element is returned\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIl\fP - The pointer to a list\&. If NULL, -1 is returned\&.
+.br
+\fIcmp\fP - The address of the function that shall be applied on every node's content while traversing the original list to compare it against the content 'co'\&. This function returns a non-zero value if there is a match\&. This function must be capable of handling a NULL content pointer\&.
+.br
+\fIco\fP - The address of a content to be compared against each node's content\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The position of the first node (in the next direction) which content matches the content passed as an argument\&. 
+.br
+ A -1 is returned if there is no match\&. 
+.RE
+.PP
+
+.SS "int ft_dlclst_size (\fBt_dlclst\fP * lst)"
+
+.PP
+\fBft_dlclst_size\fP -- Counts the number of nodes in a list\&. Counts the number of nodes in a list\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlst\fP - A pointer to the first element of the list\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The length of the list\&. 
+.br
+ If lst == NULL a 0 value is returned\&. 
+.RE
+.PP
+
+.SS "void ft_dlclst_swapback (\fBt_dlclst\fP ** lst)"
+
+.PP
+\fBft_dlclst_swapback\fP -- Swaps the last and next to last elements of the list\&. Swaps the last and next to last elements of the list\&. The head of the list may change accordingly (i\&.e\&. in a list with just two elements)\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlst\fP - The address of a pointer to the first node of a list\&. 
+.RE
+.PP
+
+.SS "void ft_dlclst_swapfront (\fBt_dlclst\fP ** lst)"
+
+.PP
+\fBft_dlclst_swapfront\fP -- Swaps the first and second elements of the list\&. Swaps the first and second elements of the list\&. The head of the list changes accordingly\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIlst\fP - The address of a pointer to the first node of a list\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Library libft from the source code\&.

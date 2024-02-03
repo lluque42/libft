@@ -1,4 +1,4 @@
-.TH "include/ft_string.h" 3 "Sat Jan 27 2024" "Version 2024-01-27" "Library libft" \" -*- nroff -*-
+.TH "include/ft_string.h" 3 "Sat Feb 3 2024" "Version 2024-01-27" "Library libft" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -97,6 +97,10 @@ include/ft_string.h
 .RI "char * \fBft_uitoa_b\fP (unsigned int n, unsigned int base, int in_caps)"
 .br
 .RI "\fBft_uitoa_b\fP -- \&.TODO\&. "
+.ti -1c
+.RI "int \fBft_printf\fP (const char *str,\&.\&.\&.)"
+.br
+.RI "\fBft_printf\fP -- Formated output conversion (partial printf())\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -284,6 +288,64 @@ EXTERNAL FUNCTION USED: malloc()\&.
 Implementation notes: 
 .br
  TODO\&. 
+.RE
+.PP
+
+.SS "int ft_printf (const char * str,  \&.\&.\&.)"
+
+.PP
+\fBft_printf\fP -- Formated output conversion (partial printf())\&. The \fBft_printf()\fP function partially implements the C standard library printf() function\&. 
+.br
+ This implementation fully (and only) supports: 
+.br
+ Conversions: c, s, p, i, d, u, x, X, and %%\&. 
+.br
+ Flags: Any combination, in any order of '-0# +'\&. 
+.br
+ '-' Left-justify within the given field width (right is the default)\&. 
+.br
+ '0' Left-pads the number with zeroes (0) instead of spaces when padding is specified\&. 
+.br
+ '#' Used with x or X specifiers the value is preceeded with 0x or 0X respectively for values different than zero\&. 
+.br
+ ' ' A blank should be left before a positive number produced by a signed conversion\&. 
+.br
+ '+' A sign must always be placed before a number produced by a signed conversion\&. 
+.br
+ Width: Minimum field width\&. If the converted value has fewer characters than the field width, it will be padded with spaces\&. 
+.br
+ Precision: Minimum number of digits to appear for d, i, u, x, and X conversions\&. Or the maximum number of characters to be printed from a string for s conversions\&. 
+.br
+ The syntax for a conversion is: %[flags][width][\&.precision]specifier 
+.br
+ For example: 
+.br
+ ft_printf('Int conversion of %0+5\&.3i as an example\\n', foo); 
+.br
+ This is: Integer conversion, field width 5, precision 3, + sign, and zero-padding\&. 
+.br
+ See printf(3) man page for details\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP - The format string including conversion specifiers\&.
+.br
+\fI\&.\&.\&.\fP - Values consistent (in type, number and order) with the conversion specifiers included in format string\&. 
+.br
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+If successful, \fBft_printf()\fP returns the numbers of printed chars\&. 
+.br
+ If there is an error, it returns a -1 value\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc(), free(), write(), va_start(), va_arg(), va_copy(), va_end()\&. 
+.br
+ 
 .RE
 .PP
 

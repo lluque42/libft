@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/02/01 19:50:30 by lluque           ###   ########.fr        #
+#    Updated: 2024/02/03 00:57:02 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,9 @@ AR_FLAGS = rcs
 # Compiler flags
 CC_FLAGS = -Wall -Werror -Wextra
 
+# Optional debugging flags
+DEB_FLAGS = -g -fsanitize=address
+
 # List of header file names that, if modified, should force recompiling
 INCLUDES = $(INC_DIR)libft.h \
 		   $(INC_DIR)ft_char.h \
@@ -45,7 +48,8 @@ INCLUDES = $(INC_DIR)libft.h \
 		   $(INC_DIR)ft_math.h  \
 		   $(INC_DIR)ft_memory.h \
 		   $(INC_DIR)ft_string.h \
-		   $(SRC_DIR)string/ft_printf/ft_printf_utils.h
+		   $(SRC_DIR)string/ft_printf/ft_printf_utils.h \
+		   $(INC_DIR)ft_dlclst.h
 
 # List of source code file names with path relative to SRC_DIR
 SOURCES = char/ft_isalpha.c \
@@ -122,7 +126,24 @@ SOURCES = char/ft_isalpha.c \
 		  llst/ft_lstiter.c \
 		  llst/ft_lstmap.c \
 		  math/ft_pow.c \
-		  debug/ft_print_memory.c
+		  debug/ft_print_memory.c \
+		  dlclst/ft_dlclst_insback.c \
+		  dlclst/ft_dlclst_insfront.c \
+		  dlclst/ft_dlclst_inspos.c \
+		  dlclst/ft_dlclst_last.c \
+		  dlclst/ft_dlclst_new.c \
+		  dlclst/ft_dlclst_remback.c \
+		  dlclst/ft_dlclst_remfront.c \
+		  dlclst/ft_dlclst_rempos.c \
+		  dlclst/ft_dlclst_clear.c \
+		  dlclst/ft_dlclst_iter.c \
+		  dlclst/ft_dlclst_map.c \
+		  dlclst/ft_dlclst_search.c \
+		  dlclst/ft_dlclst_rotateprev.c \
+		  dlclst/ft_dlclst_rotatenext.c \
+		  dlclst/ft_dlclst_swapfront.c \
+		  dlclst/ft_dlclst_swapback.c \
+		  dlclst/ft_dlclst_size.c
 
 # Auto generated list of object file names from SOURCES
 # (here the path is relative to repository's root)
@@ -237,7 +258,7 @@ $(OBJECTS): $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDES)
 	@echo
 	@echo "              --- Compiling objects to $(OBJ_DIR)*.o ---"
 	mkdir -p $(@D)
-	cc -c $< -o $@ -I$(INC_DIR)
+	cc $(CC_FLAGS) $(DEB_FLAGS) -c $< -o $@ -I$(INC_DIR)
 	@echo
 	@echo ----------------------------------------------------------------------
 ################### END OF PATTERN RULE TO COMPILE OBJECTS #####################
@@ -318,12 +339,13 @@ docclean:
 
 tester: $(BIN_DIR)$(TESTER_NAME)
 
+#cc $(CC_FLAGS) -g -fsanitize=address $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME) -o $(BIN_DIR)$(TESTER_NAME) -I$(INC_DIR) -I$(TEST_DIR) 
 $(BIN_DIR)$(TESTER_NAME): $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME)
 	@echo ----------------------------------------------------------------------
 	@echo
 	@echo "        --- Compiling tester to $(BIN_DIR)$(TESTER_NAME) ---"
 	@echo
-	cc $(CC_FLAGS) $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME) -o $(BIN_DIR)$(TESTER_NAME) -I$(INC_DIR) -I$(TEST_DIR) 
+	cc $(CC_FLAGS) $(DEB_FLAGS) $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME) -o $(BIN_DIR)$(TESTER_NAME) -I$(INC_DIR) -I$(TEST_DIR) 
 	@echo
 	@echo ----------------------------------------------------------------------
 
