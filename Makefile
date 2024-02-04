@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/02/04 14:55:03 by lluque           ###   ########.fr        #
+#    Updated: 2024/02/04 23:09:02 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,11 +32,18 @@ TESTER_NAME = tester
 # Archive command flags
 AR_FLAGS = rcs
 
-# Compiler flags
-CC_FLAGS = -Wall -Werror -Wextra
+# Default value of DEBUG (if passed from command line DEBUG=yes overrides it)
+DEBUG = no
 
 # Optional debugging flags
 DEB_FLAGS = -g -fsanitize=address
+
+# Compiler flags, conditional to DEBUG value
+ifeq ($(DEBUG), no)
+	CC_FLAGS = -Wall -Werror -Wextra
+else
+	CC_FLAGS = -Wall -Werror -Wextra $(DEB_FLAGS)
+endif
 
 # List of header file names that, if modified, should force recompiling
 INCLUDES = $(INC_DIR)libft.h \
@@ -259,7 +266,7 @@ $(OBJECTS): $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDES)
 	@echo
 	@echo "              --- Compiling objects to $(OBJ_DIR)*.o ---"
 	mkdir -p $(@D)
-	cc $(CC_FLAGS) $(DEB_FLAGS) -c $< -o $@ -I$(INC_DIR)
+	cc $(CC_FLAGS) -c $< -o $@ -I$(INC_DIR)
 	@echo
 	@echo ----------------------------------------------------------------------
 ################### END OF PATTERN RULE TO COMPILE OBJECTS #####################
@@ -346,7 +353,7 @@ $(BIN_DIR)$(TESTER_NAME): $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME)
 	@echo
 	@echo "        --- Compiling tester to $(BIN_DIR)$(TESTER_NAME) ---"
 	@echo
-	cc $(CC_FLAGS) $(DEB_FLAGS) $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME) -o $(BIN_DIR)$(TESTER_NAME) -I$(INC_DIR) -I$(TEST_DIR) 
+	cc $(CC_FLAGS) $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME) -o $(BIN_DIR)$(TESTER_NAME) -I$(INC_DIR) -I$(TEST_DIR) 
 	@echo
 	@echo ----------------------------------------------------------------------
 
@@ -362,6 +369,8 @@ help:
 	@echo "    usar 'make clean' para borrar los archivos .o y su directorio $(OBJ_DIR)"
 	@echo "    usar 'make fclean para hacer 'clean' y ademas borrar todos los binarios y su directorio $(BIN_DIR)"
 	@echo "    usar 'make re' para hacer 'fclean' y luego 'all'"
+	@echo "    usar 'make ... DEBUG=yes' para hacer todas las compilaciones con estos flags adicionales:"
+	@echo "          $(DEB_FLAGS)"
 	@echo "    usar 'make help' para mostrar esta ayuda"
 	@echo
 	@echo ----------------------------------------------------------------------
