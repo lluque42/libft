@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:00 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/28 18:35:29 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/04 15:52:21 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -563,5 +563,32 @@ char	*ft_uitoa_b(unsigned int n, unsigned int base, int in_caps);
  * va_arg(), va_copy(), va_end().  
 */
 int		ft_printf(const char *str, ...);
+
+/**
+ * @brief <b>ft_aisi</b> -- Checks if an ASCII c-string is a valid integer.
+ * 
+ * @details The ft_aisi() function receives a NUL terminated C-string and checks
+ * if it is a valid representation of an integer value according to: first
+ * character must be a '-', '+' or a digit; the remaining characters must be
+ * digits (0-9); and the numeric value the string represents must lie within
+ * INT_MIN and INT_MAX as defined in limits.h.  
+ * This function is more strict than ft_atoi()'s requirements for a valid int.
+ * Strings "+0" and "-0" are considered valid and equivalent to "0".
+ *
+ * @param [in] str - The string to analyze.
+ *
+ * @return A non-zero value if the string str is a valid representation of an
+ * integer type.
+ * 
+ * @warning EXTERNAL FUNCTION USED: malloc() via ft_itoa() and free().
+ *
+ * @remark Implementation notes:  
+ * It first check if first char is not a digit nor a sign, OR if the string is
+ * empty. Second, it checks if there is a digit after a possible sign. Then
+ * checks every character behind an optional sign for non-digit. Finally, this
+ * function checks, char by char after possible sign, if the number inside the
+ * string lies withing INT_MIN and INT_MAX as defined in limits.h.
+ */
+int		ft_aisi(const char *str);
 
 #endif

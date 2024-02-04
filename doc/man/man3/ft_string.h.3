@@ -1,4 +1,4 @@
-.TH "include/ft_string.h" 3 "Sat Feb 3 2024" "Version 2024-01-27" "Library libft" \" -*- nroff -*-
+.TH "include/ft_string.h" 3 "Sun Feb 4 2024" "Version 2024-01-27" "Library libft" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -101,12 +101,46 @@ include/ft_string.h
 .RI "int \fBft_printf\fP (const char *str,\&.\&.\&.)"
 .br
 .RI "\fBft_printf\fP -- Formated output conversion (partial printf())\&. "
+.ti -1c
+.RI "int \fBft_aisi\fP (const char *str)"
+.br
+.RI "\fBft_aisi\fP -- Checks if an ASCII c-string is a valid integer\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
 Strings related functions\&. Part of libft library\&. 
 .SH "Function Documentation"
 .PP 
+.SS "int ft_aisi (const char * str)"
+
+.PP
+\fBft_aisi\fP -- Checks if an ASCII c-string is a valid integer\&. The \fBft_aisi()\fP function receives a NUL terminated C-string and checks if it is a valid representation of an integer value according to: first character must be a '-', '+' or a digit; the remaining characters must be digits (0-9); and the numeric value the string represents must lie within INT_MIN and INT_MAX as defined in limits\&.h\&. 
+.br
+ This function is more strict than \fBft_atoi()\fP's requirements for a valid int\&. Strings '+0' and '-0' are considered valid and equivalent to '0'\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP - The string to analyze\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A non-zero value if the string str is a valid representation of an integer type\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: malloc() via \fBft_itoa()\fP and free()\&.
+.RE
+.PP
+\fBRemarks\fP
+.RS 4
+Implementation notes: 
+.br
+ It first check if first char is not a digit nor a sign, OR if the string is empty\&. Second, it checks if there is a digit after a possible sign\&. Then checks every character behind an optional sign for non-digit\&. Finally, this function checks, char by char after possible sign, if the number inside the string lies withing INT_MIN and INT_MAX as defined in limits\&.h\&. 
+.RE
+.PP
+
 .SS "int ft_atoi (const char * str)"
 
 .PP

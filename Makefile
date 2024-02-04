@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/02/03 00:57:02 by lluque           ###   ########.fr        #
+#    Updated: 2024/02/04 14:55:03 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,6 +108,7 @@ SOURCES = char/ft_isalpha.c \
 		  string/ft_printf/printer_select.c \
 		  string/ft_printf/generic_functions.c \
   		  string/ft_printf/print_char.c \
+		  string/ft_aisi.c \
 		  file/ft_putchar_fd.c \
 		  file/ft_putstr_fd.c \
 		  file/ft_putendl_fd.c \

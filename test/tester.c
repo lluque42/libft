@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 22:55:05 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/03 15:37:55 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/04 15:20:09 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,29 @@ void	free_and_exit(t_dlclst *lst)
 	ft_dlclst_clear(&lst, integer_del);
 }
 
-int		main(int argc, char **argv)
+int main(int argc, char **argv)
+{
+	//char	*str = "123";
+	//char	*str = "2147483647";
+	//char	*str = "-2147483648";
+	//char	*str = "2147483648";
+	//char	*str = "-2147483649";
+	//char	*str = "+123";
+	//char	*str = "+2147483647";
+	//char	*str = "123";
+	char	*str = argv[1];
+	
+	if (argc != 2)
+		return (1);
+	ft_printf("El rango valido de enteros es [%i, %i]\n", INT_MIN, INT_MAX);
+	if (ft_aisi(str))
+		ft_printf("El string '%s' SI es un entero valido\n", str);
+	else
+		ft_printf("El string '%s' NO es un entero valido\n", str);
+	return (0);
+}
+
+int		main_for_dlclst(int argc, char **argv)
 {
 	t_dlclst	*lst_a;
 	t_dlclst	*lst_b;

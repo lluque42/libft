@@ -155,10 +155,45 @@ Functions</h2></td></tr>
 <tr class="memitem:a1a04419f657be214129cb35741adf28f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__string_8h.html#a1a04419f657be214129cb35741adf28f">ft_printf</a> (const char *str,...)</td></tr>
 <tr class="memdesc:a1a04419f657be214129cb35741adf28f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_printf</b> &ndash; Formated output conversion (partial printf()).  <a href="ft__string_8h.html#a1a04419f657be214129cb35741adf28f">More...</a><br /></td></tr>
 <tr class="separator:a1a04419f657be214129cb35741adf28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a6d0d211531ba0c586bd744ceffe062"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__string_8h.html#a0a6d0d211531ba0c586bd744ceffe062">ft_aisi</a> (const char *str)</td></tr>
+<tr class="memdesc:a0a6d0d211531ba0c586bd744ceffe062"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_aisi</b> &ndash; Checks if an ASCII c-string is a valid integer.  <a href="ft__string_8h.html#a0a6d0d211531ba0c586bd744ceffe062">More...</a><br /></td></tr>
+<tr class="separator:a0a6d0d211531ba0c586bd744ceffe062"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Strings related functions. Part of libft library. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a0a6d0d211531ba0c586bd744ceffe062" name="a0a6d0d211531ba0c586bd744ceffe062"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a6d0d211531ba0c586bd744ceffe062">&#9670;&nbsp;</a></span>ft_aisi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ft_aisi </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><b>ft_aisi</b> &ndash; Checks if an ASCII c-string is a valid integer. </p>
+<p >The <a class="el" href="ft__string_8h.html#a0a6d0d211531ba0c586bd744ceffe062" title="ft_aisi – Checks if an ASCII c-string is a valid integer.">ft_aisi()</a> function receives a NUL terminated C-string and checks if it is a valid representation of an integer value according to: first character must be a '-', '+' or a digit; the remaining characters must be digits (0-9); and the numeric value the string represents must lie within INT_MIN and INT_MAX as defined in limits.h. <br  />
+ This function is more strict than <a class="el" href="ft__string_8h.html#afad2ec371b4188602da9a94db687cb16" title="ft_atoi – .TODO.">ft_atoi()</a>'s requirements for a valid int. Strings "+0" and "-0" are considered valid and equivalent to "0".</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>- The string to analyze.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A non-zero value if the string str is a valid representation of an integer type.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>EXTERNAL FUNCTION USED: malloc() via <a class="el" href="ft__string_8h.html#a8a6ea3765dfd826eabfc00d36e28ea38" title="ft_itoa – Converts int to string representation.">ft_itoa()</a> and free().</dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Implementation notes: <br  />
+ It first check if first char is not a digit nor a sign, OR if the string is empty. Second, it checks if there is a digit after a possible sign. Then checks every character behind an optional sign for non-digit. Finally, this function checks, char by char after possible sign, if the number inside the string lies withing INT_MIN and INT_MAX as defined in limits.h. </dd></dl>
+
+</div>
+</div>
 <a id="afad2ec371b4188602da9a94db687cb16" name="afad2ec371b4188602da9a94db687cb16"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afad2ec371b4188602da9a94db687cb16">&#9670;&nbsp;</a></span>ft_atoi()</h2>
 
