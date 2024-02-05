@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlclst_remback.c                                :+:      :+:    :+:   */
+/*   ft_dlclst_extractpos.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:12:58 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/05 13:08:24 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/05 12:56:37 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-void	ft_dlclst_remback(t_dlclst **lst, void (*del)(void *))
+t_dlclst	*ft_dlclst_extractpos(t_dlclst **lst, unsigned int pos)
 {
-	t_dlclst	*to_remove;
+	t_dlclst	*temp;
+	t_dlclst	*ret_val;
 
-	to_remove = ft_dlclst_extractback(lst);
-	if (to_remove == NULL)
-		return ;
-	del((void *)(to_remove->content));
-	free(to_remove);
+	temp = *lst;
+	ft_dlclst_rotatenext(&temp, pos);
+	ret_val = ft_dlclst_extractfront(&temp);
+	ft_dlclst_rotateprev(&temp, pos);
+	*lst = temp;
+	return (ret_val);
 }
-	/*
-	t_dlclst	*to_be_removed;
-
-	if (*lst == NULL)
-		return ;
-	to_be_removed = (*lst)->prev;
-	del((void *)(to_be_removed)->content);
-	to_be_removed->prev->next = *lst;
-	(*lst)->prev = to_be_removed->prev;
-	free(to_be_removed);
-	if (*lst == to_be_removed)
-	{
-		*lst = NULL;
-		return ;
-	}
-}
-*/

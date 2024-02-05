@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:12:58 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/01 15:46:48 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/05 13:07:09 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 
 void	ft_dlclst_remfront(t_dlclst **lst, void (*del)(void *))
 {
+	t_dlclst	*to_remove;
+
+	to_remove = ft_dlclst_extractfront(lst);
+	if (to_remove == NULL)
+		return ;
+	del((void *)(to_remove->content));
+	free(to_remove);
+}
+	/*
 	t_dlclst	*new_head;
 
 	if (*lst == NULL)
@@ -30,3 +39,4 @@ void	ft_dlclst_remfront(t_dlclst **lst, void (*del)(void *))
 	free(*lst);
 	*lst = new_head;
 }
+*/

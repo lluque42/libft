@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:57 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/03 17:38:44 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/05 13:26:25 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,8 +231,8 @@ void		ft_dlclst_remback(t_dlclst **lst, void (*del)(void *));
  * free only the content of the node. This function must be capable of handling
  * a NULL content pointer.
  *
- * @param [in] pos - Positive value representing the position the new node  will
- * have inside the list (always in the next direction, first node has 0 pos).  
+ * @param [in] pos - Positive value representing the position in the list of 
+ * the node to be removed (always in the next direction, first node has 0 pos).  
  * A zero value produces the same result as ft_dlclst_remfront().
  *
  * @warning EXTERNAL FUNCTION USED: free().  
@@ -397,5 +397,68 @@ void		ft_dlclst_swapfront(t_dlclst **lst);
  * @param [in,out] lst - The address of a pointer to the first node of a list.
 */
 void		ft_dlclst_swapback(t_dlclst **lst);
+
+/**
+ * @brief <b>ft_dlclst_extractfront</b> -- Removes the first node of the list
+ * and returns it.
+ *
+ * @details Takes as a parameter the address of the pointer to the first node
+ * of the list, removes it from the list and returns it. The pointers of the
+ * remaining nodes of the list are updated in orderr to maintain the
+ * consistency of the circular list.  
+ * The pointer to lst is updated to represent the new first element of the
+ * list. It will be NULL if the removed node was the only element in the list.
+ * 
+ * @param [in, out] lst - The address of the pointer to the first node of
+ * the list.
+ *
+ * @return The extracted node.
+ */
+t_dlclst	*ft_dlclst_extractfront(t_dlclst **lst);
+
+/**
+ * @brief <b>ft_dlclst_extractback</b> -- Removes the last node of the list and
+ * returns it.
+ *
+ * @details Takes as a parameter the address of the pointer to the first node
+ * of the list, removes it from the list and returns it. The pointers of the     
+ * remaining nodes of the list are updated in order to maintain the
+ * consistency of the circular list.  
+ * The pointer to lst might be updated to represent the new first element of the
+ * list. It will be NULL if the removed node was the only element in the list.
+ * 
+ * @param [in, out] lst - The address of the pointer to the first node of
+ * the list.
+ *
+ * @return The extracted node.
+*/
+t_dlclst	*ft_dlclst_extractback(t_dlclst **lst);
+
+/**
+ * @brief <b>ft_dlclst_extractpos</b> -- Removes the node of the list at given
+ * position and returns it.
+ *
+ * @details Takes as a parameter the address of the pointer to the first node
+ * of the list, removes the node that occupies the given position from the list
+ * and returns it. The pointers of the remaining nodes of the list are updated
+ * in order to maintain the consistency of the circular list.  
+ * The pointer to lst might be updated to represent the new first element of the
+ * list. It will be NULL if the removed node was the only element in the list.
+ * 
+ * @param [in, out] lst - The address of the pointer to the first node of
+ * the list.
+ *
+ * @param [in] pos - Positive value representing the position in the list of
+ * the node to be extracted (always in the next direction, first node has a
+ * position of 0).  
+ * A zero value produces the same result as ft_dlclst_extractfront().
+ *
+ * @return The extracted node.
+ * @warning NO check is performed for element position as relative to the size
+ * of the list. A value for position or steps that could cause an overflow of
+ * the head of the list is allowed and will be interpreted consistently with the
+ * circular nature of the list.
+*/
+t_dlclst	*ft_dlclst_extractpos(t_dlclst **lst, unsigned int pos);
 
 #endif

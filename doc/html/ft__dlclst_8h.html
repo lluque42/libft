@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Library libft<span id="projectnumber">&#160;2024-01-27</span>
+   <div id="projectname">Library libft<span id="projectnumber">&#160;2024-02-05</span>
    </div>
    <div id="projectbrief">Cummulative util library for Campus 42</div>
   </td>
@@ -151,6 +151,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a63e6234d90a04c3bc3a6aa6165ea2ef0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__dlclst_8h.html#a63e6234d90a04c3bc3a6aa6165ea2ef0">ft_dlclst_swapback</a> (<a class="el" href="structs__dlclst.html">t_dlclst</a> **lst)</td></tr>
 <tr class="memdesc:a63e6234d90a04c3bc3a6aa6165ea2ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_dlclst_swapback</b> &ndash; Swaps the last and next to last elements of the list.  <a href="ft__dlclst_8h.html#a63e6234d90a04c3bc3a6aa6165ea2ef0">More...</a><br /></td></tr>
 <tr class="separator:a63e6234d90a04c3bc3a6aa6165ea2ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae67e079410375b12b27ad1cb5fef5722"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structs__dlclst.html">t_dlclst</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__dlclst_8h.html#ae67e079410375b12b27ad1cb5fef5722">ft_dlclst_extractfront</a> (<a class="el" href="structs__dlclst.html">t_dlclst</a> **lst)</td></tr>
+<tr class="memdesc:ae67e079410375b12b27ad1cb5fef5722"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_dlclst_extractfront</b> &ndash; Removes the first node of the list and returns it.  <a href="ft__dlclst_8h.html#ae67e079410375b12b27ad1cb5fef5722">More...</a><br /></td></tr>
+<tr class="separator:ae67e079410375b12b27ad1cb5fef5722"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28d4f40c769d4e194ed80aa57567424e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structs__dlclst.html">t_dlclst</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__dlclst_8h.html#a28d4f40c769d4e194ed80aa57567424e">ft_dlclst_extractback</a> (<a class="el" href="structs__dlclst.html">t_dlclst</a> **lst)</td></tr>
+<tr class="memdesc:a28d4f40c769d4e194ed80aa57567424e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_dlclst_extractback</b> &ndash; Removes the last node of the list and returns it.  <a href="ft__dlclst_8h.html#a28d4f40c769d4e194ed80aa57567424e">More...</a><br /></td></tr>
+<tr class="separator:a28d4f40c769d4e194ed80aa57567424e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60710bfd0f35b94e824ba1fd3da63485"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structs__dlclst.html">t_dlclst</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__dlclst_8h.html#a60710bfd0f35b94e824ba1fd3da63485">ft_dlclst_extractpos</a> (<a class="el" href="structs__dlclst.html">t_dlclst</a> **lst, unsigned int pos)</td></tr>
+<tr class="memdesc:a60710bfd0f35b94e824ba1fd3da63485"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_dlclst_extractpos</b> &ndash; Removes the node of the list at given position and returns it.  <a href="ft__dlclst_8h.html#a60710bfd0f35b94e824ba1fd3da63485">More...</a><br /></td></tr>
+<tr class="separator:a60710bfd0f35b94e824ba1fd3da63485"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Doubly linked circular list implementation. Part of libft library. <br  />
@@ -196,6 +205,107 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>EXTERNAL FUNCTION USED: free(). <br  />
  </dd></dl>
+
+</div>
+</div>
+<a id="a28d4f40c769d4e194ed80aa57567424e" name="a28d4f40c769d4e194ed80aa57567424e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28d4f40c769d4e194ed80aa57567424e">&#9670;&nbsp;</a></span>ft_dlclst_extractback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structs__dlclst.html">t_dlclst</a> * ft_dlclst_extractback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs__dlclst.html">t_dlclst</a> **&#160;</td>
+          <td class="paramname"><em>lst</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><b>ft_dlclst_extractback</b> &ndash; Removes the last node of the list and returns it. </p>
+<p >Takes as a parameter the address of the pointer to the first node of the list, removes it from the list and returns it. The pointers of the <br  />
+ remaining nodes of the list are updated in order to maintain the consistency of the circular list. <br  />
+ The pointer to lst might be updated to represent the new first element of the list. It will be NULL if the removed node was the only element in the list.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">lst</td><td>- The address of the pointer to the first node of the list.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The extracted node. </dd></dl>
+
+</div>
+</div>
+<a id="ae67e079410375b12b27ad1cb5fef5722" name="ae67e079410375b12b27ad1cb5fef5722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae67e079410375b12b27ad1cb5fef5722">&#9670;&nbsp;</a></span>ft_dlclst_extractfront()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structs__dlclst.html">t_dlclst</a> * ft_dlclst_extractfront </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs__dlclst.html">t_dlclst</a> **&#160;</td>
+          <td class="paramname"><em>lst</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><b>ft_dlclst_extractfront</b> &ndash; Removes the first node of the list and returns it. </p>
+<p >Takes as a parameter the address of the pointer to the first node of the list, removes it from the list and returns it. The pointers of the remaining nodes of the list are updated in orderr to maintain the consistency of the circular list. <br  />
+ The pointer to lst is updated to represent the new first element of the list. It will be NULL if the removed node was the only element in the list.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">lst</td><td>- The address of the pointer to the first node of the list.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The extracted node. </dd></dl>
+
+</div>
+</div>
+<a id="a60710bfd0f35b94e824ba1fd3da63485" name="a60710bfd0f35b94e824ba1fd3da63485"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60710bfd0f35b94e824ba1fd3da63485">&#9670;&nbsp;</a></span>ft_dlclst_extractpos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structs__dlclst.html">t_dlclst</a> * ft_dlclst_extractpos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structs__dlclst.html">t_dlclst</a> **&#160;</td>
+          <td class="paramname"><em>lst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><b>ft_dlclst_extractpos</b> &ndash; Removes the node of the list at given position and returns it. </p>
+<p >Takes as a parameter the address of the pointer to the first node of the list, removes the node that occupies the given position from the list and returns it. The pointers of the remaining nodes of the list are updated in order to maintain the consistency of the circular list. <br  />
+ The pointer to lst might be updated to represent the new first element of the list. It will be NULL if the removed node was the only element in the list.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">lst</td><td>- The address of the pointer to the first node of the list.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>- Positive value representing the position in the list of the node to be extracted (always in the next direction, first node has a position of 0). <br  />
+ A zero value produces the same result as <a class="el" href="ft__dlclst_8h.html#ae67e079410375b12b27ad1cb5fef5722" title="ft_dlclst_extractfront – Removes the first node of the list and returns it.">ft_dlclst_extractfront()</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The extracted node. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>NO check is performed for element position as relative to the size of the list. A value for position or steps that could cause an overflow of the head of the list is allowed and will be interpreted consistently with the circular nature of the list. </dd></dl>
 
 </div>
 </div>
@@ -608,7 +718,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">l</td><td>- The address of the pointer to the first node of the list.</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td>- The address of the function that shall be used to properly free only the content of the node. This function must be capable of handling a NULL content pointer.</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>- Positive value representing the position the new node will have inside the list (always in the next direction, first node has 0 pos). <br  />
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>- Positive value representing the position in the list of the node to be removed (always in the next direction, first node has 0 pos). <br  />
  A zero value produces the same result as <a class="el" href="ft__dlclst_8h.html#ab3818fab59a43f45768d1b125a825d55" title="ft_dlclst_remfront – Removes the first node of the list and frees memory of the list item and its con...">ft_dlclst_remfront()</a>.</td></tr>
   </table>
   </dd>

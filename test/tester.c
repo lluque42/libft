@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 22:55:05 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/04 15:20:09 by lluque           ###   ########.fr       */
+/*   Updated: 2024/02/05 13:10:56 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	free_and_exit(t_dlclst *lst)
 	ft_dlclst_clear(&lst, integer_del);
 }
 
-int main(int argc, char **argv)
+int main_for_aisi(int argc, char **argv)
 {
 	//char	*str = "123";
 	//char	*str = "2147483647";
@@ -74,7 +74,8 @@ int main(int argc, char **argv)
 	return (0);
 }
 
-int		main_for_dlclst(int argc, char **argv)
+//int		main_for_dlclst(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_dlclst	*lst_a;
 	t_dlclst	*lst_b;
