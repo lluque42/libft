@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/02/05 13:01:31 by lluque           ###   ########.fr        #
+#    Updated: 2024/06/30 16:47:02 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,13 @@ OBJ_DIR = ./obj/
 NAME = libft.a
 
 # Resulting bonus output name (to be placed in BIN_DIR)
-#BONUS_NAME = ???
+BONUS_NAME = $(NAME)
+# Separate bonus compilation was droped after this project was submitted for
+# evaluation.
+# In other 42 projects the code will be structured in basic/ shared/ bonus/
+# directories inside $(SRC_DIR) and $(INC_DIR). Shared code is always compiled.
+# Additionally, basic OR bonus code will be compiled depending on the invocation
+# of make.
 
 # Resulting tester name (to be placed in BIN_DIR)
 TESTER_NAME = tester
@@ -32,18 +38,35 @@ TESTER_NAME = tester
 # Archive command flags
 AR_FLAGS = rcs
 
-# Default value of DEBUG (if passed from command line DEBUG=yes overrides it)
+# Default value of DEBUG (if passed from command line DEBUG=... overrides it)
 DEBUG = no
 
-# Optional debugging flags
-DEB_FLAGS = -g -fsanitize=address
-
-# Compiler flags, conditional to DEBUG value
-ifeq ($(DEBUG), no)
-	CC_FLAGS = -Wall -Werror -Wextra
+# Optional debugging flags, conditional to DEBUG value and MAKE_DEBUG_LVL passed
+# from command line.
+ifeq ($(DEBUG), g)
+	DEB_FLAGS = -g
+else ifeq ($(DEBUG), addsan)
+	DEB_FLAGS = -g -fsanitize=address
 else
-	CC_FLAGS = -Wall -Werror -Wextra $(DEB_FLAGS)
+	DEB_FLAGS =
 endif
+
+# Default value of MAKE_DEBUG_LVL (if passed from command line MAKE_DEBUG_LVL=... overrides it)
+# Intended to be passed to the code as a #define integer_value to enable levels
+# of debug messages from the program.
+# No default value set intentionally (this doesn't evaluate as defined).
+MAKE_DEBUG_LVL =
+
+# Condition to add the debugging level if coming from the comand line.
+ifdef MAKE_DEBUG_LVL
+	DEB_FLAGS += -D MAKE_DEBUG_LVL=$(MAKE_DEBUG_LVL)
+endif
+
+# Compiler to use
+CC = cc
+
+# Compiler flags
+CC_FLAGS = -Wall -Werror -Wextra $(DEB_FLAGS)
 
 # List of header file names that, if modified, should force recompiling
 INCLUDES = $(INC_DIR)libft.h \
@@ -156,7 +179,10 @@ SOURCES = char/ft_isalpha.c \
 		  dlclst/ft_dlclst_extractpos.c \
 		  dlclst/ft_dlclst_size.c
 
-# Auto generated list of object file names from SOURCES
+# Auto generated list of object file names from SOURCES by: replacing
+# the file extension .c for .o; and adding the $(OBJ_DIR) to the resulting
+# list of file names (thus maintaining the directory structure of the
+# code files.
 # (here the path is relative to repository's root)
 #
 OBJECTS = $(SOURCES:%.c=$(OBJ_DIR)%.o)
@@ -201,22 +227,49 @@ DOX_GENERATE_MAN = YES
 ################ VARIABLES FOR DOXYGEN DOCUMENTATION GENERATION ################
 ################################################################################
 
+################## VARIABLES FOR ANSI ESCAPE CODES FOR COLORS ##################
+################################################################################
+
+# BASIC COLOR CODES
+RED = \033[0;31m
+GREEN = \033[0;32m
+CYAN = \033[0;36m
+PURPLE = \033[0;35m
+
+# BOLD COLOR CODES
+BRED = \033[1;31m
+BGREEN = \033[1;32m
+BCYAN = \033[1;36m
+BPURPLE = \033[1;35m
+
+# No Color (resets previously set color)
+NC=\033[0m
+################## VARIABLES FOR ANSI ESCAPE CODES FOR COLORS ##################
+################################################################################
+
+################################ RULES #########################################
+################################################################################
+
 # Default rule
 all: $(BIN_DIR)$(NAME)
+
+# Rule for NAME as phony
+# (i.e. to allow 'make my_project' instead of 'make ./bin/my_project'
+$(NAME): $(BIN_DIR)$(NAME)
 
 # Rule to archive objects into library
 $(BIN_DIR)$(NAME): $(OBJECTS)
 	@echo ----------------------------------------------------------------------
 	@echo
-	@echo "     --- Archiving objects into library $(BIN_DIR)$(NAME) ---"
+	@echo "     --- ${PURPLE}Archiving objects into library ${BPURPLE}$(BIN_DIR)$(NAME)${NC} ---"
 	@echo
 	mkdir -p $(BIN_DIR)
 	ar $(AR_FLAGS) $(BIN_DIR)$(NAME) $(OBJECTS)
 	@echo
 	@echo ----------------------------------------------------------------------
 
-################################################################################
-################## START OF PATTERN RULE TO COMPILE OBJECTS ####################
+# Rule (pattern rule) to individually (no relink) compile objects
+############################### REMEMBER #######################################
 # Pattern rule to individually compile each object:
 #
 # 	targets: target-pattern: requisite-pattern extra-req1 extra-req2...
@@ -267,13 +320,11 @@ $(BIN_DIR)$(NAME): $(OBJECTS)
 $(OBJECTS): $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDES)
 	@echo ----------------------------------------------------------------------
 	@echo
-	@echo "              --- Compiling objects to $(OBJ_DIR)*.o ---"
+	@echo "              --- ${PURPLE}Compiling objects to ${BPURPLE}$(OBJ_DIR)*.o${NC} ---"
 	mkdir -p $(@D)
-	cc $(CC_FLAGS) -c $< -o $@ -I$(INC_DIR)
+	$(CC) $(CC_FLAGS) -c $< -o $@ -I$(INC_DIR)
 	@echo
 	@echo ----------------------------------------------------------------------
-################### END OF PATTERN RULE TO COMPILE OBJECTS #####################
-################################################################################
 
 # Cleaning rule: deletes object files and directory.
 # Possible additions to the recipe:
@@ -283,7 +334,7 @@ $(OBJECTS): $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDES)
 clean:
 	@echo ----------------------------------------------------------------------
 	@echo
-	@echo "                          --- Cleaning ---"
+	@echo "                          --- ${PURPLE}Cleaning${NC} ---"
 	@echo
 	rm -rf $(OBJ_DIR)
 	@echo
@@ -296,7 +347,7 @@ clean:
 fclean:clean
 	@echo ----------------------------------------------------------------------
 	@echo
-	@echo "                          --- Fcleaning ---"
+	@echo "                          --- ${PURPLE}Fcleaning${NC} ---"
 	@echo
 	rm -rf $(BIN_DIR)
 	@echo
@@ -305,14 +356,17 @@ fclean:clean
 # Rebuild rule: deletes objects files and all outputs, then compiles again
 re: fclean all
 
+# Rule to create and customize Doxygen configuration file which will define
+# how to generate the project's documentation from comments in the code when
+# using 'make doc'.
 $(DOXYFILE):
 	@echo ----------------------------------------------------------------------
 	@echo
-	@echo "      --- Generating default Doxyfile configuration file ---"
+	@echo "      --- ${PURPLE}Generating default Doxygen configuration file: ${BPURPLE}./$(DOXYFILE)${NC} ---"
 	@echo
 	doxygen -g $(DOXYFILE)
 	@echo
-	@echo "        --- Customizing Doxyfile configuration file ---"
+	@echo "        --- ${PURPLE}Customizing Doxygen configuration file: ${BPURPLE}./$(DOXYFILE)${NC} ---"
 	@echo
 	sed -i '/^PROJECT_NAME.*=/s/^.*$$/PROJECT_NAME = "$(DOX_PROJECT_NAME)"/' $(DOXYFILE)
 	sed -i '/^PROJECT_NUMBER.*=/s/^.*$$/PROJECT_NUMBER = $(DOX_PROJECT_NUMBER)/' $(DOXYFILE)
@@ -329,34 +383,36 @@ $(DOXYFILE):
 	@echo
 	@echo ----------------------------------------------------------------------
 
+# Rule to generate the project's documentation from commented code.
 doc: $(DOXYFILE)
 	@echo ----------------------------------------------------------------------
 	@echo
-	@echo "      --- Generating project documentation ($(DOC_DIR)) ---"
+	@echo "      --- ${PURPLE}Generating project documentation in ${BPURPLE}$(DOC_DIR)${NC} ---"
 	@echo
 	doxygen $(DOXYFILE)
 	@echo
 	@echo ----------------------------------------------------------------------
 
+# Rule to delete the project's documentation and Doxygen's configuration file.
 docclean:
 	@echo ----------------------------------------------------------------------
 	@echo
-	@echo "      --- Cleaning documentation directory and Doxyfile ---"
+	@echo "      --- ${PURPLE}Cleaning documentation directory and Doxyfile${NC} ---"
 	@echo
 	rm -rf $(DOC_DIR)
 	rm $(DOXYFILE)
 	@echo
 	@echo ----------------------------------------------------------------------
 
+# Rule to build the test program binary.
 tester: $(BIN_DIR)$(TESTER_NAME)
 
-#cc $(CC_FLAGS) -g -fsanitize=address $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME) -o $(BIN_DIR)$(TESTER_NAME) -I$(INC_DIR) -I$(TEST_DIR) 
 $(BIN_DIR)$(TESTER_NAME): $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME)
 	@echo ----------------------------------------------------------------------
 	@echo
-	@echo "        --- Compiling tester to $(BIN_DIR)$(TESTER_NAME) ---"
+	@echo "        --- ${PURPLE}Compiling tester to $(BIN_DIR)$(TESTER_NAME)${NC} ---"
 	@echo
-	cc $(CC_FLAGS) $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME) -o $(BIN_DIR)$(TESTER_NAME) -I$(INC_DIR) -I$(TEST_DIR) 
+	$(CC) $(CC_FLAGS) $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME) -o $(BIN_DIR)$(TESTER_NAME) -I$(INC_DIR) -I$(TEST_DIR) 
 	@echo
 	@echo ----------------------------------------------------------------------
 
@@ -364,21 +420,26 @@ $(BIN_DIR)$(TESTER_NAME): $(TEST_DIR)$(TEST_SRC) $(BIN_DIR)$(NAME)
 help:
 	@echo ----------------------------------------------------------------------
 	@echo
-	@echo "                          --- Ayuda ---"
+	@echo "                          --- ${PURPLE}Ayuda${NC} ---"
 	@echo
-	@echo "    usar 'make', 'make all' o 'make $(BIN_DIR)$(NAME)' para compilar el proyecto base como: $(BIN_DIR)$(NAME)"
-	@echo "    usar 'make bonus' para compilar el bonus (en caso de estar disponible) como $(BIN_DIR)$(BONUS_NAME)"
-	@echo "    usar 'make tester' para compilar el programa de pruebas (en caso de estar disponible) como $(BIN_DIR)$(TESTER_NAME)"
-	@echo "    usar 'make clean' para borrar los archivos .o y su directorio $(OBJ_DIR)"
-	@echo "    usar 'make fclean para hacer 'clean' y ademas borrar todos los binarios y su directorio $(BIN_DIR)"
-	@echo "    usar 'make re' para hacer 'fclean' y luego 'all'"
-	@echo "    usar 'make ... DEBUG=yes' para hacer todas las compilaciones con estos flags adicionales:"
-	@echo "          $(DEB_FLAGS)"
-	@echo "    usar 'make help' para mostrar esta ayuda"
+	@echo "    usar '${BGREEN}make${NC}', '${GREEN}make ${BGREEN}all${NC}' o '${GREEN}make ${BGREEN}$(BIN_DIR)$(NAME)${NC}' para compilar el proyecto base como: ${CYAN}$(BIN_DIR)$(NAME)${NC}"
+	@echo "    usar '${GREEN}make ${BGREEN}bonus${NC}' para compilar el proyecto en version bonus (en caso de estar disponible) como ${CYAN}$(BIN_DIR)$(BONUS_NAME)${NC}"
+	@echo "    usar '${GREEN}make ${BGREEN}tester${NC}' para compilar el programa de pruebas (en caso de estar disponible) como ${CYAN}$(BIN_DIR)$(TESTER_NAME)${NC}"
+	@echo "    usar '${GREEN}make ${BGREEN}clean${NC}' para borrar los archivos .o y su directorio ${CYAN}$(OBJ_DIR)${NC}"
+	@echo "    usar '${GREEN}make ${BGREEN}fclean${NC}' para hacer '${CYAN}clean${NC}' y ademas borrar todos los binarios y su directorio ${CYAN}$(BIN_DIR)${NC}"
+	@echo "    usar '${GREEN}make ${BGREEN}re${NC}' para hacer '${CYAN}fclean${NC}' y luego '${CYAN}all${NC}'"
+	@echo "    usar '${GREEN}make ... ${BGREEN}DEBUG=...${NC}' para hacer todas las compilaciones con estos flags adicionales:"
+	@echo "        ${CYAN}DEBUG=${BCYAN}g${NC}      (e.g. para debugging con lldb)    ---> ${CYAN}-g${NC}"
+	@echo "        ${CYAN}DEBUG=${BCYAN}addsan${NC} (i.e. para reportar memory leaks) ---> ${CYAN}-g -fsanitize=address${NC}"
+	@echo "        (cualquier otro valor es ignorado)"
+	@echo "    usar '${GREEN}make ... ${BGREEN}MAKE_DEBUG_LVL=...${NC}' para compilar el código con un ${CYAN}#define MAKE_DEBUG_LVL ...${NC}"
+	@echo "        Se recomienda pasar un valor entero que sería usado en el código como MAKE_DEBUG_LVL"
+	@echo "        para imprimir diferentes niveles de mensajes de debugging."
+	@echo "    usar '${GREEN}make ${BGREEN}help${NC}' para mostrar esta ayuda"
 	@echo
 	@echo ----------------------------------------------------------------------
 
 # Phonies: this list of words are never to be interpreted as files but
 # only as rule names
 #
-.PHONY: all clean fclean re tester help bonus doc docclean
+.PHONY: all clean fclean re tester help bonus $(NAME) doc docclean
