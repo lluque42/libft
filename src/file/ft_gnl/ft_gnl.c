@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 18:11:48 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/28 15:10:16 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/08 00:33:33 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ static t_archive	*get_arch_data(int fd, t_archive **arch_array)
 	if (fd < 0 || fd > 1400)
 		return (NULL);
 	current_arch_data = arch_array[fd];
-	if (!init_struct(&current_arch_data, 0))
+	if (!ft_gnl_init_struct(&current_arch_data, 0))
 		return (NULL);
 	return (current_arch_data);
 }
@@ -121,7 +121,7 @@ char	*ft_gnl(int fd)
 	while (1)
 	{
 		read_data.s = read(fd, read_data.d, BUFFER_SIZE);
-		if (read_data.s == -1 || gnl_datacat(arch_data, &read_data) == NULL)
+		if (read_data.s == -1 || ft_gnl_datacat(arch_data, &read_data) == NULL)
 			break ;
 		line = extract_line(&arch_data, read_data.s);
 		if (line == NULL || line[0] != '\0')
@@ -130,7 +130,7 @@ char	*ft_gnl(int fd)
 		line = NULL;
 	}
 	if (line == NULL)
-		gnl_free_data(&arch_data);
+		ft_gnl_free_data(&arch_data);
 	arch_array[fd] = arch_data;
 	return (line);
 }

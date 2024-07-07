@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 18:12:10 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/28 15:55:23 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/08 00:40:29 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include "ft_gnl.h"
 
-t_archive	*gnl_datacat(t_archive *ad, t_read *rd)
+t_archive	*ft_gnl_datacat(t_archive *ad, t_read *rd)
 {
 	char	*new_ad_d;
 	long	new_ad_s;
@@ -37,7 +37,7 @@ t_archive	*gnl_datacat(t_archive *ad, t_read *rd)
 	return (ad);
 }
 
-int	init_struct(t_archive **data, long size)
+int	ft_gnl_init_struct(t_archive **data, long size)
 {
 	if (*data == NULL)
 	{
@@ -52,7 +52,7 @@ int	init_struct(t_archive **data, long size)
 			(*data)->d = malloc(size * sizeof (char));
 			if ((*data)->d == NULL)
 			{
-				gnl_free_data(data);
+				ft_gnl_free_data(data);
 				return (0);
 			}
 		}
@@ -60,7 +60,7 @@ int	init_struct(t_archive **data, long size)
 	return (1);
 }
 
-void	gnl_free_data(t_archive **data)
+void	ft_gnl_free_data(t_archive **data)
 {
 	if (data == NULL || *data == NULL)
 		return ;
