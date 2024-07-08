@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 23:39:26 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/30 16:52:37 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/08 01:39:36 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,26 @@
 #define IN_PREC_VAL 3
 #define IN_SPECIFIER 4
 
-int	parse_flags(t_format *format, char **str)
+static int	parse_flags(t_format *format, char **str)
 {
 	while (ft_strchr(SUPP_FLAGS, **str) != NULL)
 	{
 		if (**str == '-')
-			set_flag(&(format->flags), LEFT_JUSTIFY);
+			ft_printf_set_flag(&(format->flags), LEFT_JUSTIFY);
 		if (**str == ' ')
-			set_flag(&(format->flags), BLANK_IF_POS_NUM);
+			ft_printf_set_flag(&(format->flags), BLANK_IF_POS_NUM);
 		if (**str == '+')
-			set_flag(&(format->flags), SIGN_BEF_NUM);
+			ft_printf_set_flag(&(format->flags), SIGN_BEF_NUM);
 		if (**str == '0')
-			set_flag(&(format->flags), ZERO_PADDING);
+			ft_printf_set_flag(&(format->flags), ZERO_PADDING);
 		if (**str == '#')
-			set_flag(&(format->flags), ALTERNATE_FORM);
+			ft_printf_set_flag(&(format->flags), ALTERNATE_FORM);
 		(*str)++;
 	}
 	return (1);
 }
 
-int	parse_width(t_format *format, char **str)
+static int	parse_width(t_format *format, char **str)
 {
 	int		width;
 
@@ -51,7 +51,7 @@ int	parse_width(t_format *format, char **str)
 	return (1);
 }
 
-int	parse_precision(t_format *format, char **str)
+static int	parse_precision(t_format *format, char **str)
 {
 	int		prec_value;
 
@@ -71,7 +71,7 @@ int	parse_precision(t_format *format, char **str)
 	return (1);
 }
 
-int	parse_format(t_format *format, char **str)
+int	ft_printf_parse_format(t_format *format, char **str)
 {
 	if (!parse_flags(format, str))
 		return (0);

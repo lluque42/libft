@@ -6,13 +6,13 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:44:05 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/28 20:59:46 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/08 01:50:52 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_utils.h"
 
-void	init_format(t_format *format)
+void	ft_printf_init_format(t_format *format)
 {
 	format->flags = NO_FLAGS;
 	format->width = 0;

@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:43:06 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/30 16:55:09 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/08 01:25:33 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	literal_char_case(t_format *format, char **str)
 	if (format->data_type == ESCAPED_PERCENT)
 	{
 		**str = '%';
-		if (!add_width_alignment(format, str))
+		if (!ft_printf_add_width_alignment(format, str))
 		{
 			free(str);
 			return (-1);
@@ -47,7 +47,7 @@ static int	nul_char_case(t_format *format, char **str)
 
 	printed_chars = 0;
 	**str = (char)NUL_CHAR_REPLACEMENT;
-	if (!add_width_alignment(format, str))
+	if (!ft_printf_add_width_alignment(format, str))
 	{
 		free(str);
 		return (-1);
@@ -78,7 +78,7 @@ static int	char_case(t_format *format, char **str, va_list *arg_list)
 	**str = format->data.int_type;
 	if (format->data.int_type == 0)
 		return (nul_char_case(format, str));
-	if (!add_width_alignment(format, str))
+	if (!ft_printf_add_width_alignment(format, str))
 	{
 		free(*str);
 		return (-1);
@@ -93,7 +93,7 @@ static int	char_case(t_format *format, char **str, va_list *arg_list)
 }
 
 // char is promoted to int when passing through ...
-int	print_char(t_format *frmt, va_list *arg_list)
+int	ft_printf_print_char(t_format *frmt, va_list *arg_list)
 {
 	char	*str;
 	int		printed_chars;

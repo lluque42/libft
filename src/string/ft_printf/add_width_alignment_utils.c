@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:45:53 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/30 16:52:21 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/08 01:46:17 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ft_printf_utils.h"
 
 // For right-justify alignment and zero padding of conversions which support it
-void	leading_ack(t_format *format, int *original_sign, int *prefix)
+void	ft_printf_leading_ack(t_format *format, int *original_sign, int *prefix)
 {
 	if (format->data_type == INT || format->data_type == DECIMAL)
 		*original_sign = 1;
@@ -28,7 +28,7 @@ void	leading_ack(t_format *format, int *original_sign, int *prefix)
 }
 
 // For right-justify zero padding of conversions which support it
-int	right_zero_case(t_format *format, char **str, char *new_str)
+int	ft_printf_right_zero_case(t_format *format, char **str, char *new_str)
 {
 	int		original_sign_matters;
 	int		prefix_matters;
@@ -37,7 +37,7 @@ int	right_zero_case(t_format *format, char **str, char *new_str)
 	int		str_len;
 
 	offset = 0;
-	leading_ack(format, &original_sign_matters, &prefix_matters);
+	ft_printf_leading_ack(format, &original_sign_matters, &prefix_matters);
 	if (original_sign_matters && ft_strchr("+- ", **str) != NULL)
 		offset = 1;
 	if (prefix_matters && !ft_strncmp(*str, "0x", 2))
@@ -58,7 +58,7 @@ int	right_zero_case(t_format *format, char **str, char *new_str)
 }
 
 // For right-justify space padding
-int	right_space_case(t_format *format, char **str, char *new_str)
+int	ft_printf_right_space_case(t_format *format, char **str, char *new_str)
 {
 	int	str_len;
 	int	spaces;
@@ -93,37 +93,38 @@ Differences:
 		zero_pad_compatible_conversion++;
 */
 // For right-justify
-int	right_case(t_format *format, char **str, char *new_str)
+//	zero_pad_compatible_conversion = 0;
+int	ft_printf_right_case(t_format *format, char **str, char *new_str)
 {
 	int	ret_val;
-	int	zero_pad_compatible_conversion;
+	int	zero_pad_comp_conv;
 
-	zero_pad_compatible_conversion = 0;
+	zero_pad_comp_conv = 0;
 	if (format->data_type == INT && !format->precision)
-		zero_pad_compatible_conversion++;
+		zero_pad_comp_conv++;
 	if (format->data_type == UINT && !format->precision)
-		zero_pad_compatible_conversion++;
+		zero_pad_comp_conv++;
 	if (format->data_type == DECIMAL && !format->precision)
-		zero_pad_compatible_conversion++;
+		zero_pad_comp_conv++;
 	if (format->data_type == HEX_LOWER && !format->precision)
-		zero_pad_compatible_conversion++;
+		zero_pad_comp_conv++;
 	if (format->data_type == HEX_UPPER && !format->precision)
-		zero_pad_compatible_conversion++;
+		zero_pad_comp_conv++;
 	if (format->data_type == POINTER)
-		zero_pad_compatible_conversion++;
+		zero_pad_comp_conv++;
 	if (format->data_type == CHAR || format->data_type == STRING)
-		zero_pad_compatible_conversion++;
-	if (has_flag(format->flags, ZERO_PADDING) && zero_pad_compatible_conversion)
+		zero_pad_comp_conv++;
+	if (ft_printf_has_flag(format->flags, ZERO_PADDING) && zero_pad_comp_conv)
 	{
-		ret_val = right_zero_case(format, str, new_str);
+		ret_val = ft_printf_right_zero_case(format, str, new_str);
 		return (ret_val);
 	}
-	ret_val = right_space_case(format, str, new_str);
+	ret_val = ft_printf_right_space_case(format, str, new_str);
 	return (ret_val);
 }
 
 // For left-justify, only applies space-padding.
-int	left_case(t_format *format, char **str, char *new_str)
+int	ft_printf_left_case(t_format *format, char **str, char *new_str)
 {
 	int	str_len;
 	int	spaces;

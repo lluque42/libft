@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:06:39 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/30 16:53:18 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/08 01:28:26 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ int	ft_printf(const char *str, ...)
 	format.printed_chars = 0;
 	while (*string != '\0')
 	{
-		init_format(&format);
-		if (!parser_select(&format, &string))
+		ft_printf_init_format(&format);
+		if (!ft_printf_parser_select(&format, &string))
 			return (-1);
 		if (!format.parser_function(&format, &string))
 			return (-1);
-		if (!printer_select(&format))
+		if (!ft_printf_printer_select(&format))
 			return (-1);
 		if (!format.printer_function(&format, &arg_list))
 			return (-1);

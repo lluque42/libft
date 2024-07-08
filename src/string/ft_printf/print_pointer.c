@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:21:02 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/30 16:52:54 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/08 01:24:31 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	print_pointer_not_null(t_format *format, char **new_nbr, char *nbr)
 	return (1);
 }
 
-int	print_pointer(t_format *format, va_list *arg_list)
+int	ft_printf_print_pointer(t_format *format, va_list *arg_list)
 {
 	char	*nbr;
 	char	*new_nbr;
@@ -46,7 +46,7 @@ int	print_pointer(t_format *format, va_list *arg_list)
 	exit_status = print_pointer_not_null(format, &new_nbr, nbr);
 	if (!exit_status)
 		return (0);
-	if (!add_width_alignment(format, &new_nbr))
+	if (!ft_printf_add_width_alignment(format, &new_nbr))
 	{
 		free(new_nbr);
 		return (0);

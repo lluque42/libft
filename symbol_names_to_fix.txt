@@ -1,30 +1,34 @@
-000000000000022c T add_precision_for_numbers
-0000000000000000 T init_format
-000000000000013a T print_hex_integer
-0000000000000000 T add_width_alignment
-0000000000000000 T parse_conversion
-000000000000013d T print_integer
-0000000000000000 T leading_ack
-0000000000000431 T left_case
-0000000000000305 T right_case
-0000000000000255 T right_space_case
-0000000000000087 T right_zero_case
-0000000000000000 T parse_flags
-000000000000021c T parse_format
-000000000000016f T parse_precision
-00000000000000f4 T parse_width
-00000000000000e1 T print_pointer
-0000000000000000 T parse_literal_char
-000000000000006c T print_string
-0000000000000000 T parser_select
-0000000000000000 T printer_select
-0000000000000039 T free_and_return_value
-0000000000000000 T has_flag
-0000000000000016 T set_flag
-00000000000002be T print_char
-
 FIXED
 ft_gnl_utils.o:
 0000000000000000 T gnl_datacat					ft_gnl_datact
 00000000000001be T gnl_free_data				ft_gnl_free_data
 0000000000000109 T init_struct					ft_gnl_init_struct
+
+FIXED (prefixed with "ft_printf_")
+**000000000000013a T print_hex_integer
+  000000000000013d T print_integer
+  000000000000006c T print_string
+  00000000000002be T print_char
+  00000000000000e1 T print_pointer
+  0000000000000039 T free_and_return_value
+  0000000000000000 T has_flag
+  0000000000000016 T set_flag
+**000000000000022c T add_precision_for_numbers
+**0000000000000000 T add_width_alignment
+0000000000000000 T init_format
+0000000000000000 T parser_select
+000000000000021c T parse_format
+0000000000000000 T parse_conversion
+0000000000000000 T parse_literal_char
+0000000000000000 T printer_select
+0000000000000000 T leading_ack
+0000000000000431 T left_case
+0000000000000305 T right_case
+0000000000000255 T right_space_case
+0000000000000087 T right_zero_case
+
+Hechos static
+0000000000000000 T parse_flags
+000000000000016f T parse_precision
+00000000000000f4 T parse_width
+

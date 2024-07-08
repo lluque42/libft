@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 18:11:14 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/01 18:36:41 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/08 01:56:15 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,21 +73,35 @@ typedef struct s_format
 	int				(*parser_function)(struct s_format *, char **);
 }				t_format;
 
-void	init_format(t_format *format);
-int		parser_select(t_format *format, char **str);
-int		parse_format(t_format *format, char **str);
-int		parse_conversion(t_format *format, char **str);
-int		parse_literal_char(t_format *format, char **str);
-int		printer_select(t_format *format);
-int		print_char(t_format *format, va_list *arg_list);
-int		print_string(t_format *format, va_list *arg_list);
-int		print_pointer(t_format *format, va_list *arg_list);
-int		print_integer(t_format *format, va_list *arg_list);
-int		print_hex_integer(t_format *format, va_list *arg_list);
-int		has_flag(t_flags flags_word, t_flags flag);
-void	set_flag(t_flags *flags_word, t_flags flag);
-int		free_and_return_value(void *pointer, int ret_value);
-int		add_precision_for_numbers(t_format *format, char **nbr);
-int		add_width_alignment(t_format *format, char **nbr);
+void	ft_printf_init_format(t_format *format);
+int		ft_printf_parser_select(t_format *format, char **str);
+int		ft_printf_parse_format(t_format *format, char **str);
+int		ft_printf_parse_conversion(t_format *format, char **str);
+int		ft_printf_parse_literal_char(t_format *format, char **str);
+int		ft_printf_printer_select(t_format *format);
+int		ft_printf_add_precision_for_numbers(t_format *format, char **nbr);
+int		ft_printf_add_width_alignment(t_format *format, char **nbr);
+int		ft_printf_print_char(t_format *format, va_list *arg_list);
+int		ft_printf_print_string(t_format *format, va_list *arg_list);
+int		ft_printf_print_pointer(t_format *format, va_list *arg_list);
+int		ft_printf_print_integer(t_format *format, va_list *arg_list);
+int		ft_printf_print_hex_integer(t_format *format, va_list *arg_list);
+int		ft_printf_has_flag(t_flags flags_word, t_flags flag);
+void	ft_printf_set_flag(t_flags *flags_word, t_flags flag);
+int		ft_printf_free_and_return_value(void *pointer, int ret_value);
+// For right-justify alignment and zero padding of conversions which support it
+void	ft_printf_leading_ack(t_format *format, int *orig_sign, int *prefix);
+
+// For right-justify zero padding of conversions which support it
+int		ft_printf_right_zero_case(t_format *format, char **str, char *new_str);
+
+// For right-justify space padding
+int		ft_printf_right_space_case(t_format *format, char **str, char *new_str);
+
+// For right-justify
+int		ft_printf_right_case(t_format *format, char **str, char *new_str);
+
+// For left-justify, only applies space-padding.
+int		ft_printf_left_case(t_format *format, char **str, char *new_str);
 
 #endif

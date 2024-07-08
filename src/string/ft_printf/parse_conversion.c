@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:40:31 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/30 16:51:50 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/08 01:50:27 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #define IN_PREC_VAL 3
 #define IN_SPECIFIER 4
 
-int	parse_conversion(t_format *format, char **str)
+int	ft_printf_parse_conversion(t_format *format, char **str)
 {
 	if (ft_strchr(SUPP_CONV_SPEC, **str) == NULL)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 20:41:52 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/30 16:53:59 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/08 01:24:48 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	add_precision_for_strings(t_format *format, char **str)
 	return (1);
 }
 
-int	print_string(t_format *format, va_list *arg_list)
+int	ft_printf_print_string(t_format *format, va_list *arg_list)
 {
 	size_t	printed_chars;
 	char	*str;
@@ -40,12 +40,12 @@ int	print_string(t_format *format, va_list *arg_list)
 	if (str == NULL)
 		return (0);
 	if (!add_precision_for_strings(format, &str))
-		return (free_and_return_value(str, 0));
-	if (!add_width_alignment(format, &str))
-		return (free_and_return_value(str, 0));
+		return (ft_printf_free_and_return_value(str, 0));
+	if (!ft_printf_add_width_alignment(format, &str))
+		return (ft_printf_free_and_return_value(str, 0));
 	printed_chars = ft_putstr_fd_safe(str, 1);
 	if (printed_chars != ft_strlen(str))
-		return (free_and_return_value(str, 0));
+		return (ft_printf_free_and_return_value(str, 0));
 	free(str);
 	format->printed_chars += printed_chars;
 	return (1);

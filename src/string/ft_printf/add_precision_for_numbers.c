@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 23:01:19 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/28 20:58:29 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/08 01:30:41 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static int	general_case(t_format *format, char **nbr, int sign_matters)
 	return (1);
 }
 
-int	add_precision_for_numbers(t_format *format, char **nbr)
+int	ft_printf_add_precision_for_numbers(t_format *format, char **nbr)
 {
 	int		original_sign_matters;
 
