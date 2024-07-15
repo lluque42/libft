@@ -1,4 +1,4 @@
-.TH "include/ft_string.h" 3 "Mon Feb 5 2024" "Version 2024-02-05" "Library libft" \" -*- nroff -*-
+.TH "include/ft_string.h" 3 "Tue Jul 16 2024" "Version 2024-07-16" "Library libft" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -60,7 +60,7 @@ include/ft_string.h
 .ti -1c
 .RI "char * \fBft_strmapi\fP (char const *s, char(*f)(unsigned int, char))"
 .br
-.RI "\fBft_strmapi\fP -- Apply a funtion to each char of a string\&. "
+.RI "\fBft_strmapi\fP -- Obtain a new string resulting from applying a funtion to each char of a source string\&. "
 .ti -1c
 .RI "void \fBft_striteri\fP (char *s, void(*f)(unsigned int, char *))"
 .br
@@ -76,11 +76,7 @@ include/ft_string.h
 .ti -1c
 .RI "char * \fBft_itoa_b\fP (int n, unsigned int base, int in_caps)"
 .br
-.RI "\fBft_ltoa_b\fP -- \&.TODO\&. "
-.ti -1c
-.RI "char * \fBft_get_sym_table\fP (char *sym_table, unsigned int base, int in_caps)"
-.br
-.RI "\fBft_get_sym_table\fP -- TODO\&. "
+.RI "\fBft_itoa_b\fP -- \&.TODO\&. "
 .ti -1c
 .RI "char * \fBft_ltoa_b\fP (long n, unsigned int base, int in_caps)"
 .br
@@ -105,6 +101,10 @@ include/ft_string.h
 .RI "int \fBft_aisi\fP (const char *str)"
 .br
 .RI "\fBft_aisi\fP -- Checks if an ASCII c-string is a valid integer\&. "
+.ti -1c
+.RI "int \fBft_is_string_composed_of_char\fP (char *str, char c)"
+.br
+.RI "\fBft_is_string_composed_of_char\fP -- Checks if a string is solely compose of a character\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -148,7 +148,7 @@ Implementation notes:
 .PP
 \fBParameters\fP
 .RS 4
-\fI-\fP \&.TODO\&.
+\fIstr\fP - The string containing a number\&.
 .RE
 .PP
 \fBReturns\fP
@@ -171,31 +171,21 @@ Implementation notes:
 .RE
 .PP
 
-.SS "char * ft_get_sym_table (char * sym_table, unsigned int base, int in_caps)"
+.SS "int ft_is_string_composed_of_char (char * str, char c)"
 
 .PP
-\fBft_get_sym_table\fP -- TODO\&. Some_detailed_description\&.TODO
+\fBft_is_string_composed_of_char\fP -- Checks if a string is solely compose of a character\&. The ft_is_string_composed_of_char function receives a NUL terminated C-string and checks if it has no other character different than the passed character\&.
 .PP
 \fBParameters\fP
 .RS 4
-\fI-\fP \&.TODO
+\fIstr\fP - The not NULL string to analyze\&.
+.br
+\fIc\fP - The character to evaluate\&.
 .RE
 .PP
 \fBReturns\fP
 .RS 4
-TODO
-.RE
-.PP
-\fBWarning\fP
-.RS 4
-TODO
-.RE
-.PP
-\fBRemarks\fP
-.RS 4
-Implementation notes: 
-.br
- TODO 
+A non-zero value if the string str is composed of the passed char\&. 
 .RE
 .PP
 
@@ -208,7 +198,7 @@ Implementation notes:
 .PP
 \fBParameters\fP
 .RS 4
-\fI-\fP \&.TODO\&.
+\fIn\fP - The integer value to be converted to a string (base 10)\&.
 .RE
 .PP
 \fBReturns\fP
@@ -236,13 +226,15 @@ Implementation notes:
 .SS "char * ft_itoa_b (int n, unsigned int base, int in_caps)"
 
 .PP
-\fBft_ltoa_b\fP -- \&.TODO\&. Some_detailed_description\&.TODO\&.
+\fBft_itoa_b\fP -- \&.TODO\&. Some_detailed_description\&.TODO\&.
 .PP
 \fBParameters\fP
 .RS 4
-\fI-\fP \&.TODO\&.
+\fIn\fP - The integer value to be converted to a string in base format\&.
 .br
-\fIin_caps\fP - If hexadecimal, when != 0 uses abcdef instead of ABCDEF\&.
+\fIbase\fP - The base according to which the string number will be constructed\&.
+.br
+\fIin_caps\fP - If base 16, when != 0 uses abcdef instead of ABCDEF\&.
 .RE
 .PP
 \fBReturns\fP
@@ -272,7 +264,7 @@ Implementation notes:
 .PP
 \fBParameters\fP
 .RS 4
-\fI-\fP \&.TODO\&.
+\fIn\fP - The long value to be converted to a string (base 10)\&.
 .RE
 .PP
 \fBReturns\fP
@@ -302,7 +294,11 @@ Implementation notes:
 .PP
 \fBParameters\fP
 .RS 4
-\fI-\fP \&.TODO\&.
+\fIn\fP - The long value to be converted to a string in base format\&.
+.br
+\fIbase\fP - The base according to which the string number will be constructed\&.
+.br
+\fIin_caps\fP - If base 16, when != 0 uses abcdef instead of ABCDEF\&.
 .RE
 .PP
 \fBReturns\fP
@@ -480,7 +476,9 @@ EXTERNAL FUNCTION USED: malloc()\&.
 .PP
 \fBParameters\fP
 .RS 4
-\fI-\fP \&.TODO\&.
+\fIs\fP - The string to be modified\&.
+.br
+\fIf\fP - The function to be applied to each character of the string in the form 'char f(unsigned int index, char *c)' to produce the new string\&.
 .RE
 .PP
 \fBWarning\fP
@@ -543,7 +541,11 @@ Implementation notes:
 .PP
 \fBParameters\fP
 .RS 4
-\fI-\fP \&.TODO\&.
+\fIdst\fP - \&.TODO\&.
+.br
+\fIsrc\fP - \&.TODO\&.
+.br
+\fIdstsize\fP - \&.TODO\&.
 .RE
 .PP
 \fBReturns\fP
@@ -605,7 +607,11 @@ Implementation notes:
 .PP
 \fBParameters\fP
 .RS 4
-\fI-\fP \&.TODO\&.
+\fIdst\fP - \&.TODO\&.
+.br
+\fIsrc\fP - \&.TODO\&.
+.br
+\fIdstsize\fP - \&.TODO\&.
 .RE
 .PP
 \fBReturns\fP
@@ -662,11 +668,13 @@ A NULL pointer parameter or a non-terminated string are supposed to make this fu
 .SS "char * ft_strmapi (char const * s, char(*)(unsigned int, char) f)"
 
 .PP
-\fBft_strmapi\fP -- Apply a funtion to each char of a string\&. Applies the function ’f’ to each character of the string ’s’, and passing its index as first argument to create a new string (with malloc()) resulting from successive applications of ’f’\&.
+\fBft_strmapi\fP -- Obtain a new string resulting from applying a funtion to each char of a source string\&. Applies the function ’f’ to each character of the string ’s’, and passing its index as first argument to create a new string (with malloc()) resulting from successive applications of ’f’\&.
 .PP
 \fBParameters\fP
 .RS 4
-\fI-\fP \&.TODO\&.
+\fIs\fP - The source string\&.
+.br
+\fIf\fP - The function to be applied to each character of the string in the form 'char f(unsigned int index, char c)' to produce the new string\&.
 .RE
 .PP
 \fBReturns\fP
@@ -740,7 +748,11 @@ Implementation notes:
 .PP
 \fBParameters\fP
 .RS 4
-\fI-\fP \&.TODO\&.
+\fIhaystack\fP - \&.TODO\&.
+.br
+\fIneedle\fP - \&.TODO\&.
+.br
+\fIlen\fP - \&.TODO\&.
 .RE
 .PP
 \fBReturns\fP
@@ -873,7 +885,11 @@ Implementation notes:
 .PP
 \fBParameters\fP
 .RS 4
-\fI-\fP \&.TODO\&.
+\fIn\fP - The positive integer value to be converted to a string in base format\&.
+.br
+\fIbase\fP - The base according to which the string number will be constructed\&.
+.br
+\fIin_caps\fP - If base 16, when != 0 uses abcdef instead of ABCDEF\&.
 .RE
 .PP
 \fBReturns\fP
@@ -903,7 +919,11 @@ Implementation notes:
 .PP
 \fBParameters\fP
 .RS 4
-\fI-\fP \&.
+\fIn\fP - The positive long value to be converted to a string in base format\&.
+.br
+\fIbase\fP - The base according to which the string number will be constructed\&.
+.br
+\fIin_caps\fP - If base 16, when != 0 uses abcdef instead of ABCDEF\&.
 .RE
 .PP
 \fBReturns\fP

@@ -6,12 +6,35 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 16:12:21 by lluque            #+#    #+#             */
-/*   Updated: 2023/11/11 10:10:59 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/16 01:27:31 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
+
+static char	*ft_get_sym_table(char *sym_table, unsigned int base, int in_caps)
+{
+	unsigned int	i;
+	char			a;
+
+	if (base > 16 || base == 0)
+		return (NULL);
+	if (in_caps)
+		a = 'A';
+	else
+		a = 'a';
+	i = 0;
+	while (i < 16)
+	{
+		if (i < 10)
+			sym_table[i] = i + '0';
+		else
+			sym_table[i] = i - 10 + a;
+		i++;
+	}
+	return (sym_table);
+}
 
 /*
 NAME

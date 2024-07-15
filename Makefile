@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/06/30 16:47:02 by lluque           ###   ########.fr        #
+#    Updated: 2024/07/16 01:27:08 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -117,7 +117,6 @@ SOURCES = char/ft_isalpha.c \
 		  string/ft_strmapi.c \
 		  string/ft_striteri.c \
 		  string/ft_itoa_b.c \
-		  string/ft_get_sym_table.c \
 		  string/ft_ltoa.c \
 		  string/ft_ltoa_b.c \
 		  string/ft_ultoa_b.c \
@@ -139,6 +138,7 @@ SOURCES = char/ft_isalpha.c \
 		  string/ft_printf/generic_functions.c \
   		  string/ft_printf/print_char.c \
 		  string/ft_aisi.c \
+		  string/ft_is_string_composed_of_char.c \
 		  file/ft_putchar_fd.c \
 		  file/ft_putstr_fd.c \
 		  file/ft_putendl_fd.c \
@@ -177,7 +177,11 @@ SOURCES = char/ft_isalpha.c \
 		  dlclst/ft_dlclst_extractfront.c \
 		  dlclst/ft_dlclst_extractback.c \
 		  dlclst/ft_dlclst_extractpos.c \
-		  dlclst/ft_dlclst_size.c
+		  dlclst/ft_dlclst_size.c \
+		  strarr/ft_free_strarr.c \
+		  strarr/ft_putstrarr_fd.c \
+		  strarr/ft_remove_blanks_strarr.c \
+		  strarr/ft_strarrlen.c
 
 # Auto generated list of object file names from SOURCES by: replacing
 # the file extension .c for .o; and adding the $(OBJ_DIR) to the resulting
@@ -257,17 +261,6 @@ all: $(BIN_DIR)$(NAME)
 # (i.e. to allow 'make my_project' instead of 'make ./bin/my_project'
 $(NAME): $(BIN_DIR)$(NAME)
 
-# Rule to archive objects into library
-$(BIN_DIR)$(NAME): $(OBJECTS)
-	@echo ----------------------------------------------------------------------
-	@echo
-	@echo "     --- ${PURPLE}Archiving objects into library ${BPURPLE}$(BIN_DIR)$(NAME)${NC} ---"
-	@echo
-	mkdir -p $(BIN_DIR)
-	ar $(AR_FLAGS) $(BIN_DIR)$(NAME) $(OBJECTS)
-	@echo
-	@echo ----------------------------------------------------------------------
-
 # Rule (pattern rule) to individually (no relink) compile objects
 ############################### REMEMBER #######################################
 # Pattern rule to individually compile each object:
@@ -317,12 +310,24 @@ $(BIN_DIR)$(NAME): $(OBJECTS)
 # Notice the headers as extra pre-requisites to force a recompiling if
 # modified.
 #
-$(OBJECTS): $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDES)
+TITLE_OUTPUT:
 	@echo ----------------------------------------------------------------------
 	@echo
-	@echo "              --- ${PURPLE}Compiling objects to ${BPURPLE}$(OBJ_DIR)*.o${NC} ---"
-	mkdir -p $(@D)
-	$(CC) $(CC_FLAGS) -c $< -o $@ -I$(INC_DIR)
+	@echo "              --- ${PURPLE}Building ${BPURPLE}$(NAME)${NC} ---"
+	@echo
+	@echo -n -e '${BGREEN}!${NC}'
+
+$(OBJECTS): $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDES) TITLE_OUTPUT
+	@mkdir -p $(@D)
+	@$(CC) $(CC_FLAGS) -c $< -o $@ -I$(INC_DIR)
+	@echo -n -e '${BGREEN}!${NC}'
+
+# Rule to archive objects into library
+$(BIN_DIR)$(NAME): $(OBJECTS)
+	@mkdir -p $(BIN_DIR)
+	@ar $(AR_FLAGS) $(BIN_DIR)$(NAME) $(OBJECTS)
+	@echo
+	@echo -n -e '${BGREEN}$(NAME) done!${NC}'
 	@echo
 	@echo ----------------------------------------------------------------------
 
@@ -334,7 +339,7 @@ $(OBJECTS): $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDES)
 clean:
 	@echo ----------------------------------------------------------------------
 	@echo
-	@echo "                          --- ${PURPLE}Cleaning${NC} ---"
+	@echo "                          --- ${PURPLE}Cleaning (at $(NAME))${NC} ---"
 	@echo
 	rm -rf $(OBJ_DIR)
 	@echo
@@ -347,7 +352,7 @@ clean:
 fclean:clean
 	@echo ----------------------------------------------------------------------
 	@echo
-	@echo "                          --- ${PURPLE}Fcleaning${NC} ---"
+	@echo "                          --- ${PURPLE}Fcleaning (at $(NAME))${NC} ---"
 	@echo
 	rm -rf $(BIN_DIR)
 	@echo

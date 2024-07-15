@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:57 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/02 13:08:28 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/16 00:45:06 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }				t_list;
+/**
+ * @typedef t_list
+ * Based on the @link s_list @endlink struct.
+ */
 
 /**
  * @brief <b>ft_lstnew</b> -- Create a list element from pointer to its content.

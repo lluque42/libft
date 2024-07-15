@@ -34,6 +34,8 @@ var menudata={children:[
 {text:"File List",url:"files.html"},
 {text:"Globals",url:"globals.html",children:[
 {text:"All",url:"globals.html",children:[
-{text:"f",url:"globals.html#index_f"}]},
+{text:"f",url:"globals.html#index_f"},
+{text:"t",url:"globals.html#index_t"}]},
 {text:"Functions",url:"globals_func.html",children:[
-{text:"f",url:"globals_func.html#index_f"}]}]}]}]}
+{text:"f",url:"globals_func.html#index_f"}]},
+{text:"Typedefs",url:"globals_type.html"}]}]}]}

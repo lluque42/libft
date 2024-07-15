@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:01:14 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/01 14:07:47 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/15 22:35:20 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@
 # include "ft_memory.h"
 # include "ft_string.h"
 # include "ft_dlclst.h"
+# include "ft_strarr.h"
 
 #endif

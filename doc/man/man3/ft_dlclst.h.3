@@ -1,4 +1,4 @@
-.TH "include/ft_dlclst.h" 3 "Mon Feb 5 2024" "Version 2024-02-05" "Library libft" \" -*- nroff -*-
+.TH "include/ft_dlclst.h" 3 "Tue Jul 16 2024" "Version 2024-07-16" "Library libft" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -114,6 +114,10 @@ Doubly linked circular list implementation\&. Part of libft library\&.
  In a dlclst list with just one element, that element will point to itself\&. That is, the only node will be the first and the last at the same time\&. 
 .br
  In this sense, due to the circular nature of the dlclst list, NO check is performed against the size of the list while operating on their elements and traversing the list\&. A value for position or steps from one node to another that could cause an overflow of the head of the list is allowed and will be interpreted consistently with the circular nature of the list\&. 
+.SH "Typedef Documentation"
+.PP 
+.SS "\fBt_dlclst\fP"
+Based on the \fBs_dlclst\fP struct\&. 
 .SH "Function Documentation"
 .PP 
 .SS "void ft_dlclst_clear (\fBt_dlclst\fP ** lst, void(*)(void *) del)"

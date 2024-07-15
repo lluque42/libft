@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:57 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/05 13:26:25 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/16 00:44:22 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ typedef struct s_dlclst
 	struct s_dlclst	*prev;
 	struct s_dlclst	*next;
 }				t_dlclst;
+/**
+ * @typedef t_dlclst
+ * Based on the @link s_dlclst @endlink struct.
+ */
 
 /**
  * @brief <b>ft_dlclst_new</b> -- Creates a list element from pointer to

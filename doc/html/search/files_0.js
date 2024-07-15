@@ -7,5 +7,6 @@ var searchData=
   ['ft_5fllst_2eh_4',['ft_llst.h',['../ft__llst_8h.html',1,'']]],
   ['ft_5fmath_2eh_5',['ft_math.h',['../ft__math_8h.html',1,'']]],
   ['ft_5fmemory_2eh_6',['ft_memory.h',['../ft__memory_8h.html',1,'']]],
-  ['ft_5fstring_2eh_7',['ft_string.h',['../ft__string_8h.html',1,'']]]
+  ['ft_5fstrarr_2eh_7',['ft_strarr.h',['../ft__strarr_8h.html',1,'']]],
+  ['ft_5fstring_2eh_8',['ft_string.h',['../ft__string_8h.html',1,'']]]
 ];

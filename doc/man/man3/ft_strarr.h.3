@@ -1,0 +1,117 @@
+.TH "include/ft_strarr.h" 3 "Tue Jul 16 2024" "Version 2024-07-16" "Library libft" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/ft_strarr.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBft_putstrarr_fd\fP (char **strarr, int fd)"
+.br
+.RI "\fBft_putstrarr_fd\fP -- Writes an argv-style string array to a file descriptor "
+.ti -1c
+.RI "void \fBft_free_strarr\fP (char **strarr)"
+.br
+.RI "\fBft_free_strarr\fP -- Frees the memory allocated for an argv-style string array and its strings\&. "
+.ti -1c
+.RI "int \fBft_strarrlen\fP (char **strarr)"
+.br
+.RI "\fBft_strarrlen\fP -- Obtains the number of strings in an argv-style string array\&. "
+.ti -1c
+.RI "void \fBft_remove_blanks_strarr\fP (char ***strarr, char blank_char)"
+.br
+.RI "\fBft_remove_blanks_strarr\fP -- Remove strings composed only of blank characters from the string array\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Functions related to char **argv style arrays, that is, NULL terminated arrays of c-strings\&. Part of libft library\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void ft_free_strarr (char ** strarr)"
+
+.PP
+\fBft_free_strarr\fP -- Frees the memory allocated for an argv-style string array and its strings\&. Frees the allocated memory for every string and for the array of an argv-style NULL terminated array of c-strings\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstrarr\fP - The argv-style NULL terminated array of c-strings\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+A NULL pointer parameter, non-terminated array, or non-terminated c-strings will make this function crash\&. 
+.br
+ Uses free()\&. 
+.RE
+.PP
+
+.SS "void ft_putstrarr_fd (char ** strarr, int fd)"
+
+.PP
+\fBft_putstrarr_fd\fP -- Writes an argv-style string array to a file descriptor This function outputs to a file descriptor each string in a string array (argv-style) in a new line until finding a NULL\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstrarr\fP - The argv-style NULL terminated array of c-strings\&.
+.br
+\fIfd\fP - A valid file descriptor to which the argv-style NULL terminated array of c-strings will be output\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+A NULL pointer parameter, non-terminated array, or non-terminated c-strings will make this function crash\&. 
+.br
+ Uses write()\&. 
+.RE
+.PP
+
+.SS "void ft_remove_blanks_strarr (char *** strarr, char blank_char)"
+
+.PP
+\fBft_remove_blanks_strarr\fP -- Remove strings composed only of blank characters from the string array\&. Allocates memory for a new argv-style NULL-terminated array of strings consisting of newly allocated strings which are copies of those strings that are not composed solely of the blank_char\&. 
+.br
+ This allows, for example when used on parsing, to remove those strings that are nothing more than a bunch of spaces\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstrarr\fP - The argv-style NULL terminated array of c-strings\&. It is the responsibility of the caller to free the newly allocated strarr\&.
+.br
+\fIblank_char\fP - The character to be considered as blank (e\&.g\&. ' ')\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+A NULL pointer parameter, non-terminated array, or non-terminated c-strings will make this function crash\&. 
+.br
+ Uses malloc(), free()\&. 
+.RE
+.PP
+
+.SS "int ft_strarrlen (char ** strarr)"
+
+.PP
+\fBft_strarrlen\fP -- Obtains the number of strings in an argv-style string array\&. Counts the strings in an argv-style NULL-terminated strings array until a NULL is found\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstrarr\fP - The argv-style NULL terminated array of c-strings\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The length of the string\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+A NULL pointer parameter, non-terminated array, or non-terminated c-strings will make this function crash\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Library libft from the source code\&.

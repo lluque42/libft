@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:00 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/04 15:52:21 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/16 01:29:34 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,11 @@ size_t	ft_strlen(const char *s);
  * and guarantee NUL-termination if there is room.  
  * Note that room for the NUL should be included in dstsize.
  * 
- * @param  - .TODO.
+ * @param [out] dst - .TODO.
+ *
+ * @param [in] src - .TODO.
+ *
+ * @param [in] dstsize - .TODO.
  *
  * @return ft_strlcpy() and ft_strlcat() functions return the total length of
  * the string they tried to create.  
@@ -74,7 +78,11 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
  * and guarantee NUL-termination if there is room.  
  * Note that room for the NUL should be included in dstsize.
  * 
- * @param  - .TODO.
+ * @param [in,out] dst - .TODO.
+ *
+ * @param [in] src - .TODO.
+ *
+ * @param [in] dstsize - .TODO.
  *
  * @return ft_strlcpy() and ft_strlcat() functions return the total length of
  * the string they tried to create.  
@@ -199,7 +207,11 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
  * len characters are searched.  Characters that appear after a `\0' character
  * are not searched.
  * 
- * @param  - .TODO.
+ * @param [in] haystack - .TODO.
+ *
+ * @param [in] needle - .TODO.
+ *
+ * @param [in] len - .TODO.
  *
  * @return If needle is an empty string, haystack is returned.  
  * If needle occurs nowhere in haystack, NULL is returned.  
@@ -337,13 +349,17 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 
 /**
- * @brief <b>ft_strmapi</b> -- Apply a funtion to each char of a string.
+ * @brief <b>ft_strmapi</b> -- Obtain a new string resulting from applying a
+ * funtion to each char of a source string.
  *
  * @details Applies the function ’f’ to each character of the string ’s’, and
  * passing its index as first argument to create a new string (with malloc())
  * resulting from successive applications of ’f’.
  * 
- * @param  - .TODO.
+ * @param [in] s - The source string.
+ *
+ * @param [in] f - The function to be applied to each character of the string
+ * in the form "char f(unsigned int index, char c)" to produce the new string.
  *
  * @return The string created from the successive applications of ’f’.  
  * Returns NULL if the allocation fails.
@@ -365,7 +381,10 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
  * argument, passing its index as first argument. Each character is passed by
  * address to ’f’ to be modified if necessary.
  * 
- * @param  - .TODO.
+ * @param [in,out] s - The string to be modified.
+ *
+ * @param [in] f - The function to be applied to each character of the string
+ * in the form "char f(unsigned int index, char *c)" to produce the new string.
  *
  * @warning A NULL pointer parameter or a non-terminated string are supposed to
  * make this function crash.
@@ -380,7 +399,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
  *
  * @details Some_detailed_description.TODO.
  * 
- * @param  - .TODO.
+ * @param [in] str - The string containing a number.
  *
  * @return TODO.
  *
@@ -400,7 +419,7 @@ int		ft_atoi(const char *str);
  * integer received as an argument.  
  * Negative numbers must be handled.
  * 
- * @param  - .TODO.
+ * @param [in] n - The integer value to be converted to a string (base 10).
  *
  * @return 	The string representing the integer.  
  * NULL if the allocation fails.
@@ -415,13 +434,16 @@ int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 
 /**
- * @brief <b>ft_ltoa_b</b> -- .TODO.
+ * @brief <b>ft_itoa_b</b> -- .TODO.
  *
  * @details Some_detailed_description.TODO.
  * 
- * @param  - .TODO.
+ * @param [in] n - The integer value to be converted to a string in base format.
  *
- * @param in_caps - If hexadecimal, when != 0 uses abcdef instead of ABCDEF.
+ * @param [in] base - The base according to which the string number will be
+ * constructed.
+ *
+ * @param [in] in_caps - If base 16, when != 0 uses abcdef instead of ABCDEF.
  *
  * @return TODO.
  *
@@ -435,27 +457,16 @@ char	*ft_itoa(int n);
 char	*ft_itoa_b(int n, unsigned int base, int in_caps);
 
 /**
- * @brief <b>ft_get_sym_table</b> -- TODO.
- *
- * @details Some_detailed_description.TODO
- * 
- * @param  - .TODO
- *
- * @return TODO
- *
- * @warning TODO
- *
- * @remark Implementation notes:  
- * TODO
-*/
-char	*ft_get_sym_table(char *sym_table, unsigned int base, int in_caps);
-
-/**
  * @brief <b>ft_ltoa_b</b> -- .TODO.
  *
  * @details Some_detailed_description.TODO.
  * 
- * @param  - .TODO.
+ * @param [in] n - The long value to be converted to a string in base format.
+ *
+ * @param [in] base - The base according to which the string number will be
+ * constructed.
+ *
+ * @param [in] in_caps - If base 16, when != 0 uses abcdef instead of ABCDEF.
  *
  * @return TODO.
  *
@@ -473,7 +484,7 @@ char	*ft_ltoa_b(long n, unsigned int base, int in_caps);
  *
  * @details Some_detailed_description.TODO.
  * 
- * @param  - .TODO.
+ * @param [in] n - The long value to be converted to a string (base 10).
  *
  * @return TODO.
  *
@@ -491,7 +502,13 @@ char	*ft_ltoa(long n);
  *
  * @details Some_detailed_description.TODO.
  * 
- * @param  - .
+ * @param [in] n - The positive long value to be converted to a string in
+ * base format.
+ *
+ * @param [in] base - The base according to which the string number will be
+ * constructed.
+ *
+ * @param [in] in_caps - If base 16, when != 0 uses abcdef instead of ABCDEF.
  *
  * @return TODO.
  *
@@ -509,7 +526,13 @@ char	*ft_ultoa_b(unsigned long n, unsigned int base, int in_caps);
  *
  * @details Some_detailed_description.TODO.
  * 
- * @param  - .TODO.
+ * @param [in] n - The positive integer value to be converted to a string in
+ * base format.
+ *
+ * @param [in] base - The base according to which the string number will be
+ * constructed.
+ *
+ * @param [in] in_caps - If base 16, when != 0 uses abcdef instead of ABCDEF.
  *
  * @return TODO.
  *
@@ -590,5 +613,21 @@ int		ft_printf(const char *str, ...);
  * string lies withing INT_MIN and INT_MAX as defined in limits.h.
  */
 int		ft_aisi(const char *str);
+
+/**
+ * @brief <b>ft_is_string_composed_of_char</b> -- Checks if a string is solely
+ * compose of a character.
+ * 
+ * @details The ft_is_string_composed_of_char function receives a NUL terminated
+ * C-string and checks if it has no other character different than the passed
+ * character.
+ *
+ * @param [in] str - The not NULL string to analyze.
+ *
+ * @param [in] c - The character to evaluate.
+ *
+ * @return A non-zero value if the string str is composed of the passed char.
+ */
+int		ft_is_string_composed_of_char(char *str, char c);
 
 #endif

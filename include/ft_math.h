@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:57:23 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/25 00:01:06 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/16 00:41:48 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@
  *
  * @details The pow() functions compute base raised to the power exp.
  * 
- * @param  - .TODO.
+ * @param [in] base - The base as an integer value.
+ *
+ * @param [in] exp - The exponent as an unsigned int value.
  *
  * @return base^exp.
  *

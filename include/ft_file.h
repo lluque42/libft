@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:38 by lluque            #+#    #+#             */
-/*   Updated: 2024/01/28 16:31:04 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/16 00:40:12 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@
  *
  * @details Some_detailed_description.TODO.
  * 
- * @param  - .TODO.
+ * @param [in] c - The character to write.
+ *
+ * @param [in] fd - The valid file descriptor to write to.
  *
  * @warning EXTERNAL FUNCTION USED: write().  
  * A NULL pointer parameter or a non-terminated string are supposed to make
@@ -39,7 +41,9 @@ void	ft_putchar_fd(char c, int fd);
  *
  * @details Some_detailed_description.TODO.
  * 
- * @param  - .TODO.
+ * @param [in] s - The c-string to write.
+ *
+ * @param [in] fd - The valid file descriptor to write to.
  *
  * @warning EXTERNAL FUNCTION USED: write(). 
  * A NULL pointer parameter or a non-terminated string are supposed
@@ -55,7 +59,9 @@ void	ft_putstr_fd(char *s, int fd);
  *
  * @details Some_detailed_description.TODO.
  * 
- * @param  - .TODO.
+ * @param [in] s - The c-string to write.
+ *
+ * @param [in] fd - The valid file descriptor to write to.
  *
  * @warning EXTERNAL FUNCTION USED: write().  
  * A NULL pointer parameter or a non-terminated string are supposed
@@ -71,7 +77,10 @@ void	ft_putendl_fd(char *s, int fd);
  *
  * @details Some_detailed_description.TODO.
  * 
- * @param  - .TODO.
+ * @param [in] n - The integer value to write.
+ *
+ * @param [in] fd - The valid file descriptor to write to.
+ *
  *
  * @warning EXTERNAL FUNCTION USED: write().  
  * A NULL pointer parameter or a non-terminated string are supposed to make
@@ -87,7 +96,9 @@ void	ft_putnbr_fd(int n, int fd);
  *
  * @details Some_detailed_description.TODO.
  * 
- * @param  - .TODO.
+ * @param [in] c - The character to write.
+ *
+ * @param [in] fd - The valid file descriptor to write to.
  *
  * @return Number of chars actually printed.
  *
@@ -106,7 +117,9 @@ int		ft_putchar_fd_safe(char c, int fd);
  *
  * @details Some_detailed_description. TODO.
  * 
- * @param  - . TODO
+ * @param [in] s - The c-string to write.
+ *
+ * @param [in] fd - The valid file descriptor to write to.
  *
  * @return Number of chars actually printed.
  *

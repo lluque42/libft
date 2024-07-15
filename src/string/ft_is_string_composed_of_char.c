@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_sym_table.c                                 :+:      :+:    :+:   */
+/*   ft_is_string_composed_of_char.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 17:09:55 by lluque            #+#    #+#             */
-/*   Updated: 2023/11/03 17:40:39 by lluque           ###   ########.fr       */
+/*   Created: 2024/07/15 22:23:36 by lluque            #+#    #+#             */
+/*   Updated: 2024/07/15 22:24:22 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-char	*ft_get_sym_table(char *sym_table, unsigned int base, int in_caps)
+int	ft_is_string_composed_of_char(char *str, char c)
 {
-	unsigned int	i;
-	char			a;
+	int	i;
 
-	if (base > 16 || base == 0)
-		return (NULL);
-	if (in_caps)
-		a = 'A';
-	else
-		a = 'a';
-	i = 0;
-	while (i < 16)
+	i = -1;
+	while (str[++i] != '\0')
 	{
-		if (i < 10)
-			sym_table[i] = i + '0';
-		else
-			sym_table[i] = i - 10 + a;
-		i++;
+		if (str[i] != c)
+			return (0);
 	}
-	return (sym_table);
+	return (1);
 }
