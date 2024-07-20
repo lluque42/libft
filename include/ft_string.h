@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:00 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/16 01:29:34 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/21 00:35:23 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -397,7 +397,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 /**
  * @brief <b>ft_atoi</b> -- .TODO.
  *
- * @details Some_detailed_description.TODO.
+ * @details CHECKOUT ft_atoi_b() DOCUMENTATION  TODO.
  * 
  * @param [in] str - The string containing a number.
  *
@@ -411,6 +411,43 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
  * TODO.
 */
 int		ft_atoi(const char *str);
+
+/**
+ * @brief <b>ft_atoi_b</b> -- Returns the integer value of a string representing
+ * a positive number according to the provided base.
+ *
+ * @details Converts a valid positive number in a string to an integer value
+ * according to the provided base. This function supports any base value from
+ * 2 (binary) to 16 (hexadecimal). The valid digits symbols expected a priori
+ * are: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A/a, B/b, C/c, D/d, E/e, F/f.  
+ * Any character outside this set will be considered an invalid digit, as well
+ * as the symbols which values are greater or equal than the base.  
+ * The parsing of the string follows the same behavior as ft_atoi() (when no 
+ * sign is present):  
+ * * Starting from the first character, every ft_isspace() character is
+ * ignored.  
+ * * When the first !ft_isspace() character is found: a) If it is an invalid
+ * digit symbol, a -1 is returned. Otherwise the valid digit symbol is processed
+ * as part of what will be a valid number.  
+ * * This goes on for each of following characters until the first invalid digit
+ * symbol is found. At that moment the number is considered to be complete and
+ * its computed value will be returned.
+ * 
+ * @param [in] str - The string containing a number.
+ *
+ * @param [in] base - The number base, an integer value from 2 to 16.
+ *
+ * @return The positive value resulting from interpreting the positive number in
+ * the string interpreted according to the provided number base associated valid
+ * symbols.  
+ * A negative value if: no valid number could be interpreted from the string;
+ * an invalid base was provided; or if the resulting value is greater than
+ * INT_MAX.
+ *
+ * @warning A NULL pointer parameter or a non-terminated string are supposed
+ * to make this function crash.
+*/
+int		ft_atoi_b(const char *str, int base);
 
 /**
  * @brief <b>ft_itoa</b> -- Converts int to string representation.

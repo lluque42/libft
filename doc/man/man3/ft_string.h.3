@@ -1,4 +1,4 @@
-.TH "include/ft_string.h" 3 "Tue Jul 16 2024" "Version 2024-07-16" "Library libft" \" -*- nroff -*-
+.TH "include/ft_string.h" 3 "Sun Jul 21 2024" "Version 2024-07-21" "Library libft" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -69,6 +69,10 @@ include/ft_string.h
 .RI "int \fBft_atoi\fP (const char *str)"
 .br
 .RI "\fBft_atoi\fP -- \&.TODO\&. "
+.ti -1c
+.RI "int \fBft_atoi_b\fP (const char *str, int base)"
+.br
+.RI "\fBft_atoi_b\fP -- Returns the integer value of a string representing a positive number according to the provided base\&. "
 .ti -1c
 .RI "char * \fBft_itoa\fP (int n)"
 .br
@@ -144,7 +148,7 @@ Implementation notes:
 .SS "int ft_atoi (const char * str)"
 
 .PP
-\fBft_atoi\fP -- \&.TODO\&. Some_detailed_description\&.TODO\&.
+\fBft_atoi\fP -- \&.TODO\&. CHECKOUT \fBft_atoi_b()\fP DOCUMENTATION TODO\&.
 .PP
 \fBParameters\fP
 .RS 4
@@ -168,6 +172,47 @@ TODO\&.
 Implementation notes: 
 .br
  TODO\&. 
+.RE
+.PP
+
+.SS "int ft_atoi_b (const char * str, int base)"
+
+.PP
+\fBft_atoi_b\fP -- Returns the integer value of a string representing a positive number according to the provided base\&. Converts a valid positive number in a string to an integer value according to the provided base\&. This function supports any base value from 2 (binary) to 16 (hexadecimal)\&. The valid digits symbols expected a priori are: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A/a, B/b, C/c, D/d, E/e, F/f\&. 
+.br
+ Any character outside this set will be considered an invalid digit, as well as the symbols which values are greater or equal than the base\&. 
+.br
+ The parsing of the string follows the same behavior as \fBft_atoi()\fP (when no sign is present): 
+.br
+.IP "\(bu" 2
+Starting from the first character, every \fBft_isspace()\fP character is ignored\&. 
+.br
+
+.IP "\(bu" 2
+When the first !ft_isspace() character is found: a) If it is an invalid digit symbol, a -1 is returned\&. Otherwise the valid digit symbol is processed as part of what will be a valid number\&. 
+.br
+
+.IP "\(bu" 2
+This goes on for each of following characters until the first invalid digit symbol is found\&. At that moment the number is considered to be complete and its computed value will be returned\&.
+.PP
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP - The string containing a number\&.
+.br
+\fIbase\fP - The number base, an integer value from 2 to 16\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The positive value resulting from interpreting the positive number in the string interpreted according to the provided number base associated valid symbols\&. 
+.br
+ A negative value if: no valid number could be interpreted from the string; an invalid base was provided; or if the resulting value is greater than INT_MAX\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+A NULL pointer parameter or a non-terminated string are supposed to make this function crash\&. 
 .RE
 .PP
 

@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/07/16 01:27:08 by lluque           ###   ########.fr        #
+#    Updated: 2024/07/21 00:33:46 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -139,6 +139,7 @@ SOURCES = char/ft_isalpha.c \
   		  string/ft_printf/print_char.c \
 		  string/ft_aisi.c \
 		  string/ft_is_string_composed_of_char.c \
+		  string/ft_atoi_b.c \
 		  file/ft_putchar_fd.c \
 		  file/ft_putstr_fd.c \
 		  file/ft_putendl_fd.c \
@@ -310,17 +311,21 @@ $(NAME): $(BIN_DIR)$(NAME)
 # Notice the headers as extra pre-requisites to force a recompiling if
 # modified.
 #
-TITLE_OUTPUT:
+$(OBJECTS): $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDES) print_title
+	@mkdir -p $(@D)
+	@$(CC) $(CC_FLAGS) -c $< -o $@ -I$(INC_DIR)
+	@echo -n -e '${BGREEN}!${NC}'
+
+# This rule creates a file as a flag because using a rule which does not
+# produce a target file as a requisite of another rule always forces the later
+# to be executed. This flag file is deleted along with the object files.
+print_title:
 	@echo ----------------------------------------------------------------------
 	@echo
 	@echo "              --- ${PURPLE}Building ${BPURPLE}$(NAME)${NC} ---"
 	@echo
-	@echo -n -e '${BGREEN}!${NC}'
-
-$(OBJECTS): $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INCLUDES) TITLE_OUTPUT
-	@mkdir -p $(@D)
-	@$(CC) $(CC_FLAGS) -c $< -o $@ -I$(INC_DIR)
-	@echo -n -e '${BGREEN}!${NC}'
+	@echo -n -e '${BGREEN}${NC}'
+	@touch print_title
 
 # Rule to archive objects into library
 $(BIN_DIR)$(NAME): $(OBJECTS)
@@ -342,6 +347,7 @@ clean:
 	@echo "                          --- ${PURPLE}Cleaning (at $(NAME))${NC} ---"
 	@echo
 	rm -rf $(OBJ_DIR)
+	@rm print_title
 	@echo
 	@echo ----------------------------------------------------------------------
 

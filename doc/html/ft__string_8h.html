@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Library libft<span id="projectnumber">&#160;2024-07-16</span>
+   <div id="projectname">Library libft<span id="projectnumber">&#160;2024-07-21</span>
    </div>
    <div id="projectbrief">Cummulative util library for Campus 42</div>
   </td>
@@ -131,6 +131,9 @@ Functions</h2></td></tr>
 <tr class="memitem:afad2ec371b4188602da9a94db687cb16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__string_8h.html#afad2ec371b4188602da9a94db687cb16">ft_atoi</a> (const char *str)</td></tr>
 <tr class="memdesc:afad2ec371b4188602da9a94db687cb16"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_atoi</b> &ndash; .TODO.  <a href="ft__string_8h.html#afad2ec371b4188602da9a94db687cb16">More...</a><br /></td></tr>
 <tr class="separator:afad2ec371b4188602da9a94db687cb16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35df4078d8a218ada007daacccddafcc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__string_8h.html#a35df4078d8a218ada007daacccddafcc">ft_atoi_b</a> (const char *str, int base)</td></tr>
+<tr class="memdesc:a35df4078d8a218ada007daacccddafcc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_atoi_b</b> &ndash; Returns the integer value of a string representing a positive number according to the provided base.  <a href="ft__string_8h.html#a35df4078d8a218ada007daacccddafcc">More...</a><br /></td></tr>
+<tr class="separator:a35df4078d8a218ada007daacccddafcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a6ea3765dfd826eabfc00d36e28ea38"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__string_8h.html#a8a6ea3765dfd826eabfc00d36e28ea38">ft_itoa</a> (int n)</td></tr>
 <tr class="memdesc:a8a6ea3765dfd826eabfc00d36e28ea38"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_itoa</b> &ndash; Converts int to string representation.  <a href="ft__string_8h.html#a8a6ea3765dfd826eabfc00d36e28ea38">More...</a><br /></td></tr>
 <tr class="separator:a8a6ea3765dfd826eabfc00d36e28ea38"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -211,7 +214,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p><b>ft_atoi</b> &ndash; .TODO. </p>
-<p >Some_detailed_description.TODO.</p>
+<p >CHECKOUT <a class="el" href="ft__string_8h.html#a35df4078d8a218ada007daacccddafcc" title="ft_atoi_b – Returns the integer value of a string representing a positive number according to the pro...">ft_atoi_b()</a> DOCUMENTATION TODO.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>- The string containing a number.</td></tr>
@@ -223,6 +226,56 @@ Functions</h2></td></tr>
  A NULL pointer parameter or a non-terminated string are supposed to make this function crash.</dd></dl>
 <dl class="section remark"><dt>Remarks</dt><dd>Implementation notes: <br  />
  TODO. </dd></dl>
+
+</div>
+</div>
+<a id="a35df4078d8a218ada007daacccddafcc" name="a35df4078d8a218ada007daacccddafcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35df4078d8a218ada007daacccddafcc">&#9670;&nbsp;</a></span>ft_atoi_b()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ft_atoi_b </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><b>ft_atoi_b</b> &ndash; Returns the integer value of a string representing a positive number according to the provided base. </p>
+<p >Converts a valid positive number in a string to an integer value according to the provided base. This function supports any base value from 2 (binary) to 16 (hexadecimal). The valid digits symbols expected a priori are: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A/a, B/b, C/c, D/d, E/e, F/f. <br  />
+ Any character outside this set will be considered an invalid digit, as well as the symbols which values are greater or equal than the base. <br  />
+ The parsing of the string follows the same behavior as <a class="el" href="ft__string_8h.html#afad2ec371b4188602da9a94db687cb16" title="ft_atoi – .TODO.">ft_atoi()</a> (when no sign is present): <br  />
+</p><ul>
+<li>Starting from the first character, every <a class="el" href="ft__char_8h.html#a76cd21d0fd288012f02809cba504f650" title="ft_isspace – White-space (in the broad sense) character test.">ft_isspace()</a> character is ignored. <br  />
+</li>
+<li>When the first !ft_isspace() character is found: a) If it is an invalid digit symbol, a -1 is returned. Otherwise the valid digit symbol is processed as part of what will be a valid number. <br  />
+</li>
+<li>This goes on for each of following characters until the first invalid digit symbol is found. At that moment the number is considered to be complete and its computed value will be returned.</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td>- The string containing a number.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">base</td><td>- The number base, an integer value from 2 to 16.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The positive value resulting from interpreting the positive number in the string interpreted according to the provided number base associated valid symbols. <br  />
+ A negative value if: no valid number could be interpreted from the string; an invalid base was provided; or if the resulting value is greater than INT_MAX.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>A NULL pointer parameter or a non-terminated string are supposed to make this function crash. </dd></dl>
 
 </div>
 </div>

@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 22:55:05 by lluque            #+#    #+#             */
-/*   Updated: 2024/02/05 13:10:56 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/20 23:25:43 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,10 @@ int main_for_aisi(int argc, char **argv)
 //int		main_for_dlclst(int argc, char **argv)
 int		main(int argc, char **argv)
 {
+	ft_printf("INT_MAX = %d, INT_MIN = %d\n", INT_MAX, INT_MIN);
+	ft_printf("El string '%s' interpretado con base '%d' resulta en el entero '%d'\n", argv[1], ft_atoi(argv[2]), ft_atoi_b(argv[1], ft_atoi(argv[2])));
+
+	return (0);
 	t_dlclst	*lst_a;
 	t_dlclst	*lst_b;
 	t_dlclst	*lst_c;

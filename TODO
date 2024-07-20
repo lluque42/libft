@@ -1,0 +1,115 @@
+################################################################################
+################################# TODO #########################################
+################################################################################
+
+################################################################################
+For this file passed to ft_gnl() a leak (other than from
+the static variable) was detected while testing fdf project:
+
+==198768== Memcheck, a memory error detector
+==198768== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==198768== Using Valgrind-3.21.0 and LibVEX; rerun with -h for copyright info
+==198768== Command: bin/mandatory/fdf data/0x0.fdf
+==198768==
+==198768==
+==198768== HEAP SUMMARY:
+==198768==     in use at exit: 17 bytes in 2 blocks
+==198768==   total heap usage: 66 allocs, 64 frees, 345 bytes allocated
+==198768==
+==198768== 1 bytes in 1 blocks are still reachable in loss record 1 of 2
+==198768==    at 0x4845828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==198768==    by 0x111E8D: resize_buffer (ft_gnl.c:58)									<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+==198768==    by 0x112000: extract_line (ft_gnl.c:90)
+==198768==    by 0x112149: ft_gnl (ft_gnl.c:126)
+==198768==    by 0x10AFC1: ft_mx_load_file (ft_mx_load_file.c:122)
+==198768==    by 0x10A816: main (fdf_main.c:29)
+==198768==
+==198768== 16 bytes in 1 blocks are still reachable in loss record 2 of 2
+==198768==    at 0x4845828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==198768==    by 0x1122F7: ft_gnl_init_struct (ft_gnl_utils.c:44)
+==198768==    by 0x112083: get_arch_data (ft_gnl.c:105)
+==198768==    by 0x1120DA: ft_gnl (ft_gnl.c:117)
+==198768==    by 0x10AFC1: ft_mx_load_file (ft_mx_load_file.c:122)
+==198768==    by 0x10A816: main (fdf_main.c:29)
+==198768==
+==198768== LEAK SUMMARY:
+==198768==    definitely lost: 0 bytes in 0 blocks
+==198768==    indirectly lost: 0 bytes in 0 blocks
+==198768==      possibly lost: 0 bytes in 0 blocks
+==198768==    still reachable: 17 bytes in 2 blocks
+==198768==         suppressed: 0 bytes in 0 blocks
+==198768==
+==198768== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+The file in question:
+	lluque@Z500-ubuntu:~/011_fdf/repo_github$ cat -e data/0x0.fdf
+	$
+	$
+	lluque@Z500-ubuntu:~/011_fdf/repo_github$
+
+With this version, everything is ok:
+	lluque@Z500-ubuntu:~/011_fdf/repo_github$ cat data/0x0.fdf -e
+	$
+	lluque@Z500-ubuntu:~/011_fdf/repo_github$
+
+SOLVED! it actually had to do with the fact that if the caller doesn't keep
+calling ft_gnl() until NULL (of course freeing every line), ft_gnl() never
+frees the memory associated to its static variable. This function solved the
+issue and most be included in libft in the next version:
+
+	#include <stdlib.h>
+	#include "libft.h"
+
+	/**
+	 * @brief <b>fdf_empty_gnl_mem</b> -- Calls ft_gnl() until NULL freeing memory
+	 *
+	 * @details When ft_gnl() is used, if the caller doesn't keep calling it until
+	 * receiving a NULL line, its static variable keeps non-freed memory which
+	 * results in an pseudo-leak as "still reachable" reported by Valgrind.
+	 * Calling this function triggers the ft_gnl() to free every memory associated
+	 * to the static variable in a per-fd basis.
+	 *
+	 * @param [in] fd - The file descriptor previously used with ft_gnl().
+	 *
+	 * @warning Uses free().
+	*/
+	void	fdf_empty_gnl_mem(int fd)
+	{
+		char	*line;
+
+		line = ft_gnl(fd);
+		while (line != NULL)
+		{
+			free(line);
+			line = ft_gnl(fd);
+		}
+	}
+
+################################################################################
+
+################################################################################
+
+This function could be a fun addition to strarr collection:
+
+70 static void free_splitted_from(char **str_arr, int from)                         
+ 71 {                                                                                
+ 72     while (str_arr[from] != NULL)                                                
+ 73     {                                                                            
+ 74         free(str_arr[from]);                                                     
+ 75         from++;                                                                  
+ 76     }                                                                            
+ 77     if (from == 0)                                                          //new jul17
+ 78         free(str_arr);                                                           
+ 79 }                                                                                
+
+################################################################################
+
+################################################################################
+################################# DONE #########################################
+################################################################################
+
+################################################################################
+ft_atoi_b()
+################################################################################
+
+
