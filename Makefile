@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/07/21 00:33:46 by lluque           ###   ########.fr        #
+#    Updated: 2024/07/21 01:04:37 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -182,7 +182,8 @@ SOURCES = char/ft_isalpha.c \
 		  strarr/ft_free_strarr.c \
 		  strarr/ft_putstrarr_fd.c \
 		  strarr/ft_remove_blanks_strarr.c \
-		  strarr/ft_strarrlen.c
+		  strarr/ft_strarrlen.c \
+		  strarr/ft_free_strarr_from.c
 
 # Auto generated list of object file names from SOURCES by: replacing
 # the file extension .c for .o; and adding the $(OBJ_DIR) to the resulting

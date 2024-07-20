@@ -25,6 +25,10 @@ include/ft_strarr.h
 .RI "void \fBft_remove_blanks_strarr\fP (char ***strarr, char blank_char)"
 .br
 .RI "\fBft_remove_blanks_strarr\fP -- Remove strings composed only of blank characters from the string array\&. "
+.ti -1c
+.RI "void \fBft_free_strarr_from\fP (char **strarr, int from)"
+.br
+.RI "\fBft_free_strarr_from\fP -- Frees the memory allocated for the strings of an argv-style string array from the element indicated by its index in the array\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -44,6 +48,26 @@ Functions related to char **argv style arrays, that is, NULL terminated arrays o
 \fBWarning\fP
 .RS 4
 A NULL pointer parameter, non-terminated array, or non-terminated c-strings will make this function crash\&. 
+.br
+ Uses free()\&. 
+.RE
+.PP
+
+.SS "void ft_free_strarr_from (char ** strarr, int from)"
+
+.PP
+\fBft_free_strarr_from\fP -- Frees the memory allocated for the strings of an argv-style string array from the element indicated by its index in the array\&. Frees the allocated memory for every string starting at index 'from' of an argv-style NULL terminated array of c-strings\&. Every pointer of freed string is set to NULL\&. If from == 0, the behavior of this function is the same as \fBft_free_strarr()\fP, that is, in this case it would also free the char** strarr\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstrarr\fP - The argv-style NULL terminated array of c-strings\&.
+.br
+\fIfrom\fP - The index in the array of the first string to free\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+A NULL pointer parameter; non-terminated array; non-terminated c-strings; or invalid from value will make this function crash\&. 
 .br
  Uses free()\&. 
 .RE

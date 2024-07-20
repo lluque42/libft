@@ -98,6 +98,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ac2cb8a57ddc44b2f607e9984bd10bff1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__strarr_8h.html#ac2cb8a57ddc44b2f607e9984bd10bff1">ft_remove_blanks_strarr</a> (char ***strarr, char blank_char)</td></tr>
 <tr class="memdesc:ac2cb8a57ddc44b2f607e9984bd10bff1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_remove_blanks_strarr</b> &ndash; Remove strings composed only of blank characters from the string array.  <a href="ft__strarr_8h.html#ac2cb8a57ddc44b2f607e9984bd10bff1">More...</a><br /></td></tr>
 <tr class="separator:ac2cb8a57ddc44b2f607e9984bd10bff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5ceb9ca2147b48c97aa5ee2e0a61a97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__strarr_8h.html#aa5ceb9ca2147b48c97aa5ee2e0a61a97">ft_free_strarr_from</a> (char **strarr, int from)</td></tr>
+<tr class="memdesc:aa5ceb9ca2147b48c97aa5ee2e0a61a97"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_free_strarr_from</b> &ndash; Frees the memory allocated for the strings of an argv-style string array from the element indicated by its index in the array.  <a href="ft__strarr_8h.html#aa5ceb9ca2147b48c97aa5ee2e0a61a97">More...</a><br /></td></tr>
+<tr class="separator:aa5ceb9ca2147b48c97aa5ee2e0a61a97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Functions related to char **argv style arrays, that is, NULL terminated arrays of c-strings. Part of libft library. </p>
@@ -127,6 +130,46 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>A NULL pointer parameter, non-terminated array, or non-terminated c-strings will make this function crash. <br  />
+ Uses free(). </dd></dl>
+
+</div>
+</div>
+<a id="aa5ceb9ca2147b48c97aa5ee2e0a61a97" name="aa5ceb9ca2147b48c97aa5ee2e0a61a97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5ceb9ca2147b48c97aa5ee2e0a61a97">&#9670;&nbsp;</a></span>ft_free_strarr_from()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ft_free_strarr_from </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>strarr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>from</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><b>ft_free_strarr_from</b> &ndash; Frees the memory allocated for the strings of an argv-style string array from the element indicated by its index in the array. </p>
+<p >Frees the allocated memory for every string starting at index 'from' of an argv-style NULL terminated array of c-strings. Every pointer of freed string is set to NULL. If from == 0, the behavior of this function is the same as <a class="el" href="ft__strarr_8h.html#ad022cc87497b99511f03daca687d88a6" title="ft_free_strarr – Frees the memory allocated for an argv-style string array and its strings.">ft_free_strarr()</a>, that is, in this case it would also free the char** strarr.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">strarr</td><td>- The argv-style NULL terminated array of c-strings.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">from</td><td>- The index in the array of the first string to free.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>A NULL pointer parameter; non-terminated array; non-terminated c-strings; or invalid from value will make this function crash. <br  />
  Uses free(). </dd></dl>
 
 </div>

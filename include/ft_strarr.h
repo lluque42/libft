@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:00 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/16 00:27:00 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/21 01:07:25 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,26 @@ int		ft_strarrlen(char **strarr);
  * Uses malloc(), free().
 */
 void	ft_remove_blanks_strarr(char ***strarr, char blank_char);
+
+/**
+ * @brief <b>ft_free_strarr_from</b> -- Frees the memory allocated for the
+ * strings of an argv-style string array from the element indicated by its
+ * index in the array.
+ *
+ * @details Frees the allocated memory for every string starting at index
+ * 'from' of an argv-style NULL terminated array of c-strings. Every pointer
+ * of freed string is set to NULL. If from == 0, the behavior of this function
+ * is the same as ft_free_strarr(), that is, in this case it would also free
+ * the char** strarr.
+ *
+ * @param [in] strarr - The argv-style NULL terminated array of c-strings.
+ *
+ * @param [in] from - The index in the array of the first string to free.
+ *
+ * @warning A NULL pointer parameter; non-terminated array; non-terminated
+ * c-strings; or invalid from value will make this function crash.  
+ * Uses free().
+*/
+void	ft_free_strarr_from(char **strarr, int from);
 
 #endif
