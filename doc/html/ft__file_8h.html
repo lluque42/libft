@@ -107,10 +107,42 @@ Functions</h2></td></tr>
 <tr class="memitem:a1414e908b987bfd7b44f821164ac7b61"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__file_8h.html#a1414e908b987bfd7b44f821164ac7b61">ft_gnl</a> (int fd)</td></tr>
 <tr class="memdesc:a1414e908b987bfd7b44f821164ac7b61"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_gnl</b> &ndash; Get next line from file descriptor.  <a href="ft__file_8h.html#a1414e908b987bfd7b44f821164ac7b61">More...</a><br /></td></tr>
 <tr class="separator:a1414e908b987bfd7b44f821164ac7b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63d521573335cfbb2b08ba8b97925abd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__file_8h.html#a63d521573335cfbb2b08ba8b97925abd">ft_free_gnl</a> (int fd)</td></tr>
+<tr class="memdesc:a63d521573335cfbb2b08ba8b97925abd"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_free_gnl</b> &ndash; Frees allocated memory by <a class="el" href="ft__file_8h.html#a1414e908b987bfd7b44f821164ac7b61" title="ft_gnl – Get next line from file descriptor.">ft_gnl()</a> related to previous calls on a specific file descriptor.  <a href="ft__file_8h.html#a63d521573335cfbb2b08ba8b97925abd">More...</a><br /></td></tr>
+<tr class="separator:a63d521573335cfbb2b08ba8b97925abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >File manipulation related functions. Part of libft library. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a63d521573335cfbb2b08ba8b97925abd" name="a63d521573335cfbb2b08ba8b97925abd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63d521573335cfbb2b08ba8b97925abd">&#9670;&nbsp;</a></span>ft_free_gnl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ft_free_gnl </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><b>ft_free_gnl</b> &ndash; Frees allocated memory by <a class="el" href="ft__file_8h.html#a1414e908b987bfd7b44f821164ac7b61" title="ft_gnl – Get next line from file descriptor.">ft_gnl()</a> related to previous calls on a specific file descriptor. </p>
+<p >After calling for the first time <a class="el" href="ft__file_8h.html#a1414e908b987bfd7b44f821164ac7b61" title="ft_gnl – Get next line from file descriptor.">ft_gnl()</a> on a file descriptor, memory is allocated indirectly associated to its static variable. If the caller doesn't keep calling <a class="el" href="ft__file_8h.html#a1414e908b987bfd7b44f821164ac7b61" title="ft_gnl – Get next line from file descriptor.">ft_gnl()</a> until it returns NULL, that memory is never freed and it is reported by Valgrind as a "still reachable" pseudo leak. The <a class="el" href="ft__file_8h.html#a63d521573335cfbb2b08ba8b97925abd" title="ft_free_gnl – Frees allocated memory by ft_gnl() related to previous calls on a specific file descrip...">ft_free_gnl()</a> function solves that by calling <a class="el" href="ft__file_8h.html#a1414e908b987bfd7b44f821164ac7b61" title="ft_gnl – Get next line from file descriptor.">ft_gnl()</a> on the file descriptor until it returns NULL, while freeing every returned line in the mean time. Note that if <a class="el" href="ft__file_8h.html#a1414e908b987bfd7b44f821164ac7b61" title="ft_gnl – Get next line from file descriptor.">ft_gnl()</a> is called on more than one file descriptor this function must also be called on them.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fd</td><td>- An int value representing the file descriptor to read from.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>EXTERNAL FUNCTION USED: free(). <br  />
+ </dd></dl>
+
+</div>
+</div>
 <a id="a1414e908b987bfd7b44f821164ac7b61" name="a1414e908b987bfd7b44f821164ac7b61"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1414e908b987bfd7b44f821164ac7b61">&#9670;&nbsp;</a></span>ft_gnl()</h2>
 

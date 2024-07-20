@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/07/21 01:04:37 by lluque           ###   ########.fr        #
+#    Updated: 2024/07/21 01:25:08 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -148,6 +148,7 @@ SOURCES = char/ft_isalpha.c \
 		  file/ft_putstr_fd_safe.c \
 		  file/ft_gnl/ft_gnl.c \
 		  file/ft_gnl/ft_gnl_utils.c \
+		  file/ft_gnl/ft_free_gnl.c \
 		  llst/ft_lstnew.c \
 		  llst/ft_lstadd_front.c \
 		  llst/ft_lstsize.c \

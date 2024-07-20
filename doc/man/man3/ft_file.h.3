@@ -37,12 +37,34 @@ include/ft_file.h
 .RI "char * \fBft_gnl\fP (int fd)"
 .br
 .RI "\fBft_gnl\fP -- Get next line from file descriptor\&. "
+.ti -1c
+.RI "void \fBft_free_gnl\fP (int fd)"
+.br
+.RI "\fBft_free_gnl\fP -- Frees allocated memory by \fBft_gnl()\fP related to previous calls on a specific file descriptor\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
 File manipulation related functions\&. Part of libft library\&. 
 .SH "Function Documentation"
 .PP 
+.SS "void ft_free_gnl (int fd)"
+
+.PP
+\fBft_free_gnl\fP -- Frees allocated memory by \fBft_gnl()\fP related to previous calls on a specific file descriptor\&. After calling for the first time \fBft_gnl()\fP on a file descriptor, memory is allocated indirectly associated to its static variable\&. If the caller doesn't keep calling \fBft_gnl()\fP until it returns NULL, that memory is never freed and it is reported by Valgrind as a 'still reachable' pseudo leak\&. The \fBft_free_gnl()\fP function solves that by calling \fBft_gnl()\fP on the file descriptor until it returns NULL, while freeing every returned line in the mean time\&. Note that if \fBft_gnl()\fP is called on more than one file descriptor this function must also be called on them\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIfd\fP - An int value representing the file descriptor to read from\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+EXTERNAL FUNCTION USED: free()\&. 
+.br
+ 
+.RE
+.PP
+
 .SS "char * ft_gnl (int fd)"
 
 .PP

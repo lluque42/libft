@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:38 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/16 00:40:12 by lluque           ###   ########.fr       */
+/*   Updated: 2024/07/21 01:26:37 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,5 +154,24 @@ int		ft_putstr_fd_safe(char *s, int fd);
  * maintaning consistence.
 */
 char	*ft_gnl(int fd);
+
+/**
+ * @brief <b>ft_free_gnl</b> -- Frees allocated memory by ft_gnl() related
+ * to previous calls on a specific file descriptor.
+ *
+ * @details After calling for the first time ft_gnl() on a file descriptor,
+ * memory is allocated indirectly associated to its static variable. If
+ * the caller doesn't keep calling ft_gnl() until it returns NULL, that memory
+ * is never freed and it is reported by Valgrind as a "still reachable" pseudo
+ * leak. The ft_free_gnl() function solves that by calling ft_gnl() on the
+ * file descriptor until it returns NULL, while freeing every returned line
+ * in the mean time. Note that if ft_gnl() is called on more than one file
+ * descriptor this function must also be called on them.
+ * 
+ * @param [in] fd - An int value representing the file descriptor to read from.
+ *
+ * @warning EXTERNAL FUNCTION USED: free().  
+*/
+void	ft_free_gnl(int fd);
 
 #endif
