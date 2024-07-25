@@ -1,5 +1,6 @@
 bin/
 obj/
+print_title
 .*
 !.gitignore
 *.o

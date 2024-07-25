@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/07/21 01:25:08 by lluque           ###   ########.fr        #
+#    Updated: 2024/07/25 21:44:12 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -200,6 +200,9 @@ TEST_SRC = tester.c
 ################################################################################
 ############### VARIABLES FOR DOXYGEN DOCUMENTATION GENERATION #################
 
+DOX_README_H = ./include/readme.h
+DOX_README_MD = ./README.md
+
 # Doxyfile name, to be generated and edited in repository root directory
 DOXYFILE = Doxyfile
 DOC_DIR = ./doc/
@@ -334,7 +337,7 @@ $(BIN_DIR)$(NAME): $(OBJECTS)
 	@mkdir -p $(BIN_DIR)
 	@ar $(AR_FLAGS) $(BIN_DIR)$(NAME) $(OBJECTS)
 	@echo
-	@echo -n -e '${BGREEN}$(NAME) done!${NC}'
+	@echo -e '${BGREEN}$(NAME) done!${NC}'
 	@echo
 	@echo ----------------------------------------------------------------------
 
@@ -349,7 +352,6 @@ clean:
 	@echo "                          --- ${PURPLE}Cleaning (at $(NAME))${NC} ---"
 	@echo
 	rm -rf $(OBJ_DIR)
-	@rm print_title
 	@echo
 	@echo ----------------------------------------------------------------------
 
@@ -363,6 +365,7 @@ fclean:clean
 	@echo "                          --- ${PURPLE}Fcleaning (at $(NAME))${NC} ---"
 	@echo
 	rm -rf $(BIN_DIR)
+	@rm -f print_title
 	@echo
 	@echo ----------------------------------------------------------------------
 
@@ -372,7 +375,29 @@ re: fclean all
 # Rule to create and customize Doxygen configuration file which will define
 # how to generate the project's documentation from comments in the code when
 # using 'make doc'.
-$(DOXYFILE):
+$(DOX_README_MD): $(DOX_README_H)
+	cp -f $(DOX_README_H) $(DOX_README_MD)
+	sed -i '1d' $(DOX_README_MD)
+	sed -i '1d' $(DOX_README_MD)
+	sed -i '1d' $(DOX_README_MD)
+	sed -i '1d' $(DOX_README_MD)
+	sed -i '1d' $(DOX_README_MD)
+	sed -i '1d' $(DOX_README_MD)
+	sed -i '1d' $(DOX_README_MD)
+	sed -i '1d' $(DOX_README_MD)
+	sed -i '1d' $(DOX_README_MD)
+	sed -i '1d' $(DOX_README_MD)
+	sed -i '1d' $(DOX_README_MD)
+	sed -i '1d' $(DOX_README_MD)
+	sed -i '$$d' $(DOX_README_MD)
+	sed -i '$$d' $(DOX_README_MD)
+	sed -i '$$d' $(DOX_README_MD)
+	sed -i '$$d' $(DOX_README_MD)
+	sed -i '$$d' $(DOX_README_MD)
+	sed -i '$$d' $(DOX_README_MD)
+	sed -i 's/^..//' $(DOX_README_MD)
+
+$(DOXYFILE): $(DOX_README_MD)
 	@echo ----------------------------------------------------------------------
 	@echo
 	@echo "      --- ${PURPLE}Generating default Doxygen configuration file: ${BPURPLE}./$(DOXYFILE)${NC} ---"
@@ -413,7 +438,8 @@ docclean:
 	@echo "      --- ${PURPLE}Cleaning documentation directory and Doxyfile${NC} ---"
 	@echo
 	rm -rf $(DOC_DIR)
-	rm $(DOXYFILE)
+	rm -f $(DOXYFILE)
+	rm -f $(DOX_README_MD)
 	@echo
 	@echo ----------------------------------------------------------------------
 

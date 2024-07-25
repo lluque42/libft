@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Library libft<span id="projectnumber">&#160;2024-07-21</span>
+   <div id="projectname">Library libft<span id="projectnumber">&#160;2024-07-25</span>
    </div>
    <div id="projectbrief">Cummulative util library for Campus 42</div>
   </td>
@@ -182,6 +182,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p><b>ft_aisi</b> &ndash; Checks if an ASCII c-string is a valid integer. </p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>This function has been deprecated because it is more stric than <a class="el" href="ft__string_8h.html#afad2ec371b4188602da9a94db687cb16" title="ft_atoi – .TODO.">ft_atoi()</a> which, if used together, adds unnecesary precautions which actually goes against the user. Use ft_strisi() instead. <br  />
+ Additionaly, the function name is misleading since it deals withe a c-string ('str'isi) not a character ('a'isi).</dd></dl>
 <p >The <a class="el" href="ft__string_8h.html#a0a6d0d211531ba0c586bd744ceffe062" title="ft_aisi – Checks if an ASCII c-string is a valid integer.">ft_aisi()</a> function receives a NUL terminated C-string and checks if it is a valid representation of an integer value according to: first character must be a '-', '+' or a digit; the remaining characters must be digits (0-9); and the numeric value the string represents must lie within INT_MIN and INT_MAX as defined in limits.h. <br  />
  This function is more strict than <a class="el" href="ft__string_8h.html#afad2ec371b4188602da9a94db687cb16" title="ft_atoi – .TODO.">ft_atoi()</a>'s requirements for a valid int. Strings "+0" and "-0" are considered valid and equivalent to "0".</p>
 <dl class="params"><dt>Parameters</dt><dd>

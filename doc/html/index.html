@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library libft: Library libft</title>
+<title>Library libft: 42&#39;s libft project</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Library libft<span id="projectnumber">&#160;2024-07-21</span>
+   <div id="projectname">Library libft<span id="projectnumber">&#160;2024-07-25</span>
    </div>
    <div id="projectbrief">Cummulative util library for Campus 42</div>
   </td>
@@ -63,7 +63,7 @@ $(function() {
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Library libft </div></div>
+  <div class="headertitle"><div class="title">42's libft project </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p ><a class="anchor" id="md_README"></a> Luis Luque - 2023</p>
@@ -74,7 +74,7 @@ Introduction</h1>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Directory tree</h1>
 <pre class="fragment">./  
-├── .gitignore              (to prevent undesired files to be stagged)  
+├── .gitignore              (to prevent undesired files to be stagged)
 ├── Doxyfile                (doxygen config file for doc generation)  
 ├── Makefile                (use 'make help' for instructions)  
 ├── README.md               (brief documentation)  
@@ -89,24 +89,28 @@ Directory tree</h1>
 ├── include/                (directory for public header files (.h))  
 │   ├── ...  
 │   └── ...  
-├── src/                    (directory for source code and private header files)  
+├── src/                    (dir for source code and private header files)  
 │   ├── ...  
 │   │   ├── ...                 
 │   │   └── ...  
 │   └── ...                 (may be structured in several directories)  
 │       ├── ...  
 │       └── ...  
+├── lib/                    (external libraries)  
+│   ├── ...  
+│   └── libft               (each library in its own directory)  
 ├── bin/                    (directory for project's binaries and tester)  
 │   ├── ...  
 │   └── ...                 (may be structured in several directories)  
-├── obj/                    (directory for source code and private header files)  
+├── obj/                    (dir for source code and private header files)  
 │   ├── ...  
 │   │   ├── ...  
 │   │   └── ...  
 │   └── ...                 (structured as in ./src)  
 │       ├── ...  
 │       └── ...  
-└── test/                   (test program src code, compiles to .bin/tester)  
+├── data/                   (directory for non-source files)  
+└── test/                   (test program src code, compiles to .bin/tester)
     ├── ...  
     ├── tester.c  
     └── ...  
