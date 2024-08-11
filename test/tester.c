@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 22:55:05 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/20 23:25:43 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/11 15:29:08 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ void	free_and_exit(t_dlclst *lst)
 	ft_dlclst_clear(&lst, integer_del);
 }
 
-int main_for_aisi(int argc, char **argv)
+//int main_for_aisi(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	//char	*str = "123";
 	//char	*str = "2147483647";
@@ -75,7 +76,7 @@ int main_for_aisi(int argc, char **argv)
 }
 
 //int		main_for_dlclst(int argc, char **argv)
-int		main(int argc, char **argv)
+int		main_old(int argc, char **argv)
 {
 	ft_printf("INT_MAX = %d, INT_MIN = %d\n", INT_MAX, INT_MIN);
 	ft_printf("El string '%s' interpretado con base '%d' resulta en el entero '%d'\n", argv[1], ft_atoi(argv[2]), ft_atoi_b(argv[1], ft_atoi(argv[2])));
