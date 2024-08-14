@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Library libft<span id="projectnumber">&#160;2024-07-25</span>
+   <div id="projectname">Library libft<span id="projectnumber">&#160;2024-08-15</span>
    </div>
    <div id="projectbrief">Cummulative util library for Campus 42</div>
   </td>
@@ -159,6 +159,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a60710bfd0f35b94e824ba1fd3da63485"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ft__dlclst_8h.html#a5ab3217cab9864081a14f1a33ee371f0">t_dlclst</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__dlclst_8h.html#a60710bfd0f35b94e824ba1fd3da63485">ft_dlclst_extractpos</a> (<a class="el" href="ft__dlclst_8h.html#a5ab3217cab9864081a14f1a33ee371f0">t_dlclst</a> **lst, unsigned int pos)</td></tr>
 <tr class="memdesc:a60710bfd0f35b94e824ba1fd3da63485"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_dlclst_extractpos</b> &ndash; Removes the node of the list at given position and returns it.  <a href="ft__dlclst_8h.html#a60710bfd0f35b94e824ba1fd3da63485">More...</a><br /></td></tr>
 <tr class="separator:a60710bfd0f35b94e824ba1fd3da63485"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a645ee9fbcc168778eb0fd5cb8b2aa052"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__dlclst_8h.html#a645ee9fbcc168778eb0fd5cb8b2aa052">ft_dlclst_peek_offset</a> (<a class="el" href="ft__dlclst_8h.html#a5ab3217cab9864081a14f1a33ee371f0">t_dlclst</a> *head, int offset)</td></tr>
+<tr class="memdesc:a645ee9fbcc168778eb0fd5cb8b2aa052"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_dlclst_peek_offset</b> &ndash; Returns content of list element by offset from head.  <a href="ft__dlclst_8h.html#a645ee9fbcc168778eb0fd5cb8b2aa052">More...</a><br /></td></tr>
+<tr class="separator:a645ee9fbcc168778eb0fd5cb8b2aa052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46b745be7dd09d29660593ca29a0233f"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ft__dlclst_8h.html#a46b745be7dd09d29660593ca29a0233f">ft_dlclst_peek_pos</a> (<a class="el" href="ft__dlclst_8h.html#a5ab3217cab9864081a14f1a33ee371f0">t_dlclst</a> *lst, unsigned int pos)</td></tr>
+<tr class="memdesc:a46b745be7dd09d29660593ca29a0233f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>ft_dlclst_peek_pos</b> &ndash; Returns content of list element in position.  <a href="ft__dlclst_8h.html#a46b745be7dd09d29660593ca29a0233f">More...</a><br /></td></tr>
+<tr class="separator:a46b745be7dd09d29660593ca29a0233f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Doubly linked circular list implementation. Part of libft library. <br  />
@@ -606,6 +612,92 @@ Functions</h2></td></tr>
 <dl class="section remark"><dt>Remarks</dt><dd>Implementation notes: <br  />
  Argument content is NOT checked for NULL, a node with NULL content is returned. <br  />
  If malloc fails, must return NULL. </dd></dl>
+
+</div>
+</div>
+<a id="a645ee9fbcc168778eb0fd5cb8b2aa052" name="a645ee9fbcc168778eb0fd5cb8b2aa052"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a645ee9fbcc168778eb0fd5cb8b2aa052">&#9670;&nbsp;</a></span>ft_dlclst_peek_offset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * ft_dlclst_peek_offset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ft__dlclst_8h.html#a5ab3217cab9864081a14f1a33ee371f0">t_dlclst</a> *&#160;</td>
+          <td class="paramname"><em>head</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>offset</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><b>ft_dlclst_peek_offset</b> &ndash; Returns content of list element by offset from head. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">head</td><td>- The head (first element) of the list.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td>- Positions from head in the next (positive offset) or the prev (negative offset) direction.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A void pointer to the content of the referenced element. <br  />
+ NULL pointer is returned if head is NULL or the offset is invalid.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Offset absolute values greater than size are considered invalid and NULL is returned. </dd></dl>
+
+</div>
+</div>
+<a id="a46b745be7dd09d29660593ca29a0233f" name="a46b745be7dd09d29660593ca29a0233f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46b745be7dd09d29660593ca29a0233f">&#9670;&nbsp;</a></span>ft_dlclst_peek_pos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * ft_dlclst_peek_pos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ft__dlclst_8h.html#a5ab3217cab9864081a14f1a33ee371f0">t_dlclst</a> *&#160;</td>
+          <td class="paramname"><em>lst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><b>ft_dlclst_peek_pos</b> &ndash; Returns content of list element in position. </p>
+<p >Returns the content of the list element in position. <br  />
+ The pos argument is <b>not tested against the list <a class="el" href="ft__dlclst_8h.html#a37fdd42b9e3f40dff23ede216a6a1a20" title="ft_dlclst_size – Counts the number of nodes in a list.">ft_dlclst_size()</a></b>. That implies that a pos greater than or equal to <a class="el" href="ft__dlclst_8h.html#a37fdd42b9e3f40dff23ede216a6a1a20" title="ft_dlclst_size – Counts the number of nodes in a list.">ft_dlclst_size()</a>, overflows in the next direction in a circular fashion. <br  />
+ So, the element peeked is actually the one in the position: <br  />
+ pos % <a class="el" href="ft__dlclst_8h.html#a37fdd42b9e3f40dff23ede216a6a1a20" title="ft_dlclst_size – Counts the number of nodes in a list.">ft_dlclst_size()</a>)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">lst</td><td>- The pointer to the first element of the list.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>- Position in the next direction from the head of the list. This argument is not tested against <a class="el" href="ft__dlclst_8h.html#a37fdd42b9e3f40dff23ede216a6a1a20" title="ft_dlclst_size – Counts the number of nodes in a list.">ft_dlclst_size()</a> and behaves as a circular index if greather or equal.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A void pointer to the content of the referenced element. <br  />
+ NULL pointer is returned if head is NULL or the offset is invalid.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The pos argument is <b>not tested against the list <a class="el" href="ft__dlclst_8h.html#a37fdd42b9e3f40dff23ede216a6a1a20" title="ft_dlclst_size – Counts the number of nodes in a list.">ft_dlclst_size()</a></b>. That implies that a pos greater than or equal to <a class="el" href="ft__dlclst_8h.html#a37fdd42b9e3f40dff23ede216a6a1a20" title="ft_dlclst_size – Counts the number of nodes in a list.">ft_dlclst_size()</a>, overflows in the next direction in a circular fashion. <br  />
+ So, the element peeked is actually the one in the position: <br  />
+ pos % <a class="el" href="ft__dlclst_8h.html#a37fdd42b9e3f40dff23ede216a6a1a20" title="ft_dlclst_size – Counts the number of nodes in a list.">ft_dlclst_size()</a>) </dd></dl>
 
 </div>
 </div>

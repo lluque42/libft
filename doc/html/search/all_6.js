@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['prev_0',['prev',['../structs__dlclst.html#a83678e5f58a8b4b3a05ef076428ef09a',1,'s_dlclst']]]
+  ['s_5fdlclst_0',['s_dlclst',['../structs__dlclst.html',1,'']]],
+  ['s_5flist_1',['s_list',['../structs__list.html',1,'']]]
 ];

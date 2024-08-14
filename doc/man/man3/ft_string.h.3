@@ -1,4 +1,4 @@
-.TH "include/ft_string.h" 3 "Thu Jul 25 2024" "Version 2024-07-25" "Library libft" \" -*- nroff -*-
+.TH "include/ft_string.h" 3 "Thu Aug 15 2024" "Version 2024-08-15" "Library libft" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -118,17 +118,7 @@ Strings related functions\&. Part of libft library\&.
 .SS "int ft_aisi (const char * str)"
 
 .PP
-\fBft_aisi\fP -- Checks if an ASCII c-string is a valid integer\&. 
-.PP
-\fBDeprecated\fP
-.RS 4
-This function has been deprecated because it is more stric than \fBft_atoi()\fP which, if used together, adds unnecesary precautions which actually goes against the user\&. Use ft_strisi() instead\&. 
-.br
- Additionaly, the function name is misleading since it deals withe a c-string ('str'isi) not a character ('a'isi)\&.
-.RE
-.PP
-.PP
-The \fBft_aisi()\fP function receives a NUL terminated C-string and checks if it is a valid representation of an integer value according to: first character must be a '-', '+' or a digit; the remaining characters must be digits (0-9); and the numeric value the string represents must lie within INT_MIN and INT_MAX as defined in limits\&.h\&. 
+\fBft_aisi\fP -- Checks if an ASCII c-string is a valid integer\&. The \fBft_aisi()\fP function receives a NUL terminated C-string and checks if it is a valid representation of an integer value according to: first character must be a '-', '+' or a digit; the remaining characters must be digits (0-9); and the numeric value the string represents must lie within INT_MIN and INT_MAX as defined in limits\&.h\&. 
 .br
  This function is more strict than \fBft_atoi()\fP's requirements for a valid int\&. Strings '+0' and '-0' are considered valid and equivalent to '0'\&.
 .PP

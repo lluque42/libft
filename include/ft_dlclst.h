@@ -6,7 +6,7 @@
 /*   By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:56:57 by lluque            #+#    #+#             */
-/*   Updated: 2024/07/16 00:44:22 by lluque           ###   ########.fr       */
+/*   Updated: 2024/08/15 00:53:45 by lluque           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -464,5 +464,51 @@ t_dlclst	*ft_dlclst_extractback(t_dlclst **lst);
  * circular nature of the list.
 */
 t_dlclst	*ft_dlclst_extractpos(t_dlclst **lst, unsigned int pos);
+
+/**
+ * @brief <b>ft_dlclst_peek_offset</b> -- Returns content of list element by
+ * offset from head.
+ *
+ *
+ * @param [in] head - The head (first element) of the list.
+ * 
+ * @param [in] offset - Positions from head in the next (positive offset) or
+ * the prev (negative offset) direction.
+ * 
+ * @return A void pointer to the content of the referenced element.  
+ * NULL pointer is returned if head is NULL or the offset is invalid.
+ *
+ * @warning Offset absolute values greater than size are considered invalid
+ * and NULL is returned.
+ */
+void	*ft_dlclst_peek_offset(t_dlclst *head, int offset);
+
+/**
+ * @brief <b>ft_dlclst_peek_pos</b> -- Returns content of list element in
+ * position.
+ *
+ * @details Returns the content of the list element in position.  
+ * The pos argument is <b>not tested against the list ft_dlclst_size()</b>. That
+ * implies that a pos greater than or equal to ft_dlclst_size(), overflows in
+ * the next direction in a circular fashion.  
+ * So, the element peeked is actually the one in the position:  
+ * pos % ft_dlclst_size())
+ *
+ * @param [in] lst - The pointer to the first element of the list.
+ * 
+ * @param [in] pos - Position in the next direction from the head of the list.
+ * This argument is not tested against ft_dlclst_size() and behaves as a
+ * circular index if greather or equal.
+ * 
+ * @return A void pointer to the content of the referenced element.  
+ * NULL pointer is returned if head is NULL or the offset is invalid.
+ *
+ * @warning The pos argument is <b>not tested against the list
+ * ft_dlclst_size()</b>. That implies that a pos greater than or equal to
+ * ft_dlclst_size(), overflows in the next direction in a circular fashion.  
+ * So, the element peeked is actually the one in the position:  
+ * pos % ft_dlclst_size())
+ */
+void	*ft_dlclst_peek_pos(t_dlclst *lst, unsigned int pos);
 
 #endif

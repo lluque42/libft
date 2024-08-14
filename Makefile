@@ -6,7 +6,7 @@
 #    By: lluque <lluque@student.42malaga.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:23:32 by lluque            #+#    #+#              #
-#    Updated: 2024/07/25 21:44:12 by lluque           ###   ########.fr        #
+#    Updated: 2024/08/15 00:56:23 by lluque           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -159,6 +159,7 @@ SOURCES = char/ft_isalpha.c \
 		  llst/ft_lstiter.c \
 		  llst/ft_lstmap.c \
 		  math/ft_pow.c \
+		  math/ft_abs.c \
 		  debug/ft_print_memory.c \
 		  dlclst/ft_dlclst_insback.c \
 		  dlclst/ft_dlclst_insfront.c \
@@ -180,6 +181,8 @@ SOURCES = char/ft_isalpha.c \
 		  dlclst/ft_dlclst_extractback.c \
 		  dlclst/ft_dlclst_extractpos.c \
 		  dlclst/ft_dlclst_size.c \
+		  dlclst/ft_dlclst_peek_offset.c \
+		  dlclst/ft_dlclst_peek_pos.c \
 		  strarr/ft_free_strarr.c \
 		  strarr/ft_putstrarr_fd.c \
 		  strarr/ft_remove_blanks_strarr.c \

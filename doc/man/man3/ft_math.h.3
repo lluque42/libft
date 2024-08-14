@@ -1,4 +1,4 @@
-.TH "include/ft_math.h" 3 "Thu Jul 25 2024" "Version 2024-07-25" "Library libft" \" -*- nroff -*-
+.TH "include/ft_math.h" 3 "Thu Aug 15 2024" "Version 2024-08-15" "Library libft" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,12 +13,37 @@ include/ft_math.h
 .RI "int \fBft_pow\fP (int base, unsigned int exp)"
 .br
 .RI "\fBft_pow\fP -- Power function\&. "
+.ti -1c
+.RI "long \fBft_abs\fP (int value)"
+.br
+.RI "\fBft_abs\fP -- Returns absolute value of int as long\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
 Math related functions\&. Part of libft library\&. 
 .SH "Function Documentation"
 .PP 
+.SS "long ft_abs (int value)"
+
+.PP
+\fBft_abs\fP -- Returns absolute value of int as long\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalue\fP - Positive or negative integer\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A long positive value that is the absolute value of passed integer\&.
+.RE
+.PP
+\fBWarning\fP
+.RS 4
+ft_abs(INT_MIN) returns a positive value greater than INT_MAX\&. 
+.RE
+.PP
+
 .SS "int ft_pow (int base, unsigned int exp)"
 
 .PP
